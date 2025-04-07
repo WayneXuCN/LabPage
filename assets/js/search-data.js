@@ -48,9 +48,9 @@ ninja.data = [{
             window.location.href = "/blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-年前重访旧居",
+      },{id: "post-旧居记忆",
         
-          title: "年前重访旧居",
+          title: "旧居记忆",
         
         description: "闲言碎语",
         section: "Posts",
@@ -101,17 +101,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2024/%E4%BF%A1%E6%81%AF%E6%97%B6%E4%BB%A3%E6%98%AF%E5%B9%B3%E5%BA%B8%E8%80%85%E7%9A%84%E5%9D%9F%E5%A2%93/";
-          
-        },
-      },{id: "post-多设备项目代码同步",
-        
-          title: "多设备项目代码同步",
-        
-        description: "基于 VHDX 和同步盘的多设备的代码同步方案",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/%E5%9F%BA%E4%BA%8EVHDX%E7%9A%84%E5%A4%9A%E8%AE%BE%E5%A4%87%E4%BB%A3%E7%A0%81%E5%90%8C%E6%AD%A5/";
           
         },
       },{id: "post-工作环境系统实用配置记录",
