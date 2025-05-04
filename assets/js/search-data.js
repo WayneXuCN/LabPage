@@ -37,7 +37,28 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "post-mac-os-实用配置记录",
+        },{id: "dropdown-app",
+              title: "App",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/apps/";
+              },
+            },{id: "dropdown-bookshelf",
+              title: "Bookshelf",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/books/";
+              },
+            },{id: "dropdown-people",
+              title: "People",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/people/";
+              },
+            },{id: "post-mac-os-实用配置记录",
         
           title: "Mac OS 实用配置记录",
         
