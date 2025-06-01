@@ -102,11 +102,11 @@ ninja.data = [{
             window.location.href = "/blog/2025/%E9%9A%8F%E7%AC%9425%E5%B2%81%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/";
           
         },
-      },{id: "post-2024-年科研工作的心得体会",
+      },{id: "post-2024-年工作总结",
         
-          title: "2024 年科研工作的心得体会",
+          title: "2024 年工作总结",
         
-        description: "部分内容来自 2024 年转博申请材料中的心得体会",
+        description: "2024 年",
         section: "Posts",
         handler: () => {
           
