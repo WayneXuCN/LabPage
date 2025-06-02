@@ -58,18 +58,7 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/people/";
               },
-            },{id: "post-低性能云服务器实用配置记录",
-        
-          title: "低性能云服务器实用配置记录",
-        
-        description: "合理配置低性能云服务器以避免各种问题",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/%E4%BD%8E%E9%85%8D%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/";
-          
-        },
-      },{id: "post-mac-os-实用配置记录",
+            },{id: "post-mac-os-实用配置记录",
         
           title: "Mac OS 实用配置记录",
         
@@ -78,6 +67,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
+          
+        },
+      },{id: "post-低性能云服务器实用配置记录",
+        
+          title: "低性能云服务器实用配置记录",
+        
+        description: "配置云服务器记录",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/%E4%BD%8E%E9%85%8D%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/";
           
         },
       },{id: "post-旧居记忆",
