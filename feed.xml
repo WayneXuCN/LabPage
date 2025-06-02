@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://waynexucn.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://waynexucn.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-02T10:10:12+00:00</updated><id>https://waynexucn.github.io//feed.xml</id><title type="html">Wenjie Xu</title><subtitle>Wenjie Xu&apos;s home page. feedId:120017115220794368+userId:72841831310508032 </subtitle><entry><title type="html">Mac OS 实用配置记录</title><link href="https://waynexucn.github.io//blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" rel="alternate" type="text/html" title="Mac OS 实用配置记录"/><published>2025-02-16T17:05:53+00:00</published><updated>2025-02-16T17:05:53+00:00</updated><id>https://waynexucn.github.io//blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="https://waynexucn.github.io//blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"><![CDATA[<blockquote> <p>Mac OS 绝大多数配置方法与 Linux 类似，这里仅记录 Mac 独有的配置和问题以及一些常用工具</p> </blockquote> <h3 id="系统设置">系统设置</h3> <ul> <li>开启安装任何来源的程序选项：<code class="language-plaintext highlighter-rouge">sudo spctl --master-disable</code></li> <li> <p>将软件安装至外置硬盘</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 在外置硬盘创建应用程序目录</span>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://waynexucn.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://waynexucn.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-02T11:22:47+00:00</updated><id>https://waynexucn.github.io//feed.xml</id><title type="html">Wenjie Xu</title><subtitle>Wenjie Xu&apos;s home page. feedId:120017115220794368+userId:72841831310508032 </subtitle><entry><title type="html">Mac OS 实用配置记录</title><link href="https://waynexucn.github.io//blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" rel="alternate" type="text/html" title="Mac OS 实用配置记录"/><published>2025-02-16T17:05:53+00:00</published><updated>2025-02-16T17:05:53+00:00</updated><id>https://waynexucn.github.io//blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="https://waynexucn.github.io//blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"><![CDATA[<blockquote> <p>Mac OS 绝大多数配置方法与 Linux 类似，这里仅记录 Mac 独有的配置和问题以及一些常用工具</p> </blockquote> <h3 id="系统设置">系统设置</h3> <ul> <li>开启安装任何来源的程序选项：<code class="language-plaintext highlighter-rouge">sudo spctl --master-disable</code></li> <li> <p>将软件安装至外置硬盘</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 在外置硬盘创建应用程序目录</span>
 <span class="nb">mkdir</span> /Volumes/Work/Application
 <span class="c"># 在移动硬盘上创建库目录和 Application Support 目录</span>
 <span class="nb">mkdir</span> <span class="nt">-p</span> /Volumes/Work/Library/Application<span class="se">\ </span>Support
@@ -27,6 +27,72 @@ conda install "blas=*=accelerate" # 旧命令
   <span class="nt">-g</span> info <span class="se">\</span>
   <span class="nt">-d</span> /public <span class="se">\</span>
   <span class="nt">-l</span> 0.0.0.0:80
+</code></pre></div></div> <p>定时重新编译</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># 加载 keychain（确保密钥可用）</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> ~/.keychain/<span class="si">$(</span><span class="nb">hostname</span><span class="si">)</span><span class="nt">-sh</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">source</span> ~/.keychain/<span class="si">$(</span><span class="nb">hostname</span><span class="si">)</span><span class="nt">-sh</span>
+<span class="k">fi</span>
+
+<span class="c"># 设置项目路径和分支名</span>
+<span class="nv">PROJECT_DIR</span><span class="o">=</span><span class="s2">"/root/waynexucn.github.io"</span>
+<span class="nv">BRANCH</span><span class="o">=</span><span class="s2">"master"</span>
+
+<span class="c"># 进入项目目录</span>
+<span class="nb">cd</span> <span class="s2">"</span><span class="nv">$PROJECT_DIR</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">exit </span>1
+
+<span class="c"># 获取远程最新信息</span>
+git fetch origin
+
+<span class="c"># 检查是否有更新</span>
+<span class="nv">LOCAL</span><span class="o">=</span><span class="si">$(</span>git rev-parse HEAD<span class="si">)</span>
+<span class="nv">REMOTE</span><span class="o">=</span><span class="si">$(</span>git rev-parse origin/<span class="nv">$BRANCH</span><span class="si">)</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$LOCAL</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$REMOTE</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"当前已是最新版本，无需操作。"</span>
+    <span class="nb">exit </span>0
+<span class="k">fi
+
+</span><span class="nb">echo</span> <span class="s2">"检测到更新，正在尝试拉取代码..."</span>
+
+<span class="c"># 先尝试普通合并（保留本地修改）</span>
+<span class="k">if </span>git pull <span class="nt">--no-rebase</span> origin <span class="nv">$BRANCH</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"合并成功，代码已更新。"</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"合并失败（可能存在冲突），正在强制重置到远程最新版本..."</span>
+    git reset <span class="nt">--hard</span> origin/<span class="nv">$BRANCH</span>
+    git clean <span class="nt">-fd</span>
+    git pull origin <span class="nv">$BRANCH</span>
+<span class="k">fi</span>
+
+<span class="c"># 启动容器</span>
+docker start waynexucngithubio-jekyll-1
+
+<span class="c"># 等待容器进入运行状态（最多尝试 10 次，每次等待 2 秒）</span>
+<span class="nv">max_retries</span><span class="o">=</span>10
+<span class="nv">retry_count</span><span class="o">=</span>0
+
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$retry_count</span> <span class="nt">-lt</span> <span class="nv">$max_retries</span> <span class="o">]</span><span class="p">;</span> <span class="k">do
+    if</span> <span class="o">[</span> <span class="s2">"</span><span class="si">$(</span>docker inspect <span class="nt">-f</span> <span class="s1">''</span> waynexucngithubio-jekyll-1<span class="si">)</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+        </span><span class="nb">echo</span> <span class="s2">"容器已启动，继续执行 Jekyll 编译..."</span>
+        <span class="nb">break
+    </span><span class="k">fi
+    </span><span class="nb">echo</span> <span class="s2">"等待容器启动... (</span><span class="k">$((</span>retry_count <span class="o">+</span> <span class="m">1</span><span class="k">))</span><span class="s2">/</span><span class="nv">$max_retries</span><span class="s2">)"</span>
+    <span class="nb">sleep </span>2
+    <span class="o">((</span>retry_count++<span class="o">))</span>
+<span class="k">done
+
+if</span> <span class="o">[</span> <span class="nv">$retry_count</span> <span class="nt">-eq</span> <span class="nv">$max_retries</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"错误：容器启动超时！"</span>
+    <span class="nb">exit </span>1
+<span class="k">fi</span>
+
+<span class="c"># 执行 Jekyll 编译 (使用服务器特定配置)</span>
+<span class="nb">echo</span> <span class="s2">"执行 Jekyll 编译 (使用 _config.yml 和 _config_server.yml)..."</span>
+docker <span class="nb">exec </span>waynexucngithubio-jekyll-1 bundle <span class="nb">exec </span>jekyll build <span class="nt">--config</span> _config.yml,_config_server.yml 
+
+<span class="c"># 停止容器</span>
+docker stop waynexucngithubio-jekyll-1
 </code></pre></div></div> <h2 id="配置优化">配置优化</h2> <h3 id="pnpm-配置优化">pnpm 配置优化</h3> <p>由于内存和CPU限制，pnpm 在安装依赖时容易出现卡死现象，需要限制并发和重试参数：</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 限制并发数，避免内存不足</span>
 pnpm config <span class="nb">set </span>concurrency 2
 
