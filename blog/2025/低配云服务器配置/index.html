@@ -20,9 +20,9 @@
   <span class="nt">-v</span> /root/waynexucn.github.io/_site:/public:z <span class="se">\</span>
   <span class="nt">--name</span> sws <span class="se">\</span>
   ghcr.io/static-web-server/static-web-server:2 <span class="se">\</span>
-  <span class="nt">-g</span> info <span class="se">\</span>
-  <span class="nt">-d</span> /public <span class="se">\</span>
-  <span class="nt">-l</span> 0.0.0.0:80
+  <span class="nt">-g</span> info <span class="nt">-d</span> /public <span class="se">\</span>
+  <span class="nt">--page-fallback</span> index.html <span class="se">\</span>
+  <span class="nt">--directory-listing</span> <span class="nb">false</span>
 </code></pre></div></div> <p>定时重新编译</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
 <span class="c"># 加载 keychain（确保密钥可用）</span>
