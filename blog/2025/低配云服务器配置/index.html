@@ -85,7 +85,7 @@ if</span> <span class="o">[</span> <span class="nv">$retry_count</span> <span cl
 
 <span class="c"># 执行 Jekyll 编译 (使用服务器特定配置)</span>
 <span class="nb">echo</span> <span class="s2">"执行 Jekyll 编译 (使用 _config.yml 和 _config_server.yml)..."</span>
-docker <span class="nb">exec </span>waynexucngithubio-jekyll-1 bundle <span class="nb">exec </span>jekyll build <span class="nt">--config</span> _config.yml,_config_server.yml 
+docker <span class="nb">exec </span>waynexucngithubio-jekyll-1 bundle <span class="nb">exec </span>jekyll build <span class="nt">--config</span> _config.yml,_config_server.yml
 
 <span class="c"># 停止容器</span>
 docker stop waynexucngithubio-jekyll-1
