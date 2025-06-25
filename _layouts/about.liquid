@@ -1,0 +1,144 @@
+---
+layout: default
+---
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {% if site.title == 'blank' %}
+        <span class="font-weight-bold">{{ site.first_name }}</span>
+        {{ site.middle_name }}
+        {{ site.last_name }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+    <p class="desc">{{ page.subtitle }}</p>
+  </header>
+
+  <article>
+    {% if page.profile %}
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+        {% if page.profile.image %}
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% if page.profile.image_circular %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+          {% else %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+          {% endif %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
+      30vw, 95vw"{% endcapture %}
+          {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image cache_bust=true %}
+        {% endif %}
+        {% if page.profile.more_info %}
+          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="clearfix">{{ content }}</div>
+
+    <!-- Research Summary -->
+    {% if page.research_summary and page.research_summary.enabled %}
+      <div class="content-section">
+        {% assign research_page = site.pages | where: 'layout', 'page' | where: 'permalink', '/research/' | first %}
+        <h2 class="section-heading">
+          {% if research_page %}
+            <a href="{{ research_page.url | relative_url }}" style="color: inherit">Research Summary</a>
+          {% else %}
+            <a>Research Summary</a>
+          {% endif %}
+        </h2>
+        {% include research_summary.liquid %}
+      </div>
+    {% endif %}
+
+    <!-- News -->
+    {% if page.announcements and page.announcements.enabled %}
+      <div class="content-section">
+        <h2 class="section-heading">
+          <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+        </h2>
+        {% include news.liquid limit=true %}
+      </div>
+    {% endif %}
+
+    <!-- Latest posts -->
+    {% if page.latest_posts and page.latest_posts.enabled %}
+      <div class="content-section">
+        <h2 class="section-heading">
+          <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
+        </h2>
+        {% include latest_posts.liquid %}
+      </div>
+    {% endif %}
+
+    <!-- Selected papers -->
+    {% if page.selected_papers %}
+      <div class="content-section">
+        <h2 class="section-heading">
+          <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Signature Publications</a>
+        </h2>
+        {% include selected_papers.liquid %}
+      </div>
+    {% endif %}
+
+    <!-- Social -->
+    {% if page.social %}
+      <div class="content-section">
+        <h2 class="section-heading">Connect</h2>
+        <div class="social">
+          <div class="contact-icons">{% include social.liquid %}</div>
+          <div class="contact-note">{{ site.contact_note }}</div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
+      {% include newsletter.liquid center=true %}
+    {% endif %}
+  </article>
+</div>
+
+<style>
+  /* 简洁、现代的模块样式 */
+  .content-section {
+    margin: 3rem 0;
+    position: relative;
+  }
+
+  .content-section:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0));
+    margin-top: 3rem;
+  }
+
+  .section-heading {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 2rem;
+    height: 2px;
+    background-color: #5f6f52;
+  }
+
+  .section-heading a:hover {
+    text-decoration: none;
+    color: #5f6f52 !important;
+    transition: color 0.3s ease;
+  }
+
+  /* 确保研究标签保持原有样式 */
+  .research-tabs {
+    margin-top: 1.5rem;
+  }
+</style>
