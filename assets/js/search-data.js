@@ -58,15 +58,15 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/people/";
               },
-            },{id: "post-mac-os-实用配置记录",
+            },{id: "post-macos-系统配置记录",
         
-          title: "Mac OS 实用配置记录",
+          title: "macOS 系统配置记录",
         
-        description: "Mac OS 系统软件配置和常见错误解决方案的记录",
+        description: "macOS 系统软件配置和常见错误解决方案的记录",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
+            window.location.href = "/blog/2025/Mac%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
           
         },
       },{id: "post-低性能云服务器实用配置记录",
@@ -80,9 +80,9 @@ ninja.data = [{
             window.location.href = "/blog/2025/%E4%BD%8E%E9%85%8D%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/";
           
         },
-      },{id: "post-旧居记忆",
+      },{id: "post-随笔-旧居记忆",
         
-          title: "旧居记忆",
+          title: "「随笔」旧居记忆",
         
         description: "闲言碎语",
         section: "Posts",
@@ -91,9 +91,9 @@ ninja.data = [{
             window.location.href = "/blog/2025/%E9%9A%8F%E7%AC%94%E5%B9%B4%E5%89%8D%E9%87%8D%E8%AE%BF%E6%97%A7%E5%B1%85/";
           
         },
-      },{id: "post-2025-年的第一天-说点什么吧",
+      },{id: "post-随笔-2025-年的第一天-说点什么吧",
         
-          title: "2025 年的第一天，说点什么吧",
+          title: "「随笔」2025 年的第一天，说点什么吧",
         
         description: "闲言碎语",
         section: "Posts",
@@ -110,40 +110,18 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/2024%E5%B9%B4%E7%A7%91%E7%A0%94%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/";
+            window.location.href = "/blog/2024/2024%E5%B9%B4%E7%A7%91%E7%A0%94%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/";
           
         },
-      },{id: "post-中文的常态与变态",
+      },{id: "post-转载-中文的常态与变态",
         
-          title: "中文的常态与变态",
+          title: "「转载」中文的常态与变态",
         
-        description: "剪辑自余光中先生的文章「中文的常态与变态」，并不代表完全认同其所有观点",
+        description: "转载自余光中先生的文章「中文的常态与变态」，并不代表完全认同其所有观点",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/%E4%B8%AD%E6%96%87%E7%9A%84%E5%B8%B8%E6%80%81%E4%B8%8E%E5%8F%98%E6%80%81/";
-          
-        },
-      },{id: "post-信息时代是平庸者的坟墓",
-        
-          title: "信息时代是平庸者的坟墓",
-        
-        description: "Average Is Over",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/%E4%BF%A1%E6%81%AF%E6%97%B6%E4%BB%A3%E6%98%AF%E5%B9%B3%E5%BA%B8%E8%80%85%E7%9A%84%E5%9D%9F%E5%A2%93/";
-          
-        },
-      },{id: "post-工作环境系统实用配置记录",
-        
-          title: "工作环境系统实用配置记录",
-        
-        description: "工作环境的各类实用配置记录",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
+            window.location.href = "/blog/2024/%E8%BD%AC%E8%BD%BD%E4%B8%AD%E6%96%87%E7%9A%84%E5%B8%B8%E6%80%81%E4%B8%8E%E5%8F%98%E6%80%81/";
           
         },
       },{id: "post-部署用于学术研究的-linux-服务器",
@@ -168,15 +146,15 @@ ninja.data = [{
             window.location.href = "/blog/2024/Python%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86%E8%B7%AF%E5%BE%84%E7%9A%84%E8%8C%83%E5%BC%8F/";
           
         },
-      },{id: "post-为什么还在写博客",
+      },{id: "post-转载-为什么还在写博客",
         
-          title: "为什么还在写博客",
+          title: "「转载」为什么还在写博客",
         
         description: "You should blog even if you have no readers",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E5%9C%A8%E5%86%99%E5%8D%9A%E5%AE%A2/";
+            window.location.href = "/blog/2024/%E8%BD%AC%E8%BD%BD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E5%9C%A8%E5%86%99%E5%8D%9A%E5%AE%A2/";
           
         },
       },{id: "post-word-排版记录",
@@ -201,31 +179,31 @@ ninja.data = [{
             window.location.href = "/blog/2024/%E6%9C%BA%E7%AE%B1%E9%A3%8E%E6%89%87%E6%8E%A7%E5%88%B6/";
           
         },
-      },{id: "post-滑坡谬误",
+      },{id: "post-随笔-理解滑坡谬误",
         
-          title: "滑坡谬误",
+          title: "「随笔」理解滑坡谬误",
         
         description: "Slippery Slop",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/%E6%BB%91%E5%9D%A1%E8%B0%AC%E8%AF%AFSlipperySlop/";
+            window.location.href = "/blog/2024/%E9%9A%8F%E7%AC%94%E6%BB%91%E5%9D%A1%E8%B0%AC%E8%AF%AFSlipperySlop/";
           
         },
-      },{id: "post-conda-pyenv-poetry-多轨管理-python-环境",
+      },{id: "post-使用-conda-和-uv-实现灵活高效的-python-环境管理",
         
-          title: "Conda-Pyenv-Poetry 多轨管理 Python 环境",
+          title: "使用 Conda 和 uv 实现灵活高效的 Python 环境管理",
         
         description: "不同需求下的 Python 环境管理方法",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/%E5%A4%9A%E8%BD%A8%E7%AE%A1%E7%90%86Python%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/";
+            window.location.href = "/blog/2024/Python%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86Conda%E5%92%8Cuv/";
           
         },
-      },{id: "post-我的表达欲在递减",
+      },{id: "post-随笔-我的表达欲在递减",
         
-          title: "我的表达欲在递减",
+          title: "「随笔」我的表达欲在递减",
         
         description: "闲言碎语",
         section: "Posts",
@@ -234,9 +212,9 @@ ninja.data = [{
             window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E6%88%91%E7%9A%84%E8%A1%A8%E8%BE%BE%E6%AC%B2%E5%9C%A8%E9%80%92%E5%87%8F/";
           
         },
-      },{id: "post-关于成长",
+      },{id: "post-随笔-关于成长",
         
-          title: "关于成长",
+          title: "「随笔」关于成长",
         
         description: "闲言碎语",
         section: "Posts",
@@ -245,20 +223,20 @@ ninja.data = [{
             window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E5%85%B3%E4%BA%8E%E6%88%90%E9%95%BF/";
           
         },
-      },{id: "post-如何撰写被引用的论文和获得资助的提案",
+      },{id: "post-转载-如何撰写被引用的论文和获得资助的提案",
         
-          title: "如何撰写被引用的论文和获得资助的提案",
+          title: "「转载」如何撰写被引用的论文和获得资助的提案",
         
         description: "摘录自「Writing science - Joshua Schime」",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/%E5%A6%82%E4%BD%95%E6%92%B0%E5%86%99%E8%A2%AB%E5%BC%95%E7%94%A8%E7%9A%84%E8%AE%BA%E6%96%87%E5%92%8C%E8%8E%B7%E5%BE%97%E8%B5%84%E5%8A%A9%E7%9A%84%E6%8F%90%E6%A1%88/";
+            window.location.href = "/blog/2023/%E8%BD%AC%E8%BD%BD%E5%A6%82%E4%BD%95%E6%92%B0%E5%86%99%E8%A2%AB%E5%BC%95%E7%94%A8%E7%9A%84%E8%AE%BA%E6%96%87%E5%92%8C%E8%8E%B7%E5%BE%97%E8%B5%84%E5%8A%A9%E7%9A%84%E6%8F%90%E6%A1%88/";
           
         },
-      },{id: "post-可以多认识人-但要少交朋友",
+      },{id: "post-随笔-可以多认识人-但要少交朋友",
         
-          title: "可以多认识人，但要少交朋友",
+          title: "「随笔」可以多认识人，但要少交朋友",
         
         description: "闲言碎语",
         section: "Posts",
@@ -267,37 +245,37 @@ ninja.data = [{
             window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E5%8F%AF%E4%BB%A5%E5%A4%9A%E8%AE%A4%E8%AF%86%E4%BA%BA-%E4%BD%86%E8%A6%81%E5%B0%91%E4%BA%A4%E6%9C%8B%E5%8F%8B/";
           
         },
-      },{id: "post-windows-实用配置记录",
+      },{id: "post-windows-系统配置记录",
         
-          title: "Windows 实用配置记录",
+          title: "Windows 系统配置记录",
         
         description: "Windows 系统软件配置和常见错误解决方案的记录",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2022/Windows%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
+            window.location.href = "/blog/2022/Windows%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-linux-实用配置记录",
+      },{id: "post-linux-系统配置记录",
         
-          title: "Linux 实用配置记录",
+          title: "Linux 系统配置记录",
         
-        description: "Linux 系统软件配置和常见错误解决方案的记录",
+        description: "Linux 系统软件配置和常见问题解决方案的记录",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2022/Linux%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
+            window.location.href = "/blog/2022/Linux%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-建立你的记录",
+      },{id: "post-转载-建立你的记录",
         
-          title: "建立你的记录",
+          title: "「转载」建立你的记录",
         
-        description: "剪辑自「饶毅科学公众号」",
+        description: "转载自「饶毅科学公众号」",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2022/%E5%BB%BA%E7%AB%8B%E4%BD%A0%E7%9A%84%E8%AE%B0%E5%BD%95/";
+            window.location.href = "/blog/2022/%E8%BD%AC%E8%BD%BD%E5%BB%BA%E7%AB%8B%E4%BD%A0%E7%9A%84%E8%AE%B0%E5%BD%95/";
           
         },
       },{id: "post-中文文案排版指南",
@@ -309,28 +287,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2022/%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%88%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/";
-          
-        },
-      },{id: "post-python-高级用法记录",
-        
-          title: "Python 高级用法记录",
-        
-        description: "优雅的 Python",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2022/Python%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95%E8%AE%B0%E5%BD%95/";
-          
-        },
-      },{id: "post-一份简明的-markdown-笔记与教程",
-        
-          title: "一份简明的 Markdown 笔记与教程",
-        
-        description: "记录了 Markdown 的优点、应用场景和编辑工具，介绍了标准语法与扩展语法，以及一些应用 Markdown 的奇技淫巧。",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2021/MakdownIntro/";
           
         },
       },{id: "books-the-godfather",
