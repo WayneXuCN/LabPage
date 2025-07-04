@@ -65,97 +65,97 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/people/";
               },
-            },{id: "post-macos-系统配置记录",
+            },{id: "post-macos-system-configuration-notes",
         
-          title: "macOS 系统配置记录",
+          title: "macOS System Configuration Notes",
         
-        description: "macOS 系统软件配置和常见错误解决方案的记录",
+        description: "Notes on macOS software configuration and common error solutions",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2025/Mac%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-低性能云服务器实用配置记录",
+      },{id: "post-practical-configuration-notes-for-low-performance-cloud-servers",
         
-          title: "低性能云服务器实用配置记录",
+          title: "Practical Configuration Notes for Low-Performance Cloud Servers",
         
-        description: "配置云服务器记录",
+        description: "Notes on configuring cloud servers",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2025/%E4%BD%8E%E9%85%8D%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/";
           
         },
-      },{id: "post-随笔-旧居记忆",
+      },{id: "post-essay-memories-of-the-old-home",
         
-          title: "「随笔」旧居记忆",
+          title: "Essay: Memories of the Old Home",
         
-        description: "闲言碎语",
+        description: "Random musings",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2025/%E9%9A%8F%E7%AC%94%E5%B9%B4%E5%89%8D%E9%87%8D%E8%AE%BF%E6%97%A7%E5%B1%85/";
           
         },
-      },{id: "post-随笔-2025-年的第一天-说点什么吧",
+      },{id: "post-essay-the-first-day-of-2025-some-thoughts",
         
-          title: "「随笔」2025 年的第一天，说点什么吧",
+          title: "Essay: The First Day of 2025, Some Thoughts",
         
-        description: "闲言碎语",
+        description: "Random musings",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2025/%E9%9A%8F%E7%AC%9425%E5%B2%81%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/";
           
         },
-      },{id: "post-2024-年工作总结",
+      },{id: "post-2024-work-summary",
         
-          title: "2024 年工作总结",
+          title: "2024 Work Summary",
         
-        description: "2024 年",
+        description: "2024",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/2024%E5%B9%B4%E7%A7%91%E7%A0%94%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/";
           
         },
-      },{id: "post-转载-中文的常态与变态",
+      },{id: "post-repost-the-normality-and-abnormality-of-chinese",
         
-          title: "「转载」中文的常态与变态",
+          title: "Repost: The Normality and Abnormality of Chinese",
         
-        description: "转载自余光中先生的文章「中文的常态与变态」，并不代表完全认同其所有观点",
+        description: "A reprint of Mr. Yu Kwang-chung&#39;s article &quot;The Normality and Abnormality of Chinese,&quot; which does not mean I fully agree with all his views.",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/%E8%BD%AC%E8%BD%BD%E4%B8%AD%E6%96%87%E7%9A%84%E5%B8%B8%E6%80%81%E4%B8%8E%E5%8F%98%E6%80%81/";
           
         },
-      },{id: "post-部署用于学术研究的-linux-服务器",
+      },{id: "post-deploying-a-linux-server-for-academic-research",
         
-          title: "部署用于学术研究的 Linux 服务器",
+          title: "Deploying a Linux Server for Academic Research",
         
-        description: "如何部署一个 Linux 服务器",
+        description: "How to deploy a Linux server",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/%E9%83%A8%E7%BD%B2%E7%94%A8%E4%BA%8E%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6%E7%9A%84Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/";
           
         },
-      },{id: "post-python-项目中高效管理路径的范式",
+      },{id: "post-efficient-path-management-paradigms-in-python-projects",
         
-          title: "Python 项目中高效管理路径的范式",
+          title: "Efficient Path Management Paradigms in Python Projects",
         
-        description: "规范的路径管理方法",
+        description: "Standardized methods for path management",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/Python%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86%E8%B7%AF%E5%BE%84%E7%9A%84%E8%8C%83%E5%BC%8F/";
           
         },
-      },{id: "post-转载-为什么还在写博客",
+      },{id: "post-repost-why-keep-blogging",
         
-          title: "「转载」为什么还在写博客",
+          title: "Repost: Why Keep Blogging",
         
         description: "You should blog even if you have no readers",
         section: "Posts",
@@ -164,132 +164,132 @@ ninja.data = [{
             window.location.href = "/blog/2024/%E8%BD%AC%E8%BD%BD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E5%9C%A8%E5%86%99%E5%8D%9A%E5%AE%A2/";
           
         },
-      },{id: "post-word-排版记录",
+      },{id: "post-word-typesetting-notes",
         
-          title: "Word 排版记录",
+          title: "Word Typesetting Notes",
         
-        description: "常用的 Word 排版经验和宏工具",
+        description: "Common Word typesetting tips and macro tools",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/Word%E6%8E%92%E7%89%88%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-机箱风扇控制",
+      },{id: "post-case-fan-control",
         
-          title: "机箱风扇控制",
+          title: "Case Fan Control",
         
-        description: "设定温度曲线控制机箱风扇速度",
+        description: "Set temperature curves to control case fan speed",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/%E6%9C%BA%E7%AE%B1%E9%A3%8E%E6%89%87%E6%8E%A7%E5%88%B6/";
           
         },
-      },{id: "post-随笔-理解滑坡谬误",
+      },{id: "post-essay-understanding-the-slippery-slope-fallacy",
         
-          title: "「随笔」理解滑坡谬误",
+          title: "Essay: Understanding the Slippery Slope Fallacy",
         
-        description: "Slippery Slop",
+        description: "Slippery Slope",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/%E9%9A%8F%E7%AC%94%E6%BB%91%E5%9D%A1%E8%B0%AC%E8%AF%AFSlipperySlop/";
           
         },
-      },{id: "post-使用-conda-和-uv-实现灵活高效的-python-环境管理",
+      },{id: "post-flexible-and-efficient-python-environment-management-with-conda-and-uv",
         
-          title: "使用 Conda 和 uv 实现灵活高效的 Python 环境管理",
+          title: "Flexible and Efficient Python Environment Management with Conda and uv",
         
-        description: "不同需求下的 Python 环境管理方法",
+        description: "Python environment management methods for different needs",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2024/Python%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86Conda%E5%92%8Cuv/";
           
         },
-      },{id: "post-随笔-我的表达欲在递减",
+      },{id: "post-essay-my-desire-to-express-myself-is-diminishing",
         
-          title: "「随笔」我的表达欲在递减",
+          title: "Essay: My Desire to Express Myself Is Diminishing",
         
-        description: "闲言碎语",
+        description: "Random Thoughts",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E6%88%91%E7%9A%84%E8%A1%A8%E8%BE%BE%E6%AC%B2%E5%9C%A8%E9%80%92%E5%87%8F/";
           
         },
-      },{id: "post-随笔-关于成长",
+      },{id: "post-essay-on-growth",
         
-          title: "「随笔」关于成长",
+          title: "Essay: On Growth",
         
-        description: "闲言碎语",
+        description: "Random Thoughts",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E5%85%B3%E4%BA%8E%E6%88%90%E9%95%BF/";
           
         },
-      },{id: "post-转载-如何撰写被引用的论文和获得资助的提案",
+      },{id: "post-repost-how-to-write-papers-that-get-cited-and-proposals-that-get-funded",
         
-          title: "「转载」如何撰写被引用的论文和获得资助的提案",
+          title: "Repost: How to Write Papers That Get Cited and Proposals That Get Funded...",
         
-        description: "摘录自「Writing science - Joshua Schime」",
+        description: "Excerpts from &quot;Writing Science - Joshua Schimel&quot;",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2023/%E8%BD%AC%E8%BD%BD%E5%A6%82%E4%BD%95%E6%92%B0%E5%86%99%E8%A2%AB%E5%BC%95%E7%94%A8%E7%9A%84%E8%AE%BA%E6%96%87%E5%92%8C%E8%8E%B7%E5%BE%97%E8%B5%84%E5%8A%A9%E7%9A%84%E6%8F%90%E6%A1%88/";
           
         },
-      },{id: "post-随笔-可以多认识人-但要少交朋友",
+      },{id: "post-essay-it-39-s-good-to-know-more-people-but-make-fewer-friends",
         
-          title: "「随笔」可以多认识人，但要少交朋友",
+          title: "Essay: It&#39;s Good to Know More People, But Make Fewer Friends",
         
-        description: "闲言碎语",
+        description: "Random Thoughts",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E5%8F%AF%E4%BB%A5%E5%A4%9A%E8%AE%A4%E8%AF%86%E4%BA%BA-%E4%BD%86%E8%A6%81%E5%B0%91%E4%BA%A4%E6%9C%8B%E5%8F%8B/";
+            window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E5%8F%AF%E4%BB%A5%E5%A4%9A%E8%AE%A4%E8%AF%86%E4%BA%BA%E4%BD%86%E8%A6%81%E5%B0%91%E4%BA%A4%E6%9C%8B%E5%8F%8B/";
           
         },
-      },{id: "post-windows-系统配置记录",
+      },{id: "post-windows-system-configuration-notes",
         
-          title: "Windows 系统配置记录",
+          title: "Windows System Configuration Notes",
         
-        description: "Windows 系统软件配置和常见错误解决方案的记录",
+        description: "Notes on Windows system software configuration and common error solutions",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2022/Windows%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-linux-系统配置记录",
+      },{id: "post-linux-system-configuration-notes",
         
-          title: "Linux 系统配置记录",
+          title: "Linux System Configuration Notes",
         
-        description: "Linux 系统软件配置和常见问题解决方案的记录",
+        description: "Notes on Linux system software configuration and common troubleshooting solutions",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2022/Linux%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-转载-建立你的记录",
+      },{id: "post-repost-build-your-own-record",
         
-          title: "「转载」建立你的记录",
+          title: "Repost: Build Your Own Record",
         
-        description: "转载自「饶毅科学公众号」",
+        description: "Reposted from &quot;Rao Yi Science WeChat Official Account&quot;",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2022/%E8%BD%AC%E8%BD%BD%E5%BB%BA%E7%AB%8B%E4%BD%A0%E7%9A%84%E8%AE%B0%E5%BD%95/";
           
         },
-      },{id: "post-中文文案排版指南",
+      },{id: "post-chinese-copywriting-amp-typesetting-guidelines",
         
-          title: "中文文案排版指南",
+          title: "Chinese Copywriting &amp; Typesetting Guidelines",
         
-        description: "中文文案排版指南，用于提升书面沟通效果",
+        description: "Guidelines for Chinese copywriting and typesetting to improve written communication",
         section: "Posts",
         handler: () => {
           
