@@ -49,7 +49,7 @@ posts_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 930px
+max_width: 1000px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -82,7 +82,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 blog_name: Eclectic Explorations # blog_name will be displayed in your blog page
 blog_description: Bridging ideas from different fields
 permalink: /blog/:year/:title/
-lsi: true # produce an index for related posts
+lsi: false # produce an index for related posts (Conflicts with ployglot i18n)
 
 # Pagination
 pagination:
@@ -106,7 +106,6 @@ giscus:
   theme: preferred_color_scheme # name of the color scheme (preferred works well with al-folio light/dark mode)
   emit_metadata: 0
   lang: zh-CN
-
 
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
@@ -187,6 +186,7 @@ keep_files:
 
 # Plug-ins
 plugins:
+  - jekyll-polyglot
   - jekyll-archives-v2
   - jekyll-email-protect
   - jekyll-feed
@@ -214,6 +214,16 @@ defaults:
 
 sass:
   style: compressed
+
+# -----------------------------------------------------------------------------
+# Jekyll polyglot
+# -----------------------------------------------------------------------------
+
+languages: ["en", "zh_CN", "de", "ja"]
+default_lang: "en"
+exclude_from_localization: ["javascript", "images", "css", "public", "sitemap"]
+parallel_localization: true
+lang_from_path: true
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier

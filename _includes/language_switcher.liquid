@@ -1,0 +1,96 @@
+<!-- Language Switcher -->
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="ti ti-world"></i>
+    {% if site.active_lang == 'en' %}
+      EN
+    {% elsif site.active_lang == 'zh_CN' %}
+      中文
+    {% else %}
+      {{ site.active_lang }}
+    {% endif %}
+  </a>
+  <div class="dropdown-menu" aria-labelledby="languageDropdown">
+    {% for lang in site.languages %}
+      {% if lang != site.active_lang %}
+        {% comment %} 构建目标语言的URL {% endcomment %}
+        {% assign lang_url = '/' %}
+
+        {% comment %} 如果有page_id，优先使用page_id匹配 {% endcomment %}
+        {% if page.page_id %}
+          {% assign target_page = site.pages | where: 'page_id', page.page_id | where: 'lang', lang | first %}
+          {% if target_page %}
+            {% assign lang_url = target_page.url %}
+          {% else %}
+            {% comment %} 没找到对应页面，回退到首页 {% endcomment %}
+            {% if lang != site.default_lang %}
+              {% assign lang_url = '/' | append: lang | append: '/' %}
+            {% endif %}
+          {% endif %}
+        {% else %}
+          {% comment %} 对于博客文章，尝试查找对应的文章 {% endcomment %}
+          {% if page.layout == 'post' %}
+            {% comment %}
+              由于你的文章在不同语言文件夹中有相同的文件名，
+              我们可以直接通过文件名匹配
+            {% endcomment %}
+            {% assign current_filename = page.name %}
+            {% assign target_post = site.posts | where: 'lang', lang | where: 'name', current_filename | first %}
+            {% if target_post %}
+              {% assign lang_url = target_post.url %}
+            {% else %}
+              {% comment %} 没找到对应文章，链接到博客首页 {% endcomment %}
+              {% if lang == site.default_lang %}
+                {% assign lang_url = '/blog/' %}
+              {% else %}
+                {% assign lang_url = '/' | append: lang | append: '/blog/' %}
+              {% endif %}
+            {% endif %}
+          {% else %}
+            {% comment %} 对于其他页面，构建相应的语言URL {% endcomment %}
+            {% assign current_path = page.url %}
+            {% if site.active_lang == site.default_lang %}
+              {% comment %} 当前是默认语言 {% endcomment %}
+              {% if lang != site.default_lang %}
+                {% assign lang_url = '/' | append: lang | append: current_path %}
+              {% else %}
+                {% assign lang_url = current_path %}
+              {% endif %}
+            {% else %}
+              {% comment %} 当前不是默认语言，需要替换语言前缀 {% endcomment %}
+              {% assign current_lang_prefix = '/' | append: site.active_lang %}
+              {% if current_path contains current_lang_prefix %}
+                {% assign path_without_lang = current_path | replace_first: current_lang_prefix, '' %}
+                {% if lang == site.default_lang %}
+                  {% assign lang_url = path_without_lang %}
+                  {% if lang_url == '' or lang_url == '/' %}
+                    {% assign lang_url = '/' %}
+                  {% endif %}
+                {% else %}
+                  {% assign lang_url = '/' | append: lang | append: path_without_lang %}
+                {% endif %}
+              {% else %}
+                {% comment %} 处理根目录的情况 {% endcomment %}
+                {% if lang == site.default_lang %}
+                  {% assign lang_url = '/' %}
+                {% else %}
+                  {% assign lang_url = '/' | append: lang | append: '/' %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        <a class="dropdown-item" {% static_href %} href="{{ lang_url }}" {% endstatic_href %}>
+          {% if lang == 'en' %}
+            <i class="ti ti-flag-2"></i> English
+          {% elsif lang == 'zh_CN' %}
+            <i class="ti ti-flag-2"></i> 中文
+          {% else %}
+            <i class="ti ti-flag-2"></i> {{ lang }}
+          {% endif %}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</li>
