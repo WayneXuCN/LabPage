@@ -65,7 +65,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/people/";
               },
-            },{id: "post-macos-系统配置记录",
+            },{id: "post-",
+        
+          title: "",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/2024-07-15-Python%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86%E8%B7%AF%E5%BE%84%E7%9A%84%E8%8C%83%E5%BC%8F/";
+          
+        },
+      },{id: "post-macos-系统配置记录",
         
           title: "macOS 系统配置记录",
         
