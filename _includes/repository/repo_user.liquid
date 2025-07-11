@@ -1,11 +1,11 @@
-{% assign lang = site.lang | split: '-' | first %}
+{% assign lang = site.active_lang | split: '-' | first %}
 
 {% case lang %}
   {% when 'pt' %}
-    {% assign lang = site.lang %}
+    {% assign lang = site.active_lang %}
 
   {% when 'zh' %}
-    {% assign lang_last = site.lang | split: '-' | last %}
+    {% assign lang_last = site.active_lang | split: '-' | last %}
     {% case lang_last %}
       {% when 'cn', 'sg', 'my', 'hans' %}
         {% assign lang = 'cn' %}

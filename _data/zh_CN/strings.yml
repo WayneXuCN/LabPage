@@ -1,0 +1,165 @@
+archive:
+  prefix: 归档
+  category_suffix: 属于该分类
+  tag_suffix: 包含该标签
+  year_suffix: 属于该年份
+bibliography:
+  abstract: 摘要
+  awarded: 获奖
+  blog: 博客
+  book_prefix: 收录于
+  code: 代码
+  last_author_prefix: 和
+  poster: 海报
+  slides: 幻灯片
+  supp: 补充材料
+  video: 视频
+  website: 网站
+blog:
+  navigation_title: 博客
+categories:
+  fun: 娱乐
+  work: 工作
+citation:
+  bibtex: "或以 BibTeX 格式引用："
+  introduction: "如果您觉得有用，请引用如下："
+collections:
+  books: 书籍
+  posts: 文章
+contact_note: >
+  欢迎随时通过我的邮箱 wenjie.xu.cn@outlook.com 联系我
+cv:
+  address: 地址
+  area: 地区
+  awarder: 授予者
+  awards: 奖项
+  basics: 基本信息
+  certificates: 证书
+  city: 城市
+  countryCode: 国家代码
+  courses: 课程
+  date: 日期
+  education: 教育经历
+  email: 邮箱
+  endDate: 结束日期
+  fluency: 熟练度
+  highlights: 亮点
+  image: 图片
+  institution: 机构
+  interests: 兴趣
+  issuer: 颁发者
+  keywords: 关键词
+  label: 标签
+  language: 语言
+  languages: 语言能力
+  level: 等级
+  location: 地点
+  name: 姓名
+  network: 社交网络
+  organization: 组织
+  phone: 电话
+  position: 职位
+  postalCode: 邮政编码
+  present: 至今
+  profiles: 个人主页
+  projects: 项目
+  publications: 发表作品
+  publisher: 出版社
+  reference: 推荐人
+  references: 推荐
+  region: 区域
+  releaseDate: 发表日期
+  score: 分数
+  skills: 技能
+  startDate: 开始日期
+  studyType: 学习类型
+  summary: 简介
+  table_of_contents: 目录
+  title: 标题
+  url: 链接
+  username: 用户名
+  volunteer: 志愿者
+  work: 工作经历
+footer:
+  copyright: 版权
+  last_updated: "最后更新："
+footer_text: >
+  由 <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> 强力驱动。
+  本页面由生成式 AI 自动翻译。
+latest_posts: 最新文章
+months:
+  long:
+    january: 一月
+    february: 二月
+    march: 三月
+    april: 四月
+    may: 五月
+    june: 六月
+    july: 七月
+    august: 八月
+    september: 九月
+    october: 十月
+    november: 十一月
+    december: 十二月
+  short:
+    january: 1月
+    february: 2月
+    march: 3月
+    april: 4月
+    may: 5月
+    june: 6月
+    july: 7月
+    august: 8月
+    september: 9月
+    october: 10月
+    november: 11月
+    december: 12月
+research_summary: 研究概要
+news: 新闻
+newsletter:
+  back: 返回
+  error: "哎呀！出错了，请重试。"
+  subscribe: 订阅
+  subscribed: "你已成功订阅新闻通讯。"
+  subscribe_to_receive: "订阅以获取后续文章通知："
+  too_many_signups: "注册人数过多，请稍后再试"
+  wait: "请稍候……"
+no_news: 暂无新闻...
+no_posts: "暂无文章..."
+pagination:
+  page: 页
+post:
+  created_in: 创建于
+  created_by: 作者
+  last_updated: 最后更新于
+references: 参考文献
+related_posts:
+  description: "你可能还喜欢阅读以下文章："
+  title: 喜欢这篇文章吗？
+search:
+  dark_theme:
+    description: 切换为深色主题
+    title: 切换到深色主题
+  dropdown: 下拉菜单
+  email: 发送邮件
+  footer:
+    close: 关闭
+    navigate: 导航
+    parent: 返回上级
+    select: 选择
+  languages: 语言
+  light_theme:
+    description: 切换为浅色主题
+    title: 切换到浅色主题
+  navigation: 导航菜单
+  news: 新闻
+  placeholder: 输入以开始搜索
+  posts: 文章
+  projects: 项目
+  socials: 社交
+  system_theme:
+    description: 跟随系统主题
+    title: 使用系统默认主题
+  theme: 主题
+selected_publications: 精选发表
+site_description: 一个简洁的学术主题，基于 [*folio](https://github.com/bogoli/-folio) 设计。

@@ -12,7 +12,7 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Wenjie Xu's home page. feedId:120017115220794368+userId:72841831310508032
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  This page was automatically translated by generative AI.
 keywords: Wenjie Xu, Wayne Xu, 徐文杰，UCAS, University of Chinese Academy of Sciences, Institutes of Science and Development, Chinese Academy of Sciences # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -221,9 +221,10 @@ sass:
 
 languages: ["en", "zh_CN", "de", "ja"]
 default_lang: "en"
-exclude_from_localization: ["javascript", "images", "css", "public", "sitemap"]
-parallel_localization: true
+exclude_from_localization: ["assets"]
 lang_from_path: true
+country_flag: false # set true for allowing flag symbol in language toggle
+parallel_localization: false
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
@@ -625,8 +626,14 @@ third_party_libraries:
 # -----------------------------------------------------------------------------
 
 jekyll_get_json:
-  - data: resume
-    json: assets/json/resume.json # it can also be an url
+  - data: resume_en
+    json: assets/json/resume_en.json # it can also be an url
+  - data: resume_de
+    json: assets/json/resume_de.json # it can also be an url
+  - data: resume_ja
+    json: assets/json/resume_ja.json # it can also be an url
+  - data: resume_zh_CN
+    json: assets/json/resume_zh_CN.json # it can also be an url
 
 jsonresume:
   - basics

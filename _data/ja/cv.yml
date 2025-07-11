@@ -1,0 +1,101 @@
+- title: 基本情報
+  type: map
+  contents:
+    - name: 氏名
+      value: アルベルト・アインシュタイン
+    - name: 生年月日
+      value: 1879年3月14日
+    - name: 言語
+      value: 英語、ドイツ語
+
+- title: 学歴
+  type: time_table
+  contents:
+    - title: 博士号
+      institution: チューリッヒ大学（スイス・チューリッヒ）
+      year: 1905
+      description:
+        - 説明1
+        - 説明2
+        - title: 説明3
+          contents:
+            - サブ説明1
+            - サブ説明2
+    - title: 連邦教員免許
+      institution: チューリッヒ連邦工科大学（スイス・チューリッヒ）
+      year: 1900
+      description:
+        - 説明1
+        - 説明2
+
+- title: 職歴
+  type: time_table
+  contents:
+    - title: 理論物理学教授
+      institution: プリンストン高等研究所（プリンストン大学）
+      year: 1933 - 1955
+      description:
+        - 説明1
+        - 説明2
+        - title: 説明3
+          contents:
+            - サブ説明1
+            - サブ説明2
+    - title: 客員教授
+      institution: カリフォルニア工科大学（米国カリフォルニア州パサデナ）
+      year: 1933
+      description:
+        - 説明1
+        - 説明2
+
+    - title: 所長
+      institution: カイザー・ヴィルヘルム物理学研究所（ドイツ・ベルリン）
+      year: 1917-1933
+
+    - title: 理論物理学教授
+      institution: カール・フェルディナンド大学（チェコスロバキア・プラハ）
+      year: 1911 - 1917
+      description:
+
+    - title: 理論物理学准教授
+      institution: チューリッヒ大学（スイス・チューリッヒ）
+      year: 1909 - 1911
+
+- title: オープンソースプロジェクト
+  type: time_table
+  contents:
+    - title: <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>
+      year: 2023年〜現在
+      description: 複数言語対応のal-folioテーマのフォーク。
+
+    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+      year: 2015年〜現在
+      description: 学術向けの美しくシンプルでクリーン、レスポンシブなJekyllテーマ。
+
+- title: 受賞歴
+  type: time_table
+  contents:
+    - year: 1921
+      items:
+        - ノーベル物理学賞
+        - マテウッチ・メダル
+    - year: 2029
+      items:
+        - マックス・プランク・メダル
+
+- title: 学術的関心
+  type: nested_list
+  contents:
+    - title: トピック1
+      items:
+        - 説明1
+        - 説明2
+    - title: トピック2
+      items:
+        - 説明1
+        - 説明2
+
+- title: その他の関心
+  type: list
+  contents:
+    - <u>趣味：</u> 趣味1、趣味2など

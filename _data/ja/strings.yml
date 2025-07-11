@@ -1,0 +1,165 @@
+archive:
+  prefix: のアーカイブ
+  category_suffix: このカテゴリ内
+  tag_suffix: このタグ付き
+  year_suffix: この年から
+bibliography:
+  abstract: 要旨
+  awarded: 受賞
+  blog: ブログ
+  book_prefix: 収録
+  code: コード
+  last_author_prefix: および
+  poster: ポスター
+  slides: スライド
+  supp: 補足
+  video: ビデオ
+  website: ウェブサイト
+blog:
+  navigation_title: ブログ
+categories:
+  fun: 趣味
+  work: 仕事
+citation:
+  bibtex: "またはBibTeXエントリとして："
+  introduction: "参考になった場合は、次のように引用してください："
+collections:
+  books: 書籍
+  posts: 投稿
+contact_note: >
+  いつでもお気軽にメール（wenjie.xu.cn@outlook.com）でご連絡ください
+cv:
+  address: 住所
+  area: 地域
+  awarder: 授与者
+  awards: 受賞歴
+  basics: 基本情報
+  certificates: 資格
+  city: 市区町村
+  countryCode: 国コード
+  courses: コース
+  date: 日付
+  education: 学歴
+  email: メール
+  endDate: 終了日
+  fluency: 流暢さ
+  highlights: ハイライト
+  image: 画像
+  institution: 機関
+  interests: 興味
+  issuer: 発行者
+  keywords: キーワード
+  label: ラベル
+  language: 言語
+  languages: 言語
+  level: レベル
+  location: 場所
+  name: 名前
+  network: ネットワーク
+  organization: 組織
+  phone: 電話
+  position: 役職
+  postalCode: 郵便番号
+  present: 現在
+  profiles: プロフィール
+  projects: プロジェクト
+  publications: 出版物
+  publisher: 出版社
+  reference: 参照
+  references: 参照
+  region: 地域
+  releaseDate: 発表日
+  score: スコア
+  skills: スキル
+  startDate: 開始日
+  studyType: 学習タイプ
+  summary: 概要
+  table_of_contents: 目次
+  title: タイトル
+  url: URL
+  username: ユーザー名
+  volunteer: ボランティア
+  work: 職歴
+footer:
+  copyright: 著作権
+  last_updated: "最終更新："
+footer_text: >
+  <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> によって提供されています。
+  このページは生成AIによって自動翻訳されました。
+latest_posts: 最新の投稿
+months:
+  long:
+    january: 1月
+    february: 2月
+    march: 3月
+    april: 4月
+    may: 5月
+    june: 6月
+    july: 7月
+    august: 8月
+    september: 9月
+    october: 10月
+    november: 11月
+    december: 12月
+  short:
+    january: 1月
+    february: 2月
+    march: 3月
+    april: 4月
+    may: 5月
+    june: 6月
+    july: 7月
+    august: 8月
+    september: 9月
+    october: 10月
+    november: 11月
+    december: 12月
+research_summary: 研究概要
+news: ニュース
+newsletter:
+  back: 戻る
+  error: "エラーが発生しました。もう一度お試しください。"
+  subscribe: 購読する
+  subscribed: "ニュースレターの購読が完了しました。"
+  subscribe_to_receive: "今後の記事を受け取るには購読してください："
+  too_many_signups: "登録が多すぎます。しばらくしてから再度お試しください。"
+  wait: "お待ちください..."
+no_news: まだニュースはありません...
+no_posts: "まだ投稿はありません..."
+pagination:
+  page: ページ
+post:
+  created_in: 作成日
+  created_by: 作成者
+  last_updated: 最終更新
+references: 参照
+related_posts:
+  description: "次におすすめの記事はこちら："
+  title: この記事を楽しみましたか？
+search:
+  dark_theme:
+    description: サイトのテーマをダークに変更
+    title: ダークテーマに変更
+  dropdown: ドロップダウン
+  email: メールを送信
+  footer:
+    close: 閉じる
+    navigate: 移動
+    parent: 親に移動
+    select: 選択
+  languages: 言語
+  light_theme:
+    description: サイトのテーマをライトに変更
+    title: ライトテーマに変更
+  navigation: ナビゲーションメニュー
+  news: ニュース
+  placeholder: 検索を開始するには入力してください
+  posts: 投稿
+  projects: プロジェクト
+  socials: ソーシャル
+  system_theme:
+    description: サイトのテーマをシステムデフォルトに変更
+    title: システムデフォルトを使用
+  theme: テーマ
+selected_publications: 代表的な出版物
+site_description: 学術向けのシンプルで余白の多いテーマ。[*folio](https://github.com/bogoli/-folio) デザインに基づく。

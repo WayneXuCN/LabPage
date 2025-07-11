@@ -1,0 +1,101 @@
+- title: Allgemeine Informationen
+  type: map
+  contents:
+    - name: Vollständiger Name
+      value: Albert Einstein
+    - name: Geburtsdatum
+      value: 14. März 1879
+    - name: Sprachen
+      value: Englisch, Deutsch
+
+- title: Ausbildung
+  type: time_table
+  contents:
+    - title: Promotion
+      institution: Universität Zürich, Zürich, Schweiz
+      year: 1905
+      description:
+        - Beschreibung 1.
+        - Beschreibung 2.
+        - title: Beschreibung 3.
+          contents:
+            - Unterbeschreibung 1.
+            - Unterbeschreibung 2.
+    - title: Eidgenössisches Lehrdiplom
+      institution: Eidgenössische Technische Hochschule, Zürich, Schweiz
+      year: 1900
+      description:
+        - Beschreibung 1.
+        - Beschreibung 2.
+
+- title: Berufserfahrung
+  type: time_table
+  contents:
+    - title: Professor für Theoretische Physik
+      institution: Institute for Advanced Study, Princeton University
+      year: 1933 - 1955
+      description:
+        - Beschreibung 1.
+        - Beschreibung 2.
+        - title: Beschreibung 3.
+          contents:
+            - Unterbeschreibung 1.
+            - Unterbeschreibung 2.
+    - title: Gastprofessor
+      institution: California Institute of Technology, Pasadena, Kalifornien, USA
+      year: 1933
+      description:
+        - Beschreibung 1.
+        - Beschreibung 2.
+
+    - title: Direktor
+      institution: Kaiser-Wilhelm-Institut für Physik, Berlin, Deutschland
+      year: 1917-1933
+
+    - title: Professor für Theoretische Physik
+      institution: Karl-Ferdinand-Universität, Prag, Tschechoslowakei
+      year: 1911 - 1917
+      description:
+
+    - title: Außerordentlicher Professor für Theoretische Physik
+      institution: Universität Zürich, Zürich, Schweiz
+      year: 1909 - 1911
+
+- title: Open-Source-Projekte
+  type: time_table
+  contents:
+    - title: <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>
+      year: 2023–heute
+      description: Ein Fork des al-folio-Themes mit Unterstützung für mehrere Sprachen.
+
+    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+      year: 2015–heute
+      description: Ein schönes, einfaches, sauberes und responsives Jekyll-Theme für Akademiker.
+
+- title: Auszeichnungen und Ehrungen
+  type: time_table
+  contents:
+    - year: 1921
+      items:
+        - Nobelpreis für Physik
+        - Matteucci-Medaille
+    - year: 2029
+      items:
+        - Max-Planck-Medaille
+
+- title: Akademische Interessen
+  type: nested_list
+  contents:
+    - title: Thema 1
+      items:
+        - Beschreibung 1.
+        - Beschreibung 2.
+    - title: Thema 2
+      items:
+        - Beschreibung 1.
+        - Beschreibung 2.
+
+- title: Weitere Interessen
+  type: list
+  contents:
+    - <u>Hobbys:</u> Hobby 1, Hobby 2, usw.

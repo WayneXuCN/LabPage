@@ -1,0 +1,165 @@
+archive:
+  prefix: Archiv von
+  category_suffix: in dieser Kategorie
+  tag_suffix: mit diesem Tag
+  year_suffix: aus diesem Jahr
+bibliography:
+  abstract: Zusammenfassung
+  awarded: Ausgezeichnet
+  blog: Blog
+  book_prefix: In
+  code: Code
+  last_author_prefix: und
+  poster: Poster
+  slides: Folien
+  supp: Zusatz
+  video: Video
+  website: Webseite
+blog:
+  navigation_title: Blog
+categories:
+  fun: Spaß
+  work: Arbeit
+citation:
+  bibtex: "oder als BibTeX-Eintrag:"
+  introduction: "Wenn Sie dies nützlich fanden, zitieren Sie bitte wie folgt:"
+collections:
+  books: Bücher
+  posts: Beiträge
+contact_note: >
+  Sie können mich jederzeit per E-Mail unter
+cv:
+  address: Adresse
+  area: Gebiet
+  awarder: Verleiher
+  awards: Auszeichnungen
+  basics: Allgemeine Informationen
+  certificates: Zertifikate
+  city: Stadt
+  countryCode: Ländercode
+  courses: Kurse
+  date: Datum
+  education: Ausbildung
+  email: E-Mail
+  endDate: Enddatum
+  fluency: Sprachkenntnisse
+  highlights: Höhepunkte
+  image: Bild
+  institution: Institution
+  interests: Interessen
+  issuer: Aussteller
+  keywords: Stichworte
+  label: Bezeichnung
+  language: Sprache
+  languages: Sprachen
+  level: Niveau
+  location: Ort
+  name: Name
+  network: Netzwerk
+  organization: Organisation
+  phone: Telefon
+  position: Position
+  postalCode: Postleitzahl
+  present: Gegenwart
+  profiles: Profile
+  projects: Projekte
+  publications: Veröffentlichungen
+  publisher: Verlag
+  reference: Referenz
+  references: Referenzen
+  region: Region
+  releaseDate: Veröffentlichungsdatum
+  score: Punktzahl
+  skills: Fähigkeiten
+  startDate: Startdatum
+  studyType: Studienart
+  summary: Zusammenfassung
+  table_of_contents: Inhaltsverzeichnis
+  title: Titel
+  url: URL
+  username: Benutzername
+  volunteer: Ehrenamt
+  work: Berufserfahrung
+footer:
+  copyright: Urheberrecht
+  last_updated: "Zuletzt aktualisiert:"
+footer_text: >
+  Bereitgestellt von <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
+  Diese Seite wurde automatisch von generativer KI übersetzt.
+latest_posts: Neueste Beiträge
+months:
+  long:
+    january: Januar
+    february: Februar
+    march: März
+    april: April
+    may: Mai
+    june: Juni
+    july: Juli
+    august: August
+    september: September
+    october: Oktober
+    november: November
+    december: Dezember
+  short:
+    january: Jan
+    february: Feb
+    march: Mär
+    april: Apr
+    may: Mai
+    june: Jun
+    july: Jul
+    august: Aug
+    september: Sep
+    october: Okt
+    november: Nov
+    december: Dez
+research_summary: Forschungszusammenfassung
+news: Nachrichten
+newsletter:
+  back: Zurück
+  error: "Hoppla! Etwas ist schiefgelaufen, bitte versuchen Sie es erneut."
+  subscribe: abonnieren
+  subscribed: "Sie haben den Newsletter erfolgreich abonniert."
+  subscribe_to_receive: "Abonnieren Sie, um über zukünftige Artikel benachrichtigt zu werden:"
+  too_many_signups: "Zu viele Anmeldungen, bitte versuchen Sie es später erneut."
+  wait: "Bitte warten..."
+no_news: Bisher keine Nachrichten...
+no_posts: "Bisher keine Beiträge..."
+pagination:
+  page: Seite
+post:
+  created_in: Erstellt am
+  created_by: von
+  last_updated: zuletzt aktualisiert am
+references: Referenzen
+related_posts:
+  description: "Hier sind weitere Artikel, die Sie interessieren könnten:"
+  title: Hat Ihnen dieser Artikel gefallen?
+search:
+  dark_theme:
+    description: Das Design der Seite auf Dunkel ändern
+    title: Zum dunklen Design wechseln
+  dropdown: Dropdown
+  email: E-Mail senden
+  footer:
+    close: schließen
+    navigate: navigieren
+    parent: zum übergeordneten Element
+    select: auswählen
+  languages: Sprachen
+  light_theme:
+    description: Das Design der Seite auf Hell ändern
+    title: Zum hellen Design wechseln
+  navigation: Navigationsmenü
+  news: Nachrichten
+  placeholder: Zum Suchen tippen
+  posts: Beiträge
+  projects: Projekte
+  socials: Soziale Netzwerke
+  system_theme:
+    description: Das Design der Seite auf Systemstandard ändern
+    title: Systemstandard verwenden
+  theme: Design
+selected_publications: Ausgewählte Veröffentlichungen
+site_description: Ein einfaches, whitespace-basiertes Theme für Akademiker. Basierend auf dem [*folio](https://github.com/bogoli/-folio) Design.

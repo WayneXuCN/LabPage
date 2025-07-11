@@ -22,16 +22,8 @@
 {% endif %}
 
 <!-- Fonts & Icons -->
-<link
-  defer
-  rel="stylesheet"
-  href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}"
->
-<link
-  defer
-  rel="stylesheet"
-  href="{{ '/assets/css/scholar-icons.css' | relative_url | bust_file_cache }}"
->
+<link defer rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
+<link defer rel="stylesheet" href="{{ '/assets/css/scholar-icons.css' | relative_url | bust_file_cache }}">
 <link
   defer
   rel="stylesheet"
@@ -50,11 +42,7 @@
 
 {% if page.toc and page.toc.sidebar %}
   <!-- Sidebar Table of Contents -->
-  <link
-    defer
-    href="{{ '/assets/css/bootstrap-toc.min.css' | relative_url | bust_file_cache }}"
-    rel="stylesheet"
-  >
+  <link defer href="{{ '/assets/css/bootstrap-toc.min.css' | relative_url | bust_file_cache }}" rel="stylesheet">
 {% endif %}
 
 <!-- Styles -->
@@ -79,7 +67,6 @@
   <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url | bust_file_cache}}">
 {% endif %}
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
-<link rel="stylesheet" href="/assets/css/app-cards.css">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
 <!-- Dark Mode -->
@@ -198,10 +185,5 @@
 {% endif %}
 
 {% if page.tikzjax %}
-  <link
-    defer
-    rel="stylesheet"
-    type="text/css"
-    href="https://tikzjax.com/v1/fonts.css"
-  >
+  <link defer rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
 {% endif %}

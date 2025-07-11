@@ -1,140 +1,36 @@
 ---
 layout: page
 ---
-<style>
-  .profiles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.2em;
-    margin: 1.5em 0;
-    grid-auto-flow: dense;
-    align-items: stretch;
-  }
-  .profile-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    padding: 1em 1em 0.7em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 0;
-    transition:
-      box-shadow 0.18s,
-      transform 0.18s;
-    border-top: 4px solid #4f8cff22;
-    position: relative;
-    margin-bottom: 0.2em;
-    height: 100%;
-    max-width: 400px;
-    min-width: 320px;
-  }
-  .profile-card:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
-    transform: translateY(-4px) scale(1.03);
-    z-index: 2;
-  }
-  .profile-card .profile-img {
-    border-radius: 50%;
-    width: 70px;
-    min-width: 70px;
-    margin-bottom: 0.5em;
-    object-fit: cover;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
-  }
-  .profile-card .more-info {
-    font-size: 0.93em;
-    color: #666;
-    margin-bottom: 0.5em;
-    text-align: center;
-    min-height: 3.2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .profile-card .profile-content {
-    flex: 1 1 auto;
-    width: 100%;
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    overflow: auto;
-  }
-  .profile-card .profile-content,
-  .profile-card .profile-content * {
-    text-align: inherit !important;
-  }
-  .profile-card .profile-content ul {
-    /* 可根据实际情况调整，越小越靠左 */
-    padding-left: 0.3em;
-    margin-left: 0;
-    /* 可选，让圆点更靠内容 */
-    list-style-position: inside;
-  }
-  .profile-card .profile-content li {
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .profile-card .color-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    border-radius: 10px 10px 0 0;
-    background: var(--bar-color, #4f8cff);
-  }
-  .profile-card .profile-hr {
-    border: none;
-    border-top: 1.5px solid #e0e0e0;
-    margin: 0.7em 0 1em;
-    width: 100%;
-  }
-  @media (max-width: 600px) {
-    .profiles-grid {
-      grid-template-columns: 1fr;
-      gap: 0.7em;
-    }
-    .profile-card {
-      padding: 0.7em 0.3em;
-    }
-  }
-</style>
-
-<div class="post"></div>
-<article>
-  {% if page.profiles %}
-    <div class="profiles-grid">
-      {% assign bar_colors = '#4f8cff,#ffb347,#ff6f91,#6fcf97,#a685e2,#f67280' | split: ',' %}
+<div class="post">
+  <article>
+    {% if page.profiles %}
       {% for profile in page.profiles %}
-        {% assign color_index = forloop.index0 | modulo: bar_colors.size %}
-        {% assign color = bar_colors[color_index] %}
-        {% assign align = profile.content_align | default: 'left' %}
-        <div class="profile-card" style="--bar-color: {{ color }};">
-          <div class="color-bar"></div>
+        <hr>
+        <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
           {% if profile.image %}
             {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
-            <img
-              src="/{{ profile_image_path }}"
-              alt="{{ profile.image }}"
-              class="profile-img"
-            >
+            {% if profile.image_circular %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% else %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+            {% endif %}
+            {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
+            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
           {% endif %}
           {% if profile.more_info %}
             <div class="more-info">{{ profile.more_info }}</div>
           {% endif %}
-          <div class="profile-content" style="text-align: {{ align }};">
-            <hr class="profile-hr">
-            {% if profile.content %}
-              {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
-              {{ profile_content | markdownify }}
-            {% else %}
-              {{ content }}
-            {% endif %}
-          </div>
+        </div>
+
+        <div class="clearfix">
+          {% if profile.content %}
+            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
+            {{ profile_content | markdownify }}
+          {% else %}
+            {{ content }}
+          {% endif %}
         </div>
       {% endfor %}
-    </div>
-  {% endif %}
-</article>
+    {% endif %}
+  </article>
+</div>

@@ -1,0 +1,101 @@
+- title: 基本信息
+  type: map
+  contents:
+    - name: 姓名
+      value: 阿尔伯特·爱因斯坦
+    - name: 出生日期
+      value: 1879年3月14日
+    - name: 语言
+      value: 英语、德语
+
+- title: 教育经历
+  type: time_table
+  contents:
+    - title: 博士学位
+      institution: 苏黎世大学，瑞士苏黎世
+      year: 1905
+      description:
+        - 描述 1。
+        - 描述 2。
+        - title: 描述 3。
+          contents:
+            - 子描述 1。
+            - 子描述 2。
+    - title: 联邦教师文凭
+      institution: 苏黎世联邦理工学院，瑞士苏黎世
+      year: 1900
+      description:
+        - 描述 1。
+        - 描述 2。
+
+- title: 工作经历
+  type: time_table
+  contents:
+    - title: 理论物理学教授
+      institution: 高级研究院，普林斯顿大学
+      year: 1933 - 1955
+      description:
+        - 描述 1。
+        - 描述 2。
+        - title: 描述 3。
+          contents:
+            - 子描述 1。
+            - 子描述 2。
+    - title: 客座教授
+      institution: 加州理工学院，美国加州帕萨迪纳
+      year: 1933
+      description:
+        - 描述 1。
+        - 描述 2。
+
+    - title: 所长
+      institution: 凯瑟尔·威廉物理研究所，德国柏林
+      year: 1917-1933
+
+    - title: 理论物理学教授
+      institution: 卡尔-费迪南德大学，捷克斯洛伐克布拉格
+      year: 1911 - 1917
+      description:
+
+    - title: 理论物理学副教授
+      institution: 苏黎世大学，瑞士苏黎世
+      year: 1909 - 1911
+
+- title: 开源项目
+  type: time_table
+  contents:
+    - title: <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>
+      year: 2023-now
+      description: al-folio 主题的一个分支，支持多种语言。
+
+    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+      year: 2015-now
+      description: 一个美观、简单、干净且响应迅速的 Jekyll 主题，专为学术界人士打造。
+
+- title: 荣誉与奖项
+  type: time_table
+  contents:
+    - year: 1921
+      items:
+        - 诺贝尔物理学奖
+        - 马泰乌奇奖章
+    - year: 2029
+      items:
+        - 马克斯·普朗克奖章
+
+- title: 学术兴趣
+  type: nested_list
+  contents:
+    - title: 主题 1。
+      items:
+        - 描述 1。
+        - 描述 2。
+    - title: 主题 2。
+      items:
+        - 描述 1。
+        - 描述 2。
+
+- title: 其他兴趣
+  type: list
+  contents:
+    - <u>爱好：</u> 爱好 1, 爱好 2, 等等。
