@@ -311,7 +311,7 @@ ninja.data = [{
           title: 'The Godfather',
           description: "",
           section: "",handler: () => {
-              window.location.href = "/books/en/the_godfather/";
+              window.location.href = "/books/en_US/the_godfather/";
             },},{id: "news-school-president-scholarship-2022",
           title: 'School President Scholarship, 2022',
           description: "",
@@ -323,9 +323,19 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-typst-ucas-thesis",
           title: 'Typst-ucas-thesis',
+          description: "UCAS Thesis-Vorlage basierend auf Typst",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/de/Typst%20for%20UCAS%20thesis/";
+            },},{id: "projects-typst-ucas-thesis",
+          title: 'Typst-ucas-thesis',
           description: "UCAS thesis Template Based on Typst",
           section: "Projects",handler: () => {
               window.location.href = "/projects/en/Typst%20for%20UCAS%20thesis/";
+            },},{id: "projects-typst-ucas-thesis",
+          title: 'Typst-ucas-thesis',
+          description: "基于 Typst 的中国科学院大学学位论文模板",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
             },},{
         id: 'social-email',
         title: 'Send an email',
@@ -390,18 +400,18 @@ ninja.data = [{
             window.location.href = "/zh_CN" + updatedUrl;
           },
         },{
-          id: 'lang-de',
-          title: 'de',
+          id: 'lang-de_DE',
+          title: 'de_DE',
           section: 'Languages',
           handler: () => {
-            window.location.href = "/de" + updatedUrl;
+            window.location.href = "/de_DE" + updatedUrl;
           },
         },{
-          id: 'lang-ja',
-          title: 'ja',
+          id: 'lang-ja_JP',
+          title: 'ja_JP',
           section: 'Languages',
           handler: () => {
-            window.location.href = "/ja" + updatedUrl;
+            window.location.href = "/ja_JP" + updatedUrl;
           },
         },{
       id: 'light-theme',

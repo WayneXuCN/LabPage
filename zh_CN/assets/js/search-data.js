@@ -323,6 +323,16 @@ ninja.data = [{
           description: "",
           section: "新闻",},{id: "projects-typst-ucas-thesis",
           title: 'Typst-ucas-thesis',
+          description: "UCAS Thesis-Vorlage basierend auf Typst",
+          section: "项目",handler: () => {
+              window.location.href = "/zh_CN/projects/de/Typst%20for%20UCAS%20thesis/";
+            },},{id: "projects-typst-ucas-thesis",
+          title: 'Typst-ucas-thesis',
+          description: "UCAS thesis Template Based on Typst",
+          section: "项目",handler: () => {
+              window.location.href = "/zh_CN/projects/en/Typst%20for%20UCAS%20thesis/";
+            },},{id: "projects-typst-ucas-thesis",
+          title: 'Typst-ucas-thesis',
           description: "基于 Typst 的中国科学院大学学位论文模板",
           section: "项目",handler: () => {
               window.location.href = "/zh_CN/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
@@ -383,25 +393,25 @@ ninja.data = [{
           window.open("https://www.zotero.org/wenjie_xu2000", "_blank");
         },
       },{
-          id: 'lang-en',
-          title: 'en',
+          id: 'lang-en_US',
+          title: 'en_US',
           section: '语言',
           handler: () => {
             window.location.href = "" + updatedUrl;
           },
         },{
-          id: 'lang-de',
-          title: 'de',
+          id: 'lang-de_DE',
+          title: 'de_DE',
           section: '语言',
           handler: () => {
-            window.location.href = "/de" + updatedUrl;
+            window.location.href = "/de_DE" + updatedUrl;
           },
         },{
-          id: 'lang-ja',
-          title: 'ja',
+          id: 'lang-ja_JP',
+          title: 'ja_JP',
           section: '语言',
           handler: () => {
-            window.location.href = "/ja" + updatedUrl;
+            window.location.href = "/ja_JP" + updatedUrl;
           },
         },{
       id: 'light-theme',
