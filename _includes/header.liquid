@@ -137,17 +137,21 @@
                 {% if site.active_lang == site.default_lang %}
                   <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}/{{ other_language }}{{ page.url }}" {%- endstatic_href %}>
                     <svg
-                      class="ml-1"
-                      style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:black;stroke-width:1.5;display:inline;"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
                       viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      focusable="false"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-globe-icon lucide-globe ml-1"
+                      style="vertical-align:-0.15em;display:inline;"
                     >
                       <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
-                      <path d="M12 2a10 10 0 0 1 0 20a10 10 0 0 1 0-20"/>
-                      <path d="M4.93 4.93a10 10 0 0 1 14.14 0"/>
-                      <path d="M4.93 19.07a10 10 0 0 0 14.14 0"/>
                     </svg>
                     {% if site.country_flag %}
                       <span class="fi fi-{{ other_language | split: "-" | last }}"></span>
@@ -157,21 +161,27 @@
                   </a>
                 {% else %}
                   <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}{{ page.url }}" {%- endstatic_href %}>
+                    <!-- 使用你喜欢的 globe 图标 -->
                     <svg
-                      class="ml-1"
-                      style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:black;stroke-width:1.5;display:inline;"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
                       viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      focusable="false"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-globe-icon lucide-globe ml-1"
+                      style="vertical-align:-0.15em;display:inline;"
                     >
                       <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
-                      <path d="M12 2a10 10 0 0 1 0 20a10 10 0 0 1 0-20"/>
-                      <path d="M4.93 4.93a10 10 0 0 1 14.14 0"/>
-                      <path d="M4.93 19.07a10 10 0 0 0 14.14 0"/>
                     </svg>
                     {% if site.country_flag %}
-                      <span class="fi fi-{{ site.default_lang | split: "-" | last }}"></span>
+                      <!-- 通过 "_" 分割语言代码以获取国家代码 -->
+                      <span class="fi fi-{{ site.default_lang | split: "_" | last }}"></span>
                     {% else %}
                       {{ site.default_lang | upcase }}
                     {%- endif -%}
@@ -190,17 +200,21 @@
                   aria-expanded="false"
                 >
                   <svg
-                    class="ml-1"
-                    style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:black;stroke-width:1.5;display:inline;"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
                     viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    focusable="false"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-globe-icon lucide-globe ml-1"
+                    style="vertical-align:-0.15em;display:inline;"
                   >
                     <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                     <path d="M2 12h20"/>
-                    <path d="M12 2a10 10 0 0 1 0 20a10 10 0 0 1 0-20"/>
-                    <path d="M4.93 4.93a10 10 0 0 1 14.14 0"/>
-                    <path d="M4.93 19.07a10 10 0 0 0 14.14 0"/>
                   </svg>
                   {% if site.country_flag %}
                     <span class="fi fi-{{ site.active_lang | split: "-" | last }}"></span>
