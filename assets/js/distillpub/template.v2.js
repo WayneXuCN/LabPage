@@ -1503,7 +1503,7 @@ ${math}
 `
   );
 
-  class Abstract extends T$1(HTMLElement) {}
+  class Abstract extends T$1(HTMLElement) { }
 
   // Copyright 2018 The Distill Template Authors
 
@@ -1572,7 +1572,7 @@ d-appendix > distill-appendix {
     false
   );
 
-  class Appendix extends T$2(HTMLElement) {}
+  class Appendix extends T$2(HTMLElement) { }
 
   // Copyright 2018 The Distill Template Authors
   //
@@ -1612,7 +1612,7 @@ d-appendix > distill-appendix {
                   if (!isOnlyWhitespace.test(text)) {
                     console.warn(
                       "Use of unwrapped text in distill articles is discouraged as it breaks layout! Please wrap any text in a <span> or <p> tag. We found the following text: " +
-                        text
+                      text
                     );
                     const wrapper = document.createElement("span");
                     wrapper.innerHTML = addedNode.nodeValue;
@@ -2079,22 +2079,21 @@ d-appendix > distill-appendix {
         .map(
           (author) => `
         <p class="author">
-          ${
-            author.personalURL
+          ${author.personalURL
               ? `
             <a class="name" href="${author.personalURL}">${author.name}</a>`
               : `
             <span class="name">${author.name}</span>`
-          }
+            }
         </p>
         <p class="affiliation">
         ${author.affiliations
-          .map((affiliation) =>
-            affiliation.url
-              ? `<a class="affiliation" href="${affiliation.url}">${affiliation.name}</a>`
-              : `<span class="affiliation">${affiliation.name}</span>`
-          )
-          .join(", ")}
+              .map((affiliation) =>
+                affiliation.url
+                  ? `<a class="affiliation" href="${affiliation.url}">${affiliation.name}</a>`
+                  : `<span class="affiliation">${affiliation.name}</span>`
+              )
+              .join(", ")}
         </p>
       `
         )
@@ -2102,11 +2101,10 @@ d-appendix > distill-appendix {
     </div>
     <div>
       <h3>Published</h3>
-      ${
-        frontMatter.publishedDate
-          ? `
+      ${frontMatter.publishedDate
+        ? `
         <p>${frontMatter.publishedMonth} ${frontMatter.publishedDay}, ${frontMatter.publishedYear}</p> `
-          : `
+        : `
         <p><em>Not published yet.</em></p>`
       }
     </div>
@@ -2136,7 +2134,7 @@ d-appendix > distill-appendix {
 }
 
 .citation {
-  color: hsla(206, 90%, 20%, 0.7);
+  color: var(--global-theme-color);
 }
 
 .citation-number {
@@ -2144,7 +2142,7 @@ d-appendix > distill-appendix {
   white-space: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", Helvetica, sans-serif;
   font-size: 75%;
-  color: hsla(206, 90%, 20%, 0.7);
+  color: var(--global-theme-color);
   display: inline-block;
   line-height: 1.1em;
   text-align: center;
@@ -2278,9 +2276,9 @@ ul li:last-of-type {
       if (!this.hoverBox) return;
       this.hoverBox.innerHTML = `<ul>
       ${entries
-        .map(hover_cite)
-        .map((html) => `<li>${html}</li>`)
-        .join("\n")}
+          .map(hover_cite)
+          .map((html) => `<li>${html}</li>`)
+          .join("\n")}
     </ul>`;
     }
   }
@@ -2605,7 +2603,7 @@ d-citation-list .references .title {
 
           _.hooks.run("before-all-elements-highlight", env);
 
-          for (var i = 0, element; (element = env.elements[i++]); ) {
+          for (var i = 0, element; (element = env.elements[i++]);) {
             _.highlightElement(element, async === true, env.callback);
           }
         },
@@ -2727,7 +2725,7 @@ d-citation-list .references .title {
               return;
             }
 
-            for (var i = 0, callback; (callback = callbacks[i++]); ) {
+            for (var i = 0, callback; (callback = callbacks[i++]);) {
               callback(env);
             }
           },
@@ -4277,7 +4275,7 @@ sup {
 }
 
 span {
-  color: hsla(206, 90%, 20%, 0.7);
+  color: var(--global-theme-color);
   cursor: default;
 }
 
@@ -4446,14 +4444,26 @@ d-footnote-list a.footnote-backlink {
   top: 0;
   left: 0;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(250, 250, 250, 0.95);
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  box-sizing: border-box;
+  /* Original styles retained and new theming variables added */
+  border: 1px solid var(--global-divider-color); /* Themed border */
+  background-color: var(--global-card-bg-color); /* Themed background */
+  color: var(--global-text-color); /* Themed text color */
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); /* Existing shadow */
+  border-radius: 4px; /* Existing border-radius */
+  box-sizing: border-box; /* Existing box-sizing */
 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px); /* Existing backdrop-filter */
+  -webkit-backdrop-filter: blur(2px); /* Existing backdrop-filter */
+}
+
+.panel a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.panel a:hover {
+  color: var(--global-hover-color);
+  text-decoration: underline;
 }
 
 </style>
@@ -4471,7 +4481,7 @@ d-footnote-list a.footnote-backlink {
       super();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
 
     listen(element) {
       // console.log(element)
@@ -4601,7 +4611,7 @@ d-references {
     false
   );
 
-  class References extends T$8(HTMLElement) {}
+  class References extends T$8(HTMLElement) { }
 
   // Copyright 2018 The Distill Template Authors
   //
@@ -5165,7 +5175,7 @@ p small {
     return prototype;
   }
 
-  function Color() {}
+  function Color() { }
 
   var darker = 0.7;
   var brighter = 1 / darker;
@@ -5372,11 +5382,11 @@ p small {
               ? rgba((m >> 24) & 0xff, (m >> 16) & 0xff, (m >> 8) & 0xff, (m & 0xff) / 0xff) // #ff000000
               : l === 4
                 ? rgba(
-                    ((m >> 12) & 0xf) | ((m >> 8) & 0xf0),
-                    ((m >> 8) & 0xf) | ((m >> 4) & 0xf0),
-                    ((m >> 4) & 0xf) | (m & 0xf0),
-                    (((m & 0xf) << 4) | (m & 0xf)) / 0xff
-                  ) // #f000
+                  ((m >> 12) & 0xf) | ((m >> 8) & 0xf0),
+                  ((m >> 8) & 0xf) | ((m >> 4) & 0xf0),
+                  ((m >> 4) & 0xf) | (m & 0xf0),
+                  (((m & 0xf) << 4) | (m & 0xf)) / 0xff
+                ) // #f000
                 : null) // invalid hex
       : (m = reRgbInteger.exec(format))
         ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
@@ -5780,8 +5790,8 @@ p small {
     return (y = +y) === 1
       ? nogamma
       : function (a, b) {
-          return b - a ? exponential(a, b, y) : constant(isNaN(a) ? b : a);
-        };
+        return b - a ? exponential(a, b, y) : constant(isNaN(a) ? b : a);
+      };
   }
 
   function nogamma(a, b) {
@@ -5917,14 +5927,12 @@ p small {
       if ((bs = bm.index) > bi) {
         // a string precedes the next number in b
         bs = b.slice(bi, bs);
-        if (s[i])
-          s[i] += bs; // coalesce with previous string
+        if (s[i]) s[i] += bs; // coalesce with previous string
         else s[++i] = bs;
       }
       if ((am = am[0]) === (bm = bm[0])) {
         // numbers in a & b match
-        if (s[i])
-          s[i] += bm; // coalesce with previous string
+        if (s[i]) s[i] += bm; // coalesce with previous string
         else s[++i] = bm;
       } else {
         // interpolate non-matching numbers
@@ -5937,8 +5945,7 @@ p small {
     // Add remains of b.
     if (bi < b.length) {
       bs = b.slice(bi);
-      if (s[i])
-        s[i] += bs; // coalesce with previous string
+      if (s[i]) s[i] += bs; // coalesce with previous string
       else s[++i] = bs;
     }
 
@@ -5961,22 +5968,22 @@ p small {
     return b == null || t === "boolean"
       ? constant(b)
       : (t === "number"
-          ? interpolateNumber
-          : t === "string"
-            ? (c = color(b))
-              ? ((b = c), rgb$1)
-              : string
-            : b instanceof color
-              ? rgb$1
-              : b instanceof Date
-                ? date
-                : isNumberArray(b)
-                  ? numberArray
-                  : Array.isArray(b)
-                    ? genericArray
-                    : (typeof b.valueOf !== "function" && typeof b.toString !== "function") || isNaN(b)
-                      ? object
-                      : interpolateNumber)(a, b);
+        ? interpolateNumber
+        : t === "string"
+          ? (c = color(b))
+            ? ((b = c), rgb$1)
+            : string
+          : b instanceof color
+            ? rgb$1
+            : b instanceof Date
+              ? date
+              : isNumberArray(b)
+                ? numberArray
+                : Array.isArray(b)
+                  ? genericArray
+                  : (typeof b.valueOf !== "function" && typeof b.toString !== "function") || isNaN(b)
+                    ? object
+                    : interpolateNumber)(a, b);
   }
 
   function interpolateRound(a, b) {
@@ -6008,8 +6015,8 @@ p small {
   function normalize(a, b) {
     return (b -= a = +a)
       ? function (x) {
-          return (x - a) / b;
-        }
+        return (x - a) / b;
+      }
       : constant$1(isNaN(b) ? NaN : 0.5);
   }
 
@@ -6315,9 +6322,9 @@ p small {
 
   function formatLocale(locale) {
     var group =
-        locale.grouping === undefined || locale.thousands === undefined
-          ? identity$1
-          : formatGroup(map.call(locale.grouping, Number), locale.thousands + ""),
+      locale.grouping === undefined || locale.thousands === undefined
+        ? identity$1
+        : formatGroup(map.call(locale.grouping, Number), locale.thousands + ""),
       currencyPrefix = locale.currency === undefined ? "" : locale.currency[0] + "",
       currencySuffix = locale.currency === undefined ? "" : locale.currency[1] + "",
       decimal = locale.decimal === undefined ? "." : locale.decimal + "",
@@ -6634,11 +6641,11 @@ p small {
           if (date >= date) {
             if (step < 0)
               while (++step <= 0) {
-                while ((offseti(date, -1), !test(date))) {} // eslint-disable-line no-empty
+                while ((offseti(date, -1), !test(date))) { } // eslint-disable-line no-empty
               }
             else
               while (--step >= 0) {
-                while ((offseti(date, +1), !test(date))) {} // eslint-disable-line no-empty
+                while ((offseti(date, +1), !test(date))) { } // eslint-disable-line no-empty
               }
           }
         }
@@ -6659,14 +6666,14 @@ p small {
           : !(step > 1)
             ? interval
             : interval.filter(
-                field
-                  ? function (d) {
-                      return field(d) % step === 0;
-                    }
-                  : function (d) {
-                      return interval.count(0, d) % step === 0;
-                    }
-              );
+              field
+                ? function (d) {
+                  return field(d) % step === 0;
+                }
+                : function (d) {
+                  return interval.count(0, d) % step === 0;
+                }
+            );
       };
     }
 
@@ -6829,15 +6836,15 @@ p small {
     return !isFinite((k = Math.floor(k))) || !(k > 0)
       ? null
       : newInterval(
-          function (date) {
-            date.setFullYear(Math.floor(date.getFullYear() / k) * k);
-            date.setMonth(0, 1);
-            date.setHours(0, 0, 0, 0);
-          },
-          function (date, step) {
-            date.setFullYear(date.getFullYear() + step * k);
-          }
-        );
+        function (date) {
+          date.setFullYear(Math.floor(date.getFullYear() / k) * k);
+          date.setMonth(0, 1);
+          date.setHours(0, 0, 0, 0);
+        },
+        function (date, step) {
+          date.setFullYear(date.getFullYear() + step * k);
+        }
+      );
   };
 
   var utcMinute = newInterval(
@@ -6945,15 +6952,15 @@ p small {
     return !isFinite((k = Math.floor(k))) || !(k > 0)
       ? null
       : newInterval(
-          function (date) {
-            date.setUTCFullYear(Math.floor(date.getUTCFullYear() / k) * k);
-            date.setUTCMonth(0, 1);
-            date.setUTCHours(0, 0, 0, 0);
-          },
-          function (date, step) {
-            date.setUTCFullYear(date.getUTCFullYear() + step * k);
-          }
-        );
+        function (date) {
+          date.setUTCFullYear(Math.floor(date.getUTCFullYear() / k) * k);
+          date.setUTCMonth(0, 1);
+          date.setUTCHours(0, 0, 0, 0);
+        },
+        function (date, step) {
+          date.setUTCFullYear(date.getUTCFullYear() + step * k);
+        }
+      );
   };
 
   function localDate(d) {
@@ -7657,7 +7664,7 @@ p small {
 
   var parseIso = +new Date("2000-01-01T00:00:00.000Z") ? parseIsoNative : utcParse(isoSpecifier);
 
-  var noop = { value: function () {} };
+  var noop = { value: function () { } };
 
   function dispatch() {
     for (var i = 0, n = arguments.length, _ = {}, t; i < n; ++i) {
@@ -7781,14 +7788,14 @@ p small {
     return (fullname.local ? creatorFixed : creatorInherit)(fullname);
   }
 
-  function none() {}
+  function none() { }
 
   function selector(selector) {
     return selector == null
       ? none
       : function () {
-          return this.querySelector(selector);
-        };
+        return this.querySelector(selector);
+      };
   }
 
   function selection_select(select) {
@@ -7814,8 +7821,8 @@ p small {
     return selector == null
       ? empty
       : function () {
-          return this.querySelectorAll(selector);
-        };
+        return this.querySelectorAll(selector);
+      };
   }
 
   function selection_selectAll(select) {
@@ -8026,12 +8033,12 @@ p small {
   function selection_merge(selection) {
     for (
       var groups0 = this._groups,
-        groups1 = selection._groups,
-        m0 = groups0.length,
-        m1 = groups1.length,
-        m = Math.min(m0, m1),
-        merges = new Array(m0),
-        j = 0;
+      groups1 = selection._groups,
+      m0 = groups0.length,
+      m1 = groups1.length,
+      m = Math.min(m0, m1),
+      merges = new Array(m0),
+      j = 0;
       j < m;
       ++j
     ) {
@@ -8050,8 +8057,8 @@ p small {
   }
 
   function selection_order() {
-    for (var groups = this._groups, j = -1, m = groups.length; ++j < m; ) {
-      for (var group = groups[j], i = group.length - 1, next = group[i], node; --i >= 0; ) {
+    for (var groups = this._groups, j = -1, m = groups.length; ++j < m;) {
+      for (var group = groups[j], i = group.length - 1, next = group[i], node; --i >= 0;) {
         if ((node = group[i])) {
           if (next && node.compareDocumentPosition(next) ^ 4) next.parentNode.insertBefore(node, next);
           next = node;
@@ -8228,8 +8235,8 @@ p small {
   function selection_style(name, value, priority) {
     return arguments.length > 1
       ? this.each(
-          (value == null ? styleRemove : typeof value === "function" ? styleFunction : styleConstant)(name, value, priority == null ? "" : priority)
-        )
+        (value == null ? styleRemove : typeof value === "function" ? styleFunction : styleConstant)(name, value, priority == null ? "" : priority)
+      )
       : styleValue(this.node(), name);
   }
 
@@ -9349,7 +9356,7 @@ distill-header .nav a {
 
   const T$b = Template("distill-header", headerTemplate, false);
 
-  class DistillHeader extends T$b(HTMLElement) {}
+  class DistillHeader extends T$b(HTMLElement) { }
 
   // Copyright 2018 The Distill Template Authors
 
@@ -9504,7 +9511,7 @@ distill-header .nav a {
 
   const T$c = Template("distill-footer", footerTemplate);
 
-  class DistillFooter extends T$c(HTMLElement) {}
+  class DistillFooter extends T$c(HTMLElement) { }
 
   // Copyright 2018 The Distill Template Authors
 
