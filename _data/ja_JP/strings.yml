@@ -162,4 +162,9 @@ search:
     title: システムデフォルトを使用
   theme: テーマ
 selected_publications: 代表的な出版物
+toolbox:
+  open_button: 開く
+  github_button: GitHubで見る
+  screenshot_alt: スクリーンショット
+  icon_alt: アイコン
 site_description: 学術向けのシンプルで余白の多いテーマ。[*folio](https://github.com/bogoli/-folio) デザインに基づく。

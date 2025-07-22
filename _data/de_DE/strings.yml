@@ -162,4 +162,9 @@ search:
     title: Systemstandard verwenden
   theme: Design
 selected_publications: Ausgewählte Veröffentlichungen
+toolbox:
+  open_button: Öffnen
+  github_button: Auf GitHub ansehen
+  screenshot_alt: Screenshot
+  icon_alt: Symbol
 site_description: Ein einfaches, whitespace-basiertes Theme für Akademiker. Basierend auf dem [*folio](https://github.com/bogoli/-folio) Design.

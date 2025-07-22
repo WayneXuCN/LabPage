@@ -159,8 +159,13 @@ search:
   projects: Projects
   socials: Socials
   system_theme:
-    description: Change the theme of the site to System Default
-    title: Use system default theme
+    description: Follow the system theme
+    title: Use the system default theme
   theme: Theme
-selected_publications: selected publications
+selected_publications: Selected publications
+toolbox:
+  open_button: Open
+  github_button: View on GitHub
+  screenshot_alt: screenshot
+  icon_alt: icon
 site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.

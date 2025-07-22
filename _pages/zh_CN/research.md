@@ -2,7 +2,7 @@
 page_id: research
 layout: page
 permalink: /research/
-title: 科研
+title: 研究
 nav: false
 description: 我的研究兴趣与正在进行的项目
 research_questions:
