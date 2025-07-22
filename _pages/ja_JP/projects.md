@@ -6,7 +6,7 @@ permalink: /projects/
 description: 増え続ける私のクールなプロジェクト集。
 nav: true
 nav_order: 3
-display_categories: [仕事, 趣味]
+display_categories: [work, fun]
 horizontal: false
 ---
 

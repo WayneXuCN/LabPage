@@ -1,5 +1,5 @@
 ---
-lang-exclusive: ['en']
+lang-exclusive: ['en_US']
 permalink: /assets/js/open-panel-analytics-setup.js
 ---
 window.op =

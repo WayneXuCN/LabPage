@@ -6,7 +6,7 @@ permalink: /projects/
 description: 项目合集
 nav: true
 nav_order: 3
-display_categories: [工作, 娱乐]
+display_categories: [work, fun]
 horizontal: false
 ---
 

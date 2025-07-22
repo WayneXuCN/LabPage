@@ -3,7 +3,7 @@ layout: page
 title: Typst-ucas-thesis
 description: UCAS thesis Template Based on Typst
 img: assets/img/project/Typst-ucas-thesis/typstUCAS.png
-importance: 1
+importance: 2
 category: work
 giscus_comments: true
 ---

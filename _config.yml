@@ -14,7 +14,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
   This page was automatically translated by generative AI.
 keywords: Wenjie Xu, Wayne Xu, 徐文杰，UCAS, University of Chinese Academy of Sciences, Institutes of Science and Development, Chinese Academy of Sciences # add your own keywords or leave empty
-lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
+lang: en_US # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://waynexucn.github.io/ # the base hostname & protocol for your site
@@ -105,7 +105,7 @@ giscus:
   input_position: bottom # whether to display input form below (bottom) or above (top) the comments
   theme: preferred_color_scheme # name of the color scheme (preferred works well with al-folio light/dark mode)
   emit_metadata: 0
-  lang: zh-CN
+  lang: zh_CN
 
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
