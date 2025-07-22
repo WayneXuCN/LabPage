@@ -55,14 +55,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "dropdown-app",
-              title: "App",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/apps/";
-              },
-            },{id: "dropdown-bookshelf",
+        },{id: "nav-toolbox",
+          title: "Toolbox",
+          description: "A collection of handy apps, scripts, and tools—some created by me, some open source.",
+          section: "Navigation menu",
+          handler: () => {
+            window.location.href = "/toolbox/";
+          },
+        },{id: "dropdown-bookshelf",
               title: "Bookshelf",
               description: "",
               section: "Dropdown",
@@ -321,21 +321,16 @@ ninja.data = [{
           section: "News",},{id: "news-excellent-undergraduate-thesis-of-jiangsu-province-first-prize-2023",
           title: 'Excellent Undergraduate Thesis of Jiangsu Province, First Prize 2023',
           description: "",
-          section: "News",},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "UCAS Thesis-Vorlage basierend auf Typst",
+          section: "News",},{id: "projects-microsofthostspicker",
+          title: 'MicrosoftHostsPicker',
+          description: "A modern, asynchronous Python tool to automatically find and select the fastest IP addresses for Microsoft services.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/de/Typst%20for%20UCAS%20thesis/";
+              window.location.href = "/projects/en_US/MicrosoftHostsPicker/";
             },},{id: "projects-typst-ucas-thesis",
           title: 'Typst-ucas-thesis',
           description: "UCAS thesis Template Based on Typst",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/en/Typst%20for%20UCAS%20thesis/";
-            },},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "基于 Typst 的中国科学院大学学位论文模板",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
+              window.location.href = "/projects/en_US/Typst%20for%20UCAS%20thesis/";
             },},{
         id: 'social-email',
         title: 'Send an email',
@@ -433,8 +428,8 @@ ninja.data = [{
     },
     {
       id: 'system-theme',
-      title: 'Use system default theme',
-      description: 'Change the theme of the site to System Default',
+      title: 'Use the system default theme',
+      description: 'Follow the system theme',
       section: 'Theme',
       handler: () => {
         setThemeSetting("system");

@@ -55,14 +55,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/ja_JP/publications/";
           },
-        },{id: "dropdown-アプリ",
-              title: "アプリ",
-              description: "",
-              section: "ドロップダウン",
-              handler: () => {
-                window.location.href = "/ja_JP/apps/";
-              },
-            },{id: "dropdown-本棚",
+        },{id: "nav-工具",
+          title: "工具",
+          description: "個人制作やオープンソースの便利なアプリ、スクリプト、ツールのコレクションです。",
+          section: "ナビゲーションメニュー",
+          handler: () => {
+            window.location.href = "/ja_JP/toolbox/";
+          },
+        },{id: "dropdown-本棚",
               title: "本棚",
               description: "",
               section: "ドロップダウン",
@@ -321,16 +321,11 @@ ninja.data = [{
           section: "ニュース",},{id: "news-2023年-江蘇省優秀学士論文-一等賞",
           title: '2023年 江蘇省優秀学士論文 一等賞',
           description: "",
-          section: "ニュース",},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "UCAS Thesis-Vorlage basierend auf Typst",
+          section: "ニュース",},{id: "projects-microsofthostspicker",
+          title: 'MicrosoftHostsPicker',
+          description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
           section: "プロジェクト",handler: () => {
-              window.location.href = "/ja_JP/projects/de/Typst%20for%20UCAS%20thesis/";
-            },},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "UCAS thesis Template Based on Typst",
-          section: "プロジェクト",handler: () => {
-              window.location.href = "/ja_JP/projects/en/Typst%20for%20UCAS%20thesis/";
+              window.location.href = "/ja_JP/projects/ja_JP/MicrosoftHostsPicker/";
             },},{id: "projects-typst-ucas-thesis",
           title: 'Typst-ucas-thesis',
           description: "Typst に基づく中国科学院大学論文テンプレート",

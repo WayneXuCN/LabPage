@@ -55,14 +55,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/zh_CN/publications/";
           },
-        },{id: "dropdown-应用",
-              title: "应用",
-              description: "",
-              section: "下拉菜单",
-              handler: () => {
-                window.location.href = "/zh_CN/apps/";
-              },
-            },{id: "dropdown-书架",
+        },{id: "nav-工具",
+          title: "工具",
+          description: "收录了我个人开发和部分开源的小程序、脚本与工具。",
+          section: "导航菜单",
+          handler: () => {
+            window.location.href = "/zh_CN/toolbox/";
+          },
+        },{id: "dropdown-书架",
               title: "书架",
               description: "",
               section: "下拉菜单",
@@ -321,16 +321,11 @@ ninja.data = [{
           section: "新闻",},{id: "news-2023年江苏省优秀本科毕业论文一等奖",
           title: '2023年江苏省优秀本科毕业论文一等奖',
           description: "",
-          section: "新闻",},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "UCAS Thesis-Vorlage basierend auf Typst",
+          section: "新闻",},{id: "projects-microsofthostspicker",
+          title: 'MicrosoftHostsPicker',
+          description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
           section: "项目",handler: () => {
-              window.location.href = "/zh_CN/projects/de/Typst%20for%20UCAS%20thesis/";
-            },},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "UCAS thesis Template Based on Typst",
-          section: "项目",handler: () => {
-              window.location.href = "/zh_CN/projects/en/Typst%20for%20UCAS%20thesis/";
+              window.location.href = "/zh_CN/projects/zh_CN/MicrosoftHostsPicker/";
             },},{id: "projects-typst-ucas-thesis",
           title: 'Typst-ucas-thesis',
           description: "基于 Typst 的中国科学院大学学位论文模板",

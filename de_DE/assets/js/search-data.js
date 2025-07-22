@@ -55,14 +55,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/de_DE/publications/";
           },
-        },{id: "dropdown-app",
-              title: "App",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/de_DE/apps/";
-              },
-            },{id: "dropdown-bücherregal",
+        },{id: "nav-werkzeug",
+          title: "Werkzeug",
+          description: "Eine Sammlung nützlicher Apps, Skripte und Tools – teils von mir entwickelt, teils Open Source.",
+          section: "Navigationsmenü",
+          handler: () => {
+            window.location.href = "/de_DE/toolbox/";
+          },
+        },{id: "dropdown-bücherregal",
               title: "Bücherregal",
               description: "",
               section: "Dropdown",
@@ -321,21 +321,16 @@ ninja.data = [{
           section: "Nachrichten",},{id: "news-ausgezeichnete-bachelorarbeit-der-provinz-jiangsu-erster-preis-2023",
           title: 'Ausgezeichnete Bachelorarbeit der Provinz Jiangsu, Erster Preis 2023',
           description: "",
-          section: "Nachrichten",},{id: "projects-typst-ucas-thesis",
+          section: "Nachrichten",},{id: "projects-microsofthostspicker",
+          title: 'MicrosoftHostsPicker',
+          description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
+          section: "Projekte",handler: () => {
+              window.location.href = "/de_DE/projects/de_DE/MicrosoftHostsPicker/";
+            },},{id: "projects-typst-ucas-thesis",
           title: 'Typst-ucas-thesis',
           description: "UCAS Thesis-Vorlage basierend auf Typst",
           section: "Projekte",handler: () => {
-              window.location.href = "/de_DE/projects/de/Typst%20for%20UCAS%20thesis/";
-            },},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "UCAS thesis Template Based on Typst",
-          section: "Projekte",handler: () => {
-              window.location.href = "/de_DE/projects/en/Typst%20for%20UCAS%20thesis/";
-            },},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "基于 Typst 的中国科学院大学学位论文模板",
-          section: "Projekte",handler: () => {
-              window.location.href = "/de_DE/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
+              window.location.href = "/de_DE/projects/de_DE/Typst%20for%20UCAS%20thesis/";
             },},{
         id: 'social-email',
         title: 'E-Mail senden',
