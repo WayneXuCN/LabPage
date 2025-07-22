@@ -17,6 +17,7 @@ nav_order: 6
   {% for app in site.data[site.active_lang].toolbox %}
     {% if app.type == t %}
     <div class="app-card">
+      <!-- App 卡片截图建议尺寸：宽≥640px，高约320~360px，比例接近16:9或2:1。主要内容居中，避免重要信息靠近边缘。图片会以 object-fit: cover 裁剪显示。 -->
       <img class="app-screenshot" src="{{ app.screenshot }}" alt="{{ app.title }} {{ site.data[site.active_lang].strings.toolbox.screenshot_alt }}">
       <div class="app-info">
         <img class="app-icon" src="{{ app.icon }}" alt="{{ app.title }} {{ site.data[site.active_lang].strings.toolbox.icon_alt }}">
