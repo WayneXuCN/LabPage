@@ -17,10 +17,14 @@ nav_order: 6
   {% for app in site.data[site.active_lang].toolbox %}
     {% if app.type == t %}
     <div class="app-card">
-      <img class="app-screenshot" src="{{ app.screenshot }}" alt="{{ app.title }} {{ site.data[site.active_lang].strings.toolbox.screenshot_alt }}">
+      <div class="app-screenshot-wrapper" style="background-image: url('{{ app.screenshot }}')">
+        <img class="app-screenshot" src="{{ app.screenshot }}" alt="{{ app.title }} {{ site.data[site.active_lang].strings.toolbox.screenshot_alt }}">
+      </div>
       <div class="app-info">
-        <img class="app-icon" src="{{ app.icon }}" alt="{{ app.title }} {{ site.data[site.active_lang].strings.toolbox.icon_alt }}">
-        <div class="app-title">{{ app.title }}</div>
+        <div class="app-header">
+          <img class="app-icon" src="{{ app.icon }}" alt="{{ app.title }} {{ site.data[site.active_lang].strings.toolbox.icon_alt }}">
+          <div class="app-title">{{ app.title }}</div>
+        </div>
         <div class="app-desc">{{ app.desc }}</div>
         <div class="app-actions">
           <a class="app-btn open" href="{{ app.open_url }}" target="_blank">{{ site.data[site.active_lang].strings.toolbox.open_button }}</a>
