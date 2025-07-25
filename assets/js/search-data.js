@@ -321,7 +321,12 @@ ninja.data = [{
           section: "News",},{id: "news-excellent-undergraduate-thesis-of-jiangsu-province-first-prize-2023",
           title: 'Excellent Undergraduate Thesis of Jiangsu Province, First Prize 2023',
           description: "",
-          section: "News",},{id: "projects-microsofthostspicker",
+          section: "News",},{id: "projects-hostimagebackup",
+          title: 'HostImageBackup',
+          description: "A modular Python CLI tool for backing up images from various image hosting services to your local machine with ease.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/en_US/HostImageBackup/";
+            },},{id: "projects-microsofthostspicker",
           title: 'MicrosoftHostsPicker',
           description: "A modern, asynchronous Python tool to automatically find and select the fastest IP addresses for Microsoft services.",
           section: "Projects",handler: () => {

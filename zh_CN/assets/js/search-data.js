@@ -321,7 +321,12 @@ ninja.data = [{
           section: "新闻",},{id: "news-2023年江苏省优秀本科毕业论文一等奖",
           title: '2023年江苏省优秀本科毕业论文一等奖',
           description: "",
-          section: "新闻",},{id: "projects-microsofthostspicker",
+          section: "新闻",},{id: "projects-hostimagebackup",
+          title: 'HostImageBackup',
+          description: "一个模块化的 Python 命令行工具，轻松将各类图床服务的图片备份到本地。",
+          section: "项目",handler: () => {
+              window.location.href = "/zh_CN/projects/zh_CN/HostImageBackup/";
+            },},{id: "projects-microsofthostspicker",
           title: 'MicrosoftHostsPicker',
           description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
           section: "项目",handler: () => {

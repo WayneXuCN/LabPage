@@ -321,7 +321,12 @@ ninja.data = [{
           section: "Nachrichten",},{id: "news-ausgezeichnete-bachelorarbeit-der-provinz-jiangsu-erster-preis-2023",
           title: 'Ausgezeichnete Bachelorarbeit der Provinz Jiangsu, Erster Preis 2023',
           description: "",
-          section: "Nachrichten",},{id: "projects-microsofthostspicker",
+          section: "Nachrichten",},{id: "projects-hostimagebackup",
+          title: 'HostImageBackup',
+          description: "Ein modulares Python-CLI-Tool zum einfachen Sichern von Bildern von verschiedenen Bild-Hosting-Diensten auf Ihren lokalen Rechner.",
+          section: "Projekte",handler: () => {
+              window.location.href = "/de_DE/projects/de_DE/HostImageBackup/";
+            },},{id: "projects-microsofthostspicker",
           title: 'MicrosoftHostsPicker',
           description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
           section: "Projekte",handler: () => {
