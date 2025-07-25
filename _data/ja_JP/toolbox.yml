@@ -27,12 +27,12 @@
   open_url: /app/MicrosoftHostsPicker/index.html
   github_url: https://github.com/waynexucn/MicrosoftHostsPicker
 - type: コマンドラインツール
-  title: Python-Markdown
-  desc: John GruberのMarkdownのPython実装。
-  icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/pymarkdown_screenshot.png
-  open_url: https://github.com/Python-Markdown/markdown
-  github_url: https://github.com/Python-Markdown/markdown
+  title: HostImageBackup
+  desc: Pythonベースのコマンドラインツールで、各種画像ホスティングサービスの画像をローカルにバックアップできます。
+  icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg
+  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/HostImageBackup_screenshot.png
+  open_url: /app/HostImageBackup/index.html
+  github_url: https://github.com/waynexucn/HostImageBackup
 - type: コマンドラインツール
   title: Python-Markdown
   desc: John GruberのMarkdownのPython実装。

@@ -3,7 +3,7 @@ layout: page
 title: MicrosoftHostsPicker
 description: A modern, asynchronous Python tool to automatically find and select the fastest IP addresses for Microsoft services.
 img: assets/img/project/MicrosoftHostsPicker/MicrosoftHostsPicker.png
-importance: 1
+importance: 2
 category: fun
 giscus_comments: true
 ---
