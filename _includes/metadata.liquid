@@ -15,74 +15,30 @@
 {% endif %}
 
 {% capture author_name %}{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}{% endcapture %}
-
 <!-- Standard metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-{% if site.title == 'blank' %}
-  {% capture title %}{{ author_name }}{% endcapture %}
-{% else %}
-  {% capture title %}{{ site.title }}{% endcapture %}
-{% endif %}
-{% if page.title != null and page.title != '' %}
-  {% if page.url == '/blog/index.html' %}
-    {% capture page_title %}{{ site.data[site.active_lang].strings.blog.navigation_title }}{% endcapture %}
-  {% else %}
-    {% assign page_title = page.title %}
-  {% endif %}
-{% else %}
-  {% assign page_title = null %}
-{% endif %}
-{% if page_title %}
-  {% assign title_array = '' | split: ',' %}
-  {% assign splitted_description_by_space = page_title | split: ' ' %}
-  {% for outer_part in splitted_description_by_space %}
-    {% if outer_part contains '.' %}
-      {% capture contains_localization %}{% localization_exists {{ outer_part }} %}{% endcapture %}
-      {% if contains_localization == 'true' %}
-        {% assign first_part = outer_part | split: '.' | first %}
-        {% assign last_part = outer_part | split: '.' | last %}
-        {% capture temp_var %}{{ site.data[site.active_lang].strings[first_part][last_part] }}{% endcapture %}
-        {% assign title_array = title_array | push: temp_var %}
-      {% else %}
-        {% capture temp_var %}{{ outer_part }}{% endcapture %}
-        {% assign title_array = title_array | push: temp_var %}
-      {% endif %}
-    {% else %}
-      {% capture temp_var %}{{ outer_part }}{% endcapture %}
-      {% assign title_array = title_array | push: temp_var %}
-    {% endif %}
-  {% endfor %}
-  {% assign page_title = title_array | join: ' ' %}
-{% endif %}
-{% if page.description %}
-  {% assign description = page.description %}
-{% else %}
-  {% assign description = site.data[site.active_lang].strings.site_description %}
-{% endif %}
 <title>
+  {% if site.title == 'blank' %}
+    {% capture title %}{{ author_name }}{% endcapture %}
+  {% else %}
+    {% capture title %}{{ site.title }}{% endcapture %}
+  {% endif %}
   {% if page.url == '/blog/index.html' %}
     {{ page.title }} | {{ title }}
-  {% elsif page.url contains '/blog/' %}
-    {% capture blog_year %}{{ page.url | slice: 0, 11 }}{% endcapture %}
-    {% if page.url == blog_year %}
-      {{ page.date | date: '%Y' }} | {{ title }}
-    {% else %}
-      {{ page_title }} | {{ title }}
-    {% endif %}
   {% elsif page.title != 'blank' and page.url != '/' %}
     {% if page.title == null or page.title == '' %}
       {{ page.date | date: '%Y' }} | {{ title }}
     {% else %}
-      {{ page_title }} | {{ title }}
+      {{ page.title }} | {{ title }}
     {% endif %}
   {% else %}
     {{ title }}
   {% endif %}
 </title>
 <meta name="author" content="{{ author_name }}">
-<meta name="description" content="{{ description }}">
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 {% if page.keywords or site.keywords %}
   <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
 {% endif %}
@@ -98,18 +54,18 @@
   <!-- OpenGraph -->
   <meta property="og:site_name" content="{{ title }}">
   <meta property="og:type" content="{% if is_blog_post %}article{% else %}website{% endif %}">
-  <meta property="og:title" content="{% if page.title %}{{ title }} | {{ page_title }}{% else %}{{ title }}{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ title }} | {{ page.title }}{% else %}{{ title }}{% endif %}">
   <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}">
-  <meta property="og:description" content="{{ description }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   {% if page.og_image or site.og_image %}
     <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
   {% endif %}
-  <meta property="og:locale" content="{{ site.active_lang }}">
+  <meta property="og:locale" content="{{ site.lang }}">
 
-  <!-- Twitter card -->
+    <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{% if page.title %}{{ page_title }}{% else %}{{ title }}{% endif %}">
-  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   {% if page.og_image or site.og_image %}
     <meta name="twitter:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
   {% endif %}
@@ -153,6 +109,10 @@
   {% endif %}
   {% if site.scopus_id %}
     {% capture link %}https://www.scopus.com/authid/detail.uri?authorId={{ site.scopus_id }}{% endcapture %}
+    {% assign sameaslinks = sameaslinks | push: link %}
+  {% endif %}
+  {% if site.hal_id %}
+    {% capture link %}https://cv.hal.science/{{ site.hal_id }}{% endcapture %}
     {% assign sameaslinks = sameaslinks | push: link %}
   {% endif %}
   {% if site.github_username %}
@@ -265,20 +225,19 @@
 
   <script type="application/ld+json">
     {
-        "author":
-        {
-            "@type": "Person",
-            "name": "{{ author_name }}"
-        },
-        "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
-        "@type": "{% if is_blog_post %}BlogPosting{% else %}WebSite{% endif %}",
-        "description": "{{ description }}",
-        "headline": "{% if page.title %}{{ page_title }}{% else %}{{ site.title }}{% endif %}",
-        {% if sameaslinks != blank %}
+      "author": {
+        "@type": "Person",
+        "name": "{{ author_name }}"
+      },
+      "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
+      "@type": "{% if is_blog_post %} BlogPosting{% else %}WebSite{% endif %}",
+      "description": "{% if page.description %} {{ page.description }}{% else if site.description %}{{ site.description }}{% endif %}",
+      "headline": "{% if page.title %} {{ page.title }}{% else %}{{ site.title }}{% endif %}",
+      {% if sameaslinks != blank %}
         "sameAs": {{ sameaslinks }},
         {% endif %}
         "name": "{{ author_name }}",
         "@context": "https://schema.org"
-    }
+      }
   </script>
 {% endif %}
