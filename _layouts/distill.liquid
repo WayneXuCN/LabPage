@@ -98,14 +98,24 @@
 
       <d-bibliography src="{{ page.bibliography | prepend: '/assets/bibliography/' | relative_url }}"></d-bibliography>
 
-      {% if site.disqus_shortname and page.disqus_comments %}{% include disqus.liquid %}{% endif %}
-      {% if site.giscus.repo and page.giscus_comments %}
-        {% include giscus.liquid %}
-      {% endif %}
-    </div>
+      <d-article>
+        {% if site.related_blog_posts and site.related_blog_posts.enabled %}
+          {% if page.related_posts == null or page.related_posts %}
+            {% include related_posts.liquid %}
+          {% endif %}
+        {% endif %}
+        <br>
+        <br>
+        {% if site.disqus_shortname and page.disqus_comments %}
+          {% include disqus.liquid %}{% endif %}
+        {% if site.giscus.repo and page.giscus_comments %}
+          {% include giscus.liquid %}
+        {% endif %}
+      </d-article>
+  </div>
 
     <!-- Footer -->
-    {% include footer.liquid %}
+  {% include footer.liquid %}
 
     <!-- JavaScripts -->
     {% include distill_scripts.liquid %}
