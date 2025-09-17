@@ -6,8 +6,10 @@ nav: true # Aktivieren
 nav_order: 7
 dropdown: true
 children:
-  - title: Bücherregal
-    permalink: /books/
+  - title: cv
+    permalink: /cv/
   - title: Personen
     permalink: /people/
+  - title: Bücherregal
+    permalink: /books/
 ---

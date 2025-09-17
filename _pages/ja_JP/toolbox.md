@@ -5,7 +5,7 @@ title: 工具
 permalink: /toolbox/
 description: 個人制作やオープンソースの便利なアプリ、スクリプト、ツールのコレクションです。
 nav: true
-nav_order: 6
+nav_order: 5
 ---
 
 {% assign app_types = site.data[site.active_lang].toolbox | map: 'type' | uniq %}

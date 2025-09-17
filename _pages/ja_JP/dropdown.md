@@ -6,6 +6,8 @@ nav: true # 有効化
 nav_order: 7
 dropdown: true
 children:
+  - title: 履歴
+    permalink: /cv/
   - title: 本棚
     permalink: /books/
   - title: 人物

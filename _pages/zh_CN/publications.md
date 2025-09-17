@@ -5,7 +5,7 @@ permalink: /publications/
 title: 发表
 description: 按类别倒序排列的发表成果
 nav: true
-nav_order: 5
+nav_order: 1
 ---
 
 <!-- _pages/publications.md -->

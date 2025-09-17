@@ -5,7 +5,7 @@ permalink: /people/
 title: 人物
 description: 实验室或团队成员
 nav: false
-nav_order: 7
+nav_order: 6
 
 profiles:
   # if you want to include more than one profile, just replicate the following block

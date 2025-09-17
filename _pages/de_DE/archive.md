@@ -4,6 +4,6 @@ layout: archive-timeline
 permalink: /archive/
 title: Archiv
 nav: true
-nav_order: 2
+nav_order: 5
 description: Brücke zwischen Ideen aus verschiedenen Bereichen
 ---

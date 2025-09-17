@@ -5,7 +5,7 @@ permalink: /publications/
 title: 論文
 description: カテゴリ別に新しい順で並んだ論文一覧。jekyll-scholar により生成。
 nav: true
-nav_order: 5
+nav_order: 1
 ---
 
 <!-- _pages/publications.md -->

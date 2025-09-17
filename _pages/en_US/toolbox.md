@@ -5,7 +5,7 @@ title: Toolbox
 permalink: /toolbox/
 description: A collection of handy apps, scripts, and tools—some created by me, some open source.
 nav: true
-nav_order: 6
+nav_order: 5
 ---
 
 {% assign app_types = site.data[site.active_lang].toolbox | map: 'type' | uniq %}
