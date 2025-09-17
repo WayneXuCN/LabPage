@@ -20,7 +20,21 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/de_DE/";
     },
-  },{id: "nav-blog",
+  },{id: "nav-veröffentlichungen",
+          title: "Veröffentlichungen",
+          description: "Veröffentlichungen nach Kategorien in umgekehrt chronologischer Reihenfolge. Erstellt mit jekyll-scholar.",
+          section: "Navigationsmenü",
+          handler: () => {
+            window.location.href = "/de_DE/publications/";
+          },
+        },{id: "nav-projekte",
+          title: "Projekte",
+          description: "Eine wachsende Sammlung meiner coolen Projekte.",
+          section: "Navigationsmenü",
+          handler: () => {
+            window.location.href = "/de_DE/projects/";
+          },
+        },{id: "nav-blog",
           title: "Blog",
           description: "",
           section: "Navigationsmenü",
@@ -34,27 +48,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/de_DE/archive/";
           },
-        },{id: "nav-projekte",
-          title: "Projekte",
-          description: "Eine wachsende Sammlung meiner coolen Projekte.",
-          section: "Navigationsmenü",
-          handler: () => {
-            window.location.href = "/de_DE/projects/";
-          },
-        },{id: "nav-repositorien",
-          title: "Repositorien",
-          description: "",
-          section: "Navigationsmenü",
-          handler: () => {
-            window.location.href = "/de_DE/repositories/";
-          },
-        },{id: "nav-veröffentlichungen",
-          title: "Veröffentlichungen",
-          description: "Veröffentlichungen nach Kategorien in umgekehrt chronologischer Reihenfolge. Erstellt mit jekyll-scholar.",
-          section: "Navigationsmenü",
-          handler: () => {
-            window.location.href = "/de_DE/publications/";
-          },
         },{id: "nav-werkzeug",
           title: "Werkzeug",
           description: "Eine Sammlung nützlicher Apps, Skripte und Tools – teils von mir entwickelt, teils Open Source.",
@@ -62,12 +55,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/de_DE/toolbox/";
           },
-        },{id: "dropdown-bücherregal",
-              title: "Bücherregal",
+        },{id: "dropdown-cv",
+              title: "cv",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/de_DE/books/";
+                window.location.href = "/de_DE/cv/";
               },
             },{id: "dropdown-personen",
               title: "Personen",
@@ -75,6 +68,13 @@ ninja.data = [{
               section: "Dropdown",
               handler: () => {
                 window.location.href = "/de_DE/people/";
+              },
+            },{id: "dropdown-bücherregal",
+              title: "Bücherregal",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/de_DE/books/";
               },
             },{id: "post-macos-systemkonfigurationsprotokoll",
         

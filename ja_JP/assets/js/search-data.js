@@ -20,7 +20,21 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/ja_JP/";
     },
-  },{id: "nav-ブログ",
+  },{id: "nav-論文",
+          title: "論文",
+          description: "カテゴリ別に新しい順で並んだ論文一覧。jekyll-scholar により生成。",
+          section: "ナビゲーションメニュー",
+          handler: () => {
+            window.location.href = "/ja_JP/publications/";
+          },
+        },{id: "nav-プロジェクト",
+          title: "プロジェクト",
+          description: "増え続ける私のクールなプロジェクト集。",
+          section: "ナビゲーションメニュー",
+          handler: () => {
+            window.location.href = "/ja_JP/projects/";
+          },
+        },{id: "nav-ブログ",
           title: "ブログ",
           description: "",
           section: "ナビゲーションメニュー",
@@ -34,27 +48,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/ja_JP/archive/";
           },
-        },{id: "nav-プロジェクト",
-          title: "プロジェクト",
-          description: "増え続ける私のクールなプロジェクト集。",
-          section: "ナビゲーションメニュー",
-          handler: () => {
-            window.location.href = "/ja_JP/projects/";
-          },
-        },{id: "nav-リポジトリ",
-          title: "リポジトリ",
-          description: "",
-          section: "ナビゲーションメニュー",
-          handler: () => {
-            window.location.href = "/ja_JP/repositories/";
-          },
-        },{id: "nav-論文",
-          title: "論文",
-          description: "カテゴリ別に新しい順で並んだ論文一覧。jekyll-scholar により生成。",
-          section: "ナビゲーションメニュー",
-          handler: () => {
-            window.location.href = "/ja_JP/publications/";
-          },
         },{id: "nav-工具",
           title: "工具",
           description: "個人制作やオープンソースの便利なアプリ、スクリプト、ツールのコレクションです。",
@@ -62,7 +55,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/ja_JP/toolbox/";
           },
-        },{id: "dropdown-本棚",
+        },{id: "dropdown-履歴",
+              title: "履歴",
+              description: "",
+              section: "ドロップダウン",
+              handler: () => {
+                window.location.href = "/ja_JP/cv/";
+              },
+            },{id: "dropdown-本棚",
               title: "本棚",
               description: "",
               section: "ドロップダウン",

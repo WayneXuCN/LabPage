@@ -20,7 +20,21 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/zh_CN/";
     },
-  },{id: "nav-博客",
+  },{id: "nav-发表",
+          title: "发表",
+          description: "按类别倒序排列的发表成果",
+          section: "导航菜单",
+          handler: () => {
+            window.location.href = "/zh_CN/publications/";
+          },
+        },{id: "nav-项目",
+          title: "项目",
+          description: "项目合集",
+          section: "导航菜单",
+          handler: () => {
+            window.location.href = "/zh_CN/projects/";
+          },
+        },{id: "nav-博客",
           title: "博客",
           description: "",
           section: "导航菜单",
@@ -34,27 +48,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/zh_CN/archive/";
           },
-        },{id: "nav-项目",
-          title: "项目",
-          description: "项目合集",
-          section: "导航菜单",
-          handler: () => {
-            window.location.href = "/zh_CN/projects/";
-          },
-        },{id: "nav-仓库",
-          title: "仓库",
-          description: "",
-          section: "导航菜单",
-          handler: () => {
-            window.location.href = "/zh_CN/repositories/";
-          },
-        },{id: "nav-发表",
-          title: "发表",
-          description: "按类别倒序排列的发表成果",
-          section: "导航菜单",
-          handler: () => {
-            window.location.href = "/zh_CN/publications/";
-          },
         },{id: "nav-工具",
           title: "工具",
           description: "收录了我个人开发和部分开源的小程序、脚本与工具。",
@@ -62,7 +55,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/zh_CN/toolbox/";
           },
-        },{id: "dropdown-书架",
+        },{id: "dropdown-简历",
+              title: "简历",
+              description: "",
+              section: "下拉菜单",
+              handler: () => {
+                window.location.href = "/zh_CN/cv/";
+              },
+            },{id: "dropdown-书架",
               title: "书架",
               description: "",
               section: "下拉菜单",
