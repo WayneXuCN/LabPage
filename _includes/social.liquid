@@ -1,5 +1,9 @@
 {% for social in site.data.socials %}
   {% case social[0] %}
+    {% when 'academia_edu' %}
+      <a href="https://{{ social[1].organization }}.academia.edu/{{ social[1].username }}" title="Academia.edu">
+        <i class="ai ai-academia"></i>
+      </a>
     {% when 'acm_id' %}
       <a href="https://dl.acm.org/profile/{{ social[1] }}/" title="ACM DL">
         <i class="ai ai-acm"></i>
@@ -72,14 +76,16 @@
       <a
         href="http://lattes.cnpq.br/{{ social[1] }}"
         target="_blank"
-        title="Lattes">
+        title="Lattes"
+      >
         <i class="ai ai-lattes"></i>
       </a>
     {% when 'leetcode_id' %}
       <a
         href="https://leetcode.com/u/{{ social[1] }}/"
         target="_blank"
-        title="LeetCode">
+        title="LeetCode"
+      >
         <i class="si si-leetcode"></i>
       </a>
     {% when 'linkedin_username' %}
@@ -90,7 +96,8 @@
       <a
         rel="me"
         href="https://{{ social[1] }}"
-        title="Mastodon">
+        title="Mastodon"
+      >
         <i class="fa-brands fa-mastodon"></i>
       </a>
     {% when 'medium_username' %}
@@ -122,9 +129,11 @@
         <i class="ai ai-researchgate"></i>
       </a>
     {% when 'rss_icon' %}
-      <a href="{{ site.baseurl }}/feed.xml" title="RSS Feed">
-        <i class="fa-solid fa-square-rss"></i>
-      </a>
+      {% if social[1] == true %}
+        <a href="{{ site.baseurl }}/feed.xml" title="RSS Feed">
+          <i class="fa-solid fa-square-rss"></i>
+        </a>
+      {% endif %}
     {% when 'scholar_userid' %}
       <a href="https://scholar.google.com/citations?user={{ social[1] }}" title="Google Scholar">
         <i class="ai ai-google-scholar"></i>
@@ -165,12 +174,14 @@
         <img
           src="{{ social[1] | prepend: 'assets/img/' | relative_url }}"
           alt="WeChat QR"
-          id="WeChatQR">
+          id="WeChatQR"
+        >
       </div>
       <script
         defer
         src="{{ '/assets/js/wechat.js' | relative_url | bust_file_cache }}"
-        type="text/javascript"></script>
+        type="text/javascript"
+      ></script>
     {% when 'whatsapp_number' %}
       <a href="https://wa.me/{{ social[1] }}" title="whatsapp">
         <i class="fa-brands fa-whatsapp"></i>
@@ -207,7 +218,10 @@
             <image xlink:href="{% if social[1].logo contains '://' %}{{ social[1].logo }}{% else %}{{ social[1].logo | relative_url }}{% endif %}" />
           </svg>
         {% else %}
-          <img src="{% if social[1].logo contains '://' %}{{ social[1].logo }}{% else %}{{ social[1].logo | relative_url }}{% endif %}" alt="{{ social[1].title }}">
+          <img
+            src="{% if social[1].logo contains '://' %}{{ social[1].logo }}{% else %}{{ social[1].logo | relative_url }}{% endif %}"
+            alt="{{ social[1].title }}"
+          >
         {% endif %}
       </a>
   {% endcase %}
