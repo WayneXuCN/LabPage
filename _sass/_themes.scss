@@ -7,6 +7,7 @@
 :root {
   color-scheme: light;
   --global-bg-color: #{$white-color};
+  --global-bg-color-rgb: #{color.channel($white-color, "red", $space: rgb)}, #{color.channel($white-color, "green", $space: rgb)}, #{color.channel($white-color, "blue", $space: rgb)};
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$black-color};
   --global-text-color-light: #{$grey-color};
@@ -29,6 +30,11 @@
   --global-back-to-top-text-color: #{$white-color};
   --global-newsletter-bg-color: #{$white-color};
   --global-newsletter-text-color: #{$black-color};
+
+  --global-shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --global-shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --global-shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+  --global-shadow-hover: 0 12px 24px rgba(0,0,0,0.15);
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #215d42;
@@ -78,6 +84,7 @@
 html[data-theme="dark"] {
   color-scheme: dark;
   --global-bg-color: #{$grey-color-dark};
+  --global-bg-color-rgb: #{color.channel($grey-color-dark, "red", $space: rgb)}, #{color.channel($grey-color-dark, "green", $space: rgb)}, #{color.channel($grey-color-dark, "blue", $space: rgb)};
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
@@ -99,6 +106,11 @@ html[data-theme="dark"] {
   --global-back-to-top-text-color: #{$black-color};
   --global-newsletter-bg-color: #{$grey-color-light};
   --global-newsletter-text-color: #{$grey-color-dark};
+
+  --global-shadow-sm: 0 2px 4px rgba(0,0,0,0.2);
+  --global-shadow-md: 0 4px 8px rgba(0,0,0,0.4);
+  --global-shadow-lg: 0 8px 16px rgba(0,0,0,0.4);
+  --global-shadow-hover: 0 12px 24px rgba(0,0,0,0.5);
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

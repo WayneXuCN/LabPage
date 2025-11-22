@@ -5,7 +5,7 @@ title: 工具
 permalink: /toolbox/
 description: 收录了我个人开发和部分开源的小程序、脚本与工具。
 nav: true
-nav_order: 5
+nav_order: 6
 ---
 
 {% assign app_types = site.data[site.active_lang].toolbox | map: 'type' | uniq %}

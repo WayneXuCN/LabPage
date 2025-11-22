@@ -1,0 +1,50 @@
+// Animations
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Mixins for easy usage
+@mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out) {
+  transition: $property $duration $timing;
+}
+
+@mixin hover-lift {
+  @include transition(transform, 0.3s, cubic-bezier(0.165, 0.84, 0.44, 1));
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@mixin glass-morphism($opacity: 0.8, $blur: 10px) {
+  background-color: rgba(var(--global-bg-color-rgb), $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+}
