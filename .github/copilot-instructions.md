@@ -9,6 +9,7 @@ This is Wenjie Xu's personal academic website built with Jekyll and the al-folio
 ## Common Commands
 
 ### Development
+
 ```bash
 # Serve the site locally for development
 bundle exec jekyll serve
@@ -21,6 +22,7 @@ bundle exec jekyll build
 ```
 
 ### Deployment
+
 ```bash
 # Deploy to GitHub Pages
 ./bin/deploy
@@ -30,6 +32,7 @@ bundle exec jekyll build
 ```
 
 ### Docker Development
+
 ```bash
 # Run with Docker Compose
 docker-compose up
@@ -39,6 +42,7 @@ docker-compose up
 ```
 
 ### Code Quality
+
 ```bash
 # Format code with Prettier
 npx prettier --write .
@@ -50,6 +54,7 @@ pre-commit run --all-files
 ## Architecture
 
 ### Directory Structure
+
 - `_config.yml` - Main Jekyll configuration with site settings, themes, and plugins
 - `_layouts/` - Jekyll templates for different page types (about, cv, post, etc.)
 - `_includes/` - Reusable components (header, footer, scripts, social links)
@@ -64,12 +69,15 @@ pre-commit run --all-files
 - `_plugins/` - Custom Jekyll plugins
 
 ### Multilingual Support
+
 The site uses Jekyll Polyglot for multilingual support:
+
 - Posts are organized in language-specific directories under `_posts/`
 - Each language has its own URL structure
 - Navigation and content are localized
 
 ### Key Jekyll Plugins
+
 - `jekyll-scholar` - Academic bibliography management
 - `jekyll-polyglot` - Multilingual support
 - `jekyll-jupyter-notebook` - Jupyter notebook integration
@@ -78,12 +86,14 @@ The site uses Jekyll Polyglot for multilingual support:
 - `jekyll-sitemap` - XML sitemap generation
 
 ### Content Types
+
 - **Blog Posts** - Stored in `_posts/[lang]/` with front matter specifying layout and metadata
 - **Publications** - Academic papers managed through jekyll-scholar
 - **Projects** - Portfolio items in `_projects/`
 - **Pages** - Static content in `_pages/`
 
 ### Configuration Files
+
 - `_config.yml` - Main Jekyll configuration
 - `Gemfile` - Ruby dependencies for Jekyll and plugins
 - `package.json` - Node.js dev dependencies (Prettier for Liquid formatting)
@@ -91,7 +101,9 @@ The site uses Jekyll Polyglot for multilingual support:
 - `.pre-commit-config.yaml` - Git pre-commit hooks configuration
 
 ### Theme Customization
+
 The site uses a customized version of al-folio theme:
+
 - Extensive customization through `_config.yml`
 - Custom SCSS styles in `_sass/`
 - Custom layouts and includes for academic/technical content
