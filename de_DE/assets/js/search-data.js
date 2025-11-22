@@ -397,14 +397,14 @@ ninja.data = [{
           title: 'en_US',
           section: 'Sprachen',
           handler: () => {
-            window.location.href = "" + updatedUrl;
+            window.location.href = "/en_US" + updatedUrl;
           },
         },{
           id: 'lang-zh_CN',
           title: 'zh_CN',
           section: 'Sprachen',
           handler: () => {
-            window.location.href = "/zh_CN" + updatedUrl;
+            window.location.href = "" + updatedUrl;
           },
         },{
           id: 'lang-ja_JP',
