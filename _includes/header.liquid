@@ -134,8 +134,13 @@
                 {% assign other_language = site.languages.first %}
               {% endif %}
               <li class="nav-item active">
+                {% assign current_url = page.url %}
+                {% if site.active_lang != site.default_lang %}
+                  {% assign prefix = '/' | append: site.active_lang %}
+                  {% assign current_url = page.url | remove_first: prefix %}
+                {% endif %}
                 {% if site.active_lang == site.default_lang %}
-                  <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}/{{ other_language }}{{ page.url }}" {%- endstatic_href %}>
+                  <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}/{{ other_language }}{{ current_url }}" {%- endstatic_href %}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="1em"
@@ -160,7 +165,7 @@
                     {%- endif -%}
                   </a>
                 {% else %}
-                  <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}{{ page.url }}" {%- endstatic_href %}>
+                  <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %}>
                     <!-- 使用你喜欢的 globe 图标 -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -232,8 +237,13 @@
                       {% if language_set %}
                         <div class="dropdown-divider"></div>
                       {% endif %}
+                      {% assign current_url = page.url %}
+                      {% if site.active_lang != site.default_lang %}
+                        {% assign prefix = '/' | append: site.active_lang %}
+                        {% assign current_url = page.url | remove_first: prefix %}
+                      {% endif %}
                       {% if l == site.default_lang %}
-                        <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}{{ page.url }}" {%- endstatic_href %}>
+                        <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %}>
                           {% if site.country_flag %}
                             <span class="fi fi-{{ l | split: "-" | last }}"></span>
                           {% else %}
@@ -241,7 +251,7 @@
                           {%- endif -%}
                         </a>
                       {% else %}
-                        <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ page.url }}" {%- endstatic_href %}>
+                        <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ current_url }}" {%- endstatic_href %}>
                           {% if site.country_flag %}
                             <span class="fi fi-{{ l | split: "-" | last }}"></span>
                           {% else %}

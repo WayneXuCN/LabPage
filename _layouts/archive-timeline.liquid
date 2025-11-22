@@ -13,7 +13,7 @@ layout: default
   <!-- Calculate first post date -->
   {% assign sorted_posts = site.posts | sort: 'date' %}
   {% assign first_post = sorted_posts | first %}
-  {% assign first_post_date = first_post.date | date: '%Y年%m月%d日' %}
+  {% assign first_post_date = first_post.date | date: '%Y-%m-%d' %}
 
   <!-- Calculate total word count (estimated) -->
   {% assign total_words = 0 %}
@@ -34,37 +34,41 @@ layout: default
   {% assign total_tags = all_tags | size %}
 
   <div class="archive-summary">
-    <p class="archive-intro">从 {{ first_post_date }} 的第一篇文章开始，本站已经更新</p>
+    <p class="archive-intro">{{ site.data[site.active_lang].strings.archive_timeline.intro | replace: '%DATE%', first_post_date }}</p>
     <div class="stats-container">
       <div class="stat-box">
         <div class="stat-number">
           <span class="number">{{ total_posts }}</span>
-          <span class="unit">篇</span>
+          <span class="unit">{{ site.data[site.active_lang].strings.archive_timeline.posts_unit }}</span>
         </div>
-        <div class="stat-label"><i class="fa-solid fa-file-text"></i> 文章</div>
+        <div class="stat-label"><i class="fa-solid fa-file-text"></i> {{ site.data[site.active_lang].strings.archive_timeline.posts_label }}</div>
       </div>
       <div class="stat-box">
         {% assign words_in_wan = total_words | divided_by: 10000.0 %}
-        {% if total_words >= 10000 %}
+        {% assign is_cjk = false %}
+        {% if site.active_lang == 'zh_CN' or site.active_lang == 'ja_JP' %}
+          {% assign is_cjk = true %}
+        {% endif %}
+        {% if total_words >= 10000 and is_cjk %}
           <div class="stat-number">
             <span class="number">{{ words_in_wan | round: 1 }}</span>
-            <span class="unit">万</span>
+            <span class="unit">{{ site.data[site.active_lang].strings.archive_timeline.words_unit_wan }}</span>
           </div>
         {% else %}
           {% assign words_in_thousand = total_words | divided_by: 1000.0 %}
           <div class="stat-number">
             <span class="number">{{ words_in_thousand | round: 1 }}</span>
-            <span class="unit">千</span>
+            <span class="unit">{{ site.data[site.active_lang].strings.archive_timeline.words_unit_thousand }}</span>
           </div>
         {% endif %}
-        <div class="stat-label"><i class="fa-solid fa-pen-nib"></i> 字数</div>
+        <div class="stat-label"><i class="fa-solid fa-pen-nib"></i> {{ site.data[site.active_lang].strings.archive_timeline.words_label }}</div>
       </div>
       <div class="stat-box">
         <div class="stat-number">
           <span class="number">{{ total_tags }}</span>
-          <span class="unit">个</span>
+          <span class="unit">{{ site.data[site.active_lang].strings.archive_timeline.tags_unit }}</span>
         </div>
-        <div class="stat-label"><i class="fa-solid fa-tags"></i> 标签</div>
+        <div class="stat-label"><i class="fa-solid fa-tags"></i> {{ site.data[site.active_lang].strings.archive_timeline.tags_label }}</div>
       </div>
     </div>
   </div>

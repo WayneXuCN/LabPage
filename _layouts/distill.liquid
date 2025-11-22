@@ -67,7 +67,7 @@
       {% endif %}
 
       <d-article>
-        {% if page.toc %}
+        {% if page.toc and page.toc.size > 0 %}
           <d-contents>
             <nav class="l-text figcaption">
               <h3>Contents</h3>
@@ -85,6 +85,13 @@
                   </ul>
                 {% endif %}
               {% endfor %}
+            </nav>
+          </d-contents>
+        {% elsif page.toc == true %}
+          <d-contents>
+            <nav class="l-text figcaption">
+              <h3>Contents</h3>
+              {% toc %}
             </nav>
           </d-contents>
         {% endif %}
@@ -113,10 +120,10 @@
           {% include giscus.liquid %}
         {% endif %}
       </d-article>
-    </div>
+  </div>
 
     <!-- Footer -->
-    {% include footer.liquid %}
+  {% include footer.liquid %}
 
     <!-- JavaScripts -->
     {% include distill_scripts.liquid %}

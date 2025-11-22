@@ -14,6 +14,33 @@
   <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 {% endif %}
 
+<!-- Hreflang for Polyglot -->
+{% if site.languages %}
+  {% assign current_url = page.url %}
+  {% if site.active_lang != site.default_lang %}
+    {% assign prefix = '/' | append: site.active_lang %}
+    {% assign current_url = page.url | remove_first: prefix %}
+  {% endif %}
+
+  {% for lang in site.languages %}
+    {% if lang == site.default_lang %}
+      <link
+        rel="alternate"
+        hreflang="{{ lang }}"
+        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}" />
+      <link
+        rel="alternate"
+        hreflang="x-default"
+        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}" />
+    {% else %}
+      <link
+        rel="alternate"
+        hreflang="{{ lang }}"
+        href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ current_url }}" />
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
 {% capture author_name %}{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}{% endcapture %}
 <!-- Standard metadata -->
 <meta charset="utf-8">
@@ -62,7 +89,7 @@
   {% endif %}
   <meta property="og:locale" content="{{ site.lang }}">
 
-  <!-- Twitter card -->
+    <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
@@ -231,8 +258,8 @@
       },
       "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
       "@type": "{% if is_blog_post %} BlogPosting{% else %}WebSite{% endif %}",
-      "description": "{% if page.description %} {{ page.description }}{% else if site.description %}{{ site.description }}{% endif %}",
-      "headline": "{% if page.title %} {{ page.title }}{% else %}{{ site.title }}{% endif %}",
+      "description": "{% if page.description %} {{ page.description }} {% else if site.description %}{{ site.description }}{% endif %}",
+      "headline": "{% if page.title %} {{ page.title }} {% else %}{{ site.title }}{% endif %}",
       {% if sameaslinks != blank %}
         "sameAs": {{ sameaslinks }},
         {% endif %}

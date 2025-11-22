@@ -222,7 +222,7 @@ sass:
 
 languages: ["en_US", "zh_CN", "de_DE", "ja_JP"]
 default_lang: "zh_CN"
-exclude_from_localization: ["assets"]
+exclude_from_localization: ["assets", "sitemap.xml", "feed.xml", "robots.txt"]
 lang_from_path: true
 country_flag: false # set true for allowing flag symbol in language toggle
 parallel_localization: false
