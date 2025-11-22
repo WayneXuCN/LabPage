@@ -129,6 +129,10 @@ ninja.data = [
           {%- assign social_id = "social-blogger" -%}
           {%- assign social_title = "Blogger" -%}
           {%- capture social_url %}"{{ social[1] }}"{% endcapture -%}
+        {%- when "cv_pdf" -%}
+          {%- assign social_id = "social-cv" -%}
+          {%- assign social_title = "CV" -%}
+          {%- capture social_url %}"{{ social[1] | relative_url }}"{% endcapture -%}
         {%- when "bluesky_url" -%}
           {%- assign social_id = "social-bluesky" -%}
           {%- assign social_title = "Bluesky" -%}
