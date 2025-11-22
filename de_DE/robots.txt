@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://waynexucn.github.io//sitemap.xml
