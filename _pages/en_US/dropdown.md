@@ -2,7 +2,7 @@
 id: dropdown
 layout: page
 title: More
-nav: true # 是否启用
+nav: false
 nav_order: 7
 dropdown: true
 children:

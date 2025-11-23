@@ -2,7 +2,7 @@
 id: dropdown
 layout: page
 title: その他
-nav: true # 有効化
+nav: false
 nav_order: 7
 dropdown: true
 children:

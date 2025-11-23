@@ -3,7 +3,9 @@ page_id: blog
 layout: default
 permalink: /blog/
 title: 博客
-nav: true
+nav: false
+sitemap: false
+noindex: true
 nav_order: 4
 pagination:
   enabled: true

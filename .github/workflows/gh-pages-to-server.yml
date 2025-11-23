@@ -1,0 +1,103 @@
+name: Build and Deploy (gh-pages -> Server)
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: production
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4.2"
+          bundler-cache: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick git
+
+      - name: Install npm (for purgecss) and Node tools
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Ruby + Python deps and build Jekyll
+        run: |
+          pip3 install --upgrade nbconvert
+          export JEKYLL_ENV=production
+          bundle install --jobs 4 --retry 3
+          bundle exec jekyll build
+
+      - name: Purge unused CSS (optional)
+        run: |
+          npm install -g purgecss
+          purgecss -c purgecss.config.js || true
+
+      - name: Publish built site to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          commit_message: "Deploy: ${{ github.sha }} via build-and-deploy workflow"
+
+      - name: Deploy on remote server via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            set -e
+            echo "Starting server deploy..."
+
+            # Customize paths below for your server environment
+            # Example paths from sample (adapt as needed):
+            REMOTE_SITE_ROOT=/opt/1panel/apps/openresty/openresty/www/sites/lab.wenjiexu.site
+            REMOTE_INDEX_DIR=$REMOTE_SITE_ROOT/index
+            REMOTE_WORK_DIR=$REMOTE_SITE_ROOT/LabPage
+
+            # Ensure work dir exists
+            mkdir -p $REMOTE_WORK_DIR
+            cd $REMOTE_WORK_DIR
+
+            # If you want to use a Git proxy mirror, set the remote accordingly;
+            # otherwise remove the next line.
+            git remote set-url origin https://gh.xmly.dev/https://github.com/WayneXuCN/LabPage || true
+
+            # Git safe directory config
+            git config --global --add safe.directory "$(pwd)" || true
+
+            # Fetch the latest gh-pages branch from origin and checkout into index
+            git fetch origin gh-pages --depth=1 || true
+
+            rm -rf $REMOTE_INDEX_DIR/* || true
+            git --work-tree=$REMOTE_INDEX_DIR checkout origin/gh-pages -- . || true
+
+            # Set index files permission if needed (PHP-FPM uid/gid=1000:1000 in example)
+            chown -R 1000:1000 $REMOTE_INDEX_DIR || true
+
+            echo "✅ Deployed latest gh-pages content to server: $REMOTE_INDEX_DIR"

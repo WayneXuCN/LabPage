@@ -2,7 +2,7 @@
 id: dropdown
 layout: page
 title: Mehr
-nav: true # Aktivieren
+nav: false
 nav_order: 7
 dropdown: true
 children:
