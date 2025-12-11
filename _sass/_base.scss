@@ -18,6 +18,9 @@ body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
 
   h1,
   h2,
@@ -26,6 +29,7 @@ body {
   h5,
   h6 {
     color: var(--global-text-color);
+    font-family: $font-family-headings;
   }
 
   p,
@@ -267,7 +271,7 @@ ul.task-list input[type="checkbox"] {
   .more-info {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: monospace;
+    font-family: $font-family-monospace;
 
     p {
       display: inline-block;
@@ -1502,7 +1506,7 @@ figure.cover {
   }
 
   figcaption.abandoned {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #ee5f5b;
@@ -1510,28 +1514,28 @@ figure.cover {
 
   figcaption.finished,
   figcaption.watched {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #62c462;
   }
 
   figcaption.interested {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #7691db;
   }
 
   figcaption.paused {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #bdac7e;
   }
 
   figcaption.queued {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #9e76b5;
@@ -1539,7 +1543,7 @@ figure.cover {
 
   figcaption.reading,
   figcaption.watching {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #f89406;
@@ -1547,14 +1551,14 @@ figure.cover {
 
   figcaption.reread,
   figcaption.rewatch {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #a6517d;
   }
 
   figcaption.uncategorized {
-    font-family: monospace;
+    font-family: $font-family-monospace;
     color: #23212d;
     text-transform: uppercase;
     background-color: #b0abb3;

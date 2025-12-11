@@ -29,7 +29,7 @@ body {
 	justify-content: center;
 	background-color: var(--bgcolor);
 	color: var(--color);
-	font-family: "Consolas", monospace;
+	font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 #main {
@@ -587,7 +587,7 @@ video.pipactive {
 	background-color: var(--coloraccent);
 	color: var(--bgcolor);
 	padding: 10px;
-	font-family: Consolas, monospace;
+	font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 	margin: 15px auto 60px auto;
 	display: block;
 	border-radius: 5px;
