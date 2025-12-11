@@ -73,3 +73,16 @@ $shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
 
 // Transitions
 $transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// Language switcher variables
+$lang-switcher-padding: .5rem 1rem !default;
+$lang-switcher-min-height: 40px !default;
+$lang-switcher-border-radius: 6px !default;
+$lang-switcher-gap: 6px !default;
+$lang-switcher-icon-size: 1.1em !default;
+$lang-switcher-font-size: 1rem !default;
+$lang-dropdown-min-width: 180px !default;
+$lang-dropdown-max-width: 220px !default;
+$lang-dropdown-max-height: 300px !default;
+$lang-dropdown-item-padding: 10px 16px !default;
+$lang-dropdown-border-radius: 8px !default;

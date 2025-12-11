@@ -330,6 +330,12 @@ ul.task-list input[type="checkbox"] {
 .btn-group.dropdown .dropdown-menu {
   background-color: var(--global-bg-color);
   border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  box-shadow: var(--global-shadow-sm);
+  margin-top: 8px;
+  padding: 8px 0;
+  transition: all 0.2s ease-in-out;
+  animation: fadeIn 0.2s ease-in-out;
 
   a:not(.active) {
     color: var(--global-text-color);
@@ -342,15 +348,34 @@ ul.task-list input[type="checkbox"] {
 
   .dropdown-divider {
     border-top: 1px solid var(--global-divider-color) !important;
+    margin: 4px 0;
+  }
+}
+
+// Animation for dropdown
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .dropdown-item {
   color: var(--global-text-color);
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+  border-radius: 6px;
+  margin: 0 8px;
 
   &:hover {
     color: var(--global-hover-color);
-    background-color: var(--global-bg-color);
+    background-color: var(--global-hover-bg-color);
+    transform: translateX(4px);
   }
 }
 
@@ -358,9 +383,307 @@ ul.task-list input[type="checkbox"] {
 .dropdown-item:active {
   background-color: var(--global-hover-color);
   color: var(--global-hover-text-color) !important;
+  border-radius: 6px;
+  margin: 0 8px;
+  transform: translateX(4px);
 
   &:hover {
     color: var(--global-hover-text-color);
+  }
+}
+
+// ============================================================================
+// 语言切换器样式系统
+// ============================================================================
+
+// 基础语言切换按钮样式
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: $lang-switcher-gap;
+  padding: $lang-switcher-padding;
+  min-height: $lang-switcher-min-height;
+  border-radius: $lang-switcher-border-radius;
+  font-size: $lang-switcher-font-size;
+  font-family: $font-family-sans-serif;
+  color: var(--global-text-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: $transition-base;
+  text-decoration: none;
+
+  // 图标样式
+  .lang-icon {
+    width: $lang-switcher-icon-size;
+    height: $lang-switcher-icon-size;
+    font-size: $lang-switcher-icon-size;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  // 国旗图标样式
+  .flag-icon {
+    font-size: 0.9em;
+    vertical-align: middle;
+  }
+
+  // 文字标签
+  .lang-label {
+    font-weight: $font-weight-normal;
+    line-height: 1.5;
+  }
+
+  // 悬停状态
+  &:hover {
+    background-color: var(--global-hover-bg-color);
+    color: var(--global-hover-color);
+    text-decoration: none;
+
+    .lang-icon {
+      transform: scale(1.1);
+    }
+  }
+
+  // 激活状态
+  &:active,
+  &.active {
+    background-color: var(--global-hover-color);
+    color: var(--global-hover-text-color);
+  }
+
+  // 禁用状态
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// 导航栏中的语言切换器
+.navbar-nav {
+  .lang-switcher-item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    // 单语言切换按钮（2种语言）
+    .lang-switcher-single {
+      @extend .lang-switcher;
+
+      @media (max-width: 767px) {
+        width: 100%;
+        justify-content: flex-start;
+        margin: 0;
+      }
+    }
+
+    // 多语言下拉切换器（3+种语言）
+    .lang-switcher-dropdown {
+      position: relative;
+
+      .lang-switcher-toggle {
+        @extend .lang-switcher;
+
+        // 下拉箭头图标
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 0;
+          height: 0;
+          margin-left: 6px;
+          vertical-align: middle;
+          border-top: 4px solid var(--global-text-color);
+          border-right: 4px solid transparent;
+          border-left: 4px solid transparent;
+          transition: transform 0.2s ease-in-out;
+        }
+
+        &:hover::after {
+          border-top-color: var(--global-hover-color);
+        }
+
+        // 展开状态
+        &[aria-expanded="true"]::after {
+          transform: rotate(180deg);
+        }
+      }
+
+      // 下拉菜单
+      .lang-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        min-width: $lang-dropdown-min-width;
+        max-width: $lang-dropdown-max-width;
+        background: var(--global-bg-color);
+        border: 1px solid var(--global-divider-color);
+        border-radius: $lang-dropdown-border-radius;
+        box-shadow: $shadow-sm;
+        padding: 8px 0;
+        margin-top: 8px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: all 0.2s ease-in-out;
+        pointer-events: none;
+
+        // 显示状态
+        &.show {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+
+        // 下拉菜单项
+        .lang-dropdown-item {
+          display: flex;
+          align-items: center;
+          gap: $lang-switcher-gap;
+          width: 100%;
+          padding: $lang-dropdown-item-padding;
+          color: var(--global-text-color);
+          text-decoration: none;
+          transition: all 0.2s ease-in-out;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+
+          &:hover,
+          &:focus {
+            background-color: var(--global-hover-bg-color);
+            color: var(--global-hover-color);
+            transform: translateX(4px);
+          }
+
+          &.active {
+            background-color: var(--global-hover-color);
+            color: var(--global-hover-text-color);
+          }
+
+          // 国旗图标
+          .flag-icon {
+            margin-right: 8px;
+          }
+        }
+
+        // 分隔线
+        .lang-dropdown-divider {
+          height: 1px;
+          margin: 4px 8px;
+          background-color: var(--global-divider-color);
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
+// 响应式布局策略
+// ============================================================================
+
+// 移动端优化 (< 768px)
+@media (max-width: 767px) {
+  .navbar-collapse {
+    .navbar-nav {
+      .lang-switcher-item {
+        width: 100%;
+        margin: 0;
+
+        // 单语言切换器
+        .lang-switcher-single {
+          width: 100%;
+          justify-content: flex-start;
+          padding: .5rem 1rem;
+          margin: 0;
+        }
+
+        // 多语言下拉切换器
+        .lang-switcher-dropdown {
+          width: 100%;
+
+          .lang-switcher-toggle {
+            width: 100%;
+            justify-content: space-between;
+            padding: .5rem 1rem;
+            margin: 0;
+          }
+
+          // 移动端下拉菜单变为内联展开
+          .lang-dropdown-menu {
+            position: static;
+            width: 100%;
+            min-width: auto;
+            max-width: none;
+            box-shadow: none;
+            border: none;
+            border-radius: 0;
+            margin: 0;
+            padding: 0;
+            background-color: var(--global-bg-color);
+            transform: none;
+            opacity: 1;
+            pointer-events: auto;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+
+            &.show {
+              max-height: $lang-dropdown-max-height;
+            }
+
+            .lang-dropdown-item {
+              padding: 12px 24px;
+              font-size: 0.9rem;
+              border-left: 3px solid transparent;
+
+              &:hover {
+                border-left-color: var(--global-hover-color);
+              }
+
+              &.active {
+                border-left-color: var(--global-hover-color);
+                background-color: var(--global-hover-bg-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 确保触摸目标大小
+  .lang-switcher,
+  .lang-dropdown-item {
+    min-height: auto;
+  }
+}
+
+// 平板端优化 (768px - 991px)
+@media (min-width: 768px) {
+  .navbar-nav {
+    .lang-switcher-item {
+      .lang-switcher-dropdown {
+        .lang-dropdown-menu {
+          right: 0;
+          left: auto;
+        }
+      }
+    }
+  }
+}
+
+// 桌面端优化 (≥ 992px)
+@media (min-width: 992px) {
+  .navbar-nav {
+    .lang-switcher-item {
+      margin: 0 8px;
+
+      .lang-switcher-single,
+      .lang-switcher-toggle {
+        padding: 8px 12px;
+      }
+    }
   }
 }
 
@@ -468,18 +791,6 @@ ul.task-list input[type="checkbox"] {
 
   .bottom-bar {
     transform: rotate(0);
-  }
-}
-
-#light-toggle,
-#search-toggle {
-  padding: 0;
-  border: 0;
-  background-color: inherit;
-  color: var(--global-text-color);
-
-  &:hover {
-    color: var(--global-hover-color);
   }
 }
 

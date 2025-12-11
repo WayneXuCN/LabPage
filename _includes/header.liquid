@@ -41,7 +41,7 @@
       </button>
 
       <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap">
+        <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
           {% for page in site.pages %}
             {% if page.permalink == '/' %} {% assign about_title = page.title %} {% endif %}
           {% endfor %}
@@ -120,8 +120,8 @@
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">
-              <button id="search-toggle" title="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
+              <button id="search-toggle" class="lang-switcher" title="Search" onclick="openSearchModal()">
+                <i class="ti ti-search lang-icon"></i>
               </button>
             </li>
           {% endif %}
@@ -133,14 +133,14 @@
               {% else %}
                 {% assign other_language = site.languages.first %}
               {% endif %}
-              <li class="nav-item active">
+              <li class="lang-switcher-item">
                 {% assign current_url = page.url %}
                 {% if site.active_lang != site.default_lang %}
                   {% assign prefix = '/' | append: site.active_lang %}
                   {% assign current_url = page.url | remove_first: prefix %}
                 {% endif %}
                 {% if site.active_lang == site.default_lang %}
-                  <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}/{{ other_language }}{{ current_url }}" {%- endstatic_href %}>
+                  <a class="lang-switcher-single" {% static_href -%} href="{{ site.baseurl }}/{{ other_language }}{{ current_url }}" {%- endstatic_href %}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="1em"
@@ -151,22 +151,20 @@
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lucide lucide-globe-icon lucide-globe ml-1"
-                      style="vertical-align:-0.15em;display:inline;"
+                      class="lang-icon lucide lucide-globe-icon lucide-globe"
                     >
                       <circle cx="12" cy="12" r="10"/>
                       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
                     </svg>
                     {% if site.country_flag %}
-                      <span class="fi fi-{{ other_language | split: "-" | last }}"></span>
+                      <span class="flag-icon fi fi-{{ other_language | split: "_" | last }}"></span>
                     {% else %}
-                      {{ other_language | upcase }}
+                      <span class="lang-label">{{ site.language_names[other_language] }}</span>
                     {%- endif -%}
                   </a>
                 {% else %}
-                  <a class="nav-link" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %}>
-                    <!-- 使用你喜欢的 globe 图标 -->
+                  <a class="lang-switcher-single" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="1em"
@@ -177,102 +175,96 @@
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lucide lucide-globe-icon lucide-globe ml-1"
-                      style="vertical-align:-0.15em;display:inline;"
+                      class="lang-icon lucide lucide-globe-icon lucide-globe"
                     >
                       <circle cx="12" cy="12" r="10"/>
                       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
                     </svg>
                     {% if site.country_flag %}
-                      <!-- 通过 "_" 分割语言代码以获取国家代码 -->
-                      <span class="fi fi-{{ site.default_lang | split: "_" | last }}"></span>
+                      <span class="flag-icon fi fi-{{ site.default_lang | split: "_" | last }}"></span>
                     {% else %}
-                      {{ site.default_lang | upcase }}
+                      <span class="lang-label">{{ site.language_names[site.default_lang] }}</span>
                     {%- endif -%}
                   </a>
                 {% endif %}
               </li>
             {% else %}
-              <li class="nav-item dropdown {% if page.title == p.title %}active{% endif %}">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-globe-icon lucide-globe ml-1"
-                    style="vertical-align:-0.15em;display:inline;"
+              <li class="lang-switcher-item">
+                <div class="lang-switcher-dropdown">
+                  <button
+                    class="lang-switcher-toggle"
+                    type="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
                   >
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                    <path d="M2 12h20"/>
-                  </svg>
-                  {% if site.country_flag %}
-                    <span class="fi fi-{{ site.active_lang | split: "-" | last }}"></span>
-                  {% else %}
-                    {{- site.active_lang | upcase }}
-                  {%- endif -%}
-                  {% if page.title == p.title %}
-                    <span class="sr-only">(current)</span>
-                  {% endif %}
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  {% assign language_set = false %}
-                  {% for l in site.languages %}
-                    {% if l != site.active_lang %}
-                      {% if language_set %}
-                        <div class="dropdown-divider"></div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lang-icon lucide lucide-globe-icon lucide-globe"
+                    >
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                      <path d="M2 12h20"/>
+                    </svg>
+                    {% if site.country_flag %}
+                      <span class="flag-icon fi fi-{{ site.active_lang | split: "_" | last }}"></span>
+                    {% else %}
+                      <span class="lang-label">{{- site.language_names[site.active_lang] -}}</span>
+                    {%- endif -%}
+                  </button>
+                  <div class="lang-dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% assign language_set = false %}
+                    {% for l in site.languages %}
+                      {% if l != site.active_lang %}
+                        {% if language_set %}
+                          <div class="lang-dropdown-divider"></div>
+                        {% endif %}
+                        {% assign current_url = page.url %}
+                        {% if site.active_lang != site.default_lang %}
+                          {% assign prefix = '/' | append: site.active_lang %}
+                          {% assign current_url = page.url | remove_first: prefix %}
+                        {% endif %}
+                        {% if l == site.default_lang %}
+                          <a class="lang-dropdown-item" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %}>
+                            {% if site.country_flag %}
+                              <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
+                            {% else %}
+                              <span class="lang-label">{{ site.language_names[l] }}</span>
+                            {%- endif -%}
+                          </a>
+                        {% else %}
+                          <a class="lang-dropdown-item" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ current_url }}" {%- endstatic_href %}>
+                            {% if site.country_flag %}
+                              <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
+                            {% else %}
+                              <span class="lang-label">{{ site.language_names[l] }}</span>
+                            {%- endif -%}
+                          </a>
+                        {% endif %}
+                        {% assign language_set = true %}
                       {% endif %}
-                      {% assign current_url = page.url %}
-                      {% if site.active_lang != site.default_lang %}
-                        {% assign prefix = '/' | append: site.active_lang %}
-                        {% assign current_url = page.url | remove_first: prefix %}
-                      {% endif %}
-                      {% if l == site.default_lang %}
-                        <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %}>
-                          {% if site.country_flag %}
-                            <span class="fi fi-{{ l | split: "-" | last }}"></span>
-                          {% else %}
-                            {{ l | upcase }}
-                          {%- endif -%}
-                        </a>
-                      {% else %}
-                        <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ current_url }}" {%- endstatic_href %}>
-                          {% if site.country_flag %}
-                            <span class="fi fi-{{ l | split: "-" | last }}"></span>
-                          {% else %}
-                            {{ l | upcase }}
-                          {%- endif -%}
-                        </a>
-                      {% endif %}
-                      {% assign language_set = true %}
-                    {% endif %}
-                  {% endfor %}
+                    {% endfor %}
+                  </div>
                 </div>
               </li>
             {% endif %}
           {% endif %}
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
-            <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
-                <i class="ti ti-sun-moon" id="light-toggle-system"></i>
-                <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
-                <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+            <li class="nav-item">
+              <button id="light-toggle" class="lang-switcher" title="Change theme">
+                <i class="ti ti-sun-moon lang-icon" id="light-toggle-system"></i>
+                <i class="ti ti-moon-filled lang-icon" id="light-toggle-dark"></i>
+                <i class="ti ti-sun-filled lang-icon" id="light-toggle-light"></i>
               </button>
             </li>
           {% endif %}
