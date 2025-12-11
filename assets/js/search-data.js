@@ -34,20 +34,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-博客",
-          title: "博客",
-          description: "",
-          section: "导航菜单",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-归档",
-          title: "归档",
-          description: "跨领域思想的桥梁",
-          section: "导航菜单",
-          handler: () => {
-            window.location.href = "/archive/";
-          },
         },{id: "nav-工具",
           title: "工具",
           description: "收录了我个人开发和部分开源的小程序、脚本与工具。",
@@ -55,28 +41,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/toolbox/";
           },
-        },{id: "dropdown-简历",
-              title: "简历",
-              description: "",
-              section: "下拉菜单",
-              handler: () => {
-                window.location.href = "/cv/";
-              },
-            },{id: "dropdown-书架",
-              title: "书架",
-              description: "",
-              section: "下拉菜单",
-              handler: () => {
-                window.location.href = "/books/";
-              },
-            },{id: "dropdown-人脉",
-              title: "人脉",
-              description: "",
-              section: "下拉菜单",
-              handler: () => {
-                window.location.href = "/people/";
-              },
-            },{id: "post-macos-系统配置记录",
+        },{id: "post-macos-系统配置记录",
         
           title: "macOS 系统配置记录",
         

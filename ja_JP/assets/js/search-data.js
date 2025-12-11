@@ -34,20 +34,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/ja_JP/projects/";
           },
-        },{id: "nav-ブログ",
-          title: "ブログ",
-          description: "",
-          section: "ナビゲーションメニュー",
-          handler: () => {
-            window.location.href = "/ja_JP/blog/";
-          },
-        },{id: "nav-アーカイブ",
-          title: "アーカイブ",
-          description: "異なる分野のアイデアをつなぐ",
-          section: "ナビゲーションメニュー",
-          handler: () => {
-            window.location.href = "/ja_JP/archive/";
-          },
         },{id: "nav-工具",
           title: "工具",
           description: "個人制作やオープンソースの便利なアプリ、スクリプト、ツールのコレクションです。",
@@ -55,28 +41,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/ja_JP/toolbox/";
           },
-        },{id: "dropdown-履歴",
-              title: "履歴",
-              description: "",
-              section: "ドロップダウン",
-              handler: () => {
-                window.location.href = "/ja_JP/cv/";
-              },
-            },{id: "dropdown-本棚",
-              title: "本棚",
-              description: "",
-              section: "ドロップダウン",
-              handler: () => {
-                window.location.href = "/ja_JP/books/";
-              },
-            },{id: "dropdown-人物",
-              title: "人物",
-              description: "",
-              section: "ドロップダウン",
-              handler: () => {
-                window.location.href = "/ja_JP/people/";
-              },
-            },{id: "post-macosシステム設定の記録",
+        },{id: "post-macosシステム設定の記録",
         
           title: "macOSシステム設定の記録",
         

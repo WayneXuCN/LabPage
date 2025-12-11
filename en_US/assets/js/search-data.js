@@ -34,20 +34,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/en_US/projects/";
           },
-        },{id: "nav-blog",
-          title: "Blog",
-          description: "",
-          section: "Navigation menu",
-          handler: () => {
-            window.location.href = "/en_US/blog/";
-          },
-        },{id: "nav-archive",
-          title: "Archive",
-          description: "Bridging ideas from different fields",
-          section: "Navigation menu",
-          handler: () => {
-            window.location.href = "/en_US/archive/";
-          },
         },{id: "nav-toolbox",
           title: "Toolbox",
           description: "A collection of handy apps, scripts, and tools—some created by me, some open source.",
@@ -55,28 +41,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/en_US/toolbox/";
           },
-        },{id: "dropdown-cv",
-              title: "cv",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/en_US/cv/";
-              },
-            },{id: "dropdown-people",
-              title: "People",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/en_US/people/";
-              },
-            },{id: "dropdown-bookshelf",
-              title: "Bookshelf",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/en_US/books/";
-              },
-            },{id: "post-macos-system-configuration-notes",
+        },{id: "post-macos-system-configuration-notes",
         
           title: "macOS System Configuration Notes",
         

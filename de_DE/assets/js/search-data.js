@@ -34,20 +34,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/de_DE/projects/";
           },
-        },{id: "nav-blog",
-          title: "Blog",
-          description: "",
-          section: "Navigationsmenü",
-          handler: () => {
-            window.location.href = "/de_DE/blog/";
-          },
-        },{id: "nav-archiv",
-          title: "Archiv",
-          description: "Brücke zwischen Ideen aus verschiedenen Bereichen",
-          section: "Navigationsmenü",
-          handler: () => {
-            window.location.href = "/de_DE/archive/";
-          },
         },{id: "nav-werkzeug",
           title: "Werkzeug",
           description: "Eine Sammlung nützlicher Apps, Skripte und Tools – teils von mir entwickelt, teils Open Source.",
@@ -55,28 +41,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/de_DE/toolbox/";
           },
-        },{id: "dropdown-cv",
-              title: "cv",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/de_DE/cv/";
-              },
-            },{id: "dropdown-personen",
-              title: "Personen",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/de_DE/people/";
-              },
-            },{id: "dropdown-bücherregal",
-              title: "Bücherregal",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/de_DE/books/";
-              },
-            },{id: "post-macos-systemkonfigurationsprotokoll",
+        },{id: "post-macos-systemkonfigurationsprotokoll",
         
           title: "macOS Systemkonfigurationsprotokoll",
         
