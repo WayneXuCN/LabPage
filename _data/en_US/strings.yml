@@ -100,11 +100,10 @@ cv:
   website: Website
   work: Work
 footer:
-  copyright: Copyright
-  last_updated: "Last updated:"
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
-  This page was automatically translated by generative AI.
+  copyright: All rights reserved
+  last_updated: "Updated on"
+  impressum: "Legal Notice"
+footer_text: Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
 
 latest_posts: latest posts
 months:
@@ -234,9 +233,6 @@ courses_list:
 comments:
   enable_js: "Please enable JavaScript to view the"
   powered_by: "comments powered by"
-
-footer:
-  impressum: "Legal Notice"
 
 header:
   toggle_navigation: "Toggle navigation"

@@ -243,7 +243,12 @@
                       {% endif %}
                       {% comment %} Build link for each language; include the active one and mark it .active {% endcomment %}
                       {% if l == site.default_lang %}
-                        <a class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %} aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
+                        <a
+                          class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}"
+                          {% static_href -%}
+                          href="{{ site.baseurl }}{{ current_url }}"
+                          {%- endstatic_href %}
+                          aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
                           {% if site.country_flag %}
                             <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
                           {% else %}
@@ -251,7 +256,12 @@
                           {%- endif -%}
                         </a>
                       {% else %}
-                        <a class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ current_url }}" {%- endstatic_href %} aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
+                        <a
+                          class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}"
+                          {% static_href -%}
+                          href="{{ site.baseurl }}/{{ l }}{{ current_url }}"
+                          {%- endstatic_href %}
+                          aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
                           {% if site.country_flag %}
                             <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
                           {% else %}

@@ -100,11 +100,10 @@ cv:
   website: Webseite
   work: Berufserfahrung
 footer:
-  copyright: Urheberrecht
-  last_updated: "Zuletzt aktualisiert:"
-footer_text: >
-  Bereitgestellt von <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
-  Diese Seite wurde automatisch von generativer KI übersetzt.
+  copyright: Alle Rechte vorbehalten
+  last_updated: "Aktualisiert am"
+  impressum: "Impressum"
+footer_text: Erstellt mit <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
 latest_posts: Neueste Beiträge
 months:
   long:
@@ -233,9 +232,6 @@ courses_list:
 comments:
   enable_js: "Bitte aktivieren Sie JavaScript, um die"
   powered_by: "Kommentare anzuzeigen von"
-
-footer:
-  impressum: "Impressum"
 
 header:
   toggle_navigation: "Navigation umschalten"

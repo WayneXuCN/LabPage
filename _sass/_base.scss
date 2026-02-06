@@ -606,7 +606,10 @@ ul.task-list input[type="checkbox"] {
           padding: 8px 10px;
           color: var(--global-text-color);
           text-decoration: none;
-          transition: background-color 0.18s ease, color 0.18s ease, transform 0.12s ease;
+          transition:
+            background-color 0.18s ease,
+            color 0.18s ease,
+            transform 0.12s ease;
           border: none;
           border-radius: 8px;
           background: transparent;
@@ -629,8 +632,8 @@ ul.task-list input[type="checkbox"] {
             background-color: var(--global-theme-color-light, rgba(181, 9, 172, 0.12));
             color: var(--global-theme-color);
             font-weight: $font-weight-medium;
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
           }
 
           // 图标样式

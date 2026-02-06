@@ -100,11 +100,10 @@ cv:
   website: ウェブサイト
   work: 職歴
 footer:
-  copyright: 著作権
-  last_updated: "最終更新："
-footer_text: >
-  <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> によって提供されています。
-  このページは生成AIによって自動翻訳されました。
+  copyright: 著作権所有
+  last_updated: "更新日"
+  impressum: "法的通知"
+footer_text: <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> で構築
 latest_posts: 最新の投稿
 months:
   long:
@@ -233,9 +232,6 @@ courses_list:
 comments:
   enable_js: "を表示するには JavaScript を有効にしてください"
   powered_by: "コメント提供："
-
-footer:
-  impressum: "法的通知"
 
 header:
   toggle_navigation: "ナビゲーションを切り替え"

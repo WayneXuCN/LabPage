@@ -100,11 +100,10 @@ cv:
   website: 网站
   work: 工作经历
 footer:
-  copyright: 版权
-  last_updated: "最后更新："
-footer_text: >
-  由 <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> 强力驱动。
-  本页面由生成式 AI 自动翻译。
+  copyright: 保留所有权利
+  last_updated: "更新于"
+  impressum: "法律声明"
+footer_text: 使用 <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> 构建
 latest_posts: 最新文章
 months:
   long:
@@ -233,9 +232,6 @@ courses_list:
 comments:
   enable_js: "请启用 JavaScript 以查看"
   powered_by: "评论由"
-
-footer:
-  impressum: "法律声明"
 
 header:
   toggle_navigation: "切换导航"

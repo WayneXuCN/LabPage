@@ -2,16 +2,12 @@
 # the socials will be displayed in the order they are defined here
 # for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
 cv_pdf: /assets/pdf/cv.pdf # path to your CV PDF file
-email: you@example.com # your email address
-# inspirehep_id: 1010907 # Inspire HEP author ID
 rss_icon: true # comment this line to hide the RSS icon
 email: wenjie.xu.cn@outlook.com
 github_username: WayneXuCN # your GitHub user name
 orcid_id: 0000-0002-7778-0450 # your ORCID ID
 research_gate_profile: https://www.researchgate.net/profile/Wenjie-Xu-19 # your profile on ResearchGate
-rss_icon: true # set to true to show the RSS icon
 scholar_userid: eWTidmsAAAAJ # your Google Scholar ID
-# zotero_username: wenjie_xu2000 # your zotero username
 wechat_qr:
   logo: fa-brands fa-weixin
   title: WeChat

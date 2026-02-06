@@ -9,15 +9,33 @@ footer {
   font-weight: v.$font-weight-normal;
   letter-spacing: v.$letter-spacing-normal;
 
+  .footer-item {
+    display: inline;
+  }
+
+  .footer-separator {
+    margin: 0 0.4rem;
+    opacity: 0.6;
+    user-select: none;
+  }
+
+  .footer-updated {
+    opacity: 0.75;
+  }
+
   &.fixed-bottom {
     background-color: var(--global-footer-bg-color);
     font-size: v.$font-size-xs;
 
     .container {
       color: var(--global-footer-text-color);
-      padding-top: 9px;
-      padding-bottom: 8px;
+      padding-top: 12px;
+      padding-bottom: 12px;
       text-align: center;
+    }
+
+    .footer-separator {
+      color: var(--global-footer-text-color);
     }
 
     a {
@@ -37,7 +55,16 @@ footer {
     font-size: v.$font-size-sm;
 
     .container {
+      color: var(--global-text-color-light);
       text-align: center;
+    }
+
+    a {
+      color: var(--global-theme-color);
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

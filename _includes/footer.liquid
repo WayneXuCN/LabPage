@@ -1,18 +1,4 @@
-{% capture footer_contents %}
-  &copy;
-  {{- site.data[site.active_lang].strings.footer.copyright }}
-  {{ site.time | date: '%Y' }}
-  {{ site.first_name }}
-  {{ site.middle_name }}
-  {{ site.last_name }}. {{ site.data[site.active_lang].strings.footer_text }}
-  {% if site.impressum_path %}
-    <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">{{ site.data[site.active_lang].strings.footer.impressum }}</a>.
-  {% endif %}
-  {% if site.last_updated %}
-    {{- site.data[site.active_lang].strings.footer.last_updated }}
-    {{ 'now' | date: '%B %d, %Y' }}.
-  {% endif %}
-{% endcapture %}
+{% capture footer_contents %}<span class="footer-item">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</span><span class="footer-separator">·</span><span class="footer-item">{{ site.data[site.active_lang].strings.footer.copyright | default: "Copyright" }}</span><span class="footer-separator">·</span><span class="footer-item">{{ site.data[site.active_lang].strings.footer_text }}</span>{% if site.impressum_path %}<span class="footer-separator">·</span><span class="footer-item"><a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">{{ site.data[site.active_lang].strings.footer.impressum }}</a></span>{% endif %}{% if site.last_updated %}<span class="footer-separator">·</span><span class="footer-item footer-updated">{{ site.data[site.active_lang].strings.footer.last_updated }} {% if site.active_lang == 'zh_CN' or site.active_lang == 'ja_JP' %}{{ 'now' | date: '%Y' }}年{{ 'now' | date: '%m' }}月{{ 'now' | date: '%d' }}日{% elsif site.active_lang == 'de_DE' %}{{ 'now' | date: '%d' }}. {{ 'now' | date: '%B' }} {{ 'now' | date: '%Y' }}{% else %}{{ 'now' | date: '%B %d, %Y' }}{% endif %}</span>{% endif %}{% endcapture %}
 
 {% if site.footer_fixed %}
   <footer class="fixed-bottom" role="contentinfo">
