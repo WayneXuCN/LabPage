@@ -70,7 +70,7 @@
         {% if page.toc and page.toc.size > 0 %}
           <d-contents>
             <nav class="l-text figcaption">
-              <h3>Contents</h3>
+              <h3>{{ site.data[site.active_lang].strings.distill.contents }}</h3>
               {% for section in page.toc %}
                 <div>
                   <a href="#{{ section.name | slugify }}">{{ section.name }}</a>
@@ -90,7 +90,7 @@
         {% elsif page.toc == true %}
           <d-contents>
             <nav class="l-text figcaption">
-              <h3>Contents</h3>
+              <h3>{{ site.data[site.active_lang].strings.distill.contents }}</h3>
               {% toc %}
             </nav>
           </d-contents>

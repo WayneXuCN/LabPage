@@ -5,6 +5,7 @@ archive:
   year_suffix: 属于该年份
 archive_timeline:
   intro: "从 %DATE% 的第一篇文章开始，本站已经更新"
+  posts_suffix: "篇文章"
   posts_unit: "篇"
   posts_label: "文章"
   words_unit_wan: "万"
@@ -17,8 +18,11 @@ bibliography:
   awarded: 获奖
   blog: 博客
   book_prefix: 收录于
+  click_to_view: 点击查看
   code: 代码
   last_author_prefix: 和
+  more_authors: 位更多作者
+  more_authors_plural: 位更多作者
   poster: 海报
   slides: 幻灯片
   supp: 补充材料
@@ -45,12 +49,14 @@ cv:
   basics: 基本信息
   certificates: 证书
   city: 城市
+  contact_information: 联系信息
   countryCode: 国家代码
   courses: 课程
   date: 日期
   education: 教育经历
   email: 邮箱
   endDate: 结束日期
+  experience: 工作经历
   fluency: 熟练度
   highlights: 亮点
   image: 图片
@@ -65,11 +71,14 @@ cv:
   location: 地点
   name: 姓名
   network: 社交网络
+  no_cv_found: "未找到 CV 数据。请配置 RenderCV (cv.yml) 或 JSONResume (resume.json) 数据。"
   organization: 组织
   phone: 电话
   position: 职位
   postalCode: 邮政编码
   present: 至今
+  professional_summary: 职业概述
+  professional_title: 职业头衔
   profiles: 个人主页
   projects: 项目
   publications: 发表作品
@@ -88,6 +97,7 @@ cv:
   url: 链接
   username: 用户名
   volunteer: 志愿者
+  website: 网站
   work: 工作经历
 footer:
   copyright: 版权
@@ -172,9 +182,129 @@ search:
     title: 使用系统默认主题
   theme: 主题
 selected_publications: 精选发表
+book:
+  cover_of: "封面"
+  cover_of_title: "《{{ page.title }}》的封面"
+  end_date: "结束日期："
+  on_the: "在"
+  open_library: "Open Library"
+  start_date: "开始日期："
+  status:
+    abandoned: "已放弃"
+    finished: "已完成"
+    interested: "感兴趣"
+    paused: "已暂停"
+    queued: "已排队"
+    reading: "阅读中"
+    reread: "重读"
+    uncategorized: "未分类"
+
+courses:
+  date: "日期"
+  instructor: "讲师"
+  location: "地点"
+  materials: "材料"
+  schedule: "课程表"
+  term: "学期"
+  time: "时间"
+  topic: "主题"
+  week: "周"
+
+distill:
+  contents: "目录"
+
 toolbox:
   open_button: 打开
   github_button: 查看 GitHub
   screenshot_alt: 截图
   icon_alt: 图标
+
+# Includes translations
+search:
+  placeholder: "输入以开始搜索"
+  bib_placeholder: "输入以筛选"
+
+course_schedule:
+  no_schedule: "本课程暂无课程表。"
+
+courses_list:
+  no_courses: "暂无可用课程。"
+
+comments:
+  enable_js: "请启用 JavaScript 以查看"
+  powered_by: "评论由"
+
+footer:
+  impressum: "法律声明"
+
+header:
+  toggle_navigation: "切换导航"
+  search: "搜索"
+  change_theme: "切换主题"
+  current: "(当前)"
+
+newsletter:
+  email_placeholder: "user@example.com"
+  subscribe: "订阅"
+  wait: "请稍候..."
+  subscribed: "订阅成功！"
+  error: "哎呀！出错了，请重试"
+  back: "返回"
+
+pagination:
+  page_navigation: "博客分页导航"
+
+projects:
+  thumbnail_alt: "项目缩略图"
+  code_repository: "代码仓库"
+  github_stars: "GitHub 星标"
+
+related_posts:
+  enjoy_reading: "喜欢这篇文章吗？"
+  more_articles: "你可能还喜欢阅读以下文章："
+  subscribe_notify: "订阅以获取后续文章通知："
+
+research_summary_errors:
+  no_research_questions: "未找到研究问题数据。请在研究页面的 front matter 中添加至少一个 research_questions 项目。"
+  no_research_page: "未找到研究页面。请确认存在路径为\"/research/\"的页面。"
+
+blog:
+  min_read: "分钟阅读"
+  thumbnail_alt: "图片"
+
+repositories:
+  no_github_user: "未配置 GitHub 用户，请检查您的 YAML 文件。"
+  github_repos: "GitHub 仓库"
+
+cookie_consent:
+  title: "我们使用 Cookie"
+  description: "本网站使用 Cookie 来改善您的体验并分析网站流量。点击\"全部接受\"，即表示您同意我们使用 Cookie。"
+  accept_all: "全部接受"
+  reject_all: "全部拒绝"
+  manage_preferences: "管理个人偏好"
+  preferences_title: "管理 Cookie 偏好"
+  save_preferences: "接受当前选择"
+  close_modal: "关闭弹窗"
+  cookie_usage: "Cookie 使用"
+  cookie_usage_description: "我们使用 Cookie 来确保网站的基本功能并增强您的在线体验。您可以随时选择每个类别的启用/禁用。"
+  necessary_cookies: "严格必要的 Cookie"
+  necessary_cookies_description: "这些 Cookie 对网站的正常运行至关重要。没有这些 Cookie，网站将无法正常工作。"
+  analytics_cookies: "分析 Cookie"
+  analytics_cookies_description: "这些 Cookie 使我们能够测量流量并分析您的行为以改进我们的服务。"
+  more_info: "更多信息"
+  more_info_description: "如有任何关于 Cookie 政策和您的选择的问题，请<a class=\"cc-link\" href=\"{{ site.url }}{{ site.baseurl }}/#contact\">联系我们</a>。"
+
+search:
+  navigation: "导航"
+  dropdown: "下拉菜单"
+  posts: "文章"
+  socials: "社交"
+  theme: "主题"
+  light_theme_title: "切换到浅色主题"
+  light_theme_description: "将网站主题切换为浅色"
+  dark_theme_title: "切换到深色主题"
+  dark_theme_description: "将网站主题切换为深色"
+  system_theme_title: "使用系统默认主题"
+  system_theme_description: "将网站主题切换为系统默认"
+
 site_description: 一个简洁的学术主题，基于 [*folio](https://github.com/bogoli/-folio) 设计。

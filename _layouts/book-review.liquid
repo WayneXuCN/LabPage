@@ -105,57 +105,57 @@ layout: default
     {% if content == '' %}
       <figure class="empty-review">
         {% if page.cover %}
-          <img class="empty-review-cover" alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
+          <img class="empty-review-cover" alt="{{ page.title }} {{ site.data[site.active_lang].strings.book.cover_of }}" src="{{ site.baseurl }}/{{ page.cover }}">
           <figcaption class="empty-review-caption">
-            Cover of <em>{{ page.title }}</em>
+            {{ site.data[site.active_lang].strings.book.cover_of_title }}
           </figcaption>
         {% elsif page.olid %}
           <img
             class="empty-review-cover"
-            alt="{{ page.title }} cover"
+            alt="{{ page.title }} {{ site.data[site.active_lang].strings.book.cover_of }}"
             src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false"
           >
           <figcaption class="empty-review-caption">
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
+            {{ site.data[site.active_lang].strings.book.cover_of_title }} {{ site.data[site.active_lang].strings.book.on_the }} <a href="https://openlibrary.org/olid/{{ page.olid }}">{{ site.data[site.active_lang].strings.book.open_library }}</a>.
           </figcaption>
         {% elsif page.isbn %}
           <img
             class="empty-review-cover"
-            alt="{{ page.title }} cover"
+            alt="{{ page.title }} {{ site.data[site.active_lang].strings.book.cover_of }}"
             src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false"
           >
           <figcaption class="empty-review-caption">
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
+            {{ site.data[site.active_lang].strings.book.cover_of_title }} {{ site.data[site.active_lang].strings.book.on_the }} <a href="https://openlibrary.org/isbn/{{ page.isbn }}">{{ site.data[site.active_lang].strings.book.open_library }}</a>.
           </figcaption>
         {% endif %}
       </figure>
-      {% assign status = page.status | upcase %}
+      {% assign status_key = page.status | downcase | strip %}
       <div class="clearfix">
-        <h4>{{ status }}</h4>
+        <h4>{{ site.data[site.active_lang].strings.book.status[status_key] | default: status_key | upcase }}</h4>
       </div>
     {% else %}
       <figure>
         {% if page.cover %}
-          <img alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
+          <img alt="{{ page.title }} {{ site.data[site.active_lang].strings.book.cover_of }}" src="{{ site.baseurl }}/{{ page.cover }}">
           <figcaption>
-            Cover of <em>{{ page.title }}</em>
+            {{ site.data[site.active_lang].strings.book.cover_of_title }}
           </figcaption>
         {% elsif page.olid %}
-          <img alt="{{ page.title }} cover" src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
+          <img alt="{{ page.title }} {{ site.data[site.active_lang].strings.book.cover_of }}" src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
           <figcaption>
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
+            {{ site.data[site.active_lang].strings.book.cover_of_title }} {{ site.data[site.active_lang].strings.book.on_the }} <a href="https://openlibrary.org/olid/{{ page.olid }}">{{ site.data[site.active_lang].strings.book.open_library }}</a>.
           </figcaption>
         {% elsif page.isbn %}
-          <img alt="{{ page.title }} cover" src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
+          <img alt="{{ page.title }} {{ site.data[site.active_lang].strings.book.cover_of }}" src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
           <figcaption>
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
+            {{ site.data[site.active_lang].strings.book.cover_of_title }} {{ site.data[site.active_lang].strings.book.on_the }} <a href="https://openlibrary.org/isbn/{{ page.isbn }}">{{ site.data[site.active_lang].strings.book.open_library }}</a>.
           </figcaption>
         {% endif %}
       </figure>
       <br class="mobile-break" clear="right">
       <h4>
-        {% if page.start %} Start Date: {{ page.start | date: '%-d %B %Y' }}. {% endif %}
-        {% if page.end %} End Date: {{ page.end | date: '%-d %B %Y' }}. {% endif %}
+        {% if page.start %} {{ site.data[site.active_lang].strings.book.start_date }} {{ page.start | date: '%-d %B %Y' }}. {% endif %}
+        {% if page.end %} {{ site.data[site.active_lang].strings.book.end_date }} {{ page.end | date: '%-d %B %Y' }}. {% endif %}
       </h4>
       {{ content }}
     {% endif %}

@@ -82,7 +82,7 @@ layout: default
         <h3 class="archive-year-header">
           <i class="fa-solid fa-calendar fa-sm"></i>
           <a href="{{ year | prepend: '/blog/' | relative_url }}">{{ year }}</a>
-          <span class="post-count">({{ posts | size }} posts)</span>
+          <span class="post-count">({{ posts | size }} {{ site.data[site.active_lang].strings.archive_timeline.posts_suffix }})</span>
         </h3>
 
         <div class="archive-posts">

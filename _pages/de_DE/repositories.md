@@ -22,7 +22,7 @@ nav_order: 3
     {% endif %}
   </div>
 {% else %}
-  <p>Kein GitHub-Benutzer konfiguriert. Bitte prüfen Sie Ihre YAML-Datei.</p>
+  <p>{{ site.data[site.active_lang].strings.repositories.no_github_user }}</p>
 {% endif %}
 
 ---

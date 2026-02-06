@@ -40,6 +40,15 @@ $code-bg-color-dark: #2c3237 !default;
 // Font awesome location
 $fa-font-path: "../webfonts";
 
+// Typography
+$font-family-sans-serif: "Roboto", "Noto Sans SC", "Noto Sans", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Arial, sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
+$font-family-headings: "Roboto Slab", "Noto Serif SC", "Noto Serif", "Roboto", serif !default;
+$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+  monospace !default;
+$font-weight-normal: 400 !default;
+
 // Back To Top button config
 $back-to-top-z-index: 10;
 $back-to-top-bottom: 30px;

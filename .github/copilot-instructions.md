@@ -210,6 +210,7 @@ bundle exec jekyll build
 
 - **Cause:** Empty blog posts or posts with only stop words confuse classifier-reborn
 - **Solution:** Add meaningful content to posts, or set `related_posts: false` in post frontmatter
+- **Note:** `lsi: true` conflicts with `jekyll-polyglot` plugin. This project uses `lsi: false` for i18n compatibility
 
 ## File Format Specifications
 

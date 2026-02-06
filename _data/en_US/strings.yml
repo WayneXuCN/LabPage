@@ -5,6 +5,7 @@ archive:
   year_suffix: from this year
 archive_timeline:
   intro: "Since the first post on %DATE%, the site has been updated"
+  posts_suffix: "posts"
   posts_unit: "posts"
   posts_label: "Articles"
   words_unit_wan: "0k"
@@ -17,8 +18,11 @@ bibliography:
   awarded: Awarded
   blog: Blog
   book_prefix: In
+  click_to_view: click to view
   code: Code
   last_author_prefix: and
+  more_authors: more author
+  more_authors_plural: more authors
   poster: Poster
   slides: Slides
   supp: Supp
@@ -45,12 +49,14 @@ cv:
   basics: General information
   certificates: Certificates
   city: City
+  contact_information: Contact Information
   countryCode: Country code
   courses: Courses
   date: Date
   education: Education
   email: Email
   endDate: End date
+  experience: Experience
   fluency: Fluency
   highlights: Highlights
   image: Image
@@ -65,11 +71,14 @@ cv:
   location: Location
   name: Name
   network: Network
+  no_cv_found: "No CV data found. Please configure either RenderCV (cv.yml) or JSONResume (resume.json) data."
   organization: Organization
   phone: Phone
   position: Position
   postalCode: Postal Code
   present: Present
+  professional_summary: Professional Summary
+  professional_title: Professional Title
   profiles: Profiles
   projects: Projects
   publications: Publications
@@ -88,6 +97,7 @@ cv:
   url: Url
   username: Username
   volunteer: Volunteer
+  website: Website
   work: Work
 footer:
   copyright: Copyright
@@ -173,9 +183,129 @@ search:
     title: Use the system default theme
   theme: Theme
 selected_publications: Selected publications
+book:
+  cover_of: "Cover"
+  cover_of_title: "Cover of {{ page.title }}"
+  end_date: "End Date:"
+  on_the: "on the"
+  open_library: "Open Library"
+  start_date: "Start Date:"
+  status:
+    abandoned: "Abandoned"
+    finished: "Finished"
+    interested: "Interested"
+    paused: "Paused"
+    queued: "Queued"
+    reading: "Reading"
+    reread: "Reread"
+    uncategorized: "Uncategorized"
+
+courses:
+  date: "Date"
+  instructor: "Instructor"
+  location: "Location"
+  materials: "Materials"
+  schedule: "Schedule"
+  term: "Term"
+  time: "Time"
+  topic: "Topic"
+  week: "Week"
+
+distill:
+  contents: "Contents"
+
 toolbox:
   open_button: Open
   github_button: View on GitHub
   screenshot_alt: screenshot
   icon_alt: icon
+
+# Includes translations
+search:
+  placeholder: "Type to start searching"
+  bib_placeholder: "Type to filter"
+
+course_schedule:
+  no_schedule: "No schedule available for this course."
+
+courses_list:
+  no_courses: "No courses available yet."
+
+comments:
+  enable_js: "Please enable JavaScript to view the"
+  powered_by: "comments powered by"
+
+footer:
+  impressum: "Legal Notice"
+
+header:
+  toggle_navigation: "Toggle navigation"
+  search: "Search"
+  change_theme: "Change theme"
+  current: "(current)"
+
+newsletter:
+  email_placeholder: "user@example.com"
+  subscribe: "Subscribe"
+  wait: "Please wait..."
+  subscribed: "You're subscribed!"
+  error: "Oops! Something went wrong, please try again"
+  back: "Back"
+
+pagination:
+  page_navigation: "Blog page navigation"
+
+projects:
+  thumbnail_alt: "project thumbnail"
+  code_repository: "Code Repository"
+  github_stars: "GitHub Stars"
+
+related_posts:
+  enjoy_reading: "Enjoy Reading This Article?"
+  more_articles: "Here are some more articles you might like to read next:"
+  subscribe_notify: "Subscribe to be notified of future articles:"
+
+research_summary_errors:
+  no_research_questions: "No research question data found. Please add at least one research_questions item to the front matter of your research page."
+  no_research_page: "Research page not found. Please ensure there is a page with the path \"/research/\"."
+
+blog:
+  min_read: "min read"
+  thumbnail_alt: "image"
+
+repositories:
+  no_github_user: "No GitHub user configured. Please check your YAML file."
+  github_repos: "GitHub Repositories"
+
+cookie_consent:
+  title: "We use cookies"
+  description: "This website uses cookies to improve your experience and analyze site traffic. By clicking \"Accept all\", you consent to our use of cookies."
+  accept_all: "Accept all"
+  reject_all: "Reject all"
+  manage_preferences: "Manage Individual preferences"
+  preferences_title: "Manage cookie preferences"
+  save_preferences: "Accept current selection"
+  close_modal: "Close modal"
+  cookie_usage: "Cookie usage"
+  cookie_usage_description: "We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want."
+  necessary_cookies: "Strictly Necessary cookies"
+  necessary_cookies_description: "These cookies are essential for the proper functioning of the website. Without these cookies, the website would not work properly."
+  analytics_cookies: "Analytics cookies"
+  analytics_cookies_description: "These cookies allow us to measure traffic and analyze your behavior to improve our service."
+  more_info: "More information"
+  more_info_description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">contact us</a>.'
+
+search:
+  navigation: "Navigation"
+  dropdown: "Dropdown"
+  posts: "Posts"
+  socials: "Socials"
+  theme: "Theme"
+  light_theme_title: "Change theme to light"
+  light_theme_description: "Change the theme of the site to Light"
+  dark_theme_title: "Change theme to dark"
+  dark_theme_description: "Change the theme of the site to Dark"
+  system_theme_title: "Use system default theme"
+  system_theme_description: "Change the theme of the site to System Default"
+
 site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.

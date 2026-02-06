@@ -149,7 +149,7 @@ to process your files located in `_layouts/` and `_includes/`.
   - Keep documentation in sync with actual code and configuration
   - Use existing documentation style and structure (or improve it with patterns from this agent)
   - Link to source files and official documentation
-  - Test commands and instructions before documenting them
+  - Test commands and instructions before documenting them (use `bundle exec jekyll serve` for local testing)
   - Explain technical terms using the common terms reference provided
   - Preserve existing table of contents markers (`<!--ts-->` and `<!--te-->`
 

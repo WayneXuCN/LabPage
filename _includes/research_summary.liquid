@@ -40,10 +40,10 @@
         {% endfor %}
       </div>
     {% else %}
-      <p>未找到研究问题数据。请在研究页面的front matter中添加至少一个research_questions项目。</p>
+      <p>{{ site.data[site.active_lang].strings.research_summary_errors.no_research_questions }}</p>
     {% endif %}
   {% else %}
-    <p>未找到研究页面。请确认存在路径为"/research/"的页面。</p>
+    <p>{{ site.data[site.active_lang].strings.research_summary_errors.no_research_page }}</p>
   {% endif %}
 </div>
 

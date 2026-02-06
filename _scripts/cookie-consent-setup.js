@@ -40,6 +40,44 @@ gtag('consent', 'default', {
   'personalization_storage': 'denied'
 });
 
+// Get translations from Jekyll data
+var cookieConsentTranslations = {
+  consentModal: {
+    title: "{{ site.data[site.active_lang].strings.cookie_consent.title }}",
+    description: "{{ site.data[site.active_lang].strings.cookie_consent.description }}",
+    acceptAllBtn: "{{ site.data[site.active_lang].strings.cookie_consent.accept_all }}",
+    acceptNecessaryBtn: "{{ site.data[site.active_lang].strings.cookie_consent.reject_all }}",
+    showPreferencesBtn: "{{ site.data[site.active_lang].strings.cookie_consent.manage_preferences }}"
+  },
+  preferencesModal: {
+    title: "{{ site.data[site.active_lang].strings.cookie_consent.preferences_title }}",
+    acceptAllBtn: "{{ site.data[site.active_lang].strings.cookie_consent.accept_all }}",
+    acceptNecessaryBtn: "{{ site.data[site.active_lang].strings.cookie_consent.reject_all }}",
+    savePreferencesBtn: "{{ site.data[site.active_lang].strings.cookie_consent.save_preferences }}",
+    closeIconLabel: "{{ site.data[site.active_lang].strings.cookie_consent.close_modal }}",
+    sections: [
+      {
+        title: "{{ site.data[site.active_lang].strings.cookie_consent.cookie_usage }}",
+        description: "{{ site.data[site.active_lang].strings.cookie_consent.cookie_usage_description }}"
+      },
+      {
+        title: "{{ site.data[site.active_lang].strings.cookie_consent.necessary_cookies }}",
+        description: "{{ site.data[site.active_lang].strings.cookie_consent.necessary_cookies_description }}",
+        linkedCategory: 'necessary'
+      },
+      {
+        title: "{{ site.data[site.active_lang].strings.cookie_consent.analytics_cookies }}",
+        description: "{{ site.data[site.active_lang].strings.cookie_consent.analytics_cookies_description }}",
+        linkedCategory: 'analytics'
+      },
+      {
+        title: "{{ site.data[site.active_lang].strings.cookie_consent.more_info }}",
+        description: "{{ site.data[site.active_lang].strings.cookie_consent.more_info_description }}"
+      }
+    ]
+  }
+};
+
 // Wait for the library to be available
 var cookieConsentRetryCount = 0;
 var COOKIE_CONSENT_MAX_RETRIES = 50; // 5 seconds max wait time
@@ -68,42 +106,7 @@ function initializeCookieConsent() {
     language: {
       default: 'en',
       translations: {
-        en: {
-          consentModal: {
-            title: 'We use cookies',
-            description: 'This website uses cookies to improve your experience and analyze site traffic. By clicking "Accept all", you consent to our use of cookies.',
-            acceptAllBtn: 'Accept all',
-            acceptNecessaryBtn: 'Reject all',
-            showPreferencesBtn: 'Manage Individual preferences'
-          },
-          preferencesModal: {
-            title: 'Manage cookie preferences',
-            acceptAllBtn: 'Accept all',
-            acceptNecessaryBtn: 'Reject all',
-            savePreferencesBtn: 'Accept current selection',
-            closeIconLabel: 'Close modal',
-            sections: [
-              {
-                title: 'Cookie usage',
-                description: 'We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.'
-              },
-              {
-                title: 'Strictly Necessary cookies',
-                description: 'These cookies are essential for the proper functioning of the website. Without these cookies, the website would not work properly.',
-                linkedCategory: 'necessary'
-              },
-              {
-                title: 'Analytics cookies',
-                description: 'These cookies allow us to measure traffic and analyze your behavior to improve our service.',
-                linkedCategory: 'analytics'
-              },
-              {
-                title: 'More information',
-                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">contact us</a>.'
-              }
-            ]
-          }
-        }
+        en: cookieConsentTranslations
       }
     },
 

@@ -5,6 +5,7 @@ archive:
   year_suffix: この年から
 archive_timeline:
   intro: "%DATE% の最初の投稿から、サイトは更新されました"
+  posts_suffix: "投稿"
   posts_unit: "件"
   posts_label: "投稿"
   words_unit_wan: "万"
@@ -17,8 +18,11 @@ bibliography:
   awarded: 受賞
   blog: ブログ
   book_prefix: 収録
+  click_to_view: クリックして表示
   code: コード
   last_author_prefix: および
+  more_authors: 人の著者
+  more_authors_plural: 人の著者
   poster: ポスター
   slides: スライド
   supp: 補足
@@ -45,12 +49,14 @@ cv:
   basics: 基本情報
   certificates: 資格
   city: 市区町村
+  contact_information: 連絡先情報
   countryCode: 国コード
   courses: コース
   date: 日付
   education: 学歴
   email: メール
   endDate: 終了日
+  experience: 職務経験
   fluency: 流暢さ
   highlights: ハイライト
   image: 画像
@@ -65,11 +71,14 @@ cv:
   location: 場所
   name: 名前
   network: ネットワーク
+  no_cv_found: "CVデータが見つかりません。RenderCV (cv.yml) または JSONResume (resume.json) データを設定してください。"
   organization: 組織
   phone: 電話
   position: 役職
   postalCode: 郵便番号
   present: 現在
+  professional_summary: 職務要約
+  professional_title: 職種
   profiles: プロフィール
   projects: プロジェクト
   publications: 出版物
@@ -88,6 +97,7 @@ cv:
   url: URL
   username: ユーザー名
   volunteer: ボランティア
+  website: ウェブサイト
   work: 職歴
 footer:
   copyright: 著作権
@@ -172,9 +182,129 @@ search:
     title: システムデフォルトを使用
   theme: テーマ
 selected_publications: 代表的な出版物
+book:
+  cover_of: "表紙"
+  cover_of_title: "『{{ page.title }}』の表紙"
+  end_date: "終了日："
+  on_the: ""
+  open_library: "Open Library"
+  start_date: "開始日："
+  status:
+    abandoned: "放棄"
+    finished: "完了"
+    interested: "興味あり"
+    paused: "一時停止"
+    queued: "キュー"
+    reading: "読書中"
+    reread: "再読"
+    uncategorized: "未分類"
+
+courses:
+  date: "日付"
+  instructor: "講師"
+  location: "場所"
+  materials: "資料"
+  schedule: "スケジュール"
+  term: "学期"
+  time: "時間"
+  topic: "トピック"
+  week: "週"
+
+distill:
+  contents: "目次"
+
 toolbox:
   open_button: 開く
   github_button: GitHubで見る
   screenshot_alt: スクリーンショット
   icon_alt: アイコン
+
+# Includes translations
+search:
+  placeholder: "検索を開始するには入力してください"
+  bib_placeholder: "フィルタリングするには入力"
+
+course_schedule:
+  no_schedule: "このコースのスケジュールは利用できません。"
+
+courses_list:
+  no_courses: "まだコースはありません。"
+
+comments:
+  enable_js: "を表示するには JavaScript を有効にしてください"
+  powered_by: "コメント提供："
+
+footer:
+  impressum: "法的通知"
+
+header:
+  toggle_navigation: "ナビゲーションを切り替え"
+  search: "検索"
+  change_theme: "テーマを変更"
+  current: "(現在)"
+
+newsletter:
+  email_placeholder: "user@example.com"
+  subscribe: "購読"
+  wait: "お待ちください..."
+  subscribed: "購読しました！"
+  error: "エラーが発生しました。もう一度お試しください"
+  back: "戻る"
+
+pagination:
+  page_navigation: "ブログページナビゲーション"
+
+projects:
+  thumbnail_alt: "プロジェクトサムネイル"
+  code_repository: "コードリポジトリ"
+  github_stars: "GitHub スター"
+
+related_posts:
+  enjoy_reading: "この記事をお楽しみですか？"
+  more_articles: "次に読みたい記事がこちら："
+  subscribe_notify: "今後の記事を通知するには購読してください："
+
+research_summary_errors:
+  no_research_questions: "研究質問データが見つかりません。研究ページのフロントマターに少なくとも1つの research_questions 項目を追加してください。"
+  no_research_page: "研究ページが見つかりません。パスが\"/research/\"のページが存在することを確認してください。"
+
+blog:
+  min_read: "分で読了"
+  thumbnail_alt: "画像"
+
+repositories:
+  no_github_user: "GitHubユーザーが設定されていません。YAMLファイルを確認してください。"
+  github_repos: "GitHub リポジトリ"
+
+cookie_consent:
+  title: "Cookie を使用しています"
+  description: "このウェブサイトは、お客様の体験を向上させ、サイトのトラフィックを分析するために Cookie を使用しています。\"すべて承認\"をクリックすると、Cookie の使用に同意したことになります。"
+  accept_all: "すべて承認"
+  reject_all: "すべて拒否"
+  manage_preferences: "個別の設定を管理"
+  preferences_title: "Cookie の設定を管理"
+  save_preferences: "現在の選択を承認"
+  close_modal: "モーダルを閉じる"
+  cookie_usage: "Cookie の使用"
+  cookie_usage_description: "ウェブサイトの基本機能を確保し、オンライン体験を向上させるために Cookie を使用しています。各カテゴリについて、いつでもオプトイン/オプトアウトを選択できます。"
+  necessary_cookies: "厳密に必要な Cookie"
+  necessary_cookies_description: "これらの Cookie は、ウェブサイトの適切な機能に不可欠です。これらの Cookie がないと、ウェブサイトは正常に動作しません。"
+  analytics_cookies: "分析 Cookie"
+  analytics_cookies_description: "これらの Cookie を使用すると、トラフィックを測定し、お客様の行動を分析してサービスを改善することができます。"
+  more_info: "詳細情報"
+  more_info_description: "Cookie ポリシーとお客様の選択に関するご質問は、<a class=\"cc-link\" href=\"{{ site.url }}{{ site.baseurl }}/#contact\">お問い合わせ</a>ください。"
+
+search:
+  navigation: "ナビゲーション"
+  dropdown: "ドロップダウン"
+  posts: "投稿"
+  socials: "ソーシャル"
+  theme: "テーマ"
+  light_theme_title: "ライトテーマに変更"
+  light_theme_description: "サイトのテーマをライトに変更"
+  dark_theme_title: "ダークテーマに変更"
+  dark_theme_description: "サイトのテーマをダークに変更"
+  system_theme_title: "システムデフォルトテーマを使用"
+  system_theme_description: "サイトのテーマをシステムデフォルトに変更"
+
 site_description: 学術向けのシンプルで余白の多いテーマ。[*folio](https://github.com/bogoli/-folio) デザインに基づく。

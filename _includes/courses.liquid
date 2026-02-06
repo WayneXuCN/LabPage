@@ -33,5 +33,5 @@
     {% endfor %}
   </div>
 {% else %}
-  <p>No courses available yet.</p>
+  <p>{{ site.data[site.active_lang].strings.courses_list.no_courses }}</p>
 {% endif %}

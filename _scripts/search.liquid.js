@@ -12,7 +12,7 @@ ninja.data = [
   {
     id: "nav-{{ about_title | slugify }}",
     title: "{{ about_title | truncatewords: 13 }}",
-    section: "Navigation",
+    section: "{{ site.data[site.active_lang].strings.search.navigation }}",
     handler: () => {
       window.location.href = "{{ '/' | relative_url }}";
     },
@@ -29,7 +29,7 @@ ninja.data = [
               id: "dropdown-{{ title | slugify }}",
               title: "{{ title | truncatewords: 13 }}",
               description: "{{ child.description | strip_html | strip_newlines | escape | strip }}",
-              section: "Dropdown",
+              section: "{{ site.data[site.active_lang].strings.search.dropdown }}",
               handler: () => {
                 window.location.href = "{{ url | relative_url }}";
               },
@@ -44,7 +44,7 @@ ninja.data = [
           id: "nav-{{ title | slugify }}",
           title: "{{ title | truncatewords: 13 }}",
           description: "{{ p.description | strip_html | strip_newlines | escape | strip }}",
-          section: "Navigation",
+          section: "{{ site.data[site.active_lang].strings.search.navigation }}",
           handler: () => {
             window.location.href = "{{ url | relative_url }}";
           },
@@ -65,7 +65,7 @@ ninja.data = [
           title: "{{ title | truncatewords: 13 }}",
         {% endif %}
         description: "{{ post.description | strip_html | strip_newlines | escape | strip }}",
-        section: "Posts",
+        section: "{{ site.data[site.active_lang].strings.search.posts }}",
         handler: () => {
           {% if post.redirect == blank %}
             window.location.href = "{{ post.url | relative_url }}";
@@ -90,7 +90,7 @@ ninja.data = [
           id: "{{ collection.label }}-{{ title | slugify }}",
           title: '{{ title | escape | emojify | truncatewords: 13 }}',
           description: "{{ item.description | strip_html | strip_newlines | escape | strip }}",
-          section: "{{ collection.label | capitalize }}",
+          section: "{{ site.data[site.active_lang].strings.collections[collection.label] | default: collection.label | capitalize }}",
           {%- unless item.inline -%}
             handler: () => {
               window.location.href = "{{ item.url | relative_url }}";
@@ -302,7 +302,7 @@ ninja.data = [
       {
         id: '{{ social_id }}',
         title: '{{ social_title }}',
-        section: 'Socials',
+        section: "{{ site.data[site.active_lang].strings.search.socials }}",
         handler: () => {
           window.open({{ social_url }}, "_blank");
         },
@@ -312,27 +312,27 @@ ninja.data = [
   {%- if site.enable_darkmode -%}
     {
       id: 'light-theme',
-      title: 'Change theme to light',
-      description: 'Change the theme of the site to Light',
-      section: 'Theme',
+      title: "{{ site.data[site.active_lang].strings.search.light_theme_title }}",
+      description: "{{ site.data[site.active_lang].strings.search.light_theme_description }}",
+      section: "{{ site.data[site.active_lang].strings.search.theme }}",
       handler: () => {
         setThemeSetting("light");
       },
     },
     {
       id: 'dark-theme',
-      title: 'Change theme to dark',
-      description: 'Change the theme of the site to Dark',
-      section: 'Theme',
+      title: "{{ site.data[site.active_lang].strings.search.dark_theme_title }}",
+      description: "{{ site.data[site.active_lang].strings.search.dark_theme_description }}",
+      section: "{{ site.data[site.active_lang].strings.search.theme }}",
       handler: () => {
         setThemeSetting("dark");
       },
     },
     {
       id: 'system-theme',
-      title: 'Use system default theme',
-      description: 'Change the theme of the site to System Default',
-      section: 'Theme',
+      title: "{{ site.data[site.active_lang].strings.search.system_theme_title }}",
+      description: "{{ site.data[site.active_lang].strings.search.system_theme_description }}",
+      section: "{{ site.data[site.active_lang].strings.search.theme }}",
       handler: () => {
         setThemeSetting("system");
       },
