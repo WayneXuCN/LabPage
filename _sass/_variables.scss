@@ -33,29 +33,12 @@ $white-color: #ffffff !default;
 $black-color: #000000 !default;
 
 // Theme colors
+
 $code-bg-color-light: rgba($purple-color, 0.05);
 $code-bg-color-dark: #2c3237 !default;
 
 // Font awesome location
 $fa-font-path: "../webfonts";
-
-// Tabler icons location
-$ti-font-path: "../fonts";
-
-// Font families
-$font-family-sans-serif: "Roboto", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
-$font-family-serif: "Roboto Slab", "Noto Sans SC", Georgia, "Times New Roman", Times, serif !default;
-$font-family-monospace: "Monaspace Neon", "Monaspace Radon", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
-$font-family-base: $font-family-sans-serif !default;
-$font-family-headings: $font-family-serif !default;
-$font-family-chinese: "Noto Sans SC", "Source Han Sans SC", sans-serif !default;
-
-// Font weights
-$font-weight-light: 300 !default;
-$font-weight-normal: 400 !default;
-$font-weight-medium: 500 !default;
-$font-weight-semibold: 600 !default;
-$font-weight-bold: 700 !default;
 
 // Back To Top button config
 $back-to-top-z-index: 10;
@@ -65,24 +48,5 @@ $back-to-top-diameter: 40px;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
 
-// Shadows
-$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
-$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
-$shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
-
-// Transitions
-$transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-// Language switcher variables
-$lang-switcher-padding: .5rem 1rem !default;
-$lang-switcher-min-height: 40px !default;
-$lang-switcher-border-radius: 6px !default;
-$lang-switcher-gap: 6px !default;
-$lang-switcher-icon-size: 1.1em !default;
-$lang-switcher-font-size: 1rem !default;
-$lang-dropdown-min-width: 180px !default;
-$lang-dropdown-max-width: 220px !default;
-$lang-dropdown-max-height: 300px !default;
-$lang-dropdown-item-padding: 10px 16px !default;
-$lang-dropdown-border-radius: 8px !default;
+// Max width default
+$max-content-width: 930px !default;
