@@ -18,6 +18,7 @@ group :jekyll_plugins do
     gem 'jekyll-regex-replace'
     gem 'jekyll-scholar'
     gem 'jekyll-sitemap'
+    gem 'jekyll-socials'
     gem 'jekyll-tabs'
     gem 'jekyll-terser'
     gem 'jekyll-toc'
