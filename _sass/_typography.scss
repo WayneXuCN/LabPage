@@ -4,34 +4,40 @@
 
 @use "variables" as v;
 
+// Base text elements
 p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 em,
 div,
 li,
 span,
 strong {
   color: var(--global-text-color);
+  font-family: v.$font-family-base;
 }
 
+// Links
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
 
+// Tables
 table {
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-base;
+
   td,
   th {
-    font-size: 1rem;
+    font-size: v.$font-size-base;
     padding: 1px 1rem 1px 0;
   }
 
   th {
-    font-weight: bold;
+    font-weight: v.$font-weight-semibold;
+    font-family: v.$font-family-headings;
+  }
+
+  td {
+    font-weight: v.$font-weight-normal;
   }
 }
 
@@ -61,10 +67,14 @@ blockquote {
   border-left: 5px solid var(--global-theme-color);
   margin: 1.5em 0;
   padding: 1em;
-  font-size: 1.2rem;
+  font-family: v.$font-family-headings;
+  font-size: v.$font-size-md;
+  font-weight: v.$font-weight-normal;
+  line-height: v.$line-height-relaxed;
 
   p {
     margin-bottom: 0;
+    font-family: v.$font-family-headings;
   }
 
   /* Tips, warnings, and dangers blockquotes */

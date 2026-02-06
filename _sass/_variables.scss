@@ -40,14 +40,59 @@ $code-bg-color-dark: #2c3237 !default;
 // Font awesome location
 $fa-font-path: "../webfonts";
 
-// Typography
-$font-family-sans-serif: "Roboto", "Noto Sans SC", "Noto Sans", -apple-system, BlinkMacSystemFont,
-  "Segoe UI", Arial, sans-serif !default;
+// ============================================================================
+// Typography System
+// ============================================================================
+// Font Families
+$font-family-sans-serif:
+  "Source Sans Pro",
+  "Noto Sans SC",
+  "PingFang SC",
+  "Microsoft YaHei",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Arial,
+  sans-serif !default;
+$font-family-serif: "Source Serif Pro", "Noto Serif SC", "STSong", "SimSun", Georgia, serif !default;
+$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+// Base font settings
 $font-family-base: $font-family-sans-serif !default;
-$font-family-headings: "Roboto Slab", "Noto Serif SC", "Noto Serif", "Roboto", serif !default;
-$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-  monospace !default;
+$font-family-headings: $font-family-serif !default;
 $font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+// Font Size Scale (Major Third - 1.25 ratio)
+$font-size-xs: 0.75rem !default; // 12px
+$font-size-sm: 0.875rem !default; // 14px
+$font-size-base: 1rem !default; // 16px
+$font-size-md: 1.125rem !default; // 18px
+$font-size-lg: 1.25rem !default; // 20px
+$font-size-xl: 1.5rem !default; // 24px
+$font-size-2xl: 1.875rem !default; // 30px
+$font-size-3xl: 2.25rem !default; // 36px
+$font-size-4xl: 3rem !default; // 48px
+
+// Heading font sizes
+$h1-font-size: $font-size-4xl !default;
+$h2-font-size: $font-size-3xl !default;
+$h3-font-size: $font-size-2xl !default;
+$h4-font-size: $font-size-xl !default;
+$h5-font-size: $font-size-lg !default;
+$h6-font-size: $font-size-base !default;
+
+// Line heights
+$line-height-tight: 1.25 !default;
+$line-height-normal: 1.6 !default;
+$line-height-relaxed: 1.75 !default;
+
+// Letter spacing
+$letter-spacing-tight: -0.02em !default;
+$letter-spacing-normal: 0 !default;
+$letter-spacing-wide: 0.01em !default;
 
 // Back To Top button config
 $back-to-top-z-index: 10;
@@ -59,3 +104,35 @@ $back-to-top-width: $back-to-top-diameter;
 
 // Max width default
 $max-content-width: 930px !default;
+
+// ============================================================================
+// Language Switcher Variables
+// ============================================================================
+
+// Spacing
+$lang-switcher-gap: 6px !default;
+$lang-switcher-padding: 6px 10px !default;
+$lang-switcher-min-height: 36px !default;
+
+// Typography
+$lang-switcher-font-size: $font-size-sm !default;
+$lang-switcher-icon-size: 1.1em !default;
+
+// Visual
+$lang-switcher-border-radius: 8px !default;
+$lang-switcher-bg-hover: var(--global-hover-bg-color) !default;
+
+// Dropdown - 更紧凑的设计
+$lang-dropdown-min-width: 110px !default;
+$lang-dropdown-max-width: 150px !default;
+$lang-dropdown-border-radius: 10px !default;
+$lang-dropdown-item-padding: 8px 12px !default;
+$lang-dropdown-max-height: 300px !default;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08) !default;
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12) !default;
+
+// Transitions
+$transition-base: all 0.2s ease-in-out !default;
+$transition-transform: transform 0.2s ease-in-out !default;

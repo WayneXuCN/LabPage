@@ -32,8 +32,7 @@
         data-target="#navbarNav"
         aria-controls="navbarNav"
         aria-expanded="false"
-        aria-label="{{ site.data[site.active_lang].strings.header.toggle_navigation }}"
-      >
+        aria-label="{{ site.data[site.active_lang].strings.header.toggle_navigation }}">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar top-bar"></span>
         <span class="icon-bar middle-bar"></span>
@@ -75,8 +74,7 @@
                     role="button"
                     data-toggle="dropdown"
                     aria-haspopup="true"
-                    aria-expanded="false"
-                  >
+                    aria-expanded="false">
                     {{- p.title }}
                     {% if page.title == p.title or has_active_child %}
                       <span class="sr-only">{{ site.data[site.active_lang].strings.header.current }}</span>
@@ -89,8 +87,7 @@
                       {% else %}
                         <a
                           class="dropdown-item {% if page.title == child.title %}active{% endif %}"
-                          href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}"
-                        >
+                          href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}">
                           {{- child.title -}}
                         </a>
                       {% endif %}
@@ -119,11 +116,30 @@
           {% endfor %}
           {% if site.search_enabled %}
             <!-- Search -->
-                      <li class="nav-item">
-                        <button id="search-toggle" class="lang-switcher" title="{{ site.data[site.active_lang].strings.header.search }}" onclick="openSearchModal()">
-                          <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
-                        </button>
-                      </li>          {% endif %}
+            <li class="nav-item">
+              <button
+                id="search-toggle"
+                title="{{ site.data[site.active_lang].strings.header.search }}"
+                onclick="openSearchModal()">
+                <!-- inline SVG so it inherits currentColor on hover -->
+                <svg
+                  class="icon-img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                  <path d="M21 21l-6 -6" />
+                </svg>
+              </button>
+            </li>
+          {% endif %}
           <!-- Toogle language -->
           {% if site.languages.size >= 2 %}
             {% if site.languages.size == 2 %}
@@ -139,7 +155,11 @@
                   {% assign current_url = page.url | remove_first: prefix %}
                 {% endif %}
                 {% if site.active_lang == site.default_lang %}
-                  <a class="lang-switcher-single" {% static_href -%} href="{{ site.baseurl }}/{{ other_language }}{{ current_url }}" {%- endstatic_href %}>
+                  <a
+                    class="lang-switcher-single"
+                    {% static_href -%}
+                    href="{{ site.baseurl }}/{{ other_language }}{{ current_url }}"
+                    {%- endstatic_href %}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="1em"
@@ -150,8 +170,7 @@
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lang-icon lucide lucide-globe-icon lucide-globe"
-                    >
+                      class="lang-icon lucide lucide-globe-icon lucide-globe">
                       <circle cx="12" cy="12" r="10"/>
                       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
@@ -174,8 +193,7 @@
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lang-icon lucide lucide-globe-icon lucide-globe"
-                    >
+                      class="lang-icon lucide lucide-globe-icon lucide-globe">
                       <circle cx="12" cy="12" r="10"/>
                       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
@@ -194,10 +212,8 @@
                   <button
                     class="lang-switcher-toggle"
                     type="button"
-                    data-toggle="dropdown"
                     aria-haspopup="true"
-                    aria-expanded="false"
-                  >
+                    aria-expanded="false">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="1em"
@@ -208,49 +224,42 @@
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lang-icon lucide lucide-globe-icon lucide-globe"
-                    >
+                      class="lang-icon lucide lucide-globe-icon lucide-globe">
                       <circle cx="12" cy="12" r="10"/>
                       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                       <path d="M2 12h20"/>
                     </svg>
-                    {% if site.country_flag %}
-                      <span class="flag-icon fi fi-{{ site.active_lang | split: "_" | last }}"></span>
-                    {% else %}
-                      <span class="lang-label">{{- site.language_names[site.active_lang] -}}</span>
-                    {%- endif -%}
                   </button>
                   <div class="lang-dropdown-menu" aria-labelledby="navbarDropdown">
                     {% assign language_set = false %}
                     {% for l in site.languages %}
-                      {% if l != site.active_lang %}
-                        {% if language_set %}
-                          <div class="lang-dropdown-divider"></div>
-                        {% endif %}
-                        {% assign current_url = page.url %}
-                        {% if site.active_lang != site.default_lang %}
-                          {% assign prefix = '/' | append: site.active_lang %}
-                          {% assign current_url = page.url | remove_first: prefix %}
-                        {% endif %}
-                        {% if l == site.default_lang %}
-                          <a class="lang-dropdown-item" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %}>
-                            {% if site.country_flag %}
-                              <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
-                            {% else %}
-                              <span class="lang-label">{{ site.language_names[l] }}</span>
-                            {%- endif -%}
-                          </a>
-                        {% else %}
-                          <a class="lang-dropdown-item" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ current_url }}" {%- endstatic_href %}>
-                            {% if site.country_flag %}
-                              <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
-                            {% else %}
-                              <span class="lang-label">{{ site.language_names[l] }}</span>
-                            {%- endif -%}
-                          </a>
-                        {% endif %}
-                        {% assign language_set = true %}
+                      {% if language_set %}
+                        <div class="lang-dropdown-divider"></div>
                       {% endif %}
+                      {% assign current_url = page.url %}
+                      {% if site.active_lang != site.default_lang %}
+                        {% assign prefix = '/' | append: site.active_lang %}
+                        {% assign current_url = page.url | remove_first: prefix %}
+                      {% endif %}
+                      {% comment %} Build link for each language; include the active one and mark it .active {% endcomment %}
+                      {% if l == site.default_lang %}
+                        <a class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}" {% static_href -%} href="{{ site.baseurl }}{{ current_url }}" {%- endstatic_href %} aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
+                          {% if site.country_flag %}
+                            <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
+                          {% else %}
+                            <span class="lang-label">{{ site.language_names[l] }}</span>
+                          {%- endif -%}
+                        </a>
+                      {% else %}
+                        <a class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ current_url }}" {%- endstatic_href %} aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
+                          {% if site.country_flag %}
+                            <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
+                          {% else %}
+                            <span class="lang-label">{{ site.language_names[l] }}</span>
+                          {%- endif -%}
+                        </a>
+                      {% endif %}
+                      {% assign language_set = true %}
                     {% endfor %}
                   </div>
                 </div>
@@ -259,13 +268,45 @@
           {% endif %}
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
-                      <li class="nav-item">
-                        <button id="light-toggle" class="lang-switcher" title="{{ site.data[site.active_lang].strings.header.change_theme }}">
-                          <i class="fa-half-sun-moon" id="light-toggle-system"></i>
-                          <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
-                          <i class="fa-solid fa-sun" id="light-toggle-light"></i>
-                        </button>
-                      </li>          {% endif %}
+            <li class="nav-item">
+              <button id="light-toggle" title="{{ site.data[site.active_lang].strings.header.change_theme }}">
+                <svg
+                  id="light-toggle-dark"
+                  class="icon-img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                </svg>
+                <svg
+                  id="light-toggle-light"
+                  class="icon-img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" />
+                  <path d="M6.343 17.657l-1.414 1.414" />
+                  <path d="M6.343 6.343l-1.414 -1.414" />
+                  <path d="M17.657 6.343l1.414 -1.414" />
+                  <path d="M17.657 17.657l1.414 1.414" />
+                  <path d="M4 12h-2" />
+                  <path d="M12 4v-2" />
+                  <path d="M20 12h2" />
+                  <path d="M12 20v2" />
+                </svg>
+              </button>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </div>

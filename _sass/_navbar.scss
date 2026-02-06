@@ -2,13 +2,31 @@
  * Navigation bar and header customization
  ******************************************************************************/
 
-@use "variables" as v;
-
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
   opacity: 0.95;
+  font-family: var(--global-font-family-base, "Source Sans Pro", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+
+  .navbar-brand {
+    font-family: var(--global-font-family-headings, "Source Serif Pro", "Noto Serif SC", Georgia, serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-link {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .nav-item.active > .nav-link {
+    font-weight: 600 !important;
+  }
 }
 
 .navbar .dropdown-menu,
@@ -59,11 +77,20 @@
     color: var(--global-text-color);
   }
 
-  .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
+  .navbar-nav {
+    align-items: center;
 
-    &:hover {
-      color: var(--global-hover-color);
+    .nav-item {
+      display: flex;
+      align-items: center;
+
+      .nav-link {
+        color: var(--global-text-color);
+
+        &:hover {
+          color: var(--global-hover-color);
+        }
+      }
     }
   }
 
@@ -155,36 +182,187 @@
   }
 }
 
-#light-toggle {
+// Header 按钮组
+// 统一样式
+#light-toggle,
+#search-toggle,
+.lang-switcher-single,
+.lang-switcher-toggle {
+  width: 2.2rem;
+  height: 2.2rem;
   padding: 0;
   border: 0;
-  background-color: inherit;
+  background-color: transparent;
   color: var(--global-text-color);
-  /* Fix footprint to prevent navbar shifting when icon changes */
-  width: 2rem;
-  height: 2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+  cursor: pointer;
 
   &:hover {
-    color: var(--global-hover-color);
+    color: var(--global-theme-color);
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--global-theme-color-light, rgba(181, 9, 172, 0.2));
+  }
+
+  i {
+    font-size: 1em;
+  }
+
+  // 图标图片尺寸
+  .icon-img {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
   }
 }
 
-@media (min-width: 576px) {
-  #light-toggle {
-    transform: translateY(4px);
+// Language switcher: no outer circle on hover, no caret/triangle
+.lang-switcher-single,
+.lang-switcher-toggle {
+  border-radius: 0; // remove circular clip
+
+  &:hover {
+    background-color: transparent; // no circle or background on hover
+    color: var(--global-theme-color);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &::after {
+    display: none !important;
+  } // hide Bootstrap caret if present
+
+  .lang-label {
+    margin-left: 0.35rem;
   }
 }
 
-#search-toggle {
-  padding: 0;
-  border: 0;
-  background-color: inherit;
-  color: var(--global-text-color);
+/* Strong overrides to ensure no circular hover/border from Bootstrap or other rules */
+.lang-switcher-single,
+.lang-switcher-toggle,
+.lang-switcher-single:hover,
+.lang-switcher-toggle:hover {
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.lang-switcher-single::after,
+.lang-switcher-toggle::after {
+  display: none !important; /* hide caret */
+}
+
+/* Stronger, high-specificity overrides to defeat rules from _base.scss or Bootstrap
+   Ensure language button has no background/box/padding on desktop nav */
+.navbar .navbar-nav .lang-switcher-item .lang-switcher-single,
+.navbar .navbar-nav .lang-switcher-item .lang-switcher-toggle,
+.navbar .navbar-nav .lang-switcher-item .lang-switcher-single:hover,
+.navbar .navbar-nav .lang-switcher-item .lang-switcher-toggle:hover,
+.navbar .navbar-nav .lang-switcher-item .lang-switcher-single:focus,
+.navbar .navbar-nav .lang-switcher-item .lang-switcher-toggle:focus {
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Remove any flag/icon box shadow in navbar context */
+.navbar .navbar-nav .lang-switcher-item .flag-icon {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Improve contrast for active language item in dark theme */
+html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown .lang-dropdown-menu .lang-dropdown-item.active {
+  background-color: var(--lang-active-bg) !important; /* use theme-specific computed variable */
+  color: var(--global-hover-text-color) !important; /* white */
+  border: none !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+// 主题按钮样式
+#light-toggle {
+  // icons hidden by default; JS will show the correct one after DOM ready
+  #light-toggle-dark,
+  #light-toggle-light {
+    display: none;
+    vertical-align: middle;
+  }
+
+  // remove default button chrome and box; let svg inherit currentColor and change on hover
+  background: transparent;
+  border: none;
+  padding: 0.15rem;
+  line-height: 0;
 
   &:hover {
-    color: var(--global-hover-color);
+    color: var(--global-theme-color);
+    background: transparent;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+// 移动端（< 768px）
+@media (max-width: 767px) {
+  .navbar-collapse {
+    .navbar-nav {
+      // 按钮容器样式
+      .nav-item {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid var(--global-divider-color);
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      // 搜索和主题按钮统一样式
+      #light-toggle,
+      #search-toggle,
+      .lang-switcher-single,
+      .lang-switcher-toggle {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.875rem 1rem;
+        border-radius: 0;
+        background-color: transparent;
+        font-size: 1.1rem;
+        min-height: 48px;
+
+        &:hover {
+          background-color: var(--global-hover-bg-color);
+        }
+
+        i {
+          margin-right: 0.75rem;
+        }
+        .icon-img {
+          margin-right: 0.75rem;
+        }
+      }
+    }
   }
 }

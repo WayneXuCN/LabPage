@@ -13,8 +13,7 @@
             class="badge rounded w-100"
             {% if venue_style %}
               {{ venue_style }}
-            {% endif -%}
-          >
+            {% endif -%}>
             {% if site.data.venues[entry.abbr].url %}
               <a href="{{ site.data.venues[entry.abbr].url }}">{{ entry.abbr }}</a>
             {% else %}
@@ -81,7 +80,9 @@
           {% if forloop.first == false -%}
             {%- if forloop.length > 2 %}, {% elsif forloop.length == 2 %}  {% endif %}
           {%- endif %}
-          {%- if forloop.last and author_array_limit == author_array_size %}{{ site.data[site.active_lang].strings.bibliography.last_author_prefix }} {% endif -%}
+          {%- if forloop.last and author_array_limit == author_array_size -%}
+            {{- site.data[site.active_lang].strings.bibliography.last_author_prefix }}
+          {% endif -%}
         {% endif %}
         {%- if author_is_self -%}
           <em>
@@ -131,8 +132,7 @@
                   clearInterval(textAdder);
                 }
             }, '{{ site.more_authors_animation_delay }}');
-          "
-        >
+          ">
           {{- more_authors_hide -}}
         </span>
       {% endif %}
@@ -142,8 +142,7 @@
           data-toggle="popover"
           data-placement="top"
           data-html="true"
-          data-content="{{ entry.annotation | escape }}"
-        >
+          data-content="{{ entry.annotation | escape }}">
         </i>
       {% endif %}
     </div>
@@ -227,7 +226,9 @@
         {% if entry.supp contains '://' %}
           <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button">{{ site.data[site.active_lang].strings.bibliography.supp }}</a>
         {% else %}
-          <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">{{ site.data[site.active_lang].strings.bibliography.supp }}</a>
+          <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">
+            {{- site.data[site.active_lang].strings.bibliography.supp -}}
+          </a>
         {% endif %}
       {% endif %}
       {% if entry.video and site.enable_video_embedding %}
@@ -245,14 +246,18 @@
         {% if entry.poster contains '://' %}
           <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button">{{ site.data[site.active_lang].strings.bibliography.poster }}</a>
         {% else %}
-          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">{{ site.data[site.active_lang].strings.bibliography.poster }}</a>
+          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">
+            {{- site.data[site.active_lang].strings.bibliography.poster -}}
+          </a>
         {% endif %}
       {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
           <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">{{ site.data[site.active_lang].strings.bibliography.slides }}</a>
         {% else %}
-          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">{{ site.data[site.active_lang].strings.bibliography.slides }}</a>
+          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">
+            {{- site.data[site.active_lang].strings.bibliography.slides -}}
+          </a>
         {% endif %}
       {% endif %}
       {% if entry.website %}
@@ -298,8 +303,7 @@
                 data-pmid="{{ entry.pmid }}"
               {% elsif entry.isbn %}
                 data-isbn="{{ entry.isbn }}"
-              {% endif %}
-            ></span>
+              {% endif %}></span>
           {% endif %}
           {% if site.enable_publication_badges.dimensions and entry_has_dimensions_badge %}
             <span
@@ -313,15 +317,13 @@
               {% endif %}
               data-style="small_rectangle"
               data-legend="hover-right"
-              style="margin-bottom: 3px;"
-            ></span>
+              style="margin-bottom: 3px;"></span>
           {% endif %}
           {% if site.enable_publication_badges.google_scholar and entry_has_google_scholar_badge %}
             <a
               href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user={{ site.data.socials.scholar_userid }}&citation_for_view={{ site.data.socials.scholar_userid }}:{{ entry.google_scholar_id }}"
               aria-label="Google Scholar link"
-              role="button"
-            >
+              role="button">
               {% assign citation_count = 0 %}
               {% assign scholar_id_key = site.scholar_userid | append: ':' | append: entry.google_scholar_id %}
               {% assign publication_key = entry.google_scholar_id %}
@@ -342,20 +344,17 @@
 
               <img
                 src="https://img.shields.io/badge/scholar-{{ citation_count }}-4285F4?logo=googlescholar&labelColor=beige"
-                alt="{{ citation_count }} Google Scholar citations"
-              >
+                alt="{{ citation_count }} Google Scholar citations">
             </a>
           {% endif %}
           {% if site.enable_publication_badges.inspirehep and entry_has_inspirehep_badge %}
             <a
               href="https://inspirehep.net/literature/{{ entry.inspirehep_id }}"
               aria-label="Inspirehep link"
-              role="button"
-            >
+              role="button">
               <img
                 src="https://img.shields.io/badge/inspire-{% inspirehep_citations entry.inspirehep_id %}-001628?logo=inspire&logoColor=001628&labelColor=beige"
-                alt="{% inspirehep_citations entry.inspirehep_id %} InspireHEP citations"
-              >
+                alt="{% inspirehep_citations entry.inspirehep_id %} InspireHEP citations">
             </a>
           {% endif %}
         </div>

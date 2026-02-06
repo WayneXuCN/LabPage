@@ -2,34 +2,42 @@
  * Footer styles
  ******************************************************************************/
 
-footer.fixed-bottom {
-  background-color: var(--global-footer-bg-color);
-  font-size: 0.75rem;
+@use "variables" as v;
 
-  .container {
-    color: var(--global-footer-text-color);
-    padding-top: 9px;
-    padding-bottom: 8px;
-    text-align: center;
-  }
+footer {
+  font-family: v.$font-family-base;
+  font-weight: v.$font-weight-normal;
+  letter-spacing: v.$letter-spacing-normal;
 
-  a {
-    color: var(--global-footer-link-color);
+  &.fixed-bottom {
+    background-color: var(--global-footer-bg-color);
+    font-size: v.$font-size-xs;
 
-    &:hover {
-      color: var(--global-theme-color);
-      text-decoration: none;
+    .container {
+      color: var(--global-footer-text-color);
+      padding-top: 9px;
+      padding-bottom: 8px;
+      text-align: center;
+    }
+
+    a {
+      color: var(--global-footer-link-color);
+
+      &:hover {
+        color: var(--global-theme-color);
+        text-decoration: none;
+      }
     }
   }
-}
 
-footer.sticky-bottom {
-  border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-size: 0.9rem;
+  &.sticky-bottom {
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: v.$font-size-sm;
 
-  .container {
-    text-align: center;
+    .container {
+      text-align: center;
+    }
   }
 }

@@ -24,7 +24,7 @@ announcements:
   limit: 5 # leer lassen, um alle News im _news-Ordner einzubinden
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # Scrollbar bei mehr als 3 neuen Beiträgen
   limit: 3 # leer lassen, um alle Blogposts einzubinden
 ---

@@ -27,19 +27,16 @@
       <link
         rel="alternate"
         hreflang="{{ lang }}"
-        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}"
-      >
+        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}">
       <link
         rel="alternate"
         hreflang="x-default"
-        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}"
-      >
+        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}">
     {% else %}
       <link
         rel="alternate"
         hreflang="{{ lang }}"
-        href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ current_url }}"
-      >
+        href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ current_url }}">
     {% endif %}
   {% endfor %}
 {% endif %}

@@ -2,16 +2,14 @@
 <script
   src="{{ site.third_party_libraries.jquery.url.js }}"
   integrity="{{ site.third_party_libraries.jquery.integrity.js }}"
-  crossorigin="anonymous"
-></script>
+  crossorigin="anonymous"></script>
 
 <!-- Bootsrap & MDB scripts -->
 <script src="{{ '/assets/js/bootstrap.bundle.min.js' | relative_url }}"></script>
 <script
   src="{{ site.third_party_libraries.mdb.url.js }}"
   integrity="{{ site.third_party_libraries.mdb.integrity.js }}"
-  crossorigin="anonymous"
-></script>
+  crossorigin="anonymous"></script>
 
 {% if site.enable_masonry %}
   <!-- Masonry & imagesLoaded -->
@@ -19,14 +17,12 @@
     defer
     src="{{ site.third_party_libraries.masonry.url.js }}"
     integrity="{{ site.third_party_libraries.masonry.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script
     defer
     src="{{ site.third_party_libraries.imagesloaded.url.js }}"
     integrity="{{ site.third_party_libraries.imagesloaded.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/masonry.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
@@ -36,15 +32,13 @@
     defer
     src="{{ site.third_party_libraries.mermaid.url.js }}"
     integrity="{{ site.third_party_libraries.mermaid.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   {% if page.mermaid.zoomable %}
     <script
       defer
       src="{{ site.third_party_libraries.d3.url.js }}"
       integrity="{{ site.third_party_libraries.d3.integrity.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% endif %}
   <script defer src="{{ '/assets/js/mermaid-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
@@ -55,8 +49,7 @@
   <script
     src="{{ site.third_party_libraries.diff2html.url.js }}"
     integrity="{{ site.third_party_libraries.diff2html.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/diff2html-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
@@ -65,8 +58,7 @@
   <script
     src="{{ site.third_party_libraries.leaflet.url.js }}"
     integrity="{{ site.third_party_libraries.leaflet.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/leaflet-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
@@ -76,8 +68,7 @@
     defer
     src="{{ site.third_party_libraries.chartjs.url.js }}"
     integrity="{{ site.third_party_libraries.chartjs.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/chartjs-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
@@ -86,14 +77,12 @@
   <script
     src="{{ site.third_party_libraries.echarts.url.js.library }}"
     integrity="{{ site.third_party_libraries.echarts.integrity.js.library }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   {% if site.enable_darkmode %}
     <script
       src="{{ site.third_party_libraries.echarts.url.js.dark_theme }}"
       integrity="{{ site.third_party_libraries.echarts.integrity.js.dark_theme }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% endif %}
   <script defer src="{{ '/assets/js/echarts-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
@@ -109,8 +98,7 @@
     defer
     src="{{ site.third_party_libraries.plotly.url.js }}"
     integrity="{{ site.third_party_libraries.plotly.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/plotly-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
@@ -120,20 +108,17 @@
     defer
     src="{{ site.third_party_libraries.vega.url.js }}"
     integrity="{{ site.third_party_libraries.vega.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script
     defer
     src="{{ site.third_party_libraries.vega-lite.url.js }}"
     integrity="{{ site.third_party_libraries.vega-lite.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script
     defer
     src="{{ site.third_party_libraries.vega-embed.url.js }}"
     integrity="{{ site.third_party_libraries.vega-embed.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/vega-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
@@ -158,8 +143,7 @@
     defer
     src="{{ site.third_party_libraries.medium_zoom.url.js }}"
     integrity="{{ site.third_party_libraries.medium_zoom.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/zoom.js' | relative_url | bust_file_cache }}"></script>
 {% endif %}
 
@@ -175,14 +159,16 @@
     defer
     src="{{ site.third_party_libraries.bootstrap-table.url.js }}"
     integrity="{{ site.third_party_libraries.bootstrap-table.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
 {% endif %}
 
 <!-- Load Common JS -->
 <script src="{{ '/assets/js/no_defer.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/common.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/copy_code.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
+
+<!-- Language Switcher -->
+<script defer src="{{ '/assets/js/lang-switcher.js' | relative_url | bust_file_cache }}"></script>
 
 <!-- Jupyter Open External Links New Tab -->
 <script defer src="{{ '/assets/js/jupyter_new_tab.js' | relative_url | bust_file_cache }}"></script>
@@ -203,23 +189,20 @@
     id="MathJax-script"
     src="{{ site.third_party_libraries.mathjax.url.js }}"
     integrity="{{ site.third_party_libraries.mathjax.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   {% unless page.pseudocode %}
     <script src="{{ '/assets/js/mathjax-setup.js' | relative_url | bust_file_cache }}"></script>
     <script
       defer
       src="{{ site.third_party_libraries.polyfill.url.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% else %}
     <script src="{{ '/assets/js/pseudocode-setup.js' | relative_url | bust_file_cache }}"></script>
     <script
       type="text/javascript"
       src="{{ site.third_party_libraries.pseudocode.url.js }}"
       integrity="{{ site.third_party_libraries.pseudocode.integrity.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% endunless %}
 {% endif %}
 
@@ -229,8 +212,7 @@
     defer
     src="{{ site.third_party_libraries.vanilla-cookieconsent.url.js }}"
     integrity="{{ site.third_party_libraries.vanilla-cookieconsent.integrity.js }}"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
   <script defer src="{{ '/assets/js/cookie-consent-setup.js' | relative_url }}"></script>
 {% endif %}
 
@@ -242,15 +224,13 @@
       type="text/plain" data-category="analytics"
     {% endif %}
     async
-    src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"
-  ></script>
+    src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script
     {% if site.enable_cookie_consent %}
       type="text/plain" data-category="analytics"
     {% endif %}
     defer
-    src="{{ '/assets/js/google-analytics-setup.js' | relative_url }}"
-  ></script>
+    src="{{ '/assets/js/google-analytics-setup.js' | relative_url }}"></script>
 {% endif %}
 
 {% if site.enable_cronitor_analytics %}
@@ -260,15 +240,13 @@
       type="text/plain" data-category="analytics"
     {% endif %}
     async
-    src="https://rum.cronitor.io/script.js"
-  ></script>
+    src="https://rum.cronitor.io/script.js"></script>
   <script
     {% if site.enable_cookie_consent %}
       type="text/plain" data-category="analytics"
     {% endif %}
     defer
-    src="{{ '/assets/js/cronitor-analytics-setup.js' | relative_url }}"
-  ></script>
+    src="{{ '/assets/js/cronitor-analytics-setup.js' | relative_url }}"></script>
 {% endif %}
 {% if site.enable_pirsch_analytics %}
   <script
@@ -278,8 +256,7 @@
     defer
     src="https://api.pirsch.io/pa.js"
     id="pianjs"
-    data-code="{{ site.pirsch_analytics }}"
-  ></script>
+    data-code="{{ site.pirsch_analytics }}"></script>
 {% endif %}
 {% if site.enable_openpanel_analytics %}
   <script
@@ -287,16 +264,14 @@
       type="text/plain" data-category="analytics"
     {% endif %}
     defer
-    src="{{ '/assets/js/open-panel-analytics-setup.js' | relative_url }}"
-  ></script>
+    src="{{ '/assets/js/open-panel-analytics-setup.js' | relative_url }}"></script>
   <script
     {% if site.enable_cookie_consent %}
       type="text/plain" data-category="analytics"
     {% endif %}
     async
     defer
-    src="https://openpanel.dev/op1.js"
-  ></script>
+    src="https://openpanel.dev/op1.js"></script>
 {% endif %}
 
 {% if site.enable_progressbar %}
@@ -311,16 +286,14 @@
       defer
       src="{{ site.third_party_libraries.img-comparison-slider.url.js }}"
       integrity="{{ site.third_party_libraries.img-comparison-slider.integrity.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% endif %}
   {% if page.images.lightbox2 %}
     <script
       defer
       src="{{ site.third_party_libraries.lightbox2.url.js }}"
       integrity="{{ site.third_party_libraries.lightbox2.integrity.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% endif %}
   {% if page.images.photoswipe %}
     <script defer src="{{ '/assets/js/photoswipe-setup.js' | relative_url }}" type="module"></script>
@@ -330,23 +303,20 @@
       defer
       src="{{ site.third_party_libraries.swiper.url.js }}"
       integrity="{{ site.third_party_libraries.swiper.integrity.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% endif %}
   {% if page.images.spotlight %}
     <script
       defer
       src="{{ site.third_party_libraries.spotlight.url.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   {% endif %}
   {% if page.images.venobox %}
     <script
       defer
       src="{{ site.third_party_libraries.venobox.url.js }}"
       integrity="{{ site.third_party_libraries.venobox.integrity.js }}"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script defer src="{{ '/assets/js/venobox-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
   {% endif %}
 {% endif %}

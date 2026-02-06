@@ -1,14 +1,13 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
-// Toggle through light, dark, and system theme settings.
+// Toggle between light and dark theme (ignore system icon in header).
 let toggleThemeSetting = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
+  // toggle based on the currently computed theme (light/dark)
+  let current = determineComputedTheme();
+  if (current === "light") {
     setThemeSetting("dark");
   } else {
-    setThemeSetting("system");
+    setThemeSetting("light");
   }
 };
 
@@ -58,6 +57,11 @@ let applyTheme = () => {
   }
 
   document.documentElement.setAttribute("data-theme", theme);
+
+  // Update header toggle icons to reflect the computed theme
+  if (typeof updateThemeToggleIcons === "function") {
+    updateThemeToggleIcons(theme);
+  }
 
   // Add class to tables.
   let tables = document.getElementsByTagName("table");
@@ -299,16 +303,35 @@ let initTheme = () => {
   // Add event listener to the theme toggle button.
   document.addEventListener("DOMContentLoaded", function () {
     const mode_toggle = document.getElementById("light-toggle");
+    if (mode_toggle) {
+      mode_toggle.addEventListener("click", function () {
+        toggleThemeSetting();
+      });
+    }
 
-    mode_toggle.addEventListener("click", function () {
-      toggleThemeSetting();
-    });
+    // Ensure icons are updated after DOM is ready (prevents double icons)
+    if (typeof updateThemeToggleIcons === "function") {
+      updateThemeToggleIcons(determineComputedTheme());
+    }
   });
 
   // Add event listener to the system theme preference change.
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
     applyTheme();
   });
+};
+
+// Update the header theme toggle icons' visibility.
+let updateThemeToggleIcons = (theme) => {
+  try {
+    const moon = document.getElementById("light-toggle-dark");
+    const sun = document.getElementById("light-toggle-light");
+
+    if (moon) moon.style.display = theme === "light" ? "block" : "none";
+    if (sun) sun.style.display = theme === "dark" ? "block" : "none";
+  } catch (e) {
+    // ignore if elements not present yet
+  }
 };
 
 // Get the appropriate background color for Google Calendar based on current theme

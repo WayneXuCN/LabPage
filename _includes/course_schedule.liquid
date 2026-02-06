@@ -11,23 +11,28 @@
     {% endif %}
 
     {% if course.instructor %}
-      <p><strong>{{ site.data[site.active_lang].strings.courses.instructor }}:</strong> {{ course.instructor }}</p>
+      <p>
+        <strong>{{ site.data[site.active_lang].strings.courses.instructor }}:</strong> {{ course.instructor }}
+      </p>
     {% endif %}
 
     {% if course.term %}
-      <p><strong>{{ site.data[site.active_lang].strings.courses.term }}:</strong> {{ course.term }}</p>
+      <p>
+        <strong>{{ site.data[site.active_lang].strings.courses.term }}:</strong> {{ course.term }}
+      </p>
     {% endif %}
 
     {% if course.schedule %}
       <table class="table table-sm table-responsive">
-              <thead>
-                <tr>
-                  <th>{{ site.data[site.active_lang].strings.courses.week }}</th>
-                  <th>{{ site.data[site.active_lang].strings.courses.date }}</th>
-                  <th>{{ site.data[site.active_lang].strings.courses.topic }}</th>
-                  <th>{{ site.data[site.active_lang].strings.courses.materials }}</th>
-                </tr>
-              </thead>        <tbody>
+        <thead>
+          <tr>
+            <th>{{ site.data[site.active_lang].strings.courses.week }}</th>
+            <th>{{ site.data[site.active_lang].strings.courses.date }}</th>
+            <th>{{ site.data[site.active_lang].strings.courses.topic }}</th>
+            <th>{{ site.data[site.active_lang].strings.courses.materials }}</th>
+          </tr>
+        </thead>
+        <tbody>
           {% for entry in course.schedule %}
             <tr>
               <td>{{ entry.week }}</td>

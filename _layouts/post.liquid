@@ -6,7 +6,7 @@ layout: default
 {% assign categories = page.categories | join: '' %}
 {% assign url_beginning = page.url | slice: 0, 6 %}
 
-  {% if page._styles %}
+{% if page._styles %}
   <!-- Page/Post style -->
   <style type="text/css">
     {{ page._styles }}
@@ -46,7 +46,8 @@ layout: default
           {% if url_beginning == '/blog/' %}
             <a href="{{ tag | slugify | prepend: '/blog/tag/' | prepend: site.baseurl}}">
               <i class="fa-solid fa-hashtag fa-sm"></i>
-              {{ tag }}</a>
+              {{ tag -}}
+            </a>
           {% else %}
             <i class="fa-solid fa-hashtag fa-sm"></i>
             {{ tag }}

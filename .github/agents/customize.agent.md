@@ -122,6 +122,7 @@ This project supports multiple languages. Content and data files are organized b
 **Available locales:** `de_DE` (German), `en_US` (English), `ja_JP` (Japanese), `zh_CN` (Chinese)
 
 **To add localized content:**
+
 - Create parallel files in each locale subdirectory
 - Set default language in `_config.yml` via `lang:` setting
 - The `localization-exists.rb` plugin helps verify localization files exist
@@ -510,26 +511,26 @@ Help users avoid these frequent errors:
 
 ## Quick Reference Map
 
-| User wants to...        | Files to modify                                       | Key documentation                 |
-| ----------------------- | ----------------------------------------------------- | --------------------------------- |
-| Change personal info    | `_config.yml`, `_pages/en_US/about.md` (or locale)    | README.md, _config.yml comments   |
-| Add profile picture     | `assets/img/prof_pic.jpg`                             | _config.yml (icon setting)        |
-| Update CV               | `assets/json/resume.json` OR `_data/en_US/cv.yml`     | _data/{locale}/cv.yml structure   |
-| Add publications        | `_bibliography/papers.bib`                            | _bibliography/papers.bib examples |
-| Add blog post           | `_posts/YYYY-MM-DD-title.md`                          | _draft/template_posts/ examples   |
-| Add book review         | `_books/en_US/book-title.md`                          | _books/ directory examples        |
-| Create project          | `_projects/en_US/name.md` (or locale)                 | _projects/ structure              |
-| Add news item           | `_news/en_US/announcement.md` (or locale)             | _news/ structure                  |
-| Change theme color      | `_sass/_themes.scss`                                  | _sass/_themes.scss comments       |
-| Add social links        | `_data/socials.yml`                                   | _data/socials.yml structure       |
-| Enable/disable features | `_config.yml`                                         | _config.yml comments              |
-| Setup i18n / languages  | `_config.yml`, create locale subdirs                  | _data/{locale}/ examples          |
-| Remove pages            | Delete from `_pages/{locale}/`, update nav            | _pages/ structure                 |
-| Fix deployment issues   | `_config.yml` (url/baseurl)                           | README.md                         |
-| Test changes locally    | Docker setup                                          | docker-compose.yml                |
-| Debug broken site       | Check GitHub Actions, local preview output            | .github/workflows/                |
-| Add custom page         | Create `_pages/{locale}/name.md`, update nav          | _pages/ structure                 |
-| Customize fonts/spacing | `_sass/_variables.scss`                               | _sass/_variables.scss             |
+| User wants to...        | Files to modify                                    | Key documentation                  |
+| ----------------------- | -------------------------------------------------- | ---------------------------------- |
+| Change personal info    | `_config.yml`, `_pages/en_US/about.md` (or locale) | README.md, \_config.yml comments   |
+| Add profile picture     | `assets/img/prof_pic.jpg`                          | \_config.yml (icon setting)        |
+| Update CV               | `assets/json/resume.json` OR `_data/en_US/cv.yml`  | \_data/{locale}/cv.yml structure   |
+| Add publications        | `_bibliography/papers.bib`                         | \_bibliography/papers.bib examples |
+| Add blog post           | `_posts/YYYY-MM-DD-title.md`                       | \_draft/template_posts/ examples   |
+| Add book review         | `_books/en_US/book-title.md`                       | \_books/ directory examples        |
+| Create project          | `_projects/en_US/name.md` (or locale)              | \_projects/ structure              |
+| Add news item           | `_news/en_US/announcement.md` (or locale)          | \_news/ structure                  |
+| Change theme color      | `_sass/_themes.scss`                               | \_sass/\_themes.scss comments      |
+| Add social links        | `_data/socials.yml`                                | \_data/socials.yml structure       |
+| Enable/disable features | `_config.yml`                                      | \_config.yml comments              |
+| Setup i18n / languages  | `_config.yml`, create locale subdirs               | \_data/{locale}/ examples          |
+| Remove pages            | Delete from `_pages/{locale}/`, update nav         | \_pages/ structure                 |
+| Fix deployment issues   | `_config.yml` (url/baseurl)                        | README.md                          |
+| Test changes locally    | Docker setup                                       | docker-compose.yml                 |
+| Debug broken site       | Check GitHub Actions, local preview output         | .github/workflows/                 |
+| Add custom page         | Create `_pages/{locale}/name.md`, update nav       | \_pages/ structure                 |
+| Customize fonts/spacing | `_sass/_variables.scss`                            | \_sass/\_variables.scss            |
 
 ## Using Community Context in Your Responses
 

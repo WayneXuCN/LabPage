@@ -2,8 +2,11 @@
  * Teachings/Courses styles
  *****************************/
 
+@use "variables" as v;
+
 .courses {
   margin-top: 30px;
+  font-family: v.$font-family-base;
 }
 
 .year {
@@ -11,6 +14,9 @@
   margin-bottom: 20px;
   border-bottom: 1px solid var(--global-divider-color);
   padding-bottom: 10px;
+  font-family: v.$font-family-headings;
+  font-size: v.$font-size-xl;
+  font-weight: v.$font-weight-semibold;
 }
 
 .course-list {
@@ -35,10 +41,14 @@
 .course-title {
   margin-top: 0;
   margin-bottom: 10px;
+  font-family: v.$font-family-headings;
+  font-size: v.$font-size-lg;
+  font-weight: v.$font-weight-semibold;
 }
 
 .course-meta {
-  font-size: 0.9rem;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-sm;
   color: var(--global-text-color-light);
   margin-bottom: 10px;
 }
@@ -49,7 +59,8 @@
 }
 
 .course-description {
-  font-size: 0.9rem;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-base;
   margin-bottom: 15px;
 
   p {

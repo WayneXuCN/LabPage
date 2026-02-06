@@ -2,6 +2,8 @@
  * Blog post and listing styles
  ******************************************************************************/
 
+@use "variables" as v;
+
 .header-bar {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
@@ -10,7 +12,17 @@
 
   h1 {
     color: var(--global-theme-color);
-    font-size: 5rem;
+    font-family: v.$font-family-headings;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: v.$font-weight-bold;
+    line-height: v.$line-height-tight;
+  }
+
+  h2 {
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-normal;
+    color: var(--global-text-color-light);
   }
 }
 
@@ -50,15 +62,23 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 
+    .post-title {
+      font-family: v.$font-family-headings;
+      font-weight: v.$font-weight-semibold;
+      font-size: v.$font-size-xl;
+    }
+
     .post-meta {
       color: var(--global-text-color-light);
-      font-size: 0.875rem;
+      font-family: v.$font-family-base;
+      font-size: v.$font-size-sm;
       margin-bottom: 0;
     }
 
     .post-tags {
       color: var(--global-text-color-light);
-      font-size: 0.875rem;
+      font-family: v.$font-family-base;
+      font-size: v.$font-size-sm;
       padding-top: 0.25rem;
       padding-bottom: 0;
     }
@@ -101,15 +121,26 @@
 }
 
 .post {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: v.$font-family-headings;
+  }
+
   .post-meta {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-sm;
     margin-bottom: 0;
   }
 
   .post-tags {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-sm;
     padding-top: 0.25rem;
     padding-bottom: 1rem;
 
@@ -129,10 +160,18 @@
     color: var(--global-text-color-light);
     text-decoration: none;
 
+    .card-title {
+      font-family: v.$font-family-headings;
+      font-weight: v.$font-weight-semibold;
+      font-size: v.$font-size-lg;
+    }
+
     .card-text {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      font-family: v.$font-family-base;
+      font-size: v.$font-size-base;
     }
 
     &:hover {
@@ -146,7 +185,8 @@
 
   .post-meta {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-sm;
     margin-bottom: 0;
     padding-top: 0.5rem;
   }
@@ -154,7 +194,8 @@
 
 .post-description {
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-base;
 
   a {
     color: inherit;

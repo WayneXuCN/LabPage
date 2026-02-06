@@ -43,17 +43,16 @@
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
 
-  #light-toggle-system {
-    display: inline-block;
-  }
+  // Theme toggle icons: visibility is controlled by JS to avoid FOUC.
+  // Do not set display properties here; JS will show the correct icon.
 
-  #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
-    display: none;
-  }
+  // language active background (light)
+  --lang-active-bg: rgba(
+    #{color.channel(v.$purple-color, "red", v.$space: rgb)},
+    #{color.channel(v.$purple-color, "green", v.$space: rgb)},
+    #{color.channel(v.$purple-color, "blue", v.$space: rgb)},
+    0.12
+  );
 
   .only-light {
     display: block;
@@ -119,21 +118,18 @@ html[data-theme="dark"] {
   .only-dark {
     display: block;
   }
+
+  // language active background (dark) - slightly stronger for contrast
+  --lang-active-bg: rgba(
+    #{color.channel(v.$cyan-color, "red", v.$space: rgb)},
+    #{color.channel(v.$cyan-color, "green", v.$space: rgb)},
+    #{color.channel(v.$cyan-color, "blue", v.$space: rgb)},
+    0.28
+  );
 }
 
 html[data-theme-setting="dark"] {
-  #light-toggle-system {
-    display: none;
-  }
-
-  #light-toggle-dark {
-    display: inline-block;
-  }
-
-  #light-toggle-light {
-    display: none;
-  }
-
+  // Icons visibility handled via JS.
   #back-to-top {
     color: var(--global-back-to-top-text-color);
     background: var(--global-back-to-top-bg-color);
@@ -141,17 +137,7 @@ html[data-theme-setting="dark"] {
 }
 
 html[data-theme-setting="light"] {
-  #light-toggle-system {
-    display: none;
-  }
-
-  #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
-    display: inline-block;
-  }
+  // Icons visibility handled via JS.
 }
 
 .fa-half-sun-moon {

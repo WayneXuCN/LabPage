@@ -3,7 +3,7 @@ page_id: publications
 layout: page
 permalink: /publications/
 title: Veröffentlichungen
-description: Veröffentlichungen nach Kategorien in umgekehrt chronologischer Reihenfolge. Erstellt mit jekyll-scholar.
+description: Veröffentlichungen nach Kategorien in umgekehrt chronologischer Reihenfolge.
 nav: true
 nav_order: 1
 ---

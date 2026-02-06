@@ -5,8 +5,7 @@
     <button
       class="btn btn-sm btn-outline-primary mb-3"
       onclick="toggleCalendar()"
-      id="calendar-toggle-btn"
-    >
+      id="calendar-toggle-btn">
       Show Calendar
     </button>
 
@@ -17,8 +16,7 @@
         data-timezone="{{ include.timezone | default: 'UTC' }}"
         style="{{ include.style | default: 'border:0; width:100%; height:600px;' }}"
         frameborder="0"
-        scrolling="no"
-      >
+        scrolling="no">
       </iframe>
     </div>
   </div>

@@ -85,6 +85,7 @@ You are a documentation specialist for the al-folio Jekyll theme project.
 - `docker-compose.yml` – Docker deployment configuration
 
 **Note:** This project uses a streamlined documentation approach. Detailed configuration guidance is provided through:
+
 - Inline comments in `_config.yml`
 - Example files in `_data/`, `_pages/`, `_projects/` subdirectories
 - Template posts in `_draft/template_posts/`

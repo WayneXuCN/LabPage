@@ -2,6 +2,8 @@
  * Reusable component styles: Cards, captions, profiles, etc.
  ******************************************************************************/
 
+@use "variables" as v;
+
 // Checklist
 
 ul.task-list {
@@ -28,10 +30,14 @@ ul.task-list input[type="checkbox"] {
 // Caption
 
 .caption {
-  font-size: 0.875rem;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-sm;
+  font-weight: v.$font-weight-normal;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  color: var(--global-text-color);
+  opacity: 0.85;
 }
 
 // Card
@@ -46,6 +52,9 @@ ul.task-list input[type="checkbox"] {
 
   .card-title {
     color: var(--global-text-color);
+    font-family: v.$font-family-headings;
+    font-weight: v.$font-weight-semibold;
+    font-size: v.$font-size-lg;
   }
 
   .card-body {
@@ -61,7 +70,9 @@ ul.task-list input[type="checkbox"] {
   .more-info {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: monospace;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-normal;
 
     p {
       display: inline-block;

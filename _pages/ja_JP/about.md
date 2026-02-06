@@ -24,7 +24,7 @@ announcements:
   limit: 5 # 空欄の場合は _news フォルダ内のすべてのニュースを含む
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # 3件以上の場合は縦スクロールバーを追加
   limit: 3 # 空欄の場合はすべてのブログ記事を含む
 ---

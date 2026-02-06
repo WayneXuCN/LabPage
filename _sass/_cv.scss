@@ -2,6 +2,8 @@
  * CV shared styles
  *****************************/
 
+@use "variables" as v;
+
 div.container-link-button {
   margin-right: 0.5rem;
 }
@@ -24,8 +26,9 @@ a.btncv {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   text-decoration: none;
-  font-weight: 400;
-  font-size: 0.7rem;
+  font-family: v.$font-family-base;
+  font-weight: v.$font-weight-medium;
+  font-size: v.$font-size-xs;
   text-align: center;
   vertical-align: middle;
   text-transform: uppercase;
@@ -43,7 +46,8 @@ a.btncv:hover {
  *****************************/
 
 p.location {
-  font-size: 0.7rem;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-xs;
   white-space: nowrap;
 }
 

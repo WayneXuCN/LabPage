@@ -55,6 +55,7 @@ JEKYLL_ENV=production bundle exec jekyll build
 Before every commit, you **must** run these steps:
 
 1.  **Format Code:**
+
     ```bash
     # First time only
     npm install --save-dev prettier @shopify/prettier-plugin-liquid
@@ -124,14 +125,17 @@ For troubleshooting, see:
 ### Build Troubleshooting
 
 1. **"Unknown tag 'toc'" Error**
+
    - Cause: Jekyll plugin not loaded properly
    - Solution: Verify `jekyll-toc` is in Gemfile and run `bundle install`
 
 2. **CSS/JS Not Loading**
+
    - Cause: Incorrect `url` and `baseurl` configuration in `_config.yml`
    - Solution: Refer to the URL configuration section above
 
 3. **Port 4000 Already in Use**
+
    - Find and kill the process: `lsof -i :4000 | grep LISTEN | awk '{print $2}' | xargs kill`
 
 4. **ImageMagick Related Errors**

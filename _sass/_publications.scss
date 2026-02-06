@@ -9,17 +9,20 @@
 
   h1 {
     color: var(--global-theme-color);
-    font-size: 2rem;
+    font-family: v.$font-family-headings;
+    font-size: v.$h2-font-size;
+    font-weight: v.$font-weight-bold;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
   }
 
   h2 {
+    font-family: v.$font-family-headings;
     margin-bottom: 1rem;
 
     span {
-      font-size: 1.5rem;
+      font-size: v.$font-size-xl;
     }
   }
 
@@ -68,10 +71,15 @@
       }
 
       .title {
-        font-weight: bolder;
+        font-family: v.$font-family-headings;
+        font-weight: v.$font-weight-semibold;
+        font-size: v.$font-size-base;
       }
 
       .author {
+        font-family: v.$font-family-base;
+        font-size: v.$font-size-base;
+
         a {
           border-bottom: 1px dashed var(--global-theme-color);
 
@@ -96,6 +104,12 @@
             border-bottom: 1px dashed var(--global-text-color);
           }
         }
+      }
+
+      .periodical {
+        font-family: v.$font-family-base;
+        font-size: v.$font-size-base;
+        color: var(--global-text-color-light);
       }
 
       .links {

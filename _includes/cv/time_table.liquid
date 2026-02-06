@@ -105,12 +105,16 @@
                       <a
                         href="{{ item.link }}"
                         target="_blank"
-                        class="btncv z-depth-0">{{ item.linkname }}</a>
+                        class="btncv z-depth-0">
+                        {{- item.linkname -}}
+                      </a>
                     {% else %}
                       <a
                         href="{{ item.link }}"
                         target="_blank"
-                        class="btncv z-depth-0">doc</a>
+                        class="btncv z-depth-0"
+                        >doc</a
+                      >
                     {% endif %}
                   </div>
                 {% endif %}

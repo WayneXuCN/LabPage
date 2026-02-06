@@ -5,8 +5,7 @@
 <figure
   {% if include.slot %}
     slot="{{ include.slot }}"
-  {% endif %}
->
+  {% endif %}>
   <picture>
     <!-- Auto scaling with imagemagick -->
     <!--
@@ -27,8 +26,7 @@
             sizes="{{ include.sizes }}"
           {% else %}
             sizes="95vw"
-          {% endif %}
-        >
+          {% endif %}>
       {% endunless %}
     {% endif %}
     <img
@@ -81,8 +79,7 @@
       {% elsif site.lazy_loading_images %}
         loading="lazy"
       {% endif %}
-      onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
-    >
+      onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </picture>
 
   {% if include.caption %}

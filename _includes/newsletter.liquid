@@ -2,50 +2,43 @@
   class="newsletter-form-container"
   {% if include.center %}
     style="margin: 20px"
-  {% endif %}
->
+  {% endif %}>
   <form
     class="newsletter-form"
     action="https://app.loops.so/api/newsletter-form/{{ site.newsletter.endpoint }}"
     method="POST"
-    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
-  >
+    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
     <input
       class="newsletter-form-input"
       name="newsletter-form-input"
       type="email"
       placeholder="{{ site.data[site.active_lang].strings.newsletter.email_placeholder }}"
-      required=""
-    >
+      required="">
 
     <button
       type="submit"
       class="newsletter-form-button"
-      style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
-    >
+      style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
       {{ site.data[site.active_lang].strings.newsletter.subscribe }}
     </button>
 
     <button
       type="button"
       class="newsletter-loading-button"
-      style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
-    >
+      style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
       {{ site.data[site.active_lang].strings.newsletter.wait }}
     </button>
   </form>
 
   <div
     class="newsletter-success"
-    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
-  >
+    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
     <p class="newsletter-success-message">{{ site.data[site.active_lang].strings.newsletter.subscribed }}</p>
   </div>
 
   <div
     class="newsletter-error"
-    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
-  >
+    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
     <p class="newsletter-error-message">{{ site.data[site.active_lang].strings.newsletter.error }}</p>
   </div>
 
@@ -53,8 +46,7 @@
     class="newsletter-back-button"
     type="button"
     onmouseout='this.style.textDecoration="none"'
-    onmouseover='this.style.textDecoration="underline"'
-  >
+    onmouseover='this.style.textDecoration="underline"'>
     &larr; {{ site.data[site.active_lang].strings.newsletter.back }}
   </button>
 </div>

@@ -5,8 +5,7 @@
       class="table-responsive"
       {% if page.latest_posts.scrollable and latest_posts_size > 3 %}
         style="max-height: 60vw"
-      {% endif %}
-    >
+      {% endif %}>
       <table class="table table-sm table-borderless">
         {% assign latest_posts = site.posts %}
         {% if page.latest_posts.limit %}

@@ -17,6 +17,7 @@
    (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
 @use "themes";
 @use "layout";
+@use "base";
 
 // Core styles organized by usage
 @use "typography";
@@ -32,6 +33,7 @@
 @use "cv";
 @use "tabs";
 @use "teachings";
+@use "app-cards";
 @use "typograms";
 @use "font-awesome/fontawesome";
 @use "font-awesome/brands";
