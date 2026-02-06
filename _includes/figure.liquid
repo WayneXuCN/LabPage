@@ -70,6 +70,11 @@
       {% endif %}
       {% if include.zoomable %}
         data-zoomable
+        {% if site.imagemagick.enabled and ext != 'gif' %}
+          {% assign max_width = site.imagemagick.widths | last %}
+          {% assign zoom_path = img_path | append: '-' | append: max_width | append: '.webp' %}
+          data-zoom-src="{{ zoom_path | relative_url }}"
+        {% endif %}
       {% endif %}
       {% if include.loading %}
         loading="{{ include.loading }}"

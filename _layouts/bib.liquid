@@ -29,25 +29,14 @@
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}
-          {% assign preview_base = entry.preview | split: '.' | first %}
-          {% assign preview_ext = entry.preview | split: '.' | last %}
-          {% assign webp_path = preview_base | append: '.webp' | prepend: '/assets/img/publication_preview/' %}
-          {% assign webp_file = preview_base | append: '.webp' | prepend: 'assets/img/publication_preview/' %}
-          {% assign original_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
-          {% capture webp_exists %}{% file_exists {{ webp_file }} %}{% endcapture %}
-          {% if webp_exists == 'true' %}
-            {% assign entry_path = webp_path %}
-          {% else %}
-            {% assign entry_path = original_path %}
-          {% endif %}
+          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           {%
             include figure.liquid
             loading="eager"
             path=entry_path
-            sizes = "200px"
+            sizes="200px"
             class="preview z-depth-1 rounded"
             zoomable=true
-            avoid_scaling=true
             alt=entry.preview
           %}
         {% endif %}
