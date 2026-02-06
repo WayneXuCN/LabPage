@@ -146,6 +146,7 @@ related_posts:
   description: "你可能还喜欢阅读以下文章："
   title: 喜欢这篇文章吗？
 search:
+  books: 书籍
   dark_theme:
     description: 切换为深色主题
     title: 切换到深色主题

@@ -6,8 +6,11 @@ title: Lehre
 description: Materialien zu den von Ihnen unterrichteten Kursen. Ersetzen Sie diesen Text durch Ihre Beschreibung.
 nav: false
 nav_order: 7
+calendar: true
 ---
 
-Diese Seite dient derzeit als statische Beschreibung Ihrer Kurse. Sie können sie in eine Sammlung wie `_projects/` umwandeln, sodass Sie für jeden Kurs eine eigene Seite haben.
+This page displays a collection of courses with detailed schedules, materials, and resources. You can organize your courses by years, terms, or topics.
 
-Organisieren Sie Ihre Kurse nach Jahren, Themen oder Universitäten – ganz wie Sie möchten!
+{% include calendar.liquid calendar_id='wenjie.xu.cn@outlook.com' timezone='Asia/Shanghai' %}
+
+{% include courses.liquid %}

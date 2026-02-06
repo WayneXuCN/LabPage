@@ -146,6 +146,7 @@ related_posts:
   description: "次におすすめの記事はこちら："
   title: この記事を楽しみましたか？
 search:
+  books: 書籍
   dark_theme:
     description: サイトのテーマをダークに変更
     title: ダークテーマに変更

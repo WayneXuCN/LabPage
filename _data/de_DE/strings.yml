@@ -146,6 +146,7 @@ related_posts:
   description: "Hier sind weitere Artikel, die Sie interessieren könnten:"
   title: Hat Ihnen dieser Artikel gefallen?
 search:
+  books: Bücher
   dark_theme:
     description: Das Design der Seite auf Dunkel ändern
     title: Zum dunklen Design wechseln
