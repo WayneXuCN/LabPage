@@ -188,5 +188,15 @@
     defer
     rel="stylesheet"
     type="text/css"
-    href="https://tikzjax.com/v1/fonts.css">
+    href="{{ '/assets/css/tikzjax.min.css' | relative_url | bust_file_cache }}">
+{% endif %}
+
+{% if site.enable_cookie_consent %}
+  <!-- Cookie Consent -->
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.vanilla-cookieconsent.url.css }}"
+    integrity="{{ site.third_party_libraries.vanilla-cookieconsent.integrity.css }}"
+    crossorigin="anonymous">
 {% endif %}
