@@ -5,3 +5,10 @@ design:
     size: a4
     show_footer: false
     show_top_note: false
+  typography:
+    font_family:
+      body: "PingFang SC"
+      name: "PingFang SC"
+      headline: "PingFang SC"
+      connections: "PingFang SC"
+      section_titles: "PingFang SC"

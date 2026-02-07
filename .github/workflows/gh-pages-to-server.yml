@@ -38,6 +38,33 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y imagemagick git
 
+      - name: Render CVs
+        run: |
+          pip install "rendercv[full]"
+
+          # Render Chinese CV
+          rendercv render _data/cv.yml
+          mkdir -p assets/rendercv/rendercv_output
+          mv _data/rendercv_output/*.pdf assets/rendercv/rendercv_output/zh_CN_CV.pdf
+          rm -rf _data/rendercv_output
+
+          # Render English CV
+          rendercv render _data/en_US/cv_rendercv.yml
+          mv _data/en_US/rendercv_output/*.pdf assets/rendercv/rendercv_output/en_US_CV.pdf
+          rm -rf _data/en_US/rendercv_output
+
+          # Render German CV
+          rendercv render _data/de_DE/cv_rendercv.yml
+          mv _data/de_DE/rendercv_output/*.pdf assets/rendercv/rendercv_output/de_DE_CV.pdf
+          rm -rf _data/de_DE/rendercv_output
+
+          # Render Japanese CV
+          rendercv render _data/ja_JP/cv_rendercv.yml
+          mv _data/ja_JP/rendercv_output/*.pdf assets/rendercv/rendercv_output/ja_JP_CV.pdf
+          rm -rf _data/ja_JP/rendercv_output
+
+          echo "All CVs rendered successfully"
+
       - name: Install npm (for purgecss) and Node tools
         uses: actions/setup-node@v4
         with:

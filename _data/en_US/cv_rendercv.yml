@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.5/schema.json
+cv:
+  name: Wenjie Xu
+  location: Yancheng, Jiangsu, China
+  phone: "+86 17372312035"
+  email: wenjie.xu.cn@outlook.com
+  social_networks:
+    - network: ORCID
+      username: 0000-0002-7778-0450
+    - network: GitHub
+      username: WayneXuCN
+  sections:
+    Education:
+      - institution: Institutes of Science and Development, Chinese Academy of Sciences
+        area: Management Science and Engineering
+        degree: Ph.D. Candidate
+        start_date: 2023-09
+        end_date: 2028-06
+        location: Beijing
+        highlights:
+          - "Research Interests: Decision Analysis and Risk Modeling"
+          - "English Proficiency: CET 4, CET 6"
+          - "Programming Skills: Python, Julia, JavaScript, TypeScript, MATLAB, R, C, JAVA, SQL"
+      - institution: Nanjing University of Information Science and Technology
+        area: Economic Statistics
+        degree: Bachelor of Economics
+        start_date: 2019-09
+        end_date: 2023-06
+        location: Nanjing
+        highlights:
+    Research Projects:
+      - bullet: Research on Composite Risk Measurement and Governance of Urban Critical Infrastructure Operations Driven by Data-Intelligence Integration, National Natural Science Foundation of China (General Program), Core Member.
+      - bullet: Research on Central Emergency Relief Materials Allocation and Risk Response Capability, Commissioned by National Food and Strategic Reserves Administration, Core Member.
+      - bullet: Overall Evaluation of the "14th Five-Year" Science and Technology Innovation Plan, Soft Science Project of Qinghai Basic Research Program, Core Member.
+      - bullet: Resilience Assessment of Emergency Materials Logistics, Warehousing and Distribution System in Response to Risks, Sub-project of the "New Generation Artificial Intelligence" Major Project of the Science and Technology Innovation 2030, Core Member.
+      - bullet: Research on Risk Analysis and Response Methods of Urban Critical Infrastructure Operations under Resilience Orientation, National Natural Science Foundation of China (General Program), Core Member.
+      - bullet: Research on Resilience Assessment and Improvement Strategies of Key Material Reserve System, Frontier Exploration Program of Institutes of Science and Development, Chinese Academy of Sciences, Core Member.
+      - bullet: Third-party Monitoring of the Implementation of the "14th Five-Year" Science and Technology Innovation Plan of Qinghai Province, Qinghai Province Soft Science (Special) Project, Core Member.
+      - bullet: Research on Regional Science and Technology Innovation Strategy in the New Era, National High-end Think Tank Project, Core Member.
+      - bullet: Consulting Service for the Compilation Guidance of Local Standards Related to Enterprise Innovation Capability, Commissioned by Xinjiang Zhixin Company, Core Member.
+    Publications (Published & Accepted):
+      - number: "Su Weilan, **Xu Wenjie***, Sun Xiaolei. Research on Failure Risk Modeling of Urban Critical Infrastructure under Multi-hazard Coupling Scenarios [J]. Chinese Journal of Management Science. (Accepted, A-level important journal recognized by the Management Science Department of NSFC, CSSCI journal, A-level important Chinese journal recognized by the Institutes of Science and Development)"
+      - number: "Suo Weilan*, **Xu Wenjie** (Co-first author), Li Longfei, Sun Xiaolei. A novel data–intelligence–driven three–stage dynamic model for resilience assessment in an emergency material support system [J]. International Journal of Critical Infrastructure Protection, 2025, 51: 100804. (JCR Q1)"
+      - number: "Wang Jujie, **Xu Wenjie***, Suo Weilan. Research on Online Prediction of Wind Power Ramp Events Adapting to Concept Drift [J]. Operations Research and Management Science, 2024. (Accepted, A-level important journal recognized by the Management Science Department of NSFC, CSSCI journal, A-level important Chinese journal recognized by the Institutes of Science and Development)"
+      - number: "Li Haoran, **Xu Wenjie**, Ji Qiang, Sun Xiaolei*. Trade Network Pattern and Risk Characteristics of Global Cobalt Material from the Perspective of Industrial Chain [J]. Resources Science, 2025, 47(7): 1562-1575. (CSSCI journal, B-level important Chinese journal recognized by the Institutes of Science and Development)"
+      - number: "Suo Weilan, **Xu Wenjie**, Sun Xiaolei. Accelerating the Construction of Resilience Assessment Model Library to Empower the Quality and Efficiency of Emergency Material Support [J]. China Disaster Reduction, 2024, (23): 32-33. (Sponsored by the National Disaster Reduction Center of the Ministry of Emergency Management)"
+      - number: "**Xu Wenjie**, Li Longfei, Suo Weilan, Sun Xiaolei. Optimization Path of Emergency Material Support System for Compound Extreme Events Response [J]. China Disaster Reduction, 2024, (21): 30-33. (Sponsored by the National Disaster Reduction Center of the Ministry of Emergency Management)"
+      - number: "Suo Weilan, **Xu Wenjie**, An Cunxu, Sun Xiaolei. Building Soft Power through Resilience Capacity to Support High-quality Development of Emergency Material Support System [J]. China Disaster Reduction, 2024, (19): 36-37. (Sponsored by the National Disaster Reduction Center of the Ministry of Emergency Management)"
+      - number: "Suo Weilan, **Xu Wenjie**, Zhang Jing, Sun Xiaolei. Promoting Assessment through Indicators, Improving through Assessment, and Stabilizing Support through Improvement—Drawing a Portrait of Emergency Material Support Resilience Capacity [J]. China Disaster Reduction, 2024, (7): 30-33. (Sponsored by the National Disaster Reduction Center of the Ministry of Emergency Management)"
+    Working Papers:
+      - bullet: "Suo Weilan, **Xu Wenjie***. A data-intelligence-driven quantum Bayesian network probabilistic assessment framework for cascading risk analysis of urban critical infrastructures. Reliability Engineering & System Safety."
+      - bullet: "Suo Weilan, **Xu Wenjie***, Research on Dynamic Early Warning Model of Urban Critical Infrastructure Operation Risk under Extreme Disaster Scenarios. Systems Engineering - Theory & Practice."
+      - bullet: "Suo Weilan, An Cunxu, **Xu Wenjie***. Research on Resilience Measurement of Multi-modal Public Transportation System Considering Multi-dimensional Feature Correlation. Journal of Management Engineering."
+    Books:
+      - bullet: 'Sun Xiaolei, Suo Weilan, Zhang Jing. Research on Resilience of Emergency Material Support System from the Perspective of Risk Governance [M]. Beijing: Science Press, 2026 (Chapter 8 "Development of Resilience Assessment System for Emergency Material Support System", first author of the chapter).'
+    Software Copyrights & Patents:
+      - bullet: Suo Weilan, **Xu Wenjie**. Scenario-driven Probabilistic Risk Assessment System for Critical Infrastructure V1.0, 2023-06-01, China, 2023SR1346376 (Software Copyright), Rank 2/2.
+      - bullet: Suo Weilan, **Xu Wenjie**. Feature-driven Risk Sharing Scheme Generation System for Critical Infrastructure Construction V1.0, 2023-09-01, China, 2023SR1682094 (Software Copyright), Rank 2/2.
+    Honors & Awards:
+      - bullet: '"Research on Failure Risk Modeling of Urban Critical Infrastructure under Multi-hazard Coupling Scenarios", 15th Youth Forum of the Chinese Society of Optimization, Overall Planning and Economic Mathematics, **Recommended to Conference-supporting Journal**, Suo Weilan, **Xu Wenjie**, Sun Xiaolei, 2025'
+      - bullet: '"Dynamic Early Warning Model of Urban Critical Infrastructure Operation Risk under Extreme Disaster Scenarios", 17th Annual Conference on Decision Sciences, **Recommended as High-quality Paper**, Suo Weilan, **Xu Wenjie**, 2025'
+      - bullet: '"A data-intelligence-driven Quantum Bayesian Network probabilistic assessment framework for cascading risk analysis of critical infrastructures", 6th Academic Annual Conference of the Risk Management Branch of the Chinese "Double Method" Research Society and 2025 Annual Conference of Tsinghua University Institute of Quality and Reliability, **Recommended to Conference-supporting Journal**, Weilan Suo, **Wenjie Xu**, 2025'
+      - bullet: Jiangsu Province Excellent Undergraduate Graduation Thesis, First Prize, 2024.
+      - bullet: '"Resilience assessment for the emergency supplies security system based on a matter-element extension method" won the "**Best Paper Award** at the 10th International Conference on Information Technology and Quantitative Management" (A-level International Conference Award recognized by the Institutes of Science and Development), **Wenjie Xu**, Jing Zhang, Weilan Suo, 2023. '
+      - bullet: '"Online Ensemble Adaptive Early Warning Model for Wind Power Ramp Events Based on Concept Drift and Intelligent Optimized Rotating Door Algorithm" won the **Excellent Paper Award** at the 4th China (Double Method) Risk Management Branch Academic Annual Conference, Wang Jujie, **Xu Wenjie**, Suo Weilan, 2023.'
+      - bullet: Principal Scholarship, Undergraduate, 2023.
+      - bullet: National Scholarship, Undergraduate, 2022.
+
+design:
+  theme: classic
+  page:
+    size: a4
+    show_footer: false
+    show_top_note: false
+  typography:
+    font_family: Source Sans 3
+
+locale:
+  language: english

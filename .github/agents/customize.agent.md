@@ -24,25 +24,26 @@ You are an expert customization assistant for the al-folio Jekyll academic websi
   - `_data/` – YAML data files (CV info, social links, repository links, coauthors)
     - Supports i18n: subdirectories for `de_DE/`, `en_US/`, `ja_JP/`, `zh_CN/`
   - `_pages/` – Site pages (About, Blog, Projects, Publications, CV, Research, Toolbox, Profiles, etc.)
-      - Supports i18n: subdirectories for each language locale
-      - New pages: `research.md`, `toolbox.md`, `profiles.md`
+    - Supports i18n: subdirectories for each language locale
+    - New pages: `research.md`, `toolbox.md`, `profiles.md`
   - `_posts/` – Blog posts in Markdown (format: `YYYY-MM-DD-title.md`)
   - `_projects/` – Project pages in Markdown
-      - Supports i18n: subdirectories for each language locale
+    - Supports i18n: subdirectories for each language locale
   - `_news/` – News/announcement items
-      - Supports i18n: subdirectories for each language locale
+    - Supports i18n: subdirectories for each language locale
   - `_books/` – Book reviews and book shelf content
-      - Supports i18n: subdirectories for each language locale
+    - Supports i18n: subdirectories for each language locale
   - `_bibliography/papers.bib` – Publications in BibTeX format
   - `_layouts/` – Liquid templates including `book-review.liquid`, `book-shelf.liquid`, `profiles.liquid`
   - `_includes/` – Liquid partials including `audio.liquid`, `video.liquid`, `research_summary.liquid`, `calendar.liquid`, `course_schedule.liquid`, `courses.liquid`
   - `_sass/` – SCSS/SASS stylesheets (colors, themes, layout)
   - `assets/` – Static assets (images, PDFs, JSON resume, custom CSS/JS, rendercv output)
-      - `assets/rendercv/` – RenderCV design and configuration files
+    - `assets/rendercv/` – RenderCV design and configuration files
   - `_data/` – YAML data files (cv.yml, repositories.yml, socials.yml, venues.yml, etc.)
-      - Supports i18n: subdirectories for each locale
-      - New files: `toolbox.yml` in locale subdirectories
+    - Supports i18n: subdirectories for each locale
+    - New files: `toolbox.yml` in locale subdirectories
   - `.github/workflows/` – GitHub Actions for deployment and CI/CD
+
 ## Community Context & Issue/Discussion References
 
 Users may reference community discussions, issues, or past questions from the **al-folio repository** (https://github.com/alshedivat/al-folio):
@@ -564,29 +565,29 @@ Help users avoid these frequent errors:
 
 ## Quick Reference Map
 
-| User wants to...        | Files to modify                                    | Key documentation                  |
-| ----------------------- | -------------------------------------------------- | ---------------------------------- |
-| Change personal info    | `_config.yml`, `_pages/{locale}/about.md`          | README.md, \_config.yml comments   |
-| Add profile picture     | `assets/img/prof_pic.jpg`                          | \_config.yml (icon setting)        |
+| User wants to...        | Files to modify                                                 | Key documentation                  |
+| ----------------------- | --------------------------------------------------------------- | ---------------------------------- |
+| Change personal info    | `_config.yml`, `_pages/{locale}/about.md`                       | README.md, \_config.yml comments   |
+| Add profile picture     | `assets/img/prof_pic.jpg`                                       | \_config.yml (icon setting)        |
 | Update CV               | `_data/{locale}/cv.yml` (RenderCV) or `assets/json/resume.json` | \_data/{locale}/cv.yml structure   |
-| Add publications        | `_bibliography/papers.bib`                         | \_bibliography/papers.bib examples |
-| Add blog post           | `_posts/YYYY-MM-DD-title.md`                       | \_draft/template_posts/ examples   |
-| Add book review         | `_books/{locale}/book-title.md`                    | \_books/ directory examples        |
-| Create project          | `_projects/{locale}/name.md`                       | \_projects/ structure              |
-| Add news item           | `_news/{locale}/announcement.md`                   | \_news/ structure                  |
-| Add research info       | `_pages/{locale}/research.md`                      | \_includes/research_summary.liquid |
-| Add tools/resources     | `_pages/{locale}/toolbox.md`, `_data/{locale}/toolbox.yml` | \_data/{locale}/toolbox.yml        |
-| Add team profiles       | `_pages/{locale}/profiles.md`                      | \_layouts/profiles.liquid          |
-| Change theme color      | `_sass/_themes.scss`                               | \_sass/\_themes.scss comments      |
-| Add social links        | `_data/socials.yml`                                | \_data/socials.yml structure       |
-| Enable/disable features | `_config.yml`                                      | \_config.yml comments              |
-| Setup i18n / languages  | `_config.yml`, create locale subdirs               | \_data/{locale}/ examples          |
-| Remove pages            | Delete from `_pages/{locale}/`, update nav         | \_pages/ structure                 |
-| Fix deployment issues   | `_config.yml` (url/baseurl)                        | README.md                          |
-| Test changes locally    | Bundle/Jekyll setup                                | `bundle exec jekyll serve`         |
-| Debug broken site       | Check GitHub Actions, local preview output         | .github/workflows/                 |
-| Add custom page         | Create `_pages/{locale}/name.md`, update nav       | \_pages/ structure                 |
-| Customize fonts/spacing | `_sass/_variables.scss`                            | \_sass/\_variables.scss            |
+| Add publications        | `_bibliography/papers.bib`                                      | \_bibliography/papers.bib examples |
+| Add blog post           | `_posts/YYYY-MM-DD-title.md`                                    | \_draft/template_posts/ examples   |
+| Add book review         | `_books/{locale}/book-title.md`                                 | \_books/ directory examples        |
+| Create project          | `_projects/{locale}/name.md`                                    | \_projects/ structure              |
+| Add news item           | `_news/{locale}/announcement.md`                                | \_news/ structure                  |
+| Add research info       | `_pages/{locale}/research.md`                                   | \_includes/research_summary.liquid |
+| Add tools/resources     | `_pages/{locale}/toolbox.md`, `_data/{locale}/toolbox.yml`      | \_data/{locale}/toolbox.yml        |
+| Add team profiles       | `_pages/{locale}/profiles.md`                                   | \_layouts/profiles.liquid          |
+| Change theme color      | `_sass/_themes.scss`                                            | \_sass/\_themes.scss comments      |
+| Add social links        | `_data/socials.yml`                                             | \_data/socials.yml structure       |
+| Enable/disable features | `_config.yml`                                                   | \_config.yml comments              |
+| Setup i18n / languages  | `_config.yml`, create locale subdirs                            | \_data/{locale}/ examples          |
+| Remove pages            | Delete from `_pages/{locale}/`, update nav                      | \_pages/ structure                 |
+| Fix deployment issues   | `_config.yml` (url/baseurl)                                     | README.md                          |
+| Test changes locally    | Bundle/Jekyll setup                                             | `bundle exec jekyll serve`         |
+| Debug broken site       | Check GitHub Actions, local preview output                      | .github/workflows/                 |
+| Add custom page         | Create `_pages/{locale}/name.md`, update nav                    | \_pages/ structure                 |
+| Customize fonts/spacing | `_sass/_variables.scss`                                         | \_sass/\_variables.scss            |
 
 ## Using Community Context in Your Responses
 
