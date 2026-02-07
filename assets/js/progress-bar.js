@@ -6,6 +6,10 @@
  * with the `al-foio` theme.
  */
 const progressBar = $("#progress");
+let ticking = false;
+let lastScrollTop = 0;
+let maxScrollDistance = 0;
+
 /*
  * We set up the bar after all elements are done loading.
  * In some cases, if the images in the page are larger than the intended
@@ -18,6 +22,19 @@ const progressBar = $("#progress");
 window.onload = function () {
   setTimeout(progressBarSetup, 50);
 };
+
+function updateProgressBar() {
+  progressBar.attr({ value: lastScrollTop, max: maxScrollDistance });
+  ticking = false;
+}
+
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(updateProgressBar);
+    ticking = true;
+  }
+}
+
 /*
  * We set up the bar according to the browser.
  * If the browser supports the progress element we use that.
@@ -26,11 +43,19 @@ window.onload = function () {
 function progressBarSetup() {
   if ("max" in document.createElement("progress")) {
     initializeProgressElement();
+    maxScrollDistance = getDistanceToScroll();
+
     $(document).on("scroll", function () {
-      progressBar.attr({ value: getCurrentScrollPosition() });
+      lastScrollTop = getCurrentScrollPosition();
+      requestTick();
     });
-    $(window).on("resize", initializeProgressElement);
+
+    $(window).on("resize", function () {
+      maxScrollDistance = getDistanceToScroll();
+      initializeProgressElement();
+    });
   } else {
+    // Fallback for older browsers
     resizeProgressBar();
     $(document).on("scroll", resizeProgressBar);
     $(window).on("resize", resizeProgressBar);
@@ -65,9 +90,14 @@ function getDistanceToScroll() {
 }
 
 function resizeProgressBar() {
-  progressBar.css({ width: getWidthPercentage() + "%" });
+  const scrollPosition = getCurrentScrollPosition();
+  const distance = getDistanceToScroll();
+  if (distance > 0) {
+    progressBar.css({ width: (scrollPosition / distance) * 100 + "%" });
+  }
 }
-// The scroll ratio equals the percentage to resize the bar
+
+// Legacy function for backward compatibility
 function getWidthPercentage() {
   return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
 }

@@ -304,13 +304,13 @@ let transTheme = () => {
   // 立即添加过渡类
   html.classList.add("transition");
 
-  // 强制重绘以确保过渡生效
-  void html.offsetHeight;
-
-  // 使用更短的定时器移除过渡类（与 CSS 过渡时间匹配）
-  window.setTimeout(() => {
-    html.classList.remove("transition");
-  }, 250);
+  // 使用 requestAnimationFrame 替代强制重排
+  requestAnimationFrame(() => {
+    // 移除过渡类（与 CSS 过渡时间匹配）
+    window.setTimeout(() => {
+      html.classList.remove("transition");
+    }, 250);
+  });
 };
 
 // Determine the expected state of the theme toggle, which can be "dark", "light", or
