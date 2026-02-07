@@ -74,7 +74,7 @@ ninja.data = [{
         title: 'CV',
         section: "Soziale Netzwerke",
         handler: () => {
-          window.open("/assets/pdf/cv.pdf", "_blank");
+          window.open("/assets/rendercv/rendercv_output/en_US_CV.pdf", "_blank");
         },
       },{
         id: 'social-rss',
