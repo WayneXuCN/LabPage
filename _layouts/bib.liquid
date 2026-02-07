@@ -60,8 +60,10 @@
         {% assign author_is_self = false %}
         {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
         {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
+        {%- assign author_first_name = author.first | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+        {%- assign author_first_html = author.first | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
         {% if site.scholar.last_name contains author_last_name %}
-          {% if site.scholar.first_name contains author.first %}
+          {% if site.scholar.first_name contains author_first_name %}
             {% assign author_is_self = true %}
           {% endif %}
         {%- endif -%}
@@ -86,18 +88,33 @@
         {% endif %}
         {%- if author_is_self -%}
           <em>
-            {{- author.first }}
-            {{ author_last_html -}}
+            {%- if entry.langid == 'zh-CN' or entry.langid == 'zh_CN' -%}
+              {{- author_last_html -}}
+              {{- author_first_html -}}
+            {%- else -%}
+              {{- author_first_html }}
+              {{ author_last_html -}}
+            {%- endif -%}
           </em>
         {%- else -%}
           {%- if coauthor_url -%}
             <a href="{{ coauthor_url }}">
-              {{- author.first }}
-              {{ author_last_html -}}
+              {%- if entry.langid == 'zh-CN' or entry.langid == 'zh_CN' -%}
+                {{- author_last_html -}}
+                {{- author_first_html -}}
+              {%- else -%}
+                {{- author_first_html }}
+                {{ author_last_html -}}
+              {%- endif -%}
             </a>
           {%- else -%}
-            {{- author.first }}
-            {{ author_last_html -}}
+            {%- if entry.langid == 'zh-CN' or entry.langid == 'zh_CN' -%}
+              {{- author_last_html -}}
+              {{- author_first_html -}}
+            {%- else -%}
+              {{- author_first_html }}
+              {{ author_last_html -}}
+            {%- endif -%}
           {% endif %}
         {%- endif -%}
       {% endfor %}

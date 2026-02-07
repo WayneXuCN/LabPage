@@ -10,8 +10,8 @@
   Get date format from i18n configuration
 {% endcomment %}
 {% assign date_format = site.data[site.active_lang].strings.date_formats[include.format] %}
-{% if date_format == nil %}
-  {% assign date_format = "__MONTH__ __DAY__, __YEAR__" %}
+{% if date_format == null %}
+  {% assign date_format = '__MONTH__ __DAY__, __YEAR__' %}
 {% endif %}
 
 {% comment %}

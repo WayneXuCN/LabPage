@@ -277,8 +277,8 @@ display_categories: ["Research", "Writing", "Code", "Tools", "Productivity", "Li
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Xu]
-  first_name: [Wenjie]
+  last_name: [Xu, 徐]
+  first_name: [Wenjie, Wayne, 文杰]
 
   style: apa
   locale: en
