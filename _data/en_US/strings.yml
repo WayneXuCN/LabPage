@@ -30,6 +30,8 @@ bibliography:
   website: Website
 blog:
   navigation_title: blog
+  min_read: "min read"
+  thumbnail_alt: "image"
 categories:
   fun: fun
   work: work
@@ -68,92 +70,6 @@ cv:
   language: Language
   languages: Languages
   level: Level
-  location: Location
-  name: Name
-  network: Network
-  no_cv_found: "No CV data found. Please configure either RenderCV (cv.yml) or JSONResume (resume.json) data."
-  organization: Organization
-  phone: Phone
-  position: Position
-  postalCode: Postal Code
-  present: Present
-  professional_summary: Professional Summary
-  professional_title: Professional Title
-  profiles: Profiles
-  projects: Projects
-  publications: Publications
-  publisher: Publisher
-  reference: Reference
-  references: References
-  region: Region
-  releaseDate: Release date
-  score: Score
-  skills: Skills
-  startDate: Start date
-  studyType: Study type
-  summary: Summary
-  table_of_contents: Table of Contents
-  title: Title
-  url: Url
-  username: Username
-  volunteer: Volunteer
-  website: Website
-  work: Work
-footer:
-  copyright: All rights reserved
-  last_updated: "Updated on"
-  impressum: "Legal Notice"
-footer_text: Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
-
-latest_posts: latest posts
-months:
-  long:
-    january: January
-    february: February
-    march: March
-    april: April
-    may: May
-    june: June
-    july: July
-    august: August
-    september: September
-    october: October
-    november: November
-    december: December
-  short:
-    january: Jan
-    february: Feb
-    march: Mar
-    april: Apr
-    may: May
-    june: Jun
-    july: Jul
-    august: Aug
-    september: Sep
-    october: Oct
-    november: Nov
-    december: Dec
-research_summary: Research summary
-news: News
-newsletter:
-  back: Back
-  error: "Oops! Something went wrong, please try again."
-  subscribe: subscribe
-  subscribed: "You have successfully subscribed to the newsletter."
-  subscribe_to_receive: "Subscribe to be notified of future articles:"
-  too_many_signups: "Too many signups, please try again in a little while"
-  wait: "Please wait..."
-no_news: No news so far...
-no_posts: "No posts so far..."
-pagination:
-  page: page
-post:
-  created_in: Created in
-  created_by: by
-  last_updated: last updated in
-references: References
-related_posts:
-  description: "Here are some more articles you might like to read next:"
   title: Enjoy Reading This Article?
 search:
   books: Books
@@ -174,6 +90,7 @@ search:
   navigation: Navigation menu
   news: News
   placeholder: Type to start searching
+  bib_placeholder: "Type to filter"
   posts: Posts
   projects: Projects
   socials: Socials
@@ -219,11 +136,6 @@ toolbox:
   screenshot_alt: screenshot
   icon_alt: icon
 
-# Includes translations
-search:
-  placeholder: "Type to start searching"
-  bib_placeholder: "Type to filter"
-
 course_schedule:
   no_schedule: "No schedule available for this course."
 
@@ -263,11 +175,7 @@ related_posts:
 
 research_summary_errors:
   no_research_questions: "No research question data found. Please add at least one research_questions item to the front matter of your research page."
-  no_research_page: "Research page not found. Please ensure there is a page with the path \"/research/\"."
-
-blog:
-  min_read: "min read"
-  thumbnail_alt: "image"
+  no_research_page: 'Research page not found. Please ensure there is a page with the path "/research/".'
 
 repositories:
   no_github_user: "No GitHub user configured. Please check your YAML file."
@@ -275,7 +183,7 @@ repositories:
 
 cookie_consent:
   title: "We use cookies"
-  description: "This website uses cookies to improve your experience and analyze site traffic. By clicking \"Accept all\", you consent to our use of cookies."
+  description: 'This website uses cookies to improve your experience and analyze site traffic. By clicking "Accept all", you consent to our use of cookies.'
   accept_all: "Accept all"
   reject_all: "Reject all"
   manage_preferences: "Manage Individual preferences"
@@ -290,18 +198,5 @@ cookie_consent:
   analytics_cookies_description: "These cookies allow us to measure traffic and analyze your behavior to improve our service."
   more_info: "More information"
   more_info_description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">contact us</a>.'
-
-search:
-  navigation: "Navigation"
-  dropdown: "Dropdown"
-  posts: "Posts"
-  socials: "Socials"
-  theme: "Theme"
-  light_theme_title: "Change theme to light"
-  light_theme_description: "Change the theme of the site to Light"
-  dark_theme_title: "Change theme to dark"
-  dark_theme_description: "Change the theme of the site to Dark"
-  system_theme_title: "Use system default theme"
-  system_theme_description: "Change the theme of the site to System Default"
 
 site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.

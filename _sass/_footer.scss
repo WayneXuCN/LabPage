@@ -1,6 +1,6 @@
-/*******************************************************************************
- * Footer styles
- ******************************************************************************/
+// ============================================
+// 页脚样式
+// ============================================
 
 @use "variables" as v;
 
@@ -8,15 +8,21 @@ footer {
   font-family: v.$font-family-base;
   font-weight: v.$font-weight-normal;
   letter-spacing: v.$letter-spacing-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Ensure footer elements use footer color variables unless otherwise specified */
+  color: var(--global-footer-text-color);
 
   .footer-item {
     display: inline;
+    color: inherit; /* ensure inline items inherit footer color */
   }
 
   .footer-separator {
     margin: 0 0.4rem;
     opacity: 0.6;
     user-select: none;
+    color: inherit;
   }
 
   .footer-updated {
@@ -50,19 +56,24 @@ footer {
 
   &.sticky-bottom {
     border-top: 1px solid var(--global-divider-color);
+    /* make sticky footer background explicit so variables apply consistently */
+    background-color: var(--global-footer-bg-color);
     padding-top: 40px;
     padding-bottom: 40px;
     font-size: v.$font-size-sm;
 
     .container {
-      color: var(--global-text-color-light);
+      /* Ensure container inherits the footer color and is explicit */
+      color: inherit;
       text-align: center;
     }
 
+    /* Links in the footer should use the dedicated footer link color for proper contrast */
     a {
-      color: var(--global-theme-color);
+      color: var(--global-footer-link-color) !important;
 
       &:hover {
+        color: var(--global-theme-color) !important;
         text-decoration: underline;
       }
     }

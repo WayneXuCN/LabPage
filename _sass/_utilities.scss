@@ -1,20 +1,21 @@
-/*******************************************************************************
- * Utility styles: Code, forms, animations, modals, etc.
- ******************************************************************************/
+// ============================================
+// 工具样式
+// 代码、表单、动画、弹窗等
+// ============================================
 
 @use "variables" as v;
 
-// Code and syntax highlighting
+// 代码和语法高亮
 
 figure.highlight {
   margin: 0 0 1rem;
 
-  // Responsive code block container
+  // 响应式代码块容器
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
   pre {
-    // Ensure code blocks can scroll horizontally
+    // 代码块水平滚动
     white-space: pre;
     word-wrap: normal;
     overflow-x: auto;
@@ -28,7 +29,7 @@ pre {
   border-radius: 6px;
   padding: 6px 12px;
 
-  // Responsive behavior for code blocks
+  // 代码块响应式
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   white-space: pre;
@@ -50,36 +51,36 @@ code {
   border-radius: 3px;
   padding: 3px 3px;
 
-  // Inline code should wrap
+  // 行内代码自动换行
   white-space: normal;
   word-wrap: break-word;
 }
 
-// Progress bars
+// 进度条
 
 progress {
-  /* Positioning */
+  // 定位
   position: fixed;
   left: 0;
   top: 56px;
   z-index: 10;
 
-  /* Dimensions */
+  // 尺寸
   width: 100%;
   height: 1px;
 
-  /* Reset the appearance */
+  // 重置外观
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
-  /* Get rid of the default border in Firefox/Opera. */
+  // 移除 Firefox/Opera 默认边框
   border: none;
 
-  /* Progress bar container for Firefox/IE10  */
+  // Firefox/IE10 进度条容器
   background-color: transparent;
 
-  /* Progress bar value for IE10  */
+  // IE10 进度条值
   color: var(--global-theme-color);
 }
 
@@ -112,7 +113,7 @@ progress::-moz-progress-bar {
   height: inherit;
 }
 
-// Themes transition
+// 主题过渡
 
 html.transition,
 html.transition *,
@@ -122,7 +123,7 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
-// Copy button
+// 复制按钮
 
 .code-display-wrapper {
   position: relative;
@@ -148,7 +149,7 @@ html.transition *:after {
   }
 }
 
-// Dropdown button group
+// 下拉按钮组
 
 .btn-group.dropdown {
   .btn {
@@ -175,7 +176,7 @@ html.transition *:after {
   }
 }
 
-// Table of Contents
+// 目录
 
 nav[data-toggle="toc"] {
   top: 5rem;
@@ -206,16 +207,16 @@ nav[data-toggle="toc"] {
   }
 }
 
-/* small screens */
+// 小屏幕
 @media (max-width: 576px) {
-  /* override stickyness so that the navigation does not follow scrolling */
+  // 覆盖粘性定位
   nav[data-toggle="toc"] {
     visibility: hidden;
     height: 0;
     top: 0;
   }
 
-  /* Responsive code blocks for mobile */
+  // 移动端代码块
   pre {
     font-size: 0.875rem;
     padding: 8px 10px;
@@ -237,7 +238,7 @@ nav[data-toggle="toc"] {
   }
 }
 
-/* Extra small screens */
+// 超小屏幕
 @media (max-width: 400px) {
   pre {
     font-size: 0.8rem;
@@ -257,7 +258,7 @@ nav[data-toggle="toc"] {
   }
 }
 
-/* Medium screens - optimize for tablets */
+// 中等屏幕（平板）
 @media (min-width: 577px) and (max-width: 768px) {
   pre {
     font-size: 0.9rem;
@@ -272,7 +273,7 @@ nav[data-toggle="toc"] {
   }
 }
 
-// Newsletter form
+// 订阅表单
 
 .newsletter-form-container {
   margin-bottom: 20px;
@@ -386,7 +387,7 @@ nav[data-toggle="toc"] {
   }
 }
 
-// Popovers
+// 弹出框
 
 .popover {
   background-color: var(--global-bg-color);
@@ -426,14 +427,14 @@ nav[data-toggle="toc"] {
   }
 }
 
-// Highlight search
+// 搜索高亮
 
 ::highlight(search) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
 }
 
-// Other utilities
+// 其他工具
 
 .unloaded {
   display: none !important;
@@ -493,7 +494,7 @@ ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
 }
 
-// Books shelf
+// 书架
 
 figure.cover {
   display: inline-block;
@@ -569,7 +570,7 @@ figure.cover {
   }
 }
 
-// Calendar
+// 日历
 
 .calendar-toggle-btn {
   background-color: #007acc;

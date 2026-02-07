@@ -1,6 +1,6 @@
-/*******************************************************************************
- * Navigation bar and header customization
- ******************************************************************************/
+// ============================================
+// 导航栏样式
+// ============================================
 
 .navbar {
   box-shadow: none;
@@ -182,8 +182,7 @@
   }
 }
 
-// Header 按钮组
-// 统一样式
+// 头部按钮组
 #light-toggle,
 #search-toggle,
 .lang-switcher-single,
@@ -216,7 +215,7 @@
     font-size: 1em;
   }
 
-  // 图标图片尺寸
+  // 图标尺寸
   .icon-img {
     width: 1.1rem;
     height: 1.1rem;
@@ -298,7 +297,7 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5) !important;
 }
 
-// 主题按钮样式
+// 主题切换按钮
 #light-toggle {
   // icons hidden by default; JS will show the correct one after DOM ready
   #light-toggle-dark,
@@ -307,7 +306,7 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
     vertical-align: middle;
   }
 
-  // remove default button chrome and box; let svg inherit currentColor and change on hover
+  // 移除默认按钮样式
   background: transparent;
   border: none;
   padding: 0.15rem;
@@ -324,12 +323,12 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
   }
 }
 
-// 移动端（< 576px）
+// 移动端适配（< 576px）
 @media (max-width: 575px) {
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
     .navbar-nav {
-      // 按钮容器样式
+      // 按钮容器
       .nav-item {
         width: 100%;
         margin: 0;
@@ -340,7 +339,7 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
         }
       }
 
-      // 搜索和主题按钮统一样式
+      // 搜索和主题按钮样式
       #light-toggle,
       #search-toggle,
       .lang-switcher-single,

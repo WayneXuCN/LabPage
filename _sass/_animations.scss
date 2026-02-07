@@ -1,4 +1,6 @@
-// Animations
+// ============================================
+// 动画效果
+// ============================================
 
 @keyframes fadeIn {
   from {
@@ -31,7 +33,7 @@
   }
 }
 
-// Mixins for easy usage
+// 混合宏
 @mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out) {
   transition: $property $duration $timing;
 }

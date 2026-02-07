@@ -1,10 +1,11 @@
-/*******************************************************************************
- * Typography styles: Headings, text, links, tables, blockquotes
- ******************************************************************************/
+// ============================================
+// 排版样式
+// 标题、文本、链接、表格、引用块
+// ============================================
 
 @use "variables" as v;
 
-// Base text elements
+// 基础文本元素
 p,
 em,
 div,
@@ -15,12 +16,12 @@ strong {
   font-family: v.$font-family-base;
 }
 
-// Links
+// 链接
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
 
-// Tables
+// 表格
 table {
   font-family: v.$font-family-base;
   font-size: v.$font-size-base;
@@ -77,7 +78,7 @@ blockquote {
     font-family: v.$font-family-headings;
   }
 
-  /* Tips, warnings, and dangers blockquotes */
+  // 提示、警告和危险引用块
   &.block-tip {
     border-color: var(--global-tip-block);
     background-color: var(--global-tip-block-bg);

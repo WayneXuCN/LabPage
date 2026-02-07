@@ -1,6 +1,7 @@
-/*******************************************************************************
- * Themes
- ******************************************************************************/
+// ============================================
+// 主题样式
+// 亮色和暗色主题定义
+// ============================================
 @use "variables" as v;
 @use "sass:color";
 
@@ -43,10 +44,9 @@
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
 
-  // Theme toggle icons: visibility is controlled by JS to avoid FOUC.
-  // Do not set display properties here; JS will show the correct icon.
+  // 主题切换图标可见性由 JS 控制
 
-  // language active background (light)
+  // 当前语言背景（亮色）
   --lang-active-bg: rgba(
     #{color.channel(v.$purple-color, "red", v.$space: rgb)},
     #{color.channel(v.$purple-color, "green", v.$space: rgb)},
@@ -169,20 +169,20 @@ html[data-theme-setting="light"] {
   font: var(--fa-font);
 }
 
-/* Left half: MOON */
+// 左半部分：月亮
 .fa-half-sun-moon::before {
   content: "\f111";
   color: var(--global-text-color);
   clip-path: polygon(0 0, calc(50% - 0.5px) 0, calc(50% - 0.5px) 100%, 0 100%);
 }
 
-/* Right half: SUN */
+// 右半部分：太阳
 .fa-half-sun-moon::after {
   content: "\f185";
   color: var(--global-text-color);
   clip-path: polygon(calc(50% + 0.5px) 0, 100% 0, 100% 100%, calc(50% + 0.5px) 100%);
-  right: -1.5px; /* slight overflow to avoid right-edge clipping */
-  transform: translateX(-1px); /* visually re-center the sun half */
+  right: -1.5px;
+  transform: translateX(-1px);
 }
 
 #light-toggle:hover .fa-half-sun-moon::before {

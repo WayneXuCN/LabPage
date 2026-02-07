@@ -1,10 +1,11 @@
-/*******************************************************************************
- * Reusable component styles: Cards, captions, profiles, etc.
- ******************************************************************************/
+// ============================================
+// 组件样式
+// 卡片、图片标题、个人资料等可复用组件
+// ============================================
 
 @use "variables" as v;
 
-// Checklist
+// 任务列表
 
 ul.task-list {
   list-style-type: none; /* Remove bullets from all levels */
@@ -20,14 +21,14 @@ ul.task-list input[type="checkbox"] {
   vertical-align: middle;
 }
 
-// Math
+// 数学公式
 
 .equation {
   margin-bottom: 1rem;
   text-align: center;
 }
 
-// Caption
+// 图片标题
 
 .caption {
   font-family: v.$font-family-base;
@@ -40,7 +41,7 @@ ul.task-list input[type="checkbox"] {
   opacity: 0.85;
 }
 
-// Card
+// 卡片
 
 .card {
   background-color: var(--global-card-bg-color);
@@ -62,7 +63,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Profile
+// 个人资料
 
 .profile {
   width: 100%;
@@ -101,7 +102,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// CV
+// 简历
 
 .cv {
   margin-bottom: 40px;
@@ -133,7 +134,7 @@ ul.task-list input[type="checkbox"] {
   transform: translateX(-15px) translateY(-5px);
 }
 
-// Projects
+// 项目
 
 .projects {
   a {
@@ -172,7 +173,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Repositories
+// 代码仓库
 
 @media (min-width: 768px) {
   .repo {
@@ -180,7 +181,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Social (bottom)
+// 社交链接（底部）
 
 .social {
   text-align: center;
@@ -256,7 +257,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Distill
+// Distill 文章
 
 .distill {
   a:hover {

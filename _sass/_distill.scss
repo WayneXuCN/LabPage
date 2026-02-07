@@ -1,6 +1,6 @@
-/*******************************************************************************
- * Style overrides for distill blog posts.
- ******************************************************************************/
+// ============================================
+// Distill 文章样式覆盖
+// ============================================
 
 d-byline {
   border-top-color: var(--global-divider-color) !important;
@@ -138,7 +138,7 @@ d-article {
     }
   }
 
-  /* Citations */
+  // 引用
   d-cite a,
   a.citation {
     /* Target citations within d-cite and also general .citation links */

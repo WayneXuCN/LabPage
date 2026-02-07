@@ -84,7 +84,7 @@ h6 {
 // 其他字重
 button,
 .btn {
-  font-weight: 500; // 按钮权重
+  font-weight: 500; // 按钮字重
   transition: all 0.2s ease-in-out;
   border-radius: 6px;
 
@@ -450,7 +450,7 @@ ul.task-list input[type="checkbox"] {
     flex-shrink: 0;
   }
 
-  // 国旗图标样式
+  // 国旗图标
   .flag-icon {
     font-size: 1em;
     vertical-align: middle;
@@ -458,14 +458,14 @@ ul.task-list input[type="checkbox"] {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
 
-  // 文字标签
+  // 语言标签
   .lang-label {
     font-weight: $font-weight-medium;
     line-height: 1.4;
     letter-spacing: 0.01em;
   }
 
-  // 悬停状态 - 现代柔和背景
+  // 悬停状态
   &:hover {
     background-color: var(--global-hover-bg-color);
     color: var(--global-hover-color);
@@ -477,7 +477,7 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
-  // 聚焦状态 - 无障碍访问
+  // 聚焦状态
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--global-theme-color-light, rgba(181, 9, 172, 0.2));
@@ -500,7 +500,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// 导航栏中的语言切换器
+// 导航栏语言切换器
 .navbar-nav {
   .lang-switcher-item {
     display: flex;
@@ -508,7 +508,7 @@ ul.task-list input[type="checkbox"] {
     justify-content: center;
     margin: 0;
 
-    // 单语言切换按钮（2种语言）
+    // 单语言切换（2种语言）
     .lang-switcher-single {
       @extend .lang-switcher;
 
@@ -522,7 +522,7 @@ ul.task-list input[type="checkbox"] {
       }
     }
 
-    // 多语言下拉切换器（3+种语言）- 现代设计
+    // 多语言下拉切换（3+种语言）
     .lang-switcher-dropdown {
       position: relative;
 
@@ -574,7 +574,7 @@ ul.task-list input[type="checkbox"] {
           pointer-events: auto;
         }
 
-        // 下拉菜单项
+        // 菜单项
         .lang-dropdown-item {
           display: flex;
           align-items: center;
@@ -646,14 +646,14 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// 响应式布局策略
+// 响应式布局
 
-// 移动端优化 (< 576px)
+// 移动端适配 (< 576px)
 @media (max-width: 575px) {
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
     .navbar-nav {
-      // 语言切换器容器
+      // 切换器容器
       .lang-switcher-item {
         width: 100%;
         margin: 0;
@@ -664,7 +664,7 @@ ul.task-list input[type="checkbox"] {
           border-bottom: none;
         }
 
-        // 单语言切换器
+        // 单语言切换
         .lang-switcher-single {
           width: 100%;
           justify-content: center;
@@ -686,7 +686,7 @@ ul.task-list input[type="checkbox"] {
           }
         }
 
-        // 多语言下拉切换器 - 移动端
+        // 多语言下拉切换 - 移动端
         .lang-switcher-dropdown {
           width: 100%;
 
@@ -710,7 +710,7 @@ ul.task-list input[type="checkbox"] {
             }
           }
 
-          // 移动端下拉菜单 - 内联展开样式
+          // 移动端下拉菜单 - 内联展开
           .lang-dropdown-menu {
             position: static;
             width: 100%;
@@ -758,7 +758,7 @@ ul.task-list input[type="checkbox"] {
                 color: var(--global-theme-color);
               }
 
-              // 活跃指示器
+              // 当前语言指示器
               &.active::before {
                 margin-left: auto;
               }
@@ -774,14 +774,14 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
-  // 确保触摸目标大小
+  // 触摸目标尺寸
   .lang-switcher,
   .lang-dropdown-item {
     min-height: auto;
   }
 }
 
-// 平板端优化 (768px - 991px)
+// 平板端适配 (768px - 991px)
 @media (min-width: 768px) {
   .navbar-nav {
     .lang-switcher-item {
@@ -795,7 +795,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// 桌面端优化 (≥ 992px)
+// 桌面端适配 (≥ 992px)
 @media (min-width: 992px) {
   .navbar-nav {
     .lang-switcher-item {
@@ -941,7 +941,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Social (bottom)
+// 社交链接（底部）
 
 .social {
   text-align: center;
@@ -1021,7 +1021,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Footer
+// 页脚
 footer.fixed-bottom {
   background-color: var(--global-footer-bg-color);
   font-size: 0.75rem;
@@ -1054,7 +1054,7 @@ footer.sticky-bottom {
   }
 }
 
-// CV
+// 简历
 
 .cv {
   margin-bottom: 40px;
@@ -1086,7 +1086,7 @@ footer.sticky-bottom {
   transform: translateX(-15px) translateY(-5px);
 }
 
-// Repositories
+// 代码仓库
 
 @media (min-width: 768px) {
   .repo {
@@ -1094,7 +1094,7 @@ footer.sticky-bottom {
   }
 }
 
-// Blog
+// 博客
 
 .header-bar {
   border-bottom: 1px solid var(--global-divider-color);
@@ -1195,13 +1195,13 @@ footer.sticky-bottom {
   }
 }
 
-// diff2html - Fix for diff2html line number overflow
+// diff2html 行号溢出修复
 
 .d2h-diff-table {
   position: relative;
 }
 
-// Distill
+// Distill 文章
 
 .distill {
   a:hover {
@@ -1210,7 +1210,7 @@ footer.sticky-bottom {
   }
 }
 
-// Projects
+// 项目
 
 .projects {
   a {
@@ -1249,7 +1249,7 @@ footer.sticky-bottom {
   }
 }
 
-// Publications
+// 出版物
 
 .publications {
   margin-top: 2rem;
@@ -1428,7 +1428,7 @@ footer.sticky-bottom {
   }
 }
 
-// Rouge Color Customization
+// Rouge 代码高亮
 figure.highlight {
   margin: 0 0 1rem;
 
@@ -1478,7 +1478,7 @@ code {
   word-wrap: break-word;
 }
 
-// Transitioning Themes
+// 主题过渡
 html.transition,
 html.transition *,
 html.transition *:before,
@@ -1487,7 +1487,7 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
-// Extra Markdown style (post Customization)
+// Markdown 额外样式
 .post {
   .post-meta {
     color: var(--global-text-color-light);
@@ -1567,7 +1567,7 @@ progress::-moz-progress-bar {
   height: inherit;
 }
 
-/* Copy button */
+// 复制按钮
 .code-display-wrapper {
   position: relative;
 

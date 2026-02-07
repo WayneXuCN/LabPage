@@ -15,12 +15,8 @@
   class LangSwitcher {
     constructor() {
       this.dropdowns = Array.from(document.querySelectorAll(".lang-switcher-dropdown"));
-      this.toggles = this.dropdowns
-        .map((dropdown) => dropdown.querySelector(".lang-switcher-toggle"))
-        .filter(Boolean);
-      this.menus = this.dropdowns
-        .map((dropdown) => dropdown.querySelector(".lang-dropdown-menu"))
-        .filter(Boolean);
+      this.toggles = this.dropdowns.map((dropdown) => dropdown.querySelector(".lang-switcher-toggle")).filter(Boolean);
+      this.menus = this.dropdowns.map((dropdown) => dropdown.querySelector(".lang-dropdown-menu")).filter(Boolean);
       this.lastToggle = null;
       this.init();
     }

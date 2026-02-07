@@ -1,6 +1,6 @@
-/******************************************************************************
- * Content
- ******************************************************************************/
+// ============================================
+// 内容布局
+// ============================================
 
 @use "variables" as v;
 
@@ -44,19 +44,19 @@ body.sticky-bottom-footer {
   }
 }
 
-// Content layout uses Bootstrap's grid system with responsive columns
-// Main content flows naturally through container-mt-5 and Bootstrap grid classes
-// See _layouts/default.liquid and _includes/projects.liquid for examples
+// 内容布局使用 Bootstrap 网格系统
+// 主内容通过 container-mt-5 和 Bootstrap 网格类流动
+// 参见 _layouts/default.liquid 和 _includes/projects.liquid
 
-/******************************************************************************
- * Publications
- ******************************************************************************/
+// ============================================
+// 出版物
+// ============================================
 
 // Publications layout is defined in _includes/bib_search.liquid
 // Uses jekyll-scholar for BibTeX parsing and Bootstrap cards for display
 
-/*****************************************************************************
-* Projects
-*****************************************************************************/
+// ============================================
+// 项目
+// ============================================
 
 // TODO: redefine projects layout.
