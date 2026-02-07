@@ -1,14 +1,3 @@
-
-const currentUrl = window.location.href;
-const siteUrl = "https://lab.wenjiexu.site/"; 
-let updatedUrl = currentUrl.replace("https://lab.wenjiexu.site/", "");
-if (currentUrl.length == updatedUrl.length && currentUrl.startsWith("http://127.0.0.1")) {
-  const otherSiteUrl = siteUrl.replace("localhost", "127.0.0.1");
-  updatedUrl = currentUrl.replace(otherSiteUrl + "", "");
-}
-if ("".length > 0) {
-  updatedUrl = updatedUrl.replace("/", "");
-}
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -22,7 +11,7 @@ ninja.data = [{
     },
   },{id: "nav-发表",
           title: "发表",
-          description: "按类别倒序排列的发表成果",
+          description: "按类别划分的出版物列表，按时间倒序排列。",
           section: "导航菜单",
           handler: () => {
             window.location.href = "/publications/";
@@ -44,132 +33,121 @@ ninja.data = [{
         },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
-          section: "",handler: () => {
+          section: "书籍",handler: () => {
               window.location.href = "/books/zh_CN/the_godfather/";
             },},{id: "news-2022年校长奖学金",
           title: '2022年校长奖学金',
           description: "",
-          section: "新闻",},{id: "news-2022年本科生国家奖学金",
+          section: "News",},{id: "news-2022年本科生国家奖学金",
           title: '2022年本科生国家奖学金',
           description: "",
-          section: "新闻",},{id: "news-2023年江苏省优秀本科毕业论文一等奖",
+          section: "News",},{id: "news-2023年江苏省优秀本科毕业论文一等奖",
           title: '2023年江苏省优秀本科毕业论文一等奖',
           description: "",
-          section: "新闻",},{id: "projects-hostimagebackup",
+          section: "News",},{id: "projects-hostimagebackup",
           title: 'HostImageBackup',
           description: "一个模块化的 Python 命令行工具，轻松将各类图床服务的图片备份到本地。",
-          section: "项目",handler: () => {
+          section: "Projects",handler: () => {
               window.location.href = "/projects/zh_CN/HostImageBackup/";
             },},{id: "projects-microsofthostspicker",
           title: 'MicrosoftHostsPicker',
           description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
-          section: "项目",handler: () => {
+          section: "Projects",handler: () => {
               window.location.href = "/projects/zh_CN/MicrosoftHostsPicker/";
             },},{id: "projects-typst-ucas-thesis",
           title: 'Typst-ucas-thesis',
           description: "基于 Typst 的中国科学院大学学位论文模板",
-          section: "项目",handler: () => {
+          section: "Projects",handler: () => {
               window.location.href = "/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
+            },},{id: "teachings-data-science-fundamentals",
+          title: 'Data Science Fundamentals',
+          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/data-science-fundamentals/";
+            },},{id: "teachings-introduction-to-machine-learning",
+          title: 'Introduction to Machine Learning',
+          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/introduction-to-machine-learning/";
             },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: "社交",
+        handler: () => {
+          window.open("/assets/pdf/cv.pdf", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: "社交",
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
         id: 'social-email',
-        title: '发送邮件',
-        section: '社交',
+        title: 'email',
+        section: "社交",
         handler: () => {
           window.open("mailto:%77%65%6E%6A%69%65.%78%75.%63%6E@%6F%75%74%6C%6F%6F%6B.%63%6F%6D", "_blank");
         },
       },{
         id: 'social-github',
         title: 'GitHub',
-        section: '社交',
+        section: "社交",
         handler: () => {
           window.open("https://github.com/WayneXuCN", "_blank");
         },
       },{
         id: 'social-orcid',
         title: 'ORCID',
-        section: '社交',
+        section: "社交",
         handler: () => {
           window.open("https://orcid.org/0000-0002-7778-0450", "_blank");
         },
       },{
         id: 'social-researchgate',
         title: 'ResearchGate',
-        section: '社交',
+        section: "社交",
         handler: () => {
           window.open("https://www.researchgate.net/profile/https://www.researchgate.net/profile/Wenjie-Xu-19/", "_blank");
         },
       },{
-        id: 'social-rss',
-        title: 'RSS Feed',
-        section: '社交',
-        handler: () => {
-          window.open("/feed.xml", "_blank");
-        },
-      },{
         id: 'social-scholar',
         title: 'Google Scholar',
-        section: '社交',
+        section: "社交",
         handler: () => {
           window.open("https://scholar.google.com/citations?user=eWTidmsAAAAJ", "_blank");
         },
       },{
         id: 'social-wechat_qr',
         title: 'Wechat_qr',
-        section: '社交',
+        section: "社交",
         handler: () => {
-          window.open("", "_blank");
+          window.open("/assets/img/wechatQR.png", "_blank");
         },
       },{
-        id: 'social-zotero',
-        title: 'Zotero',
-        section: '社交',
-        handler: () => {
-          window.open("https://www.zotero.org/wenjie_xu2000", "_blank");
-        },
-      },{
-          id: 'lang-en_US',
-          title: 'en_US',
-          section: '语言',
-          handler: () => {
-            window.location.href = "/en_US" + updatedUrl;
-          },
-        },{
-          id: 'lang-de_DE',
-          title: 'de_DE',
-          section: '语言',
-          handler: () => {
-            window.location.href = "/de_DE" + updatedUrl;
-          },
-        },{
-          id: 'lang-ja_JP',
-          title: 'ja_JP',
-          section: '语言',
-          handler: () => {
-            window.location.href = "/ja_JP" + updatedUrl;
-          },
-        },{
       id: 'light-theme',
-      title: '切换到浅色主题',
-      description: '切换为浅色主题',
-      section: '主题',
+      title: "",
+      description: "",
+      section: "主题",
       handler: () => {
         setThemeSetting("light");
       },
     },
     {
       id: 'dark-theme',
-      title: '切换到深色主题',
-      description: '切换为深色主题',
-      section: '主题',
+      title: "",
+      description: "",
+      section: "主题",
       handler: () => {
         setThemeSetting("dark");
       },
     },
     {
       id: 'system-theme',
-      title: '使用系统默认主题',
-      description: '跟随系统主题',
-      section: '主题',
+      title: "",
+      description: "",
+      section: "主题",
       handler: () => {
         setThemeSetting("system");
       },
