@@ -1,372 +1,468 @@
-# Customize
+# 自定义指南
 
-Here we will give you some tips on how to customize the website. One important thing to note is that **ALL** the changes you make should be done on the **main** branch of your repository. The `gh-pages` branch is automatically overwritten every time you make a change to the main branch.
+本文档提供网站自定义的实用指南。重要提示：**所有更改都应在仓库的 `main` 分支上进行**。每次修改 `main` 分支时，`gh-pages` 分支会自动被覆盖。
 
-> **Note for users without coding experience:** You do **not** need to understand the technology stack or have any coding background to create and customize your own website with al-folio. This template was specifically designed to be accessible to academics and researchers from all backgrounds. You can create a fully functional website by simply editing configuration files and adding content in Markdown, no coding required.
+> 本项目基于 [al-folio](https://github.com/alshedivat/al-folio) 主题，针对学术个人网站进行了深度定制和扩展，特别是增加了完整的多语言国际化（i18n）支持。
 
 <!--ts-->
 
-- [Customize](#customize)
-  - [Project structure](#project-structure)
-  - [Configuration](#configuration)
-  - [GitHub Copilot Customization Agent](#github-copilot-customization-agent)
-    - [What the Agent Can Help With](#what-the-agent-can-help-with)
-    - [How to Use the Agent](#how-to-use-the-agent)
-    - [Important: Verify Agent Output](#important-verify-agent-output)
-  - [Understanding the Codebase with Code Wiki and DeepWiki](#understanding-the-codebase-with-code-wiki-and-deepwiki)
-    - [What are these tools?](#what-are-these-tools)
-    - [When to use them](#when-to-use-them)
-  - [Technology Stack](#technology-stack)
-    - [Frontend](#frontend)
-    - [Backend](#backend)
-    - [Build and Deployment](#build-and-deployment)
-    - [Key Integration Points](#key-integration-points)
-  - [Modifying the CV information](#modifying-the-cv-information)
-    - [RenderCV Format (Recommended)](#rendercv-format-recommended)
-    - [JSONResume Format](#jsonresume-format)
-    - [Using Both Formats Simultaneously](#using-both-formats-simultaneously)
-    - [Automatic PDF Generation (RenderCV only)](#automatic-pdf-generation-rendercv-only)
-  - [Modifying the user and repository information](#modifying-the-user-and-repository-information)
-    - [Configuring external service URLs](#configuring-external-service-urls)
-  - [Creating new pages](#creating-new-pages)
-  - [Creating new blog posts](#creating-new-blog-posts)
-  - [Creating new projects](#creating-new-projects)
-  - [Adding some news](#adding-some-news)
-  - [Adding Collections](#adding-collections)
-    - [Creating a new collection](#creating-a-new-collection)
-    - [Using frontmatter fields in your collection](#using-frontmatter-fields-in-your-collection)
-    - [Creating a teachings collection](#creating-a-teachings-collection)
-      - [Course file format](#course-file-format)
-      - [Important course collection notes](#important-course-collection-notes)
-      - [Required fields](#required-fields)
-      - [Optional fields](#optional-fields)
-    - [Collections with categories and tags](#collections-with-categories-and-tags)
-    - [Creating custom metadata groups and archive pages](#creating-custom-metadata-groups-and-archive-pages)
-      - [Understanding Jekyll's special handling of fields](#understanding-jekylls-special-handling-of-fields)
-      - [Example: Adding a custom "adaptations" field](#example-adding-a-custom-adaptations-field)
-      - [Field naming best practices](#field-naming-best-practices)
-      - [Complete example: Book reviews with custom adaptations field](#complete-example-book-reviews-with-custom-adaptations-field)
-  - [Adding a new publication](#adding-a-new-publication)
-    - [Author annotation](#author-annotation)
-    - [Buttons (through custom bibtex keywords)](#buttons-through-custom-bibtex-keywords)
-  - [Changing theme color](#changing-theme-color)
-  - [Customizing layout and UI](#customizing-layout-and-ui)
-  - [Adding social media information](#adding-social-media-information)
-  - [Adding a newsletter](#adding-a-newsletter)
-  - [Configuring search features](#configuring-search-features)
-  - [Social media previews](#social-media-previews)
-    - [How to enable](#how-to-enable)
-    - [Configuring preview images](#configuring-preview-images)
-    - [Preview image best practices](#preview-image-best-practices)
-  - [Related posts](#related-posts)
-    - [How it works](#how-it-works)
-    - [Configuration](#configuration-1)
-    - [Disable related posts for a specific post](#disable-related-posts-for-a-specific-post)
-    - [Additional configuration in \_config.yml](#additional-configuration-in-_configyml)
-  - [Managing publication display](#managing-publication-display)
-  - [Adding a Google Calendar](#adding-a-google-calendar)
-    - [Basic usage](#basic-usage)
-    - [Enable the calendar script for your page](#enable-the-calendar-script-for-your-page)
-    - [Optional: Customize the calendar style](#optional-customize-the-calendar-style)
-  - [Updating third-party libraries](#updating-third-party-libraries)
-  - [Removing content](#removing-content)
-    - [Removing the blog page](#removing-the-blog-page)
-    - [Removing the news section](#removing-the-news-section)
-    - [Removing the projects page](#removing-the-projects-page)
-    - [Removing the publications page](#removing-the-publications-page)
-    - [Removing the repositories page](#removing-the-repositories-page)
-    - [You can also remove pages through commenting out front-matter blocks](#you-can-also-remove-pages-through-commenting-out-front-matter-blocks)
-  - [Adding Token for Lighthouse Badger](#adding-token-for-lighthouse-badger)
-    - [Personal Access Token (fine-grained) Permissions for Lighthouse Badger:](#personal-access-token-fine-grained-permissions-for-lighthouse-badger)
-  - [Customizing fonts, spacing, and more](#customizing-fonts-spacing-and-more)
-  - [Scheduled Posts](#scheduled-posts)
-    - [Name Format](#name-format)
-    - [Important Notes](#important-notes)
-  - [GDPR Cookie Consent Dialog](#gdpr-cookie-consent-dialog)
-    - [How it works](#how-it-works-1)
-    - [When to use](#when-to-use)
-    - [How to enable](#how-to-enable-1)
-    - [Customizing the consent dialog](#customizing-the-consent-dialog)
-    - [Supported analytics providers](#supported-analytics-providers)
-    - [How it integrates with analytics](#how-it-integrates-with-analytics)
-    - [For developers](#for-developers)
-  - [Setting up a Personal Access Token (PAT) for Google Scholar Citation Updates](#setting-up-a-personal-access-token-pat-for-google-scholar-citation-updates)
-    - [Why is a PAT required?](#why-is-a-pat-required)
-    - [How to set up the PAT](#how-to-set-up-the-pat)
+- [自定义指南](#自定义指南)
+  - [项目结构](#项目结构)
+  - [配置文件](#配置文件)
+  - [多语言国际化（i18n）](#多语言国际化i18n)
+    - [支持的语言](#支持的语言)
+    - [配置说明](#配置说明)
+    - [目录结构](#目录结构)
+    - [创建多语言内容](#创建多语言内容)
+    - [语言切换](#语言切换)
+    - [日期格式本地化](#日期格式本地化)
+    - [翻译字符串管理](#翻译字符串管理)
+  - [技术栈](#技术栈)
+    - [前端](#前端)
+    - [后端](#后端)
+    - [构建与部署](#构建与部署)
+  - [修改简历信息](#修改简历信息)
+    - [RenderCV 格式（推荐）](#rendercv-格式推荐)
+    - [JSONResume 格式](#jsonresume-格式)
+    - [同时使用两种格式](#同时使用两种格式)
+    - [自动生成 PDF（仅 RenderCV）](#自动生成-pdf仅-rendercv)
+  - [修改用户和仓库信息](#修改用户和仓库信息)
+    - [配置外部服务 URL](#配置外部服务-url)
+  - [创建新页面](#创建新页面)
+  - [创建博客文章](#创建博客文章)
+  - [外部博客文章同步](#外部博客文章同步)
+  - [创建新项目](#创建新项目)
+  - [添加动态消息](#添加动态消息)
+  - [创建研究页面](#创建研究页面)
+  - [创建工具箱页面](#创建工具箱页面)
+  - [创建下拉菜单](#创建下拉菜单)
+  - [添加集合](#添加集合)
+    - [创建新集合](#创建新集合)
+    - [在集合中使用 Frontmatter 字段](#在集合中使用-frontmatter-字段)
+    - [创建教学集合](#创建教学集合)
+      - [课程文件格式](#课程文件格式)
+      - [课程集合注意事项](#课程集合注意事项)
+      - [必填字段](#必填字段)
+      - [可选字段](#可选字段)
+    - [Jupyter Notebook 支持](#jupyter-notebook-支持)
+    - [带分类和标签的集合](#带分类和标签的集合)
+    - [创建自定义元数据组和归档页](#创建自定义元数据组和归档页)
+  - [添加新出版物](#添加新出版物)
+    - [作者标注](#作者标注)
+    - [按钮（通过自定义 BibTeX 关键词）](#按钮通过自定义-bibtex-关键词)
+    - [出版物预览图](#出版物预览图)
+    - [出版物徽章](#出版物徽章)
+    - [期刊/会议缩写](#期刊会议缩写)
+    - [注释和高亮](#注释和高亮)
+    - [出版物分组和筛选](#出版物分组和筛选)
+    - [完整 BibTeX 字段参考](#完整-bibtex-字段参考)
+    - [完整示例](#完整示例)
+    - [文件组织](#文件组织)
+    - [故障排除](#故障排除)
+  - [更改主题颜色](#更改主题颜色)
+  - [功能开关](#功能开关)
+  - [自定义布局和界面](#自定义布局和界面)
+  - [添加社交媒体信息](#添加社交媒体信息)
+  - [添加订阅](#添加订阅)
+  - [配置搜索功能](#配置搜索功能)
+  - [社交媒体预览](#社交媒体预览)
+    - [启用方法](#启用方法)
+    - [配置预览图](#配置预览图)
+    - [预览图最佳实践](#预览图最佳实践)
+  - [相关文章](#相关文章)
+    - [工作原理](#工作原理)
+    - [配置](#配置)
+    - [禁用特定文章的相关推荐](#禁用特定文章的相关推荐)
+    - [\_config.yml 中的额外配置](#_configyml-中的额外配置)
+  - [管理出版物显示](#管理出版物显示)
+  - [评论系统](#评论系统)
+  - [添加 Google 日历](#添加-google-日历)
+    - [基本用法](#基本用法)
+    - [为页面启用日历脚本](#为页面启用日历脚本)
+    - [可选：自定义日历样式](#可选自定义日历样式)
+  - [使用第三方库](#使用第三方库)
+    - [图表库](#图表库)
+    - [地图功能](#地图功能)
+    - [灯箱库](#灯箱库)
+    - [图片功能](#图片功能-1)
+    - [其他功能](#其他功能)
+  - [更新第三方库](#更新第三方库)
+  - [图片功能](#图片功能-2)
+    - [响应式图片](#响应式图片)
+    - [懒加载图片](#懒加载图片)
+    - [图片缩放](#图片缩放)
+    - [图片灯箱](#图片灯箱)
+  - [删除内容](#删除内容)
+    - [删除博客页面](#删除博客页面)
+    - [删除动态消息区域](#删除动态消息区域)
+    - [删除项目页面](#删除项目页面)
+    - [删除出版物页面](#删除出版物页面)
+    - [删除仓库页面](#删除仓库页面)
+    - [通过注释 Frontmatter 块禁用页面](#通过注释-frontmatter-块禁用页面)
+  - [为 Lighthouse Badger 添加 Token](#为-lighthouse-badger-添加-token)
+    - [Lighthouse Badger 的个人访问令牌（精细粒度）权限](#lighthouse-badger-的个人访问令牌精细粒度权限)
+  - [自定义字体、间距等](#自定义字体间距等)
+  - [定时发布](#定时发布)
+    - [文件名格式](#文件名格式)
+    - [重要说明](#重要说明)
+  - [分析工具](#分析工具)
+    - [Google Analytics (GA4)](#google-analytics-ga4)
+    - [Cronitor RUM](#cronitor-rum)
+    - [Pirsch Analytics](#pirsch-analytics)
+    - [Openpanel Analytics](#openpanel-analytics)
+    - [站点验证](#站点验证)
+      - [Google Search Console](#google-search-console)
+      - [Bing Webmaster Tools](#bing-webmaster-tools)
+  - [GDPR Cookie 同意对话框](#gdpr-cookie-同意对话框)
+    - [工作原理](#工作原理)
+    - [使用场景](#使用场景)
+    - [启用方法](#启用方法)
+    - [自定义同意对话框](#自定义同意对话框)
+    - [支持的分析提供商](#支持的分析提供商)
+    - [与分析工具集成](#与分析工具集成)
+    - [开发者指南](#开发者指南)
+  - [为 Google Scholar 引用更新设置个人访问令牌](#为-google-scholar-引用更新设置个人访问令牌)
+    - [为什么需要 PAT](#为什么需要-pat)
+    - [如何设置 PAT](#如何设置-pat)
 
 <!--te-->
 
-## Project structure
+## 项目结构
 
-The project is structured as follows, focusing on the main components that you will need to modify:
+项目主要结构如下，重点列出需要修改的组件：
 
 ```txt
 .
-├── 📂 assets/: contains the assets that are displayed in the website
-│   └── 📂 json/
-    │   └── 📄 resume.json: CV in JSON format (https://jsonresume.org/)
+├── 📂 assets/: 网站资源文件
+│   ├── 📂 json/
+│   │   └── 📄 resume.json: JSON 格式简历 (https://jsonresume.org/)
+│   └── 📂 rendercv/
+│       ├── 📄 design.yaml: RenderCV 设计样式
+│       ├── 📄 locale.yaml: RenderCV 本地化配置
+│       └── 📄 settings.yaml: RenderCV 设置
 ├── 📂 _bibliography/
-│   └── 📄 papers.bib: bibliography in BibTeX format
-├── 📂 _books/: contains the bookshelf pages
-├── 📄 _config.yml: the configuration file of the template
-├── 📂 _data/: contains some of the data used in the template
-│   ├── 📄 cv.yml: CV in YAML format, used when assets/json/resume.json is not found
-│   ├── 📄 repositories.yml: users and repositories info in YAML format
-│   └── 📄 socials.yml: your social media and contact info in YAML format
-├── 📂 _includes/: contains code parts that are included in the main HTML file
-│   └── 📄 news.liquid: defines the news section layout in the about page
-├── 📂 _layouts/: contains the layouts to choose from in the frontmatter of the Markdown files
-├── 📂 _news/: the news that will appear in the news section in the about page
-├── 📂 _pages/: contains the pages of the website
-|   └── 📄 404.md: 404 page (page not found)
-├── 📂 _posts/: contains the blog posts
-├── 📂 _projects/: contains the projects
-└── 📂 _sass/: contains the SASS files that define the style of the website
-    ├── 📂 font-awesome/: contains the SCSS files for Font Awesome
-    ├── 📄 _blog.scss: blog post, tags, and pagination styles
-    ├── 📄 _components.scss: reusable component styles (cards, profiles, CV, projects)
-    ├── 📄 _cv.scss: style of the CV page
-    ├── 📄 _distill.scss: style of the Distill articles
-    ├── 📄 _footer.scss: footer styles
-    ├── 📄 _layout.scss: overall layout styles
-    ├── 📄 _navbar.scss: navigation bar and dropdown menu styles
-    ├── 📄 _publications.scss: publication list and bibliography styles
-    ├── 📄 _tabs.scss: tabbed content styles
-    ├── 📄 _teachings.scss: course and teaching styles
-    ├── 📄 _themes.scss: theme colors and icons
-    ├── 📄 _typograms.scss: typogram diagram styles
-    ├── 📄 _typography.scss: text, headings, links, tables, and blockquote styles
-    ├── 📄 _utilities.scss: utility styles (code highlighting, forms, modals, animations)
-    └── 📄 _variables.scss: variables used in the SASS files
+│   └── 📄 papers.bib: BibTeX 格式参考文献
+├── 📂 _books/: 书架页面
+│   ├── 📂 zh_CN/: 中文书评
+│   ├── 📂 en_US/: 英文书评
+│   ├── 📂 de_DE/: 德文书评
+│   └── 📂 ja_JP/: 日文书评
+├── 📄 _config.yml: 模板配置文件
+├── 📂 _data/: 模板数据文件
+│   ├── 📄 apps.yml: Web 应用展示配置
+│   ├── 📄 citations.yml: Google Scholar 引用数据
+│   ├── 📄 coauthors.yml: 合作者信息
+│   ├── 📄 cv.yml: YAML 格式简历（resume.json 不存在时使用）
+│   ├── 📄 repositories.yml: YAML 格式用户和仓库信息
+│   ├── 📄 socials.yml: YAML 格式社交媒体和联系信息
+│   ├── 📄 venues.yml: 会议/期刊场地信息
+│   └── 📂 {lang}/: 语言特定数据
+│       ├── 📄 strings.yml: 界面文本翻译
+│       ├── 📄 cv.yml: RenderCV 格式简历
+│       └── 📄 toolbox.yml: 工具箱配置
+├── 📂 _includes/: 可复用的代码片段
+│   ├── 📂 cv/: 简历组件 (16 个文件)
+│   ├── 📂 repository/: GitHub 仓库组件 (4 个文件)
+│   └── 📄 其他组件
+├── 📂 _layouts/: 页面布局模板
+├── 📂 _news/: 关于页面动态消息
+│   ├── 📂 zh_CN/: 中文新闻
+│   ├── 📂 en_US/: 英文新闻
+│   ├── 📂 de_DE/: 德文新闻
+│   └── 📂 ja_JP/: 日文新闻
+├── 📂 _pages/: 网站页面
+│   ├── 📂 zh_CN/: 中文页面
+│   ├── 📂 en_US/: 英文页面
+│   ├── 📂 de_DE/: 德文页面
+│   └── 📂 ja_JP/: 日文页面
+├── 📂 _posts/: 博客文章
+├── 📂 _projects/: 项目
+│   ├── 📂 zh_CN/: 中文项目
+│   ├── 📂 en_US/: 英文项目
+│   ├── 📂 de_DE/: 德文项目
+│   └── 📂 ja_JP/: 日文项目
+├── 📂 _sass/: 网站样式文件
+│   ├── 📂 font-awesome/: Font Awesome SCSS 文件
+│   ├── 📄 _blog.scss: 博客、标签和分页样式
+│   ├── 📄 _components.scss: 可复用组件样式
+│   ├── 📄 _cv.scss: 简历页面样式
+│   ├── 📄 _distill.scss: Distill 文章样式
+│   ├── 📄 _footer.scss: 页脚样式
+│   ├── 📄 _layout.scss: 整体布局样式
+│   ├── 📄 _navbar.scss: 导航栏和下拉菜单样式
+│   ├── 📄 _publications.scss: 出版物列表和参考文献样式
+│   ├── 📄 _tabs.scss: 标签页样式
+│   ├── 📄 _teachings.scss: 课程和教学样式
+│   ├── 📄 _themes.scss: 主题颜色和图标
+│   ├── 📄 _typograms.scss: Typogram 图表样式
+│   ├── 📄 _typography.scss: 文本、标题、链接、表格和引用样式
+│   ├── 📄 _utilities.scss: 工具样式
+│   └── 📄 _variables.scss: SCSS 变量
+└── 📂 _scripts/: JavaScript 脚本
 ```
 
-## Configuration
+## 配置文件
+
+主配置文件为 [`_config.yml`](_config.yml)，包含网站的主要配置。大多数设置都配有注释。
+
+> 注意：`url` 和 `baseurl` 设置用于生成网站链接。
+>
+> - **个人站点**：`url: https://username.github.io` + `baseurl:`（空）
+> - **项目站点**：`url: https://username.github.io` + `baseurl: /repo-name/`
+
+修改此文件后需要重新构建网站才能生效。本地开发需重新运行 `bundle exec jekyll serve`，GitHub Pages 则需推送更改。其他更改刷新页面即可生效。
+
+如果刷新后更改仍未显示，尝试：
+
+- **强制刷新**（忽略缓存）：
+  - Chromium 浏览器：`Shift + F5`
+  - Firefox 浏览器：`Ctrl + F5`
+- **清除浏览器缓存**
+- **使用隐私/无痕窗口**确保无缓存内容
+
+## 多语言国际化（i18n）
 
-The configuration file [\_config.yml](_config.yml) contains the main configuration of the website. Most of the settings is self-explanatory and we also tried to add as much comments as possible. If you have any questions, please check if it was not already answered in the [FAQ](FAQ.md).
+本项目使用 `jekyll-polyglot` 插件提供完整的多语言支持，支持通过路径自动识别语言，并提供语言切换功能。
 
-> Note that the `url` and `baseurl` settings are used to generate the links of the website, as explained in the [install instructions](INSTALL.md).
+### 支持的语言
 
-All changes made to this file are only visible after you rebuild the website. That means that you need to run `bundle exec jekyll serve` again if you are running the website locally or push your changes to GitHub if you are using GitHub Pages. All other changes are visible immediately, you only need to refresh the page.
+当前支持以下 4 种语言：
 
-If changes don't appear after refreshing, try:
+| 语言代码 | 语言名称 | 说明     |
+| -------- | -------- | -------- |
+| `zh_CN`  | 中文     | 默认语言 |
+| `en_US`  | English  | 英文     |
+| `de_DE`  | Deutsch  | 德文     |
+| `ja_JP`  | 日本語   | 日文     |
 
-- **Hard refresh** to reload the page ignoring cached content:
-  - [Shift + F5 on Chromium-based browsers](https://support.google.com/chrome/answer/157179#zippy=%2Cwebpage-shortcuts)
-  - [Ctrl + F5 on Firefox-based browsers](https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly)
-- **Clear your browser cache** completely
-- **Use a private/incognito session** to ensure no cached content:
-  - [Chrome](https://support.google.com/chrome/answer/95464)
-  - [Firefox](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history)
+### 配置说明
 
-## GitHub Copilot Customization Agent
+多语言配置位于 [`_config.yml`](_config.yml)：
 
-This repository includes a specialized GitHub Copilot agent (`.github/agents/customize.agent.md`) designed to help you customize your al-folio website. The agent acts as an expert assistant that can:
+```yaml
+languages: ["en_US", "zh_CN", "de_DE", "ja_JP"]
+default_lang: "zh_CN"
+lang_from_path: true
+parallel_localization: false
+country_flag: false
+language_names:
+  en_US: "English"
+  zh_CN: "中文"
+  de_DE: "Deutsch"
+  ja_JP: "日本語"
+exclude_from_localization: ["assets", "sitemap.xml", "feed.xml", "robots.txt"]
+```
 
-- Guide you through common customization tasks step-by-step
-- Modify configuration files, add content, and update your website
-- Explain technical concepts in plain language (especially helpful if you're not familiar with Jekyll or web development)
-- Apply changes directly to your repository files
-- Answer questions about how to customize specific features
+**配置参数说明：**
 
-### What the Agent Can Help With
+- `languages`: 支持的语言列表
+- `default_lang`: 默认语言（网站根目录显示的语言）
+- `lang_from_path`: 从 URL 路径识别语言（例如 `/en_US/` 表示英文）
+- `parallel_localization`: 是否并行处理本地化（设为 false 以兼容 LSI）
+- `country_flag`: 是否显示国旗图标（默认不显示）
+- `language_names`: 语言显示名称映射
+- `exclude_from_localization`: 不需要本地化的文件/目录
 
-The customization agent can assist with tasks such as:
+**重要提示：** 由于 `jekyll-polyglot` 插件冲突，必须设置 `lsi: false`（相关文章推荐功能禁用）。
 
-- Changing basic site information (title, author name, contact details)
-- Updating your CV or resume
-- Adding and managing publications from BibTeX files
-- Creating blog posts, projects, and news items
-- Customizing theme colors and styling
-- Managing social media links
-- Enabling or disabling features in `_config.yml`
-- Adding profile pictures and other assets
-- Troubleshooting configuration issues
+### 目录结构
 
-### How to Use the Agent
+多语言内容按语言代码组织在独立目录中：
 
-To use the customization agent:
+```
+_pages/
+├── zh_CN/          # 中文页面（15个文件）
+│   ├── about.md
+│   ├── blog.md
+│   ├── projects.md
+│   └── ...
+├── en_US/          # 英文页面（15个文件）
+│   ├── about.md
+│   ├── blog.md
+│   └── ...
+├── de_DE/          # 德文页面
+└── ja_JP/          # 日文页面
 
-1. Ensure you have a [GitHub Copilot](https://github.com/features/copilot) subscription
-2. Open your repository in an editor with GitHub Copilot support (such as VS Code with the GitHub Copilot extension)
-3. Interact with GitHub Copilot and ask questions or request changes. For more information, check [Using custom agents in your IDE](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents#using-custom-agents-in-your-ide)
-4. The agent will guide you through the customization process and can make changes directly to your files
+_news/
+├── zh_CN/          # 中文新闻
+├── en_US/          # 英文新闻
+├── de_DE/
+└── ja_JP/
 
-For example, you can ask:
+_projects/
+├── zh_CN/
+├── en_US/
+├── de_DE/
+└── ja_JP/
 
-- "How do I change my website's theme color to blue?"
-- "Help me add a new blog post about my research"
-- "Update my profile information with my new university email"
-- "How do I add a publication to my website?"
+_books/
+├── zh_CN/
+├── en_US/
+├── de_DE/
+└── ja_JP/
+```
 
-The agent is designed to be patient and helpful, explaining each step clearly so you understand what's being changed and why.
+### 创建多语言内容
 
-### Important: Verify Agent Output
+为每种语言创建对应的内容文件：
 
-**The customization agent can make mistakes or produce incorrect information.** Always review and verify the agent's suggestions and changes before applying them to your repository:
+1. **页面内容**：在 `_pages/{lang}/` 目录下创建
+2. **新闻/博客**：在 `_news/{lang}/` 或 `_posts/` 目录下创建
+3. **项目**：在 `_projects/{lang}/` 目录下创建
+4. **书评**：在 `_books/{lang}/` 目录下创建
 
-- **Review all changes** – Before applying any modifications, carefully read what the agent suggests and ensure it makes sense for your needs
-- **Test locally first** – Before pushing changes to GitHub, test them locally using Docker or native setup (see the [Installation instructions](INSTALL.md))
-- **Check syntax** – Make sure any YAML, Markdown, or BibTeX files have correct syntax. Incorrect syntax can break your website
-- **Verify configuration** – If the agent modifies `_config.yml` or other configuration files, check that the changes align with your intentions
-- **Preview on your site** – Run your site locally and navigate through it to ensure everything displays correctly and works as expected
-- **Don't blindly apply changes** – Understand what's being changed and why before committing to your repository
+**示例：** 创建中文和英文的关于页面
 
-**Example scenarios where verification is important:**
+- 中文：`_pages/zh_CN/about.md`
+- 英文：`_pages/en_US/about.md`
 
-- If the agent suggests a BibTeX entry, verify the syntax matches existing entries in your `_bibliography/papers.bib` file
-- If the agent modifies your `_config.yml`, check that indentation is correct (YAML is very sensitive to spacing)
-- If the agent creates a new blog post or page, verify the frontmatter (the metadata at the top) is correct
-- If the agent suggests changes to theme colors or styling, preview your site locally to ensure the changes look as intended
+两个文件使用相同的布局和 permalink，但内容使用不同的语言。
 
-> **Note:** The customization agent requires GitHub Copilot to be enabled. For more information about GitHub Copilot and its features, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot).
+### 语言切换
 
-## Understanding the Codebase with Code Wiki and DeepWiki
+导航栏自动显示语言切换器：
 
-If you're interested in learning more about how al-folio works under the hood, or want to understand specific aspects of the codebase for deeper customization, you can use Code Wiki and DeepWiki as supplementary resources.
+- **双语言模式**：显示直接切换按钮
+- **多语言模式**：显示下拉菜单
 
-### What are these tools?
+语言切换器会根据当前页面自动生成对应语言的 URL。
 
-**Code Wiki** and **DeepWiki** are AI-powered tools that help you explore and understand GitHub repositories through interactive documentation:
+### 日期格式本地化
 
-- **Code Wiki** (powered by Google Gemini) generates interactive documentation from the repository code. You can browse the project structure, search for specific functions or modules, view architecture diagrams, and understand how different components interact.
+日期格式根据语言自动调整：
 
-- **DeepWiki** provides an AI chat interface where you can ask natural language questions about the codebase, similar to having an engineer available 24/7. You can ask how features work, search for code patterns, or get explanations of complex logic.
+- **中文/日文**：`2024年1月15日`
+- **英文**：`January 15, 2024`
+- **德文**：`15. Januar 2024`
 
-### When to use them
+日期格式配置在 `_data/{lang}/strings.yml` 中：
 
-Use Code Wiki and DeepWiki **only after**:
+```yaml
+date_formats:
+  short: "__YEAR__年__MONTH____DAY__日"
+  long: "__YEAR__年__MONTH____DAY__日"
+```
 
-- You have reviewed the relevant sections in this `CUSTOMIZE.md` file
-- You have checked the [project structure](#project-structure) section above
-- You have explored the [main documentation files](README.md) (README.md, INSTALL.md, FAQ.md)
-- You have checked the [GitHub Discussions Q&A section](https://github.com/alshedivat/al-folio/discussions/categories/q-a)
+### 翻译字符串管理
 
-These tools are best used for:
+界面文本翻译存储在 `_data/{lang}/strings.yml` 文件中：
 
-- Understanding the architecture and how different parts of the codebase work together
-- Finding where specific functionality is implemented
-- Learning about the Jekyll template structure and Liquid syntax used in the theme
-- Exploring how specific features are implemented (e.g., how publications are rendered, how search works, etc.)
+```yaml
+# _data/zh_CN/strings.yml
+archive:
+  prefix: 归档
+  category_suffix: 属于该分类
+  tag_suffix: 包含该标签
+  year_suffix: 属于该年份
 
-**Access these tools:**
+months:
+  long:
+    january: 一月
+    february: 二月
+    # ...
+  short:
+    january: 1月
+    february: 2月
+    # ...
 
-- **Code Wiki**: [Code Wiki for al-folio](https://codewiki.google/github.com/alshedivat/al-folio)
-- **DeepWiki**: [DeepWiki for al-folio](https://deepwiki.com/alshedivat/al-folio)
+footer:
+  copyright: © {{ 'now' | date: '%Y' }} {{ site.first_name }} {{ site.last_name }}.
+```
 
-## Technology Stack
+在模板中使用翻译字符串：
 
-Understanding al-folio's technology stack will help you better customize and extend the theme. This section provides an overview of the key technologies and frameworks used in the project.
+```liquid
+{{ site.data[site.active_lang].strings.footer.copyright }}
+{{ site.data[site.active_lang].strings.archive.prefix }}
+```
 
-### Frontend
+## 技术栈
 
-- **Markdown**: Content is written in Markdown format for pages, blog posts, and collections. This makes it easy to create and maintain content without worrying about HTML.
-- **Liquid templating**: [Liquid](https://shopify.github.io/liquid/) is used for dynamic template generation. Liquid templates are used in the `_layouts/` and `_includes/` directories to define how your content should be displayed.
-- **HTML & CSS**: The theme uses semantic HTML5 and modern CSS for styling and layout.
-- **SCSS**: Stylesheets are written in [SCSS (Sass)](https://sass-lang.com/), a CSS preprocessor that provides variables, mixins, and functions for more maintainable styling. SCSS files are located in `_sass/` and compiled to CSS during the build process.
-- **Bootstrap**: [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/) is used for responsive grid layout and base styling components.
-- **JavaScript**: Minimal JavaScript is used for interactive features like the dark mode toggle, search functionality, and dynamic content rendering.
-- **MathJax**: For rendering mathematical equations in LaTeX format on your pages and blog posts.
-- **Mermaid**: For creating diagrams (flowcharts, sequence diagrams, etc.) directly in Markdown.
-- **Font Awesome, Academicons, and Scholar Icons**: Icon libraries used throughout the theme for visual elements.
+了解项目的技术栈有助于更好地自定义和扩展。
 
-### Backend
+### 前端
 
-- **Jekyll 4.x**: [Jekyll](https://jekyllrb.com/) is a static site generator written in Ruby that transforms your Markdown files and templates into a static website. Jekyll is used to:
+- **Markdown**：使用 Markdown 编写页面、博客文章和集合内容
+- **Liquid 模板**：[Liquid](https://shopify.github.io/liquid/) 用于动态模板生成
+- **HTML & CSS**：使用语义化 HTML5 和现代 CSS
+- **SCSS**：样式表使用 [SCSS (Sass)](https://sass-lang.com/) 编写
+- **Bootstrap**：[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/) 用于响应式网格和基础组件
+- **JavaScript**：用于深色模式切换、搜索和动态内容渲染等交互功能
+- **MathJax**：在页面和博客文章中渲染 LaTeX 数学公式
+- **Mermaid**：在 Markdown 中直接创建图表（流程图、时序图等）
+- **图标库**：Font Awesome、Academicons 和 Scholar Icons
 
-  - Convert Markdown files to HTML
-  - Process Liquid templates
-  - Manage collections (posts, projects, news, books, etc.)
-  - Generate archives and pagination
-  - Minify CSS and JavaScript
+### 后端
 
-- **Ruby Gems** (Jekyll plugins): The project uses several Ruby plugins to extend Jekyll's functionality:
+- **Jekyll 4.x**：静态网站生成器
+- **Ruby Gems** (Jekyll 插件)：
 
-  - `classifier-reborn`: Used for categorizing and finding related blog posts
-  - `jekyll-archives-v2`: Creates archive pages for posts and collections organized by category, tag, or date
-  - `jekyll-feed`: Generates an Atom (RSS-like) feed for your content
-  - `jekyll-jupyter-notebook`: Integrates Jupyter notebooks into your site
-  - `jekyll-minifier`: Minifies HTML, CSS, and JavaScript for better performance
-  - `jekyll-paginate-v2`: Handles pagination for blog posts and archives
-  - `jekyll-scholar`: Manages bibliography files (BibTeX) and generates publication pages with citations
-  - `jekyll-tabs`: Adds tabbed content support
-  - `jekyll-toc`: Automatically generates table of contents for pages with headers
-  - `jemoji`: Converts emoji shortcodes to emoji images
-  - Other utilities: `jekyll-link-attributes`, `jekyll-imagemagick`, `jekyll-twitter-plugin`, `jekyll-get-json`, and more
+  - `jekyll-polyglot`：多语言支持
+  - `jekyll-scholar`：管理 BibTeX 参考文献文件
+  - `jekyll-archives-v2`：按分类、标签或日期创建归档页
+  - `jekyll-feed`：生成 Atom (RSS) 订阅源
+  - `jekyll-jupyter-notebook`：集成 Jupyter 笔记本
+  - `jekyll-minifier`：压缩 HTML、CSS 和 JavaScript
+  - `jekyll-paginate-v2`：处理博客文章和归档分页
+  - `jekyll-tabs`：添加标签页支持
+  - `jekyll-toc`：自动生成目录
+  - `jemoji`：转换 Emoji 短代码
+  - 其他工具：`jekyll-link-attributes`、`jekyll-imagemagick`、`jekyll-twitter-plugin`、`jekyll-get-json` 等
 
-- **Python**: Used for utility scripts like citation updates via Google Scholar (located in `bin/`)
+- **Python**：用于实用脚本（如 Google Scholar 引用更新，位于 `bin/`）
 
-### Build and Deployment
+### 构建与部署
 
-- **GitHub Actions**: Automated workflows for building, testing, and deploying your site. Workflows are defined in `.github/workflows/`:
+- **GitHub Actions**：自动化构建、测试和部署工作流（`.github/workflows/`）
+- **GitHub Pages**：静态网站托管
+- **Prettier**：代码格式化工具
 
-  - **Deploy**: Automatically builds and deploys your site to GitHub Pages when you push changes to the main branch
-  - **Link checking**: Validates that all links in your site are not broken
-  - **Code formatting**: Ensures code follows the Prettier code style
-  - **Accessibility testing**: Checks for accessibility issues using Axe
-  - **Lighthouse**: Measures site performance and best practices
-  - **Citation updates**: Automatically fetches citation counts from Google Scholar
+## 修改简历信息
 
-- **GitHub Pages**: Free hosting for your static website built by Jekyll
-- **Docker**: Optional containerization for local development (provides a consistent environment across different machines)
-- **Prettier**: Code formatter for Markdown, YAML, and Liquid files to maintain consistent formatting
+简历可使用两种格式之一创建，选择最适合您的格式，或同时使用两者进行切换：
 
-### Key Integration Points
+### RenderCV 格式（推荐）
 
-Understanding how these technologies work together will help you customize al-folio effectively:
+[`_data/cv.yml`](_data/cv.yml) 使用 [RenderCV](https://rendercv.com/) YAML 格式，可读性强，专为生成专业简历设计。此格式还支持通过 GitHub Actions 可选地自动生成 PDF。
 
-1. **Content Creation**: Write content in Markdown
-2. **Template Processing**: Jekyll processes Markdown through Liquid templates
-3. **Styling**: SCSS files are compiled to CSS, with Bootstrap providing the responsive layout framework
-4. **Bibliography**: BibTeX files are processed by jekyll-scholar to generate publication pages
-5. **Static Site Generation**: Jekyll builds all files into static HTML
-6. **Deployment**: GitHub Actions automatically deploys the built site to GitHub Pages
+**选择此格式时：**
 
-## Modifying the CV information
+1. 编辑 [`_data/cv.yml`](_data/cv.yml) 中的简历数据
+2. 可选地自定义 PDF 样式：
+   - [`assets/rendercv/design.yaml`](assets/rendercv/design.yaml) — 设计和样式
+   - [`assets/rendercv/locale.yaml`](assets/rendercv/locale.yaml) — 本地化和格式化
+   - [`assets/rendercv/settings.yaml`](assets/rendercv/settings.yaml) — RenderCV 设置
+3. 如仅显示此格式，删除 [`assets/json/resume.json`](assets/json/resume.json)（可选）
 
-Your CV can be created using one of two formats. Choose the format that works best for you, or use both simultaneously by switching between them:
+### JSONResume 格式
 
-### RenderCV Format (Recommended)
+[`assets/json/resume.json`](assets/json/resume.json) 使用 [JSONResume](https://jsonresume.org/) 标准格式，兼容其他工具和服务。
 
-[`_data/cv.yml`](_data/cv.yml) uses the [RenderCV](https://rendercv.com/) YAML format, which is human-readable and designed specifically for generating professional resumes. This format also enables optional automatic PDF generation via GitHub Actions.
+**选择此格式时：**
 
-**If you choose this format:**
+1. 编辑 [`assets/json/resume.json`](assets/json/resume.json) 中的简历数据
+2. 如仅显示此格式，删除 [`_data/cv.yml`](_data/cv.yml)（可选）
 
-1. Edit your CV data in [`_data/cv.yml`](_data/cv.yml)
-2. Optionally customize how the PDF is styled by editing:
-   - [`assets/rendercv/design.yaml`](assets/rendercv/design.yaml) — Design and styling
-   - [`assets/rendercv/locale.yaml`](assets/rendercv/locale.yaml) — Localization and formatting
-   - [`assets/rendercv/settings.yaml`](assets/rendercv/settings.yaml) — RenderCV settings
-3. To display only this format, delete [`assets/json/resume.json`](assets/json/resume.json) (optional)
+### 同时使用两种格式
 
-### JSONResume Format
-
-[`assets/json/resume.json`](assets/json/resume.json) uses the [JSONResume](https://jsonresume.org/) standard format, which is compatible with other tools and services.
-
-**If you choose this format:**
-
-1. Edit your CV data in [`assets/json/resume.json`](assets/json/resume.json)
-2. To display only this format, delete [`_data/cv.yml`](_data/cv.yml) (optional)
-
-### Using Both Formats Simultaneously
-
-You can keep both [`_data/cv.yml`](_data/cv.yml) and [`assets/json/resume.json`](assets/json/resume.json) in your repository and switch between them on your website by setting the `cv_format` frontmatter variable in [`_pages/cv.md`](_pages/cv.md):
+可同时保留 [`_data/cv.yml`](_data/cv.yml) 和 [`assets/json/resume.json`](assets/json/resume.json)，通过设置 [`_pages/cv.md`](_pages/cv.md) 中的 `cv_format` frontmatter 变量进行切换：
 
 ```yaml
 ---
 layout: cv
-cv_format: rendercv # options: rendercv or jsonresume
+cv_format: rendercv # 选项: rendercv 或 jsonresume
 ---
 ```
 
-Change `rendercv` to `jsonresume` to display the JSONResume format instead.
+将 `rendercv` 改为 `jsonresume` 可显示 JSONResume 格式。
 
-### Automatic PDF Generation (RenderCV only)
+### 自动生成 PDF（仅 RenderCV）
 
-If you use the RenderCV format, a GitHub Actions workflow can automatically generate a PDF version of your CV whenever you push changes to [`_data/cv.yml`](_data/cv.yml). The PDF is saved to `assets/rendercv/rendercv_output/`.
+使用 RenderCV 格式时，GitHub Actions 工作流可自动生成 PDF 版本的简历。PDF 保存至 `assets/rendercv/rendercv_output/`。
 
-**To link the auto-generated PDF to your CV page:**
+**将自动生成的 PDF 链接到简历页面：**
 
-Set the `cv_pdf` variable in the frontmatter of [`_pages/cv.md`](_pages/cv.md) to point to the generated PDF:
+在 [`_pages/cv.md`](_pages/cv.md) 的 frontmatter 中设置 `cv_pdf` 变量指向生成的 PDF：
 
 ```yaml
 ---
@@ -376,26 +472,24 @@ cv_format: rendercv
 ---
 ```
 
-This will add a download button on your CV page that links to the PDF. (The exact filename depends on your RenderCV settings—check the output directory after the first workflow run to see the generated PDF name.)
+**禁用自动 PDF 生成：**
 
-**To disable automatic PDF generation:**
+删除或注释 [`.github/workflows/render-cv.yml`](.github/workflows/render-cv.yml) 工作流文件。
 
-Delete or comment out the [`.github/workflows/render-cv.yml`](.github/workflows/render-cv.yml) workflow file.
+## 修改用户和仓库信息
 
-## Modifying the user and repository information
+用户和仓库信息定义在 [`_data/repositories.yml`](_data/repositories.yml)。可添加任意数量的用户和仓库。
 
-The user and repository information is defined in [\_data/repositories.yml](_data/repositories.yml). You can add as many users and repositories as you want. Both informations are used in the `repositories` section.
+### 配置外部服务 URL
 
-### Configuring external service URLs
+仓库页面使用外部服务显示 GitHub 统计信息和成就徽章。默认服务：
 
-The repository page uses external services to display GitHub statistics and trophies. By default, these are:
+- `github-readme-stats.vercel.app`：用户统计和仓库卡片
+- `github-profile-trophy.vercel.app`：GitHub 档案成就
 
-- `github-readme-stats.vercel.app` for user stats and repository cards
-- `github-profile-trophy.vercel.app` for GitHub profile trophies
+这些默认服务由第三方托管，可能不 100% 可用。为提高可靠性、隐私保护和自定义能力，可自托管这些服务。
 
-**Important:** These default services are hosted by third parties and may not be available 100% of the time. For better reliability, privacy, and customization, you can self-host these services and configure your website to use your own instances.
-
-To use your own instances of these services, configure the URLs in [\_config.yml](_config.yml):
+在 [`_config.yml`](_config.yml) 中配置 URL：
 
 ```yaml
 external_services:
@@ -403,46 +497,163 @@ external_services:
   github_profile_trophy_url: https://github-profile-trophy.vercel.app
 ```
 
-To self-host these services, follow the deployment instructions in their respective repositories:
+自托管请参考各自仓库的部署说明：
 
 - [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
 - [github-profile-trophy](https://github.com/ryo-ma/github-profile-trophy)
 
-Once deployed, update the URLs above to point to your custom deployment.
+## 创建新页面
 
-## Creating new pages
+在 [`_pages/{lang}/`](_pages/) 目录添加新的 Markdown 文件创建新页面。最简单的方法是复制现有页面并修改。可通过修改 Markdown 文件的 [frontmatter](https://jekyllrb.com/docs/front-matter/) 中的 [layout](https://jekyllrb.com/docs/layouts/) 属性选择布局，通过 [permalink](https://jekyllrb.com/docs/permalinks/) 属性修改访问路径。
 
-You can create new pages by adding new Markdown files in the [\_pages](_pages/) directory. The easiest way to do this is to copy an existing page and modify it. You can choose the layout of the page by changing the [layout](https://jekyllrb.com/docs/layouts/) attribute in the [frontmatter](https://jekyllrb.com/docs/front-matter/) of the Markdown file, and also the path to access it by changing the [permalink](https://jekyllrb.com/docs/permalinks/) attribute. You can also add new layouts in the [\_layouts](_layouts/) directory if you feel the need for it.
+**多语言页面：** 为每种语言创建对应的页面文件，例如：
 
-## Creating new blog posts
+- 中文：`_pages/zh_CN/mypage.md`
+- 英文：`_pages/en_US/mypage.md`
 
-To create a new blog post, you can add a new Markdown file in the [\_posts](_posts/) directory, which is the [default location for posts in Jekyll](https://jekyllrb.com/docs/posts/). The [name of the file must follow](https://jekyllrb.com/docs/posts/#creating-posts) the format `YYYY-MM-DD-title.md`. The easiest way to do this is to copy an existing blog post and modify it. Note that some blog posts have optional fields in the [frontmatter](https://jekyllrb.com/docs/front-matter/) that are used to enable specific behaviors or functions.
+## 创建博客文章
 
-If you want to create blog posts that are not ready to be published, but you want to track it with git, you can create a [\_drafts](https://jekyllrb.com/docs/posts/#drafts) directory and store them there.
+在 [`_posts`](_posts/) 目录添加新的 Markdown 文件创建博客文章。文件名必须遵循格式 `YYYY-MM-DD-title.md`。最简单的方法是复制现有博客文章并修改。注意某些博客文章在 frontmatter 中有可选字段，用于启用特定行为或功能。
 
-Note that `posts` is also a collection, but it is a default collection created automatically by Jekyll. To access the posts, you can use the `site.posts` variable in your templates.
+如要创建未准备好发布但希望用 git 追踪的博客文章，可创建 [`_drafts`](https://jekyllrb.com/docs/posts/#drafts) 目录并保存在其中。
 
-## Creating new projects
+## 外部博客文章同步
 
-You can create new projects by adding new Markdown files in the [\_projects](_projects/) directory. The easiest way to do this is to copy an existing project and modify it.
+可从 Medium、Google Blog 等外部平台同步博客文章到您的网站。在 [`_config.yml`](_config.yml) 中配置：
 
-## Adding some news
+```yaml
+external_sources:
+  - name: medium.com
+    rss_url: https://medium.com/@username/feed
+    categories: [external-posts]
+    tags: [medium]
+  - name: Google Blog
+    posts:
+      - url: https://blog.google/technology/ai/example/
+        published_date: 2024-05-14
+    categories: [external-posts]
+    tags: [google]
+```
 
-You can add news in the about page by adding new Markdown files in the [\_news](_news/) directory. There are currently two types of news: inline news and news with a link. News with a link take you to a new page while inline news are displayed directly in the about page. The easiest way to create yours is to copy an existing news and modify it.
+**配置说明：**
 
-## Adding Collections
+- `name`：外部平台名称
+- `rss_url`：RSS 订阅源 URL（支持 RSS 的平台）
+- `posts`：手动指定文章列表（不支持 RSS 的平台）
+- `categories`：为外部文章分配的分类
+- `tags`：为外部文章分配的标签
 
-This Jekyll theme implements [collections](https://jekyllrb.com/docs/collections/) to let you break up your work into categories. The theme comes with three default collections: `news`, `projects`, and `books`. Items from the `news` collection are automatically displayed on the home page, while items from the `projects` collection are displayed on a responsive grid on the projects page, and items from the `books` collection are displayed on its own `bookshelf` page inside `submenus`.
+**RSS 同步**：自动获取 RSS 源中的所有文章
+**手动同步**：在 `posts` 中手动添加文章 URL 和发布日期
 
-You can easily create your own collections for any type of content—teaching materials, courses, apps, short stories, or whatever suits your needs.
+## 创建新项目
 
-### Creating a new collection
+在 [`_projects/{lang}/`](_projects/) 目录添加新的 Markdown 文件创建新项目。
 
-To create a new collection, follow these steps. We will create a `courses` collection, but you can replace `courses` with any name you prefer:
+**多语言项目：** 为每种语言创建对应的项目文件。
 
-1. **Add the collection to `_config.yml`**
+## 添加动态消息
 
-   Open the `collections` section in [\_config.yml](_config.yml) and add your new collection:
+在 [`_news/{lang}/`](_news/) 目录添加新的 Markdown 文件向关于页面添加动态消息。有两种类型：内联消息和带链接的消息。带链接的消息跳转到新页面，内联消息直接显示在关于页面中。
+
+## 创建研究页面
+
+研究页面用于展示研究兴趣和问题。在 [`_pages/{lang}/`](_pages/) 目录创建研究页面：
+
+```yaml
+---
+layout: page
+title: 研究
+permalink: /research/
+nav: false
+description: 我的研究兴趣与正在进行的项目
+research_questions:
+  - title: "研究问题 1"
+    image: "/assets/img/research/question1.png"
+  - title: "研究问题 2"
+    image: "/assets/img/research/question2.png"
+  - title: "研究问题 3"
+    image: "/assets/img/research/question3.png"
+---
+```
+
+在关于页面启用研究概要：
+
+```yaml
+---
+layout: about
+research_summary:
+  enabled: true
+---
+```
+
+## 创建工具箱页面
+
+工具箱页面用于展示个人开发的工具和应用。在 [`_pages/{lang}/`](_pages/) 目录创建工具箱页面：
+
+```yaml
+---
+layout: page
+title: 工具
+permalink: /toolbox/
+nav: true
+nav_order: 6
+---
+```
+
+在 [`_data/{lang}/toolbox.yml`](_data/) 中添加工具数据：
+
+```yaml
+- type: Web 应用
+  title: 应用名称
+  desc: 应用描述
+  icon: /assets/img/icon.png
+  screenshot: /assets/img/screenshot.png
+  open_url: /app/index.html
+  github_url: https://github.com/user/repo
+```
+
+**支持的工具类型：**
+
+- Web 应用
+- Python 脚本
+- 命令行工具
+- 桌面应用
+- 浏览器扩展
+
+## 创建下拉菜单
+
+下拉菜单用于组织多个相关页面。在 [`_pages/{lang}/`](_pages/) 目录创建下拉菜单页面：
+
+```yaml
+---
+layout: page
+title: 更多
+nav: false
+nav_order: 7
+dropdown: true
+children:
+  - title: 简历
+    permalink: /cv/
+  - title: 书架
+    permalink: /books/
+  - title: 人脉
+    permalink: /people/
+---
+```
+
+- `dropdown: true`：将页面标记为下拉菜单
+- `children`：列出下拉菜单中的子页面
+
+## 添加集合
+
+Jekyll 主题使用 [集合](https://jekyllrb.com/docs/collections/) 将工作按类别组织。主题默认包含四个集合：`news`、`projects`、`books` 和 `teachings`。
+
+### 创建新集合
+
+1. **在 `_config.yml` 中添加集合**
+
+   在 [`_config.yml`](_config.yml) 的 `collections` 部分添加新集合：
 
    ```yaml
    collections:
@@ -457,358 +668,472 @@ To create a new collection, follow these steps. We will create a `courses` colle
        permalink: /courses/:path/
    ```
 
-   - `output: true` makes the collection items accessible as separate pages
-   - `permalink` defines the URL path for each collection item (`:path` is replaced with the filename)
-     - Note: You can customize the [permalink structure](https://jekyllrb.com/docs/permalinks/#collections) as needed. If not set, it uses `/COLLECTION_NAME/:name/`.
+2. **为集合项创建文件夹**
 
-2. **Create a folder for your collection items**
+   在根目录创建以下划线开头的新文件夹，名称与集合匹配。
 
-   Create a new folder in the root directory with an underscore prefix, matching your collection name. For a `courses` collection, create `_courses/`:
+3. **创建集合着陆页**
 
-   ```text
-   _courses/
-   ├── course_1.md
-   ├── course_2.md
-   └── course_3.md
-   ```
+   在 `_pages/` 中添加 Markdown 文件作为集合的主页。
 
-3. **Create a landing page for your collection**
+4. **添加导航链接**
 
-   Add a Markdown file in `_pages/` (e.g., `courses.md`) that will serve as the main page for your collection. You can use [\_pages/projects.md](_pages/projects.md) or [\_pages/books.md](_pages/books.md) as a template and adapt it for your needs.
+   更新 [`_pages/dropdown.md`](_pages/dropdown.md) 或页面导航配置。
 
-   In your landing page, access your collection using the `site.COLLECTION_NAME` variable:
+5. **创建集合项**
 
-   ```liquid
-   {% assign course_items = site.courses | sort: 'date' | reverse %}
+   在新集合文件夹中添加带有适当 frontmatter 和内容的 Markdown 文件。
 
-   {% for item in course_items %}
-     <h3>{{ item.title }}</h3>
-     <p>{{ item.content }}</p>
-   {% endfor %}
-   ```
+### 在集合中使用 Frontmatter 字段
 
-4. **Add a navigation link to your collection page**
+可在集合项中定义自定义 frontmatter 字段并在着陆页中使用。
 
-   Update [\_pages/dropdown.md](_pages/dropdown.md) or the navigation configuration of your page. In the frontmatter of your collection landing page (e.g., `_pages/courses.md`), add:
+### 创建教学集合
 
-   ```yaml
-   nav: true
-   nav_order: 5
-   ```
+主题包含预配置的 `_teachings/` 集合用于课程页面。
 
-   - `nav: true` makes the page appear in the navigation menu
-   - `nav_order` sets the position in the menu (1 = first, 2 = second, etc.)
+#### 课程文件格式
 
-5. **Create collection items**
-
-   Add Markdown files in your new collection folder (e.g., `_courses/`) with appropriate frontmatter and content.
-
-For more information regarding collections, check [Jekyll official documentation](https://jekyllrb.com/docs/collections/) and [step-by-step guide](https://jekyllrb.com/docs/step-by-step/09-collections/).
-
-### Using frontmatter fields in your collection
-
-When creating items in your collection, you can define custom frontmatter fields and use them in your landing page. For example:
-
-```markdown
----
-layout: page
-title: Introduction to Research Methods
-importance: 1
-category: methods
----
-
-Course description and content here...
-```
-
-Then in your landing page template:
-
-```liquid
-{% if item.category == 'methods' %}
-  <span class="badge">{{ item.category }}</span>
-{% endif %}
-```
-
-### Creating a teachings collection
-
-The al-folio theme includes a pre-configured `_teachings/` collection for course pages. Each course is represented by a markdown file with frontmatter metadata. Here's how to add or modify courses:
-
-#### Course file format
-
-Create markdown files in `_teachings/` with the following structure:
+在 `_teachings/` 中创建 Markdown 文件：
 
 ```yaml
 ---
 layout: course
-title: Course Title
-description: Course description
-instructor: Your Name
+title: 课程标题
+description: 课程描述
+instructor: 您的姓名
 year: 2023
-term: Fall
-location: Room 101
-time: MWF 10:00-11:00
-course_id: course-id # This should be unique
+term: 秋季
+location: 教室101
+time: 周一三五 10:00-11:00
+course_id: course-id # 应唯一
 schedule:
   - week: 1
-    date: Jan 10
-    topic: Introduction
-    description: Overview of course content and objectives
+    date: 1月10日
+    topic: 简介
+    description: 课程内容和目标概述
     materials:
-      - name: Slides
+      - name: 幻灯片
         url: /assets/pdf/example_pdf.pdf
-      - name: Reading
-        url: https://example.com/reading
-  - week: 2
-    date: Jan 17
-    topic: Topic 2
-    description: Description of this week's content
 ---
-Additional course content, information, or resources can be added here as markdown.
+其他课程内容、信息或资源...
 ```
 
-#### Important course collection notes
+#### 课程集合注意事项
 
-1. Each course file must have a unique `course_id` in the frontmatter
-2. Course files will be grouped by `year` on the teaching page
-3. Within each year, courses are sorted by `term`
-4. The content below the frontmatter (written in markdown) will appear on the individual course page
-5. The schedule section will be automatically formatted into a table
+1. 每个课程文件必须有唯一的 `course_id`
+2. 课程文件在教学页面上按 `year` 分组
+3. 每年内按 `term` 排序
+4. frontmatter 下方的内容（Markdown 格式）将显示在个别课程页面上
+5. schedule 部分将自动格式化为表格
 
-#### Required fields
+#### 必填字段
 
-- `layout: course` — Must be set to use the course layout
-- `title` — The course title
-- `year` — The year the course was/will be taught (used for sorting)
-- `course_id` — A unique identifier for the course
+- `layout: course` — 必须设置为 course 布局
+- `title` — 课程标题
+- `year` — 课程教学年份（用于排序）
+- `course_id` — 课程唯一标识符
 
-#### Optional fields
+#### 可选字段
 
-- `description` — A brief description of the course
-- `instructor` — The course instructor's name
-- `term` — The academic term (e.g., Fall, Spring, Summer)
-- `location` — The course location
-- `time` — The course meeting time
-- `schedule` — A list of course sessions with details
+- `description` — 课程简要描述
+- `instructor` — 讲师姓名
+- `term` — 学期（如秋季、春季、夏季）
+- `location` — 课程地点
+- `time` — 上课时间
+- `schedule` — 课程详情列表
 
-### Collections with categories and tags
+### Jupyter Notebook 支持
 
-If you want to add category and tag support (like the blog posts have), you need to configure the `jekyll-archives` section in [\_config.yml](_config.yml). See how this is done with the `books` collection for reference. For more details, check the [jekyll-archives-v2 documentation](https://george-gca.github.io/jekyll-archives-v2/).
+主题支持将 Jupyter Notebook (.ipynb) 文件转换为博客文章或页面。
 
-### Creating custom metadata groups and archive pages
+**前提条件：**
 
-Beyond the built-in `categories` and `tags` fields, you can create custom metadata fields for your collections to organize content in new ways. For example, if you have a book review collection, you might want to organize books by their **adaptations** (movies, TV shows, video games, etc.).
+1. 安装 Python 和 nbconvert：
 
-#### Understanding Jekyll's special handling of fields
+   ```bash
+   pip install jupyter nbconvert
+   ```
 
-Jekyll has **special built-in support** for only two fields:
+2. jekyll-jupyter-notebook 插件已在 Gemfile 中配置
 
-- **`categories`** – Automatically splits space-separated values into arrays
-- **`tags`** – Automatically splits space-separated values into arrays
+**使用方法：**
 
-Custom fields (any field name you create) remain as **strings** and require explicit handling in your Liquid templates.
+1. 将 `.ipynb` 文件放在 `_posts/` 或 `_pages/` 目录
+2. 确保 Jupyter 样式文件已部署到 `assets/jupyter/` 目录
+3. 主题会自动将 Notebook 转换为 HTML 并渲染
 
-#### Example: Adding a custom "adaptations" field
+**Frontmatter 配置：**
 
-1. **Add the field to your collection frontmatter**
+```yaml
+---
+layout: post
+title: "Jupyter Notebook 标题"
+date: 2024-01-01
+---
+```
 
-   In your collection item (e.g., `_books/the_godfather.md`):
+**自定义 Jupyter 样式：**
+
+编辑 `assets/jupyter/` 目录下的样式文件来自定义 Notebook 的外观。
+
+### 带分类和标签的集合
+
+如需添加分类和标签支持，需在 [`_config.yml`](_config.yml) 中配置 `jekyll-archives` 部分。
+
+### 创建自定义元数据组和归档页
+
+除了内置的 `categories` 和 `tags` 字段，可为集合创建自定义元数据字段。
+
+#### 理解 Jekyll 对字段的处理
+
+Jekyll 仅对两个字段有**特殊内置支持**：
+
+- **`categories`** — 自动将空格分隔的值拆分为数组
+- **`tags`** — 自动将空格分隔的值拆分为数组
+
+自定义字段保持为**字符串**，需要在 Liquid 模板中显式处理。
+
+#### 示例：添加自定义「改编」字段
+
+1. **在集合 frontmatter 中添加字段**
 
    ```yaml
    ---
    layout: book-review
-   title: The Godfather
+   title: 教父
    author: Mario Puzo
    categories: classics crime historical-fiction
    adaptations: movie TV-series video-game novel-adaptation
    ---
    ```
 
-2. **Handle the custom field in your layout template**
-
-   In your layout file (e.g., `_layouts/book-review.liquid`), custom fields must be **split** into arrays before you can loop over them:
+2. **在布局模板中处理自定义字段**
 
    ```liquid
    {% if page.adaptations %}
      {% assign page_adaptations = page.adaptations | split: ' ' %}
      {% for adaptation in page_adaptations %}
        <a href="{{ adaptation | slugify | prepend: '/books/adaptation/' | relative_url }}">
-         <i class="fa-solid fa-film fa-sm"></i> {{ adaptation }}
+         {{ adaptation }}
        </a>
      {% endfor %}
    {% endif %}
    ```
 
-   **Why the `split: ' '` filter?** Because `adaptations` is a custom field, Jekyll doesn't automatically convert it to an array like it does for `categories` and `tags`. The `split: ' '` filter breaks the space-separated string into individual items.
+3. **为自定义字段启用归档页**
 
-3. **Enable archive pages for your custom field**
+   在 [`_config.yml`](_config.yml) 的 `jekyll-archives` 配置中添加自定义字段。
 
-   Add your custom field to the `jekyll-archives` configuration in [\_config.yml](_config.yml):
+4. **测试归档页**
 
-   ```yaml
-   jekyll-archives:
-     posts:
-       enabled:
-         - year
-         - tags
-         - categories
-     books:
-       enabled:
-         - year
-         - tags
-         - categories
-         - adaptations # Add your custom field here
-       permalinks:
-         year: "/:collection/:year/"
-         tags: "/:collection/:type/:name/"
-         categories: "/:collection/:type/:name/"
-         adaptations: "/:collection/:type/:name/" # Add permalink pattern here
-   ```
+   配置后重新构建网站，归档页将自动生成。
 
-4. **Test your archive pages**
+#### 字段命名最佳实践
 
-   After configuration, rebuild your site:
+- 使用**小写**单词，多词用**连字符**分隔：`live-action`、`video-game`、`TV-series`
+- 选择**有意义的名称**描述分组：`genres`、`adaptations`、`media-types`、`settings` 等
+- 保持字段值**简短一致**
+- 在 README 或注释中记录自定义字段
 
-   ```bash
-   docker compose down
-   docker compose up
-   ```
+## 添加新出版物
 
-   Your archive pages will be generated at:
+在 [`_bibliography/papers.bib`](_bibliography/papers.bib) 文件中创建新条目。可在 Google Scholar 中找到 BibTeX 条目。
 
-   - `/books/adaptations/movie/`
-   - `/books/adaptations/tv-series/` (slugified from `TV-series`)
-   - `/books/adaptations/video-game/` (slugified from `video-game`)
+默认情况下，出版物按年份排序，最新的显示在前。可在 [`_config.yml`](_config.yml) 的 `Jekyll Scholar` 部分更改此行为。
 
-   Each page will automatically display all items with that adaptation value.
+支持的字段：`abstract`、`altmetric`、`annotation`、`arxiv`、`bibtex_show`、`blog`、`code`、`dimensions`、`doi`、`eprint`、`hal`、`html`、`isbn`、`pdf`、`pmid`、`poster`、`slides`、`supp`、`video`、`website` 等。
 
-#### Field naming best practices
+### 作者标注
 
-- Use **lowercase** words separated by **hyphens** for multi-word values: `live-action`, `video-game`, `TV-series`
-- Choose **meaningful names** that describe the grouping: `genres`, `adaptations`, `media-types`, `settings`, etc.
-- Keep field values **short and consistent** across all items in your collection
-- Document custom fields in a README or comments for other contributors to understand
+出版物中自己的作者条目通过 [`_config.yml`](_config.yml) 中的 `scholar:last_name` 和 `scholar:first_name` 字符串数组标识。
 
-#### Complete example: Book reviews with custom adaptations field
+在 [`_data/coauthors.yml`](_data/coauthors.yml) 中维护合著者信息，Jekyll 将自动插入到其网页的链接。
 
-**File: `_books/the_godfather.md`**
+#### 多语言作者姓名
 
-```yaml
----
-layout: book-review
-title: The Godfather
-author: Mario Puzo
-categories: classics crime historical-fiction
-tags: top-100
-adaptations: movie TV-series video-game
----
-```
-
-**File: `_layouts/book-review.liquid` (partial)**
-
-```liquid
-{% if page.adaptations %}
-  <div class="adaptations">
-    <strong>Adaptations:</strong>
-    {% assign page_adaptations = page.adaptations | split: ' ' %}
-    {% for adaptation in page_adaptations %}
-      <a href="{{ adaptation | slugify | prepend: '/books/adaptation/' | relative_url }}">
-        {{ adaptation }}
-      </a>
-      {% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  </div>
-{% endif %}
-```
-
-**File: `_config.yml` (jekyll-archives section)**
-
-```yaml
-jekyll-archives:
-  books:
-    enabled:
-      - year
-      - categories
-      - tags
-      - adaptations
-    permalinks:
-      year: "/:collection/:year/"
-      categories: "/:collection/:type/:name/"
-      tags: "/:collection/:type/:name/"
-      adaptations: "/:collection/:type/:name/"
-```
-
-After rebuilding, users can browse books by adaptation at `/books/adaptations/movie/`, etc.
-
-## Adding a new publication
-
-To add publications create a new entry in the [\_bibliography/papers.bib](_bibliography/papers.bib) file. You can find the BibTeX entry of a publication in Google Scholar by clicking on the quotation marks below the publication title, then clicking on "BibTeX", or also in the conference page itself. By default, the publications will be sorted by year and the most recent will be displayed first. You can change this behavior and more in the `Jekyll Scholar` section in [\_config.yml](_config.yml) file.
-
-You can add extra information to a publication, like a PDF file in the `assets/pdfs/` directory and add the path to the PDF file in the BibTeX entry with the `pdf` field. Some of the supported fields are: `abstract`, `altmetric`, `annotation`, `arxiv`, `bibtex_show`, `blog`, `code`, `dimensions`, `doi`, `eprint`, `hal`, `html`, `isbn`, `pdf`, `pmid`, `poster`, `slides`, `supp`, `video`, and `website`.
-
-### Author annotation
-
-In publications, the author entry for yourself is identified by string array `scholar:last_name` and string array `scholar:first_name` in [\_config.yml](_config.yml). For example, if you have the following entry in your [\_config.yml](_config.yml):
+为支持多语言出版物（如中文和英文），可在 [`_config.yml`](_config.yml) 中配置多个姓名变体：
 
 ```yaml
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Xu, 徐]
+  first_name: [Wenjie, Wayne, 文杰]
 ```
 
-If the entry matches one form of the last names and the first names, it will be underlined. Keep meta-information about your co-authors in [\_data/coauthors.yml](_data/coauthors.yml) and Jekyll will insert links to their webpages automatically. The co-author data format is as follows, with the last names lower cased and without accents as the key:
+#### 中文出版物
+
+中文语言出版物使用以下格式：
+
+1. **作者字段**：使用 `姓 名` 格式（空格分隔，无逗号）
+2. **语言 ID**：使用 `zh-CN`（或 `zh_CN`）
+3. **姓名顺序**：模板根据 `langid` 字段自动显示中文姓名为"姓 名"顺序，英文姓名为"First Last"顺序
+4. **通讯作者**：在名字后添加 `*`（如 `文杰*`），将渲染为上标
+
+**示例中文出版物条目：**
+
+```bibtex
+@article{example2024,
+  title    = {面向复合极端事件应对的应急物资保障体系优化路径},
+  author   = {徐 文杰* and 李 龙飞 and 索 伟岚 and 孙 晓蕾},
+  journal  = {中国减灾},
+  year     = {2024},
+  langid   = {zh-CN},
+}
+```
+
+### 按钮（通过自定义 BibTeX 关键词）
+
+可使用自定义 BibTeX 关键词影响条目在网页上的显示方式：
+
+- `abbr`：在条目左侧添加缩写
+- `abstract`：添加"摘要"按钮
+- `altmetric`：添加 [Altmetric](https://www.altmetric.com/) 徽章
+- `annotation`：在作者列表末尾添加弹出信息
+- `arxiv`：添加 Arxiv 网站链接
+- `bibtex_show`：添加"BibTeX"按钮
+- `blog`：添加"博客"按钮
+- `code`：添加"代码"按钮
+- `dimensions`：添加 [Dimensions](https://www.dimensions.ai/) 徽章
+- `hal`：添加 HAL 网站链接
+- `html`：插入"HTML"按钮
+- `pdf`：添加"PDF"按钮
+- `poster`：添加"海报"按钮
+- `slides`：添加"幻灯片"按钮
+- `supp`：添加"补充材料"按钮
+- `website`：添加"网站"按钮
+
+### 出版物预览图
+
+可为每个出版物添加预览图（缩略图）：
+
+1. **添加图片文件**：将预览图放在 `assets/img/publication_preview/` 目录
+2. **在 BibTeX 中引用**：添加 `preview` 字段
+
+### 出版物徽章
+
+在 `_config.yml` 中设置以下选项启用出版物徽章：
 
 ```yaml
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
-
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
-
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
-
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
-
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+enable_publication_badges:
+  altmetric: true
+  dimensions: true
+  google_scholar: true
+  inspirehep: true
 ```
 
-If the entry matches one of the combinations of the last names and the first names, it will be highlighted and linked to the url provided. Note that the keys **MUST BE** lower cased and **MUST NOT** contain accents. This is because the keys are used to match the last names in the BibTeX entries, considering possible variations (see [related discussion](https://github.com/alshedivat/al-folio/discussions/2213)).
+### 期刊/会议缩写
 
-### Buttons (through custom bibtex keywords)
+添加自定义颜色的期刊/会议缩写：
 
-There are several custom bibtex keywords that you can use to affect how the entries are displayed on the webpage:
+1. 创建 `_data/venues.yml`
+2. 在 BibTeX 中添加 `abbr` 字段
 
-- `abbr`: Adds an abbreviation to the left of the entry. You can add links to these by creating a venue.yaml-file in the \_data folder and adding entries that match.
-- `abstract`: Adds an "Abs" button that expands a hidden text field when clicked to show the abstract text
-- `altmetric`: Adds an [Altmetric](https://www.altmetric.com/) badge (Note: if DOI is provided just use `true`, otherwise only add the altmetric identifier here - the link is generated automatically)
-- `annotation`: Adds a popover info message to the end of the author list that can potentially be used to clarify superscripts. HTML is allowed.
-- `arxiv`: Adds a link to the Arxiv website (Note: only add the arxiv identifier here - the link is generated automatically)
-- `bibtex_show`: Adds a "Bib" button that expands a hidden text field with the full bibliography entry
-- `blog`: Adds a "Blog" button redirecting to the specified link
-- `code`: Adds a "Code" button redirecting to the specified link
-- `dimensions`: Adds a [Dimensions](https://www.dimensions.ai/) badge (Note: if DOI or PMID is provided just use `true`, otherwise only add the Dimensions' identifier here - the link is generated automatically)
-- `hal`: Adds a link to the HAL website (Note: only add the hal identifier (hal-xxx or tel-xxx) here - the link is generated automatically)
-- `html`: Inserts an "HTML" button redirecting to the user-specified link
-- `pdf`: Adds a "PDF" button redirecting to a specified file (if a full link is not specified, the file will be assumed to be placed in the /assets/pdf/ directory)
-- `poster`: Adds a "Poster" button redirecting to a specified file (if a full link is not specified, the file will be assumed to be placed in the /assets/pdf/ directory)
-- `slides`: Adds a "Slides" button redirecting to a specified file (if a full link is not specified, the file will be assumed to be placed in the /assets/pdf/ directory)
-- `supp`: Adds a "Supp" button to a specified file (if a full link is not specified, the file will be assumed to be placed in the /assets/pdf/ directory)
-- `website`: Adds a "Website" button redirecting to the specified link
+### 注释和高亮
 
-You can implement your own buttons by editing the [\_layouts/bib.liquid](_layouts/bib.liquid) file.
+添加注释以说明作者角色或突出成就：
 
-## Changing theme color
+```bibtex
+@article{example2024,
+  title       = {A Great Discovery},
+  author      = {Smith, John* and Doe, Jane and Brown, Bob},
+  annotation  = {<b>最佳论文奖</b>},
+}
+```
 
-A variety of beautiful theme colors have been selected for you to choose from. The default is purple, but you can quickly change it by editing the `--global-theme-color` variable in the [\_sass/\_themes.scss](_sass/_themes.scss) file. Other color variables are listed there as well. The stock theme color options available can be found at [\_sass/\_variables.scss](_sass/_variables.scss). You can also add your own colors to this file assigning each a name for ease of use across the template.
+### 出版物分组和筛选
 
-## Customizing layout and UI
+#### 按年份
 
-You can customize the layout and user interface in [\_config.yml](_config.yml):
+出版物自动按年份分组并按降序排序（最新的在前）。可在 `_config.yml` 中更改。
+
+#### 按类型
+
+使用 `bibtex_show` 字段控制可见性，或使用 `abbr` 字段添加自定义类别。
+
+#### 精选出版物
+
+标记精选/突出的出版物，添加 `selected` 字段。
+
+### 完整 BibTeX 字段参考
+
+**必填字段：**
+
+- `title`：出版物标题
+- `author`：作者列表
+- `year`：出版年份
+- 以下之一：`journal`、`booktitle` 或 `publisher`
+
+**推荐字段：**
+
+- `doi`：数字对象标识符（启用自动徽章获取）
+- `volume`、`number`、`pages`：书目详细信息
+- `month`：出版月份
+
+**显示增强字段：**
+
+- `preview`：预览图片文件名
+- `abbr`：徽章的期刊/会议缩写
+- `annotation`：HTML 注释文本
+- `langid`：语言标识符（`zh-CN`、`en` 等）
+
+**链接字段（创建按钮）：**
+
+- `pdf`：PDF 文件路径或 URL
+- `html`：HTML 版本链接
+- `arxiv`：arXiv 标识符
+- `doi`：DOI（自动生成链接）
+- `hal`：HAL 标识符
+- `eprint`：e-print 标识符
+- `pmid`：PubMed ID
+- `isbn`：ISBN（书籍）
+
+**按钮字段：**
+
+- `code`：代码仓库链接
+- `website`：项目网站 URL
+- `blog`：博客文章 URL
+- `video`：视频演示 URL
+- `poster`：海报 PDF 路径
+- `slides`：幻灯片 PDF 路径
+- `supp`：补充材料
+
+**徽章字段：**
+
+- `altmetric`：Altmetric ID 或 `true`
+- `dimensions`：Dimensions ID 或 `true`
+- `gscholar`：设置为 `true` 显示 Google Scholar 徽章
+
+**切换字段：**
+
+- `bibtex_show`：显示 BibTeX 导出按钮（`true`/`false`）
+- `abstract`：显示摘要展开按钮（`true`/`false`）
+
+### 完整示例
+
+```bibtex
+@article{Xu2024MultiHazard,
+  title       = {多灾害耦合情境下城市关键基础设施失效风险建模研究},
+  author      = {索 玮岚 and 徐 文杰* and 孙 晓蕾},
+  journal     = {中国管理科学},
+  year        = {2025},
+  month       = {dec},
+  doi         = {10.16381/j.cnki.issn1003-207x.2025.0995},
+  html        = {https://doi.org/10.16381/j.cnki.issn1003-207x.2025.0995},
+  pdf         = {Xu2024MultiHazard.pdf},
+  preview     = {Xu2024MultiHazard.png},
+  langid      = {zh-CN},
+  abbr        = {CSSCI},
+  annotation  = {<b>CSSCI</b>},
+  bibtex_show = {true},
+  altmetric   = {true},
+  dimensions  = {true},
+  gscholar    = {true},
+}
+
+@inproceedings{Smith2024NeuralNetworks,
+  title       = {Neural Networks for Complex Systems},
+  author      = {Smith, John and Doe, Jane},
+  booktitle   = {Proceedings of the International Conference on Machine Learning},
+  year        = {2024},
+  pages       = {123--135},
+  publisher   = {PMLR},
+  doi         = {10.48550/arXiv.2401.12345},
+  html        = {https://proceedings.mlr.press/v235/},
+  pdf         = {Smith2024NeuralNetworks.pdf},
+  code        = {https://github.com/example/neural-networks},
+  website     = {https://example.com/neural-networks},
+  preview     = {Smith2024NeuralNetworks.png},
+  abbr        = {ICML},
+  selected    = {true},
+  annotation  = {<b>口头报告</b>},
+  bibtex_show = {true},
+  altmetric   = {true},
+  dimensions  = {true},
+}
+```
+
+### 文件组织
+
+出版物资源推荐目录结构：
+
+```
+assets/
+├── img/
+│   └── publication_preview/    # 预览图（PNG/JPG）
+└── pdf/
+    └── publications/           # PDF 文件
+```
+
+### 故障排除
+
+**问题**：作者姓名未高亮显示
+
+- 检查 `_config.yml` 中的 `scholar:last_name` 和 `scholar:first_name`
+- 中文姓名使用 `姓 名` 格式，无逗号
+- 确保 `langid` 设置正确（中文为 `zh-CN`）
+
+**问题**：徽章未显示
+
+- 验证 DOI 正确且可访问
+- 检查 `_config.yml` 中 `enable_publication_badges` 设置为 `true`
+- 确保有网络连接（徽章动态获取）
+
+**问题**：预览图未显示
+
+- 验证图片文件存在于 `assets/img/publication_preview/`
+- 检查 `preview` 字段中的文件名完全匹配（区分大小写）
+- 确保安装 ImageMagick 以进行自动图片调整大小
+
+## 更改主题颜色
+
+可通过编辑 [`_sass/_themes.scss`](_sass/_themes.scss) 文件中的 `--global-theme-color` 变量快速更改主题颜色。其他颜色变量也在该文件中列出。
+
+## 功能开关
+
+主题提供多种可选功能，可通过 [`_config.yml`](_config.yml) 中的开关项启用或禁用：
+
+```yaml
+enable_google_analytics: true # 启用 Google Analytics
+enable_cronitor_analytics: false # 启用 Cronitor RUM 分析
+enable_pirsch_analytics: false # 启用 Pirsch 分析
+enable_openpanel_analytics: false # 启用 Openpanel 分析
+enable_google_verification: false # 启用 Google 站点验证
+enable_bing_verification: false # 启用 Bing 站点验证
+enable_cookie_consent: false # 启用 GDPR 合规 Cookie 同意对话框
+enable_masonry: true # 启用 Masonry 布局
+enable_math: true # 启用数学公式渲染（使用 MathJax）
+enable_tooltips: true # 启用章节标题自动工具提示
+enable_darkmode: true # 启用深色/浅色模式切换
+enable_navbar_social: false # 在导航栏显示社交链接
+enable_project_categories: true # 启用项目分类
+enable_medium_zoom: true # 启用图片缩放功能（类似 Medium）
+enable_progressbar: true # 启用滚动进度条
+enable_video_embedding: true # 启用视频嵌入功能
+```
+
+### 深色模式
+
+通过 `enable_darkmode: true` 启用深色模式。用户可点击导航栏的月亮/太阳图标切换主题。深色模式会自动适配所有支持的主题颜色。
+
+### 滚动进度条
+
+通过 `enable_progressbar: true` 启用滚动进度条。进度条显示在页面顶部，指示当前滚动位置。
+
+### 工具提示
+
+通过 `enable_tooltips: true` 启用章节标题的工具提示。鼠标悬停在章节标题上会显示一个指向该章节的链接图标，点击可复制链接。
+
+### 图片缩放
+
+通过 `enable_medium_zoom: true` 启用 Medium 风格的图片缩放。点击页面中的图片会以全屏方式显示，支持滚轮缩放。
+
+### Masonry 布局
+
+通过 `enable_masonry: true` 启用 Masonry 瀑布流布局。项目卡片会自动排列，填满可用空间。
+
+## 自定义布局和界面
+
+可在 [`_config.yml`](_config.yml) 中自定义布局和用户界面：
 
 ```yaml
 back_to_top: true
@@ -817,40 +1142,22 @@ max_width: 930px
 navbar_fixed: true
 ```
 
-- `back_to_top`: Displays a "back to top" button in the footer. When clicked, it smoothly scrolls the page back to the top.
-- `footer_fixed`: When `true`, the footer remains fixed at the bottom of the viewport. When `false`, it appears at the end of the page content.
-- `max_width`: Controls the maximum width of the main content area in pixels. The default is `930px`. You can adjust this to make your content wider or narrower.
-- `navbar_fixed`: When `true`, the navigation bar stays fixed at the top of the page when scrolling. When `false`, it scrolls with the page content.
+- `back_to_top`：在页脚显示"返回顶部"按钮
+- `footer_fixed`：页脚固定在视口底部
+- `max_width`：控制主内容区域最大宽度（像素）
+- `navbar_fixed`：导航栏固定在页面顶部
 
-## Adding social media information
+## 添加社交媒体信息
 
-Social media information is managed through the [`jekyll-socials` plugin](https://github.com/george-gca/jekyll-socials). To add your social media links:
+通过 [`jekyll-socials` 插件](https://github.com/george-gca/jekyll-socials) 管理社交媒体信息。编辑 [`_data/socials.yml`](_data/socials.yml) 添加社交资料。
 
-1. Edit [`_data/socials.yml`](_data/socials.yml) to add your social profiles
-2. The plugin will automatically display the social icons based on the order they are defined in the file (see the comments at the top of `_data/socials.yml`)
+## 添加订阅
 
-The template supports icons from:
+在 [`_config.yml`](_config.yml) 文件的 `newsletter` 部分添加订阅表单信息。
 
-- [Academicons](https://jpswalsh.github.io/academicons/)
-- [Font Awesome](https://fontawesome.com/)
-- [Scholar Icons](https://louisfacun.github.io/scholar-icons/)
+## 配置搜索功能
 
-Social media links will appear at the bottom of the `About` page and in the search results by default. You can customize this behavior in [`_config.yml`](_config.yml):
-
-- `enable_navbar_social: true` – Display social links in the navigation bar
-- `socials_in_search: false` – Remove social links from search results
-
-For more details, see the [`jekyll-socials` documentation](https://github.com/george-gca/jekyll-socials).
-
-## Adding a newsletter
-
-You can add a newsletter subscription form by adding the specified information at the `newsletter` section in the [\_config.yml](_config.yml) file. To set up a newsletter, you can use a service like [Loops.so](https://loops.so/), which is the current supported solution. Once you have set up your newsletter, you can add the form [endpoint](https://loops.so/docs/forms/custom-form) to the `endpoint` field in the `newsletter` section of the [\_config.yml](_config.yml) file.
-
-Depending on your specified footer behavior, the sign up form either will appear at the bottom of the `About` page and at the bottom of blogposts if `related_posts` are enabled, or in the footer at the bottom of each page.
-
-## Configuring search features
-
-The theme includes a powerful search functionality that can be customized in [\_config.yml](_config.yml):
+在 [`_config.yml`](_config.yml) 中自定义搜索功能：
 
 ```yaml
 bib_search: true
@@ -859,86 +1166,59 @@ search_enabled: true
 socials_in_search: true
 ```
 
-- `bib_search`: Enables search within your publications/bibliography. When enabled, a search box appears on the publications page, allowing visitors to filter publications by title, author, venue, or year.
-- `posts_in_search`: Includes blog posts in the search index. Users can search for posts by title, content, or tags.
-- `search_enabled`: Enables the site-wide search feature. When enabled, a search box appears in the navigation bar, allowing users to search across your site content.
-- `socials_in_search`: Includes your social media links and contact information in search results. This makes it easier for visitors to find ways to connect with you.
+- `bib_search`：启用出版物/参考文献搜索
+- `posts_in_search`：在搜索索引中包含博客文章
+- `search_enabled`：启用全站搜索功能
+- `socials_in_search`：在搜索结果中包含社交媒体链接
 
-All these search features work in real-time and do not require a page reload.
+## 社交媒体预览
 
-## Social media previews
+主题支持 Open Graph (OG) 元标签，在社交媒体平台分享页面时创建丰富的预览。
 
-**al-folio** supports Open Graph (OG) meta tags, which create rich preview objects when your pages are shared on social media platforms like Twitter, Facebook, LinkedIn, and others. These previews include your site's image, title, and description.
+### 启用方法
 
-### How to enable
-
-To enable social media previews:
-
-1. Open `_config.yml` and set:
+1. 打开 `_config.yml` 并设置：
 
    ```yaml
    serve_og_meta: true
    ```
 
-2. Rebuild your site:
-   ```bash
-   docker compose down && docker compose up
-   # or
-   bundle exec jekyll serve
-   ```
+2. 重新构建网站
 
-Once enabled, all your site's pages will automatically include Open Graph meta tags in the HTML head element.
+### 配置预览图
 
-### Configuring preview images
+可配置每个页面或全站范围的预览图。
 
-You can configure what image displays in social media previews on a per-page or site-wide basis.
+**全站默认图片：**
 
-**Site-wide default image:**
-
-Add the following to `_config.yml`:
+在 `_config.yml` 中添加：
 
 ```yaml
 og_image: /assets/img/your-default-preview-image.png
 ```
 
-Replace the path with your actual image location in `assets/img/`.
+**每个页面的自定义图片：**
 
-**Per-page custom image:**
+在页面的 frontmatter 中添加 `og_image`。
 
-To override the site-wide default for a specific page, add `og_image` to the page's frontmatter:
+### 预览图最佳实践
 
-```yaml
----
-layout: page
-title: My Page
-og_image: /assets/img/custom-preview-image.png
----
-```
+- **尺寸**：1200×630 像素
+- **格式**：PNG 或 JPG
+- **大小**：保持在 5MB 以下
+- **内容**：确保图片清晰代表页面内容
 
-### Preview image best practices
+## 相关文章
 
-- **Dimensions:** Use 1200×630 pixels for optimal display on most social media platforms
-- **Format:** PNG or JPG formats work best
-- **Size:** Keep file size under 5MB
-- **Content:** Ensure the image clearly represents your page content
+主题可在每篇博客文章底部自动显示相关文章。
 
-When a page is shared on social media, the platform will display your configured image along with the page title, description (from your site title or page description), and URL.
+### 工作原理
 
----
+默认显示与当前文章共享至少一个标签的最新文章。
 
-## Related posts
+### 配置
 
-The theme can automatically display related posts at the bottom of each blog post. These are selected by finding the most recent posts that share common tags with the current post.
-
-### How it works
-
-- By default, the most recent posts that share at least one tag with the current post are displayed
-- You can customize how many posts are shown and how many tags must match
-- You can disable related posts for individual posts or across your entire site
-
-### Configuration
-
-To customize related posts behavior, edit the `related_blog_posts` section in `_config.yml`:
+在 `_config.yml` 中编辑 `related_blog_posts` 部分：
 
 ```yaml
 related_blog_posts:
@@ -946,22 +1226,12 @@ related_blog_posts:
   max_related: 5
 ```
 
-- `enabled`: Set to `true` (default) to show related posts, or `false` to disable them site-wide
-- `max_related`: Maximum number of related posts to display (default: 5)
+- `enabled`：设置为 `true` 显示相关文章，`false` 禁用
+- `max_related`：最多显示的相关文章数（默认：5）
 
-The theme also uses tags to find related content. Make sure your blog posts include relevant tags in their frontmatter:
+### 禁用特定文章的相关推荐
 
-```yaml
----
-layout: post
-title: My Blog Post
-tags: machine-learning python
----
-```
-
-### Disable related posts for a specific post
-
-To hide related posts on an individual blog post, add this to the post's frontmatter:
+在文章的 frontmatter 中添加：
 
 ```yaml
 ---
@@ -971,27 +1241,9 @@ related_posts: false
 ---
 ```
 
-### Additional configuration in \_config.yml
+## 管理出版物显示
 
-You can also customize related posts behavior with these settings:
-
-```yaml
-related_blog_posts:
-  enabled: true
-  max_related: 5
-```
-
-These settings control:
-
-- Which posts are considered "related" (based on shared tags)
-- How many related posts to display
-- The algorithm used to calculate post similarity (uses the `classifier-reborn` gem)
-
----
-
-## Managing publication display
-
-The theme offers several options for customizing how publications are displayed:
+主题提供几个选项来自定义出版物显示方式：
 
 ```yaml
 enable_publication_thumbnails: true
@@ -999,412 +1251,716 @@ max_author_limit: 3
 more_authors_animation_delay: 10
 ```
 
-- `enable_publication_thumbnails`: When `true`, displays preview images for publications (if specified in the BibTeX entry with the `preview` field). Set to `false` to disable thumbnails for all publications.
-- `max_author_limit`: Sets the maximum number of authors shown initially for each publication. If a publication has more authors, they are hidden behind a "more authors" link. Leave blank to always show all authors.
-- `more_authors_animation_delay`: Controls the animation speed (in milliseconds) when revealing additional authors. A smaller value means faster animation.
+- `enable_publication_thumbnails`：显示出版物预览图
+- `max_author_limit`：每篇出版物初始显示的最大作者数
+- `more_authors_animation_delay`：显示额外作者的动画速度（毫秒）
 
-To add a thumbnail to a publication, include a `preview` field in your BibTeX entry:
+## 评论系统
 
-```bibtex
-@article{example2024,
-  title={Example Paper},
-  author={Author, First and Author, Second},
-  journal={Example Journal},
-  year={2024},
-  preview={example_preview.png}
-}
+主题支持多种评论系统，可在 [`_config.yml`](_config.yml) 中配置。
+
+### Giscus 评论（推荐）
+
+Giscus 是基于 GitHub Discussions 的评论系统，支持 Markdown、LaTeX 和语法高亮。
+
+**配置方法：**
+
+1. 访问 [giscus.app](https://giscus.app/) 并按照说明为您的仓库设置 Giscus
+2. 将配置信息添加到 [`_config.yml`](_config.yml)：
+
+```yaml
+giscus:
+  repo: username/repo-name # GitHub 仓库
+  repo_id: R_kgDOXXXXXXXXX # 仓库 ID
+  category: Announcements # 讨论类别名称
+  category_id: DIC_kwDOXXXXXXXXX # 类别 ID
+  mapping: title # 识别讨论的方式
+  strict: 1 # 严格模式
+  reactions_enabled: 1 # 启用表情反应
+  input_position: bottom # 输入框位置
+  dark_theme: dark # 深色主题
+  light_theme: light # 浅色主题
+  emit_metadata: 0
+  lang: zh_CN # 语言
 ```
 
-Place the image file in `assets/img/publication_preview/`.
+**在页面启用评论**：
 
-## Adding a Google Calendar
+在页面的 frontmatter 中添加：
 
-You can embed a Google Calendar on any page by using the `calendar.liquid` include.
+```yaml
+---
+comments: true
+---
+```
 
-### Basic usage
+### Disqus 评论
 
-Add the following to your page's Markdown file (for example, in `_pages/teaching.md`):
+Disqus 是广泛使用的第三方评论系统。
+
+**配置方法：**
+
+1. 在 [Disqus](https://disqus.com/) 注册账号并创建站点
+2. 将 shortname 添加到 [`_config.yml`](_config.yml)：
+
+```yaml
+disqus_shortname: your-disqus-shortname
+```
+
+**在页面启用评论**：
+
+在页面的 frontmatter 中添加：
+
+```yaml
+---
+comments: true
+---
+```
+
+## 添加 Google 日历
+
+通过使用 `calendar.liquid` 包含在任何页面嵌入 Google 日历。
+
+### 基本用法
+
+在页面的 Markdown 文件中添加：
 
 ```liquid
 {% include calendar.liquid calendar_id='your-calendar-id@group.calendar.google.com' timezone='Your/Timezone' %}
 ```
 
-Replace:
+### 为页面启用日历脚本
 
-- `your-calendar-id@group.calendar.google.com` with your actual Google Calendar ID (found in Google Calendar Settings → Integrate calendar → Calendar ID)
-- `Your/Timezone` with your timezone (e.g., `UTC`, `Asia/Shanghai`, `America/New_York`). The default is `UTC`.
+在页面的 frontmatter 中添加 `calendar: true`。
 
-### Enable the calendar script for your page
+### 可选：自定义日历样式
 
-To enable the calendar on your page, add `calendar: true` to the frontmatter:
+可使用 `style` 参数自定义 iframe 样式。
+
+## 使用第三方库
+
+主题支持多种第三方库，可在页面中通过 frontmatter 启用。
+
+### 图表库
+
+#### Chart.js
+
+在页面的 frontmatter 中添加：
 
 ```yaml
 ---
-layout: page
-title: teaching
-calendar: true
+chart:
+  chartjs: true
 ---
 ```
 
-This setting prevents unnecessary script loading for pages that don't display a calendar.
+然后在页面中使用 Chart.js 语法创建图表：
 
-### Optional: Customize the calendar style
-
-You can optionally customize the iframe styling using the `style` parameter:
-
-```liquid
-{% include calendar.liquid calendar_id='your-calendar-id@group.calendar.google.com' timezone='UTC' style='border:0; width:100%; height:800px;' %}
+```html
+<canvas id="myChart"></canvas>
+<script>
+  const ctx = document.getElementById("myChart").getContext("2d");
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["一月", "二月", "三月"],
+      datasets: [
+        {
+          label: "数据集",
+          data: [12, 19, 3],
+        },
+      ],
+    },
+  });
+</script>
 ```
 
-The default style is `border:0; width:100%; height:600px;`.
+#### ECharts
 
-## Updating third-party libraries
-
-The theme uses various third-party JavaScript and CSS libraries. You can manage these in the `third_party_libraries` section of [\_config.yml](_config.yml):
+在页面的 frontmatter 中添加：
 
 ```yaml
-third_party_libraries:
-  download: false
-  bootstrap-table:
-    version: "1.22.4"
-    url:
-      css: "https://cdn.jsdelivr.net/npm/bootstrap-table@{{version}}/dist/bootstrap-table.min.css"
-      js: "https://cdn.jsdelivr.net/npm/bootstrap-table@{{version}}/dist/bootstrap-table.min.js"
-    integrity:
-      css: "sha256-..."
-      js: "sha256-..."
+---
+chart:
+  echarts: true
+---
 ```
 
-- `download`: When `false` (default), libraries are loaded from CDNs. When `true`, the specified library versions are downloaded during build and served from your site. This can improve performance but increases your repository size.
-- `version`: Specifies which version of each library to use. Update this to use a newer version.
-- `url`: Template URLs for loading the library. The `{{version}}` placeholder is replaced with the version number automatically.
-- `integrity`: [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) hashes ensure that the library hasn't been tampered with. When updating a library version, you should also update its integrity hash.
+#### Plotly
 
-To update a library:
+在页面的 frontmatter 中添加：
 
-1. Change the `version` number
-2. Obtain the new integrity hash for the updated library version and update the `integrity` field with the new hash. You can:
-
-   - Check if the CDN provider (e.g., jsDelivr, cdnjs, unpkg) provides the SRI hash for the file. Many CDN sites display the SRI hash alongside the file URL.
-   - Generate the SRI hash yourself using a tool such as [SRI Hash Generator](https://www.srihash.org/) or by running the following command in your terminal:
-
-     ```bash
-     curl -sL [FILE_URL] | openssl dgst -sha384 -binary | openssl base64 -A
-     ```
-
-     Replace `[FILE_URL]` with the URL of the library file. Then, prefix the result with `sha384-` and use it in the `integrity` field.
-     For detailed instructions on updating specific libraries, see the FAQ:
-
-     - [How can I update Academicons version](FAQ.md#how-can-i-update-academicons-version-on-the-template)
-     - [How can I update Font Awesome version](FAQ.md#how-can-i-update-font-awesome-version-on-the-template)
-
-## Removing content
-
-Since this template has a lot of content, you may want to remove some of it. The easiest way to achieve this and avoid merge conflicts when updating your code (as [pointed by CheariX ](https://github.com/alshedivat/al-folio/pull/2933#issuecomment-2571271117)) is to add the unwanted files to the `exclude` section in your `_config.yml` file instead of actually deleting them, for example:
-
-```yml
-exclude:
-  - _news/announcement_*.md
-  - _pages/blog.md
-  - _posts/
-  - _projects/?_project.md
-  - assets/jupyter/blog.ipynb
+```yaml
+---
+chart:
+  plotly: true
+---
 ```
 
-Here is a list of the main components that you may want to delete, and how to do it. Don't forget if you delete a page to update the `nav_order` of the remaining pages.
+#### Vega/Vega-Lite
 
-### Removing the blog page
+在页面的 frontmatter 中添加：
 
-To remove the blog, you have to:
-
-- delete [\_posts](_posts/) directory
-- delete blog page [\_pages/blog.md](_pages/blog.md)
-- remove reference to blog page in our [\_pages/dropdown.md](_pages/dropdown.md)
-- remove the `latest_posts` part in [\_pages/about.md](_pages/about.md)
-- remove the `Blog` section in the [\_config.yml](_config.yml) file and the related parts, like the `jekyll-archives`
-
-You can also:
-
-- delete [\_includes/latest_posts.liquid](_includes/latest_posts.liquid)
-- delete [\_includes/related_posts.liquid](_includes/related_posts.liquid)
-- delete [\_layouts/archive.liquid](_layouts/archive.liquid) (unless you have a custom collection that uses it)
-- delete [\_plugins/external-posts.rb](_plugins/external-posts.rb)
-- remove the `jekyll-archives-v2` gem from the [Gemfile](Gemfile) and the `plugins` section in [\_config.yml](_config.yml) (unless you have a custom collection that uses it)
-- remove the `classifier-reborn` gem from the [Gemfile](Gemfile)
-
-### Removing the news section
-
-To remove the news section, you can:
-
-- delete the [\_news](_news/) directory
-- delete the file [\_includes/news.liquid](_includes/news.liquid) and the references to it in the [\_pages/about.md](_pages/about.md)
-- remove the `announcements` part in [\_pages/about.md](_pages/about.md)
-- remove the news part in the `Collections` section in the [\_config.yml](_config.yml) file
-
-### Removing the projects page
-
-To remove the projects, you can:
-
-- delete the [\_projects](_projects/) directory
-- delete the projects page [\_pages/projects.md](_pages/projects.md)
-- remove reference to projects page in our [\_pages/dropdown.md](_pages/dropdown.md)
-- remove projects part in the `Collections` section in the [\_config.yml](_config.yml) file
-
-You can also:
-
-- delete [\_includes/projects_horizontal.liquid](_includes/projects_horizontal.liquid)
-- delete [\_includes/projects.liquid](_includes/projects.liquid)
-
-### Removing the publications page
-
-To remove the publications, you can:
-
-- delete the [\_bibliography](_bibliography/) directory
-- delete the publications page [\_pages/publications.md](_pages/publications.md)
-- remove reference to publications page in our [\_pages/dropdown.md](_pages/dropdown.md)
-- remove `Jekyll Scholar` section in the [\_config.yml](_config.yml) file
-
-You can also:
-
-- delete the [\_layouts/bib.liquid](_layouts/bib.liquid) file
-- delete [\_includes/bib_search.liquid](_includes/bib_search.liquid)
-- delete [\_includes/citation.liquid](_includes/citation.liquid)
-- delete [\_includes/selected_papers.liquid](_includes/selected_papers.liquid)
-- delete [\_plugins/google-scholar-citations.rb](_plugins/google-scholar-citations.rb)
-- delete [\_plugins/hide-custom-bibtex.rb](_plugins/hide-custom-bibtex.rb)
-- delete [\_plugins/inspirehep-citations.rb](_plugins/inspirehep-citations.rb)
-- remove the `jekyll-scholar` gem from the [Gemfile](Gemfile) and the `plugins` section in [\_config.yml](_config.yml)
-
-### Removing the repositories page
-
-To remove the repositories, you can:
-
-- delete the repositories page [\_pages/repositories.md](_pages/repositories.md)
-- delete [\_includes/repository/](_includes/repository/) directory
-
-### You can also remove pages through commenting out front-matter blocks
-
-For `.md` files in [\_pages](_pages/) directory, if you do not want to completely edit or delete them but save for later use, you can temporarily disable these variables. But be aware that Jekyll only recognizes front matter when it appears as uncommented. The layout, permalink, and other front-matter behavior are disabled for that file.
-
-For example, books.md do:
-
-```md
-<!-- ---
-layout: book-shelf
-title: bookshelf
-permalink: /books/
-nav: true
-collection: books
---- -->
-
-> What an astonishing thing a book is. It's a flat object made from a tree with flexible parts on which are imprinted lots of funny dark squiggles. But one glance at it and you're inside the mind of another person, maybe somebody dead for thousands of years. Across the millennia, an author is speaking clearly and silently inside your head, directly to you. Writing is perhaps the greatest of human inventions, binding together people who never knew each other, citizens of distant epochs. Books break the shackles of time. A book is proof that humans are capable of working magic.
->
-> -- Carl Sagan, Cosmos, Part 11: The Persistence of Memory (1980)
-
-## Books that I am reading, have read, or will read
+```yaml
+---
+chart:
+  vega_lite: true
+---
 ```
 
-## Adding Token for Lighthouse Badger
+### 地图功能
 
-To add secrets for [lighthouse-badger](https://github.com/alshedivat/al-folio/actions/workflows/lighthouse-badger.yml), create a [personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) and add it as a [secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository) named `LIGHTHOUSE_BADGER_TOKEN` to your repository. The [lighthouse-badger documentation](https://github.com/MyActionWay/lighthouse-badger-workflows#lighthouse-badger-easyyml) specifies using an environment variable, but using it as a secret is more secure and appropriate for a PAT.
+#### Leaflet 地图
 
-Also In case you face the error: "Input required and not supplied: token" in the Lighthouse Badger action, this solution resolves it.
+在页面的 frontmatter 中添加：
 
-### Personal Access Token (fine-grained) Permissions for Lighthouse Badger:
+```yaml
+---
+map:
+  id: "map"
+  tile_layer: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  zoom: 13
+  center: [51.505, -0.09]
+  markers:
+    - location: [51.505, -0.09]
+      label: "标记 1"
+    - location: [51.51, -0.1]
+      label: "标记 2"
+---
+```
 
-- **contents**: access: read and write
-- **metadata**: access: read-only
+### 灯箱库
 
-Due to the necessary permissions (PAT and others mentioned above), it is recommended to use it as a secret rather than an environment variable.
+#### Photoswipe
 
-## Customizing fonts, spacing, and more
+在页面的 frontmatter 中添加：
 
-The `_sass/` directory contains specialized SCSS files organized by feature and usage. To customize fonts, spacing, colors, and other styles, edit the relevant file based on what you're modifying:
+```yaml
+---
+images:
+  photoswipe: true
+---
+```
 
-- **Typography:** Edit `_typography.scss` to change fonts, heading styles, links, tables, and blockquotes.
-- **Navigation:** Edit `_navbar.scss` to customize the navigation bar and dropdown menus.
-- **Colors and themes:** Edit `_themes.scss` to change theme colors and `_variables.scss` for global variables.
-- **Blog styles:** Edit `_blog.scss` to customize blog post listings, tags, and pagination.
-- **Publications:** Edit `_publications.scss` to modify bibliography and publication display styles.
-- **Components:** Edit `_components.scss` to customize reusable components like cards, profiles, and projects.
-- **Code and utilities:** Edit `_utilities.scss` for code highlighting, forms, modals, and animations.
-- **Layout:** Edit `_layout.scss` for overall page layout styles.
+然后使用以下 HTML 结构：
 
-The easiest way to preview changes in advance is by using [Chrome dev tools](https://developer.chrome.com/docs/devtools/css) or [Firefox dev tools](https://firefox-source-docs.mozilla.org/devtools-user/). Inspect elements to see which styles apply and experiment with changes before editing the SCSS files. For more information on how to use these tools, check [Chrome](https://developer.chrome.com/docs/devtools/css) and [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html) how-tos, and [this tutorial](https://www.youtube.com/watch?v=l0sgiwJyEu4).
+```html
+<a href="large-image.jpg" data-pswp-width="1600" data-pswp-height="900">
+  <img src="thumbnail.jpg" alt="描述" />
+</a>
+```
 
-## Scheduled Posts
+#### Lightbox2
 
-`al-folio` contains a workflow which automatically publishes all posts scheduled at a specific day, at the end of the day (23:30). By default the action is disabled, and to enable it you need to go to `.github/workflows/` and find the file called `schedule-posts.txt`. This is the workflow file. For GitHub to recognize it as one (or to enable the action), you need to rename it to `schedule-posts.yml`.
+在页面的 frontmatter 中添加：
 
-In order to use this you need to save all of your "Completed" blog posts which are scheduled to be uploaded on a specific date, in a folder named `_scheduled/` in the root directory.
+```yaml
+---
+images:
+  lightbox2: true
+---
+```
 
-> Incomplete posts should be saved in `_drafts/`
+然后使用：
 
-### Name Format
+```html
+<a href="large-image.jpg" data-lightbox="gallery">
+  <img src="thumbnail.jpg" alt="描述" />
+</a>
+```
 
-In this folder you need to store your file in the same format as you would in `_posts/`
+#### Venobox
 
-> Example file name: `2024-08-26-This file will be uploaded on 26 August.md`
+在页面的 frontmatter 中添加：
 
-### Important Notes
+```yaml
+---
+images:
+  venobox: true
+---
+```
 
-- The scheduler uploads posts everyday at 🕛 23:30 UTC
-- It will only upload posts at 23:30 UTC of their respective scheduled days, It's not uploaded in 23:59 in case there are a lot of files as the scheduler must finish before 00:00
-- It will only upload files which follow the pattern `yyyy-mm-dd-title.md`
-  - This means that only markdown files will be posted
-  - It means that any markdown which do not follow this pattern will not be posted
-- The scheduler works by moving posts from the `_scheduled/` directory to `_posts/`, it will not post to folders like `_projects/` or `_news/`
-- The date in the name of the file is the day that file will be uploaded on
-  - `2024-08-27-file1.md` will not be posted before or after 27-August-2024 (Scheduler only works for posts scheduled on the present day)
-  - `2025-08-27-file2.md` will be posted exactly on 27-August-2025
-  - `File3.md` will not be posted at all
-  - `2026-02-31-file4.md` is supposed to be posted on 31-February-2026, but there is no 31st in February hence this file will never be posted either
+然后使用：
 
-## GDPR Cookie Consent Dialog
+```html
+<a href="large-image.jpg" class="venobox" data-gall="myGallery">
+  <img src="thumbnail.jpg" alt="描述" />
+</a>
+```
 
-**al-folio** includes a built-in GDPR-compliant cookie consent dialog to help you respect visitor privacy and comply with privacy regulations (GDPR, CCPA, etc.). The feature is powered by [Vanilla Cookie Consent](https://cookieconsent.orestbida.com/) and integrates with all analytics providers.
+#### Spotlight
 
-### How it works
+在页面的 frontmatter 中添加：
 
-- A consent dialog appears on the visitor's first visit to your site
-- Visitors can **accept all**, **reject all**, or **customize preferences** for analytics cookies
-- Analytics scripts (Google Analytics, Cronitor, Pirsch, Openpanel) are **blocked by default** and only run after explicit consent
-- Google Consent Mode ensures Google services operate in privacy mode before consent is granted
-- User preferences are saved in their browser and respected on subsequent visits
-- The dialog is mobile-responsive and supports multiple languages
+```yaml
+---
+images:
+  spotlight: true
+---
+```
 
-### When to use
+然后使用：
 
-- ✅ **Required** if your site serves EU visitors and uses any analytics
-- ✅ Recommended for any website using analytics, tracking, or marketing tools
-- ❌ Not needed if your site doesn't use any analytics providers
+```html
+<a href="large-image.jpg" class="spotlight">
+  <img src="thumbnail.jpg" alt="描述" />
+</a>
+```
 
-### How to enable
+### 图片功能
 
-1. Open `_config.yml` and locate the following line:
+#### 图片轮播
+
+在页面的 frontmatter 中添加：
+
+```yaml
+---
+images:
+  slider: true
+---
+```
+
+然后使用：
+
+```html
+<swiper-container>
+  <swiper-slide><img src="slide1.jpg" alt="幻灯片 1" /></swiper-slide>
+  <swiper-slide><img src="slide2.jpg" alt="幻灯片 2" /></swiper-slide>
+</swiper-container>
+```
+
+#### 图片对比
+
+在页面的 frontmatter 中添加：
+
+```yaml
+---
+images:
+  compare: true
+---
+```
+
+然后使用：
+
+```html
+<img-comparison-slider>
+  <figure slot="first" class="before">
+    <img src="before.jpg" alt="修改前" />
+    <figcaption>修改前</figcaption>
+  </figure>
+  <figure slot="second" class="after">
+    <img src="after.jpg" alt="修改后" />
+    <figcaption>修改后</figcaption>
+  </figure>
+</img-comparison-slider>
+```
+
+### 其他功能
+
+#### 伪代码
+
+在页面的 frontmatter 中添加：
+
+```yaml
+---
+pseudocode: true
+---
+```
+
+然后使用：
+
+```text
+{% pseudocode %}
+algorithm quicksort(A):
+    if length(A) <= 1:
+        return A
+    pivot := A[length(A) // 2]
+    left := [x for x in A if x < pivot]
+    middle := [x for x in A if x == pivot]
+    right := [x for x in A if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+{% endpseudocode %}
+```
+
+#### Mermaid 图表
+
+在页面的 frontmatter 中添加：
+
+```yaml
+---
+mermaid:
+  enabled: true
+---
+```
+
+然后使用 Mermaid 语法：
+
+````text
+```mermaid
+graph TD
+    A[开始] --> B{判断}
+    B -->|是| C[执行]
+    B -->|否| D[跳过]
+    C --> E[结束]
+    D --> E
+````
+
+````
+
+#### 代码对比
+
+在页面的 frontmatter 中添加：
+
+```yaml
+---
+code_diff:
+  type: "unified"  # 或 "split"
+---
+````
+
+然后在页面中：
+
+```html
+<div id="code-diff"></div>
+<script>
+  const diff = Diff2Html.create("before\nafter\n", { inputFormat: "diff" });
+  document.getElementById("code-diff").innerHTML = diff;
+</script>
+```
+
+## 更新第三方库
+
+在 [`_config.yml`](_config.yml) 的 `third_party_libraries` 部分管理各种第三方 JavaScript 和 CSS 库。
+
+## 删除内容
+
+可通过在 `_config.yml` 的 `exclude` 部分添加不需要的文件来删除内容，以避免更新代码时的合并冲突。
+
+### 删除博客页面
+
+- 删除 [`_posts`](_posts/) 目录
+- 删除博客页面 [`_pages/blog.md`](_pages/blog.md)
+- 在 [`_pages/dropdown.md`](_pages/dropdown.md) 中删除博客页面引用
+- 删除 [`_pages/about.md`](_pages/about.md) 中的 `latest_posts` 部分
+- 删除 [`_config.yml`](_config.yml) 文件中的 `Blog` 部分及相关部分
+
+### 删除动态消息区域
+
+- 删除 [`_news`](_news/) 目录
+- 删除 [`_includes/news.liquid`](_includes/news.liquid) 文件和 [`_pages/about.md`](_pages/about.md) 中的引用
+- 删除 [`_pages/about.md`](_pages/about.md) 中的 `announcements` 部分
+- 删除 [`_config.yml`](_config.yml) 文件中 `Collections` 部分的 news 部分
+
+### 删除项目页面
+
+- 删除 [`_projects`](_projects/) 目录
+- 删除项目页面 [`_pages/projects.md`](_pages/projects.md)
+- 在 [`_pages/dropdown.md`](_pages/dropdown.md) 中删除项目页面引用
+- 删除 [`_config.yml`](_config.yml) 文件中 `Collections` 部分的项目部分
+
+### 删除出版物页面
+
+- 删除 [`_bibliography`](_bibliography/) 目录
+- 删除出版物页面 [`_pages/publications.md`](_pages/publications.md)
+- 在 [`_pages/dropdown.md`](_pages/dropdown.md) 中删除出版物页面引用
+- 删除 [`_config.yml`](_config.yml) 文件中的 `Jekyll Scholar` 部分
+
+### 删除仓库页面
+
+- 删除仓库页面 [`_pages/repositories.md`](_pages/repositories.md)
+- 删除 [`_includes/repository/`](_includes/repository/) 目录
+
+### 通过注释 Frontmatter 块禁用页面
+
+对于 [`_pages`](_pages/) 目录中的 `.md` 文件，可通过注释 frontmatter 块临时禁用。
+
+## 为 Lighthouse Badger 添加 Token
+
+创建 [个人访问令牌 (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) 并将其作为名为 `LIGHTHOUSE_BADGER_TOKEN` 的 [密钥](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository) 添加到仓库。
+
+### Lighthouse Badger 的个人访问令牌（精细粒度）权限
+
+- **contents**：访问权限：读取和写入
+- **metadata**：访问权限：只读
+
+## 图片功能
+
+主题提供多种图片优化和增强功能。
+
+### 响应式图片
+
+通过 ImageMagick 自动生成多种尺寸的响应式图片。在 [`_config.yml`](_config.yml) 中配置：
+
+```yaml
+imagemagick:
+  enabled: true # 启用响应式图片
+  widths:
+    - 480
+    - 800
+    - 1400
+  input_directories:
+    - assets/img/
+  input_formats:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".tiff"
+    - ".gif"
+  output_formats:
+    webp: "-auto-orient -quality 85"
+```
+
+**前提条件**：确保系统已安装 ImageMagick。在终端运行 `convert -version` 验证。
+
+**使用方法**：
+
+```html
+{% include figure.liquid path="assets/img/example.jpg" caption="示例图片" %}
+```
+
+主题会自动生成 480px、800px 和 1400px 宽度的 WebP 格式图片，并根据设备自动选择合适的尺寸。
+
+### 懒加载图片
+
+启用懒加载可加快页面加载速度。在 [`_config.yml`](_config.yml) 中设置：
+
+```yaml
+lazy_loading_images: true
+```
+
+启用后，所有图片会自动添加 `loading="lazy"` 属性，延迟加载视口外的图片。
+
+**自定义特定图片的加载行为**：
+
+```html
+<img src="image.jpg" loading="eager" />
+<!-- 立即加载 -->
+<img src="image.jpg" loading="lazy" />
+<!-- 懒加载 -->
+```
+
+### 图片缩放
+
+通过 `enable_medium_zoom: true` 启用 Medium 风格的图片缩放。点击图片会以全屏方式显示，支持滚轮缩放。
+
+### 图片灯箱
+
+主题支持多种灯箱库，参见[使用第三方库](#使用第三方库)章节。
+
+## 自定义字体、间距等
+
+`_sass/` 目录包含按功能和用途组织的专门 SCSS 文件。根据修改内容编辑相关文件：
+
+- **排版**：`_typography.scss` - 字体、标题样式、链接、表格、引用
+- **导航**：`_navbar.scss` - 导航栏和下拉菜单
+- **颜色和主题**：`_themes.scss` - 主题颜色，`_variables.scss` - 全局变量
+- **博客样式**：`_blog.scss` - 博客文章列表、标签、分页
+- **出版物**：`_publications.scss` - 参考文献和出版物显示样式
+- **组件**：`_components.scss` - 可复用组件（卡片、简介、项目）
+- **代码和工具**：`_utilities.scss` - 代码高亮、表单、模态框、动画
+- **布局**：`_layout.scss` - 整体页面布局样式
+
+## 定时发布
+
+主题包含一个工作流，可在每天结束时（23:30）自动发布所有预定在特定日期的帖子。默认情况下禁用此操作，要启用需转到 `.github/workflows/` 并找到名为 `schedule-posts.txt` 的工作流文件。将其重命名为 `schedule-posts.yml`。
+
+### 文件名格式
+
+在根目录下名为 `_scheduled/` 的文件夹中保存文件，格式与 `_posts/` 中的相同。
+
+> 示例文件名：`2024-08-26-This file will be uploaded on 26 August.md`
+
+### 重要说明
+
+- 调度器每天在 🕛 23:30 UTC 上传帖子
+- 仅在其预定日期的 23:30 UTC 上传帖子
+- 仅上传遵循 `yyyy-mm-dd-title.md` 模式的文件
+- 调度器通过将帖子从 `_scheduled/` 目录移动到 `_posts/` 来工作
+- 文件名中的日期是文件上传的日期
+
+## 分析工具
+
+主题支持多种分析工具，可用于追踪网站访问情况和用户行为。所有分析工具都可通过 [`_config.yml`](_config.yml) 配置。
+
+### Google Analytics (GA4)
+
+Google Analytics 是广泛使用的网站分析工具。
+
+**配置方法：**
+
+1. 访问 [Google Analytics](https://analytics.google.com/) 并创建 GA4 属性
+2. 获取测量 ID（格式：G-XXXXXXXXXX）
+3. 在 [`_config.yml`](_config.yml) 中配置：
+
+```yaml
+google_analytics: G-H0H008S793 # 您的 GA4 测量 ID
+enable_google_analytics: true # 启用 Google Analytics
+```
+
+**启用 Cookie 同意**：
+
+如果启用了 `enable_cookie_consent: true`，Google Analytics 将使用 Google Consent Mode 在获得用户同意前以隐私模式运行。
+
+### Cronitor RUM
+
+Cronitor Real User Monitoring (RUM) 提供性能监控和用户体验分析。
+
+**配置方法：**
+
+1. 在 [Cronitor](https://cronitor.io/) 注册账号
+2. 获取 RUM 站点 ID
+3. 在 [`_config.yml`](_config.yml) 中配置：
+
+```yaml
+cronitor_analytics: XXXXXXXXX # Cronitor RUM 站点 ID
+enable_cronitor_analytics: true # 启用 Cronitor Analytics
+```
+
+### Pirsch Analytics
+
+Pirsch 是 GDPR 合规的隐私优先分析工具。
+
+**配置方法：**
+
+1. 在 [Pirsch](https://pirsch.io/) 注册账号
+2. 获取站点 ID（32 个字符）
+3. 在 [`_config.yml`](_config.yml) 中配置：
+
+```yaml
+pirsch_analytics: XXXXXXXXXXXXXXXXXXXXXXXX # Pirsch 站点 ID
+enable_pirsch_analytics: true # 启用 Pirsch Analytics
+```
+
+### Openpanel Analytics
+
+Openpanel 是隐私优先的分析平台。
+
+**配置方法：**
+
+1. 在 [Openpanel](https://openpanel.dev/) 注册账号
+2. 获取客户端 ID
+3. 在 [`_config.yml`](_config.yml) 中配置：
+
+```yaml
+openpanel_analytics: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX # Openpanel 客户端 ID
+enable_openpanel_analytics: true # 启用 Openpanel Analytics
+```
+
+### 站点验证
+
+#### Google Search Console
+
+在 [`_config.yml`](_config.yml) 中配置：
+
+```yaml
+google_site_verification: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # Google 站点验证 ID
+enable_google_verification: true # 启用 Google 验证
+```
+
+#### Bing Webmaster Tools
+
+在 [`_config.yml`](_config.yml) 中配置：
+
+```yaml
+bing_site_verification: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # Bing 站点验证 ID
+enable_bing_verification: true # 启用 Bing 验证
+```
+
+## GDPR Cookie 同意对话框
+
+主题包含内置的 GDPR 合规 Cookie 同意对话框，帮助尊重访客隐私并遵守隐私法规。
+
+### 工作原理
+
+- 访客首次访问网站时显示同意对话框
+- 访客可**全部接受**、**全部拒绝**或**自定义偏好**分析 Cookie
+- 分析脚本默认被阻止，仅在明确同意后运行
+- Google Consent Mode 确保在授予同意前 Google 服务以隐私模式运行
+- 用户偏好保存在浏览器中，后续访问时尊重
+- 对话框支持移动响应式和多语言
+
+### 使用场景
+
+- ✅ 如果网站服务于欧盟访客并使用任何分析，则**必需**
+- ✅ 建议任何使用分析、跟踪或营销工具的网站使用
+- ❌ 如果网站不使用任何分析提供商，则不需要
+
+### 启用方法
+
+1. 打开 `_config.yml` 并定位到以下行：
 
    ```yaml
    enable_cookie_consent: false
    ```
 
-2. Change it to:
+2. 将其更改为：
 
    ```yaml
    enable_cookie_consent: true
    ```
 
-3. Rebuild your site:
+3. 重新构建网站
 
-   ```bash
-   docker compose down && docker compose up
-   # or
-   bundle exec jekyll serve
-   ```
+### 自定义同意对话框
 
-4. The consent dialog will automatically appear on your site's homepage on first visit
+同意对话框配置和消息定义在 [`_scripts/cookie-consent-setup.js`](_scripts/cookie-consent-setup.js)。可自定义对话框标题、按钮标签、Cookie 类别和描述等。
 
-### Customizing the consent dialog
+### 支持的分析提供商
 
-The consent dialog configuration and messages are defined in [`_scripts/cookie-consent-setup.js`](_scripts/cookie-consent-setup.js). You can customize:
+启用 Cookie 同意后，这些分析提供商会被自动阻止，直到用户同意：
 
-- Dialog titles and button labels
-- Cookie categories and descriptions
-- Contact information links (points to `#contact` by default)
-- Language translations
+- **Google Analytics (GA4)** – 使用 Google Consent Mode
+- **Cronitor RUM** – 真实用户监控
+- **Pirsch Analytics** – GDPR 合规分析替代方案
+- **Openpanel Analytics** – 隐私优先分析平台
 
-To modify the dialog, edit the `language.translations.en` section in `_scripts/cookie-consent-setup.js`. For example, to change the consent dialog title:
+### 与分析工具集成
 
-```javascript
-consentModal: {
-  title: 'Your custom title here',
-  description: 'Your custom description...',
-  // ... other options
-}
-```
+当 `enable_cookie_consent: true` 时，模板自动：
 
-### Supported analytics providers
+1. 为所有分析脚本标签添加 `type="text/plain" data-category="analytics"`
+2. 加载同意库并初始化 Google Consent Mode
+3. 在用户更改对话框中的偏好时更新同意偏好
 
-When cookie consent is enabled, these analytics providers are automatically blocked until the user consents:
+### 开发者指南
 
-- **Google Analytics (GA4)** – Uses Google Consent Mode for privacy-first operation before consent
-- **Cronitor RUM** – Real User Monitoring for performance tracking
-- **Pirsch Analytics** – GDPR-compliant analytics alternative
-- **Openpanel Analytics** – Privacy-focused analytics platform
-
-Each provider only collects data if:
-
-1. It's enabled in `_config.yml` (e.g., `enable_google_analytics: true`)
-2. The user has granted consent to the "analytics" category in the consent dialog
-
-### How it integrates with analytics
-
-When `enable_cookie_consent: true`, the template automatically:
-
-1. Adds `type="text/plain" data-category="analytics"` to all analytics script tags
-2. This tells the cookie consent library to block these scripts until consent is granted
-3. Loads the consent library and initializes Google Consent Mode
-4. Updates consent preferences when the user changes them in the dialog
-
-You don't need to modify any analytics configuration—it works automatically.
-
-### For developers
-
-If you want to programmatically check consent status or react to consent changes, the library exposes the following:
+如需编程检查同意状态或对同意更改做出反应，库公开以下 API：
 
 ```javascript
-// Check if user has granted analytics consent
-window.CookieConsent.getCategories().analytics; // returns true or false
+// 检查用户是否授予分析同意
+window.CookieConsent.getCategories().analytics; // 返回 true 或 false
 
-// Listen for consent changes
+// 监听同意更改
 window.CookieConsent.onChange(function (consentData) {
-  // Handle consent change
+  // 处理同意更改
 });
 ```
 
-For more API details, see [Vanilla Cookie Consent documentation](https://cookieconsent.orestbida.com/).
+## 为 Google Scholar 引用更新设置个人访问令牌
 
----
+本项目包含一个自动化工作流，使用 Google Scholar 更新出版物的引用计数。工作流直接将更改提交到 `main` 分支的 `_data/citations.yml`。
 
-## Setting up a Personal Access Token (PAT) for Google Scholar Citation Updates
+### 为什么需要 PAT
 
-> [!TIP]
-> After setting up al-folio you may want to run `python3 bin/update_citations.py` to fill the `_data/citations.yml` file with your Google Scholar citation counts.
+GitHub 限制默认 `GITHUB_TOKEN` 在工作流内提交时触发其他工作流。使用 PAT 可克服此限制并实现完全自动化。
 
-This project includes an automated workflow to update the citation counts for your publications using Google Scholar.
-The workflow commits changes to `_data/citations.yml` directly to the `main` branch.
-By default, the `GITHUB_TOKEN` will be used to commit the changes.
-However, this token does not have permission to trigger subsequent workflows, such as the site rebuild workflow.
-In order to deploy the changes from `main`, you can manually trigger the `deploy` workflow.
+### 如何设置 PAT
 
-> [!TIP]
-> To ensure that these commits can trigger further GitHub Actions workflows (such as site rebuilds), you can use a Personal Access Token (PAT) instead of the default GitHub Actions token.
-> If you have set up a PAT, citation updates will trigger further workflows (such as site rebuilds) after committing changes. In order to run the action with a PAT, you need to uncomment the following lines from the workflow file (`update-citations.yml`):
->
-> ```yaml
-> with:
->   token: ${{ secrets.PAT }}
-> ```
+1. **创建个人访问令牌**
 
-### Why is a PAT required?
+   - 前往 [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
+   - 点击"Generate new token"（经典或精细粒度）
+   - 授予至少以下权限：
+     - `repo`（经典令牌，私有仓库）、`public_repo`（经典令牌，公共仓库）或 `contents: read/write`（精细粒度令牌）
 
-GitHub restricts the default `GITHUB_TOKEN` from triggering other workflows when a commit is made from within a workflow. Using a PAT overcomes this limitation and allows for full automation.
+2. **将 PAT 添加为仓库密钥**
 
-### How to set up the PAT
+   - 在 GitHub 上前往仓库
+   - 导航至 `Settings` > `Secrets and variables` > `Actions` > `New repository secret`
+   - 将密钥命名为 `PAT`（必须与工作流中使用的名称匹配）
+   - 粘贴 PAT 并保存
 
-1. **Create a Personal Access Token**
+3. **工作流使用**
 
-   - Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens).
-   - Click "Generate new token" (classic or fine-grained).
-   - Grant at least the following permissions:
-     - `repo` (for classic tokens if repo is private), `public_repo` (for classic tokens if repo is public) or `contents: read/write` (for fine-grained tokens)
-   - Save the token somewhere safe.
-
-2. **Add the PAT as a repository secret**
-
-   - Go to your repository on GitHub.
-   - Navigate to `Settings` > `Secrets and variables` > `Actions` > `New repository secret`.
-   - Name the secret `PAT` (must match the name used in the workflow).
-   - Paste your PAT and save.
-
-3. **Workflow usage**
-   The workflow `.github/workflows/update-citations.yml` uses this PAT to commit updates to `_data/citations.yml`.
+   工作流 `.github/workflows/update-citations.yml` 使用此 PAT 将更新提交到 `_data/citations.yml`。
