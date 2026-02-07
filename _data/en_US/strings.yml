@@ -200,3 +200,33 @@ cookie_consent:
   more_info_description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">contact us</a>.'
 
 site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+months:
+  long:
+    january: January
+    february: February
+    march: March
+    april: April
+    may: May
+    june: June
+    july: July
+    august: August
+    september: September
+    october: October
+    november: November
+    december: December
+  short:
+    january: Jan
+    february: Feb
+    march: Mar
+    april: Apr
+    may: May
+    june: Jun
+    july: Jul
+    august: Aug
+    september: Sep
+    october: Oct
+    november: Nov
+    december: Dec
+date_formats:
+  short: "__MONTH__ __DAY__, __YEAR__"
+  long: "__MONTH__ __DAY__, __YEAR__"

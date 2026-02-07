@@ -1,24 +1,33 @@
 {% assign months = 'january|february|march|april|may|june|july|august|september|october|november|december' | split: '|' %}
 {% assign m = include.date | date: '%-m' | minus: 1 %}
 {% assign day = include.date | date: '%d' %}
+{% assign month_num = include.date | date: '%m' %}
 {% capture month %}{{ months[m] }}{% endcapture %}
-{% capture month %}{{ site.data[site.active_lang].strings.months[include.format][month] }}{% endcapture %}
+{% capture month_name %}{{ site.data[site.active_lang].strings.months[include.format][month] }}{% endcapture %}
 {% assign year = include.date | date: '%Y' %}
 
 {% comment %}
-  Here, add language specific date formats
+  Get date format from i18n configuration
 {% endcomment %}
+{% assign date_format = site.data[site.active_lang].strings.date_formats[include.format] %}
+{% if date_format == nil %}
+  {% assign date_format = "__MONTH__ __DAY__, __YEAR__" %}
+{% endif %}
 
-{%- if site.active_lang == 'en-us' -%}
-  {{ month }}
-  {{ day }}, {{ year }}
-{%- elsif site.active_lang == 'fr-ca' -%}
-  {{ day }}
-  {{ month }}, {{ year }}
-{%- elsif site.active_lang == 'pt-br' -%}
-  {{ day }} de {{ month }}, {{ year }}
-{%- else -%}
-  {{ day }}
-  {{ month }}
-  {{ year }}
-{%- endif -%}
+{% comment %}
+  For Chinese and Japanese, use numeric month (e.g., 04月) for alignment
+  For other languages, use the month name
+{% endcomment %}
+{% if site.active_lang == 'zh_CN' or site.active_lang == 'ja_JP' %}
+  {% assign month_display = month_num | append: '月' %}
+{% else %}
+  {% assign month_display = month_name %}
+{% endif %}
+
+{% comment %}
+  Replace placeholders with actual values
+{% endcomment %}
+{% capture date_result %}{{ date_format | replace: '__YEAR__', year }}{% endcapture %}
+{% capture date_result %}{{ date_result | replace: '__MONTH__', month_display }}{% endcapture %}
+{% capture date_result %}{{ date_result | replace: '__DAY__', day }}{% endcapture %}
+{{ date_result }}

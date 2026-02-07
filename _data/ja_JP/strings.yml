@@ -132,6 +132,9 @@ months:
     october: 10月
     november: 11月
     december: 12月
+date_formats:
+  short: "__YEAR__年__MONTH____DAY__日"
+  long: "__YEAR__年__MONTH____DAY__日"
 research_summary: 研究概要
 news: ニュース
 newsletter:

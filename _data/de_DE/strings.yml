@@ -132,6 +132,9 @@ months:
     october: Okt
     november: Nov
     december: Dez
+date_formats:
+  short: "__DAY__. __MONTH__ __YEAR__"
+  long: "__DAY__. __MONTH__ __YEAR__"
 research_summary: Forschungszusammenfassung
 news: Nachrichten
 newsletter:
