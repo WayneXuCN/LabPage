@@ -299,7 +299,6 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
 
 // 主题切换按钮
 #light-toggle {
-  // icons hidden by default; JS will show the correct one after DOM ready
   #light-toggle-dark,
   #light-toggle-light {
     display: none;
@@ -321,6 +320,14 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
     outline: none;
     box-shadow: none;
   }
+}
+
+// 根据 data-theme 属性预设图标状态
+// 当主题为 light 时显示月亮图标
+// 当主题为 dark 时显示太阳图标
+html[data-theme="light"] #light-toggle #light-toggle-dark,
+html[data-theme="dark"] #light-toggle #light-toggle-light {
+  display: block;
 }
 
 // 移动端适配（< 576px）
