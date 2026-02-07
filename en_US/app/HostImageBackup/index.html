@@ -1,289 +1,232 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HostImageBackup - Backup images from hosting services</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
     <header>
-      <div class="container">
-        <div class="language-switch-container">
-          <button class="language-switch" id="languageSwitch">
-            <span class="lang-en-label">中文</span>
-            <span class="lang-zh-label">English</span>
-          </button>
+        <div class="container">
+            <div class="language-switch-container">
+                <button class="language-switch" id="languageSwitch">
+                    <span class="lang-en-label">中文</span>
+                    <span class="lang-zh-label">English</span>
+                </button>
+            </div>
+            <h1 class="lang-en">HostImageBackup</h1>
+            <h1 class="lang-zh">HostImageBackup 图片备份工具</h1>
+            <p class="subtitle lang-en">A modular Python CLI tool to backup images from various image hosting services to your local machine</p>
+            <p class="subtitle lang-zh">一个模块化的Python命令行工具，可将图片从各种图床服务备份到本地计算机</p>
         </div>
-        <h1 class="lang-en">HostImageBackup</h1>
-        <h1 class="lang-zh">HostImageBackup 图片备份工具</h1>
-        <p class="subtitle lang-en">
-          A modular Python CLI tool to backup images from various image hosting
-          services to your local machine
-        </p>
-        <p class="subtitle lang-zh">
-          一个模块化的Python命令行工具，可将图片从各种图床服务备份到本地计算机
-        </p>
-      </div>
     </header>
 
     <div class="container">
-      <h2 class="section-title lang-en">Key Features</h2>
-      <h2 class="section-title lang-zh">核心功能</h2>
+        <h2 class="section-title lang-en">Key Features</h2>
+        <h2 class="section-title lang-zh">核心功能</h2>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud-download-alt"></i>
+                </div>
+                <h3 class="lang-en">Multi-Provider Support</h3>
+                <h3 class="lang-zh">多平台支持</h3>
+                <p class="lang-en">Backup images from Aliyun OSS, Tencent COS, SM.MS, Imgur, and GitHub with a single tool.</p>
+                <p class="lang-zh">通过单一工具从阿里云OSS、腾讯云COS、SM.MS、Imgur和GitHub备份图片。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="lang-en">Smart Backup</h3>
+                <h3 class="lang-zh">智能备份</h3>
+                <p class="lang-en">Skip existing files and resume interrupted downloads to save time and bandwidth.</p>
+                <p class="lang-zh">跳过已存在的文件并恢复中断的下载，节省时间和带宽。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3 class="lang-en">Easy Configuration</h3>
+                <h3 class="lang-zh">简单配置</h3>
+                <p class="lang-en">Simple YAML configuration and intuitive CLI commands for quick setup.</p>
+                <p class="lang-zh">简单的YAML配置和直观的CLI命令，快速上手。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <h3 class="lang-en">Command Line Interface</h3>
+                <h3 class="lang-zh">命令行界面</h3>
+                <p class="lang-en">Powerful CLI with progress tracking, logging, and flexible options.</p>
+                <p class="lang-zh">功能强大的CLI，具有进度跟踪、日志记录和灵活选项。</p>
+            </div>
+        </section>
 
-      <section class="features">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-cloud-download-alt"></i>
-          </div>
-          <h3 class="lang-en">Multi-Provider Support</h3>
-          <h3 class="lang-zh">多平台支持</h3>
-          <p class="lang-en">
-            Backup images from Aliyun OSS, Tencent COS, SM.MS, Imgur, and GitHub
-            with a single tool.
-          </p>
-          <p class="lang-zh">
-            通过单一工具从阿里云OSS、腾讯云COS、SM.MS、Imgur和GitHub备份图片。
-          </p>
+        <h2 class="section-title lang-en">Getting Started</h2>
+        <h2 class="section-title lang-zh">快速开始</h2>
+        
+        <section class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                </div>
+                <div class="terminal-title lang-en">Terminal Session</div>
+                <div class="terminal-title lang-zh">终端会话</div>
+                <div style="width: 50px;"></div>
+            </div>
+            <div class="terminal-body">
+                <div class="command">pip install host-image-backup</div>
+                <div class="command">hib init</div>
+                <div class="output">✅ Configuration file created at ~/.config/host-image-backup/config.yaml</div>
+                <div class="command">hib list-providers</div>
+                <div class="output">🔍 Available providers:</div>
+                <div class="output">   • oss (Aliyun Object Storage Service)</div>
+                <div class="output">   • cos (Tencent Cloud Object Storage)</div>
+                <div class="output">   • smms (SM.MS)</div>
+                <div class="output">   • imgur (Imgur)</div>
+                <div class="output">   • github (GitHub)</div>
+                <div class="command">hib test --provider oss</div>
+                <div class="info">🔍 Testing connection to OSS...</div>
+                <div class="output">✅ Connection successful!</div>
+                <div class="command">hib backup --provider oss</div>
+                <div class="info">🔍 Initializing backup for provider: oss</div>
+                <div class="output">Found 24 images</div>
+                <div class="progress">Downloading [████████████████████] 100% - image1.jpg</div>
+                <div class="progress">Downloading [████████████████████] 100% - image2.png</div>
+                <div class="output">...</div>
+                <div class="progress">✅ Successfully backed up 24 images to ./backup/</div>
+            </div>
+        </section>
+        
+        <div class="cta-section">
+            <a href="https://github.com/WayneXuCN/HostImageBackup" class="app-btn github">
+                <i class="fab fa-github github-icon"></i>
+                <span class="lang-en">View on GitHub</span>
+                <span class="lang-zh">在GitHub上查看</span>
+            </a>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3 class="lang-en">Smart Backup</h3>
-          <h3 class="lang-zh">智能备份</h3>
-          <p class="lang-en">
-            Skip existing files and resume interrupted downloads to save time
-            and bandwidth.
-          </p>
-          <p class="lang-zh">
-            跳过已存在的文件并恢复中断的下载，节省时间和带宽。
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-cog"></i>
-          </div>
-          <h3 class="lang-en">Easy Configuration</h3>
-          <h3 class="lang-zh">简单配置</h3>
-          <p class="lang-en">
-            Simple YAML configuration and intuitive CLI commands for quick
-            setup.
-          </p>
-          <p class="lang-zh">简单的YAML配置和直观的CLI命令，快速上手。</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-terminal"></i>
-          </div>
-          <h3 class="lang-en">Command Line Interface</h3>
-          <h3 class="lang-zh">命令行界面</h3>
-          <p class="lang-en">
-            Powerful CLI with progress tracking, logging, and flexible options.
-          </p>
-          <p class="lang-zh">
-            功能强大的CLI，具有进度跟踪、日志记录和灵活选项。
-          </p>
-        </div>
-      </section>
-
-      <h2 class="section-title lang-en">Getting Started</h2>
-      <h2 class="section-title lang-zh">快速开始</h2>
-
-      <section class="terminal">
-        <div class="terminal-header">
-          <div class="terminal-dots">
-            <div class="terminal-dot dot-red"></div>
-            <div class="terminal-dot dot-yellow"></div>
-            <div class="terminal-dot dot-green"></div>
-          </div>
-          <div class="terminal-title lang-en">Terminal Session</div>
-          <div class="terminal-title lang-zh">终端会话</div>
-          <div style="width: 50px"></div>
-        </div>
-        <div class="terminal-body">
-          <div class="command">pip install host-image-backup</div>
-          <div class="command">hib init</div>
-          <div class="output">
-            ✅ Configuration file created at
-            ~/.config/host-image-backup/config.yaml
-          </div>
-          <div class="command">hib list-providers</div>
-          <div class="output">🔍 Available providers:</div>
-          <div class="output">• oss (Aliyun Object Storage Service)</div>
-          <div class="output">• cos (Tencent Cloud Object Storage)</div>
-          <div class="output">• smms (SM.MS)</div>
-          <div class="output">• imgur (Imgur)</div>
-          <div class="output">• github (GitHub)</div>
-          <div class="command">hib test --provider oss</div>
-          <div class="info">🔍 Testing connection to OSS...</div>
-          <div class="output">✅ Connection successful!</div>
-          <div class="command">hib backup --provider oss</div>
-          <div class="info">🔍 Initializing backup for provider: oss</div>
-          <div class="output">Found 24 images</div>
-          <div class="progress">
-            Downloading [████████████████████] 100% - image1.jpg
-          </div>
-          <div class="progress">
-            Downloading [████████████████████] 100% - image2.png
-          </div>
-          <div class="output">...</div>
-          <div class="progress">
-            ✅ Successfully backed up 24 images to ./backup/
-          </div>
-        </div>
-      </section>
-
-      <div class="cta-section">
-        <a
-          href="https://github.com/WayneXuCN/HostImageBackup"
-          class="app-btn github"
-        >
-          <i class="fab fa-github github-icon"></i>
-          <span class="lang-en">View on GitHub</span>
-          <span class="lang-zh">在GitHub上查看</span>
-        </a>
-      </div>
     </div>
 
     <footer>
-      <div class="container">
-        <p class="lang-en">
-          HostImageBackup &copy; 2025 - A powerful CLI tool for backing up
-          images
-        </p>
-        <p class="lang-zh">
-          HostImageBackup &copy; 2025 - 强大的图片备份CLI工具
-        </p>
-      </div>
+        <div class="container">
+            <p class="lang-en">HostImageBackup &copy; 2025 - A powerful CLI tool for backing up images</p>
+            <p class="lang-zh">HostImageBackup &copy; 2025 - 强大的图片备份CLI工具</p>
+        </div>
     </footer>
 
     <script>
-      // 语言切换功能
-      const languageSwitch = document.getElementById("languageSwitch");
-      const langEnElements = document.querySelectorAll(".lang-en");
-      const langZhElements = document.querySelectorAll(".lang-zh");
-      const langEnLabel = document.querySelector(".lang-en-label");
-      const langZhLabel = document.querySelector(".lang-zh-label");
-      let currentLang = "en";
+        // 语言切换功能
+        const languageSwitch = document.getElementById('languageSwitch');
+        const langEnElements = document.querySelectorAll('.lang-en');
+        const langZhElements = document.querySelectorAll('.lang-zh');
+        const langEnLabel = document.querySelector('.lang-en-label');
+        const langZhLabel = document.querySelector('.lang-zh-label');
+        let currentLang = 'en';
 
-      // 初始化语言显示状态
-      function updateLanguageDisplay() {
-        if (currentLang === "en") {
-          // 英文状态下显示中文切换按钮
-          langEnElements.forEach((el) => {
-            el.style.display = "block";
-          });
-          langZhElements.forEach((el) => {
-            el.style.display = "none";
-          });
-          langEnLabel.style.display = "block";
-          langZhLabel.style.display = "none";
-        } else {
-          // 中文状态下显示英文切换按钮
-          langEnElements.forEach((el) => {
-            el.style.display = "none";
-          });
-          langZhElements.forEach((el) => {
-            el.style.display = "block";
-          });
-          langEnLabel.style.display = "none";
-          langZhLabel.style.display = "block";
+        // 初始化语言显示状态
+        function updateLanguageDisplay() {
+            if (currentLang === 'en') {
+                // 英文状态下显示中文切换按钮
+                langEnElements.forEach(el => {
+                    el.style.display = 'block';
+                });
+                langZhElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                langEnLabel.style.display = 'block';
+                langZhLabel.style.display = 'none';
+            } else {
+                // 中文状态下显示英文切换按钮
+                langEnElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                langZhElements.forEach(el => {
+                    el.style.display = 'block';
+                });
+                langEnLabel.style.display = 'none';
+                langZhLabel.style.display = 'block';
+            }
         }
-      }
 
-      languageSwitch.addEventListener("click", () => {
-        if (currentLang === "en") {
-          currentLang = "zh";
-        } else {
-          currentLang = "en";
-        }
+        languageSwitch.addEventListener('click', () => {
+            if (currentLang === 'en') {
+                currentLang = 'zh';
+            } else {
+                currentLang = 'en';
+            }
+            updateLanguageDisplay();
+        });
+
+        // 初始化显示
         updateLanguageDisplay();
-      });
 
-      // 初始化显示
-      updateLanguageDisplay();
+        // 动效实现
+        document.addEventListener('DOMContentLoaded', function() {
+            // 滚动触发动画
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-      // 动效实现
-      document.addEventListener("DOMContentLoaded", function () {
-        // 滚动触发动画
-        const observerOptions = {
-          root: null,
-          rootMargin: "0px",
-          threshold: 0.1,
-        };
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // 添加轻微延迟以创建流畅的动画序列
-                setTimeout(() => {
-                  entry.target.classList.add("animate");
-                }, 100);
-
-                // 对于终端中的命令和输出，逐个添加动画
-                if (entry.target.classList.contains("terminal")) {
-                  const commands = entry.target.querySelectorAll(".command");
-                  const outputs = entry.target.querySelectorAll(
-                    ".output, .progress, .info, .success",
-                  );
-
-                  commands.forEach((command, index) => {
-                    setTimeout(
-                      () => {
-                        command.classList.add("animate");
-                      },
-                      index * 200 + 300,
-                    );
-                  });
-
-                  outputs.forEach((output, index) => {
-                    setTimeout(
-                      () => {
-                        output.classList.add("animate");
-                      },
-                      index * 150 + 600,
-                    );
-                  });
-                }
-              }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 添加轻微延迟以创建流畅的动画序列
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, 100);
+                        
+                        // 对于终端中的命令和输出，逐个添加动画
+                        if (entry.target.classList.contains('terminal')) {
+                            const commands = entry.target.querySelectorAll('.command');
+                            const outputs = entry.target.querySelectorAll('.output, .progress, .info, .success');
+                            
+                            commands.forEach((command, index) => {
+                                setTimeout(() => {
+                                    command.classList.add('animate');
+                                }, index * 200 + 300);
+                            });
+                            
+                            outputs.forEach((output, index) => {
+                                setTimeout(() => {
+                                    output.classList.add('animate');
+                                }, index * 150 + 600);
+                            });
+                        }
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
             });
-          },
-          {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.1,
-          },
-        );
 
-        // 观察需要动画的元素
-        document
-          .querySelectorAll(
-            ".section-title, .feature-card, .terminal, .cta-section, footer, .app-btn.github",
-          )
-          .forEach((el, index) => {
+            // 观察需要动画的元素
+            document.querySelectorAll('.section-title, .feature-card, .terminal, .cta-section, footer, .app-btn.github').forEach((el, index) => {
+                setTimeout(() => {
+                    observer.observe(el);
+                }, index * 100);
+            });
+
+            // 延迟显示GitHub按钮，使其在最后出现
             setTimeout(() => {
-              observer.observe(el);
-            }, index * 100);
-          });
-
-        // 延迟显示GitHub按钮，使其在最后出现
-        setTimeout(() => {
-          const githubBtn = document.querySelector(".app-btn.github");
-          if (githubBtn) {
-            githubBtn.classList.add("animate");
-          }
-        }, 1500);
-      });
+                const githubBtn = document.querySelector('.app-btn.github');
+                if (githubBtn) {
+                    githubBtn.classList.add('animate');
+                }
+            }, 1500);
+        });
     </script>
-  </body>
+</body>
 </html>
