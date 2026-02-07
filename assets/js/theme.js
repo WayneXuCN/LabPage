@@ -2,6 +2,16 @@
 
 // Toggle between light and dark theme (ignore system icon in header).
 let toggleThemeSetting = () => {
+  // 添加切换动画类
+  const toggleBtn = document.getElementById("light-toggle");
+  if (toggleBtn) {
+    toggleBtn.classList.add("switching");
+    // 动画完成后移除类
+    setTimeout(() => {
+      toggleBtn.classList.remove("switching");
+    }, 400);
+  }
+
   // toggle based on the currently computed theme (light/dark)
   let current = determineComputedTheme();
   if (current === "light") {
@@ -24,74 +34,100 @@ let setThemeSetting = (themeSetting) => {
 let applyTheme = () => {
   let theme = determineComputedTheme();
 
+  // 立即应用视觉变化
   transTheme();
-  setHighlight(theme);
-  setGiscusTheme(theme);
-  setSearchTheme(theme);
-  setCookieConsentTheme(theme);
-  updateCalendarUrl();
-
-  // if mermaid is not defined, do nothing
-  if (typeof mermaid !== "undefined") {
-    setMermaidTheme(theme);
-  }
-
-  // if diff2html is not defined, do nothing
-  if (typeof Diff2HtmlUI !== "undefined") {
-    setDiff2htmlTheme(theme);
-  }
-
-  // if echarts is not defined, do nothing
-  if (typeof echarts !== "undefined") {
-    setEchartsTheme(theme);
-  }
-
-  // if Plotly is not defined, do nothing
-  if (typeof Plotly !== "undefined") {
-    setPlotlyTheme(theme);
-  }
-
-  // if vegaEmbed is not defined, do nothing
-  if (typeof vegaEmbed !== "undefined") {
-    setVegaLiteTheme(theme);
-  }
-
   document.documentElement.setAttribute("data-theme", theme);
 
-  // Update header toggle icons to reflect the computed theme
+  // 更新图标状态（同步执行，提供即时反馈）
   if (typeof updateThemeToggleIcons === "function") {
     updateThemeToggleIcons(theme);
   }
 
-  // Add class to tables.
-  let tables = document.getElementsByTagName("table");
-  for (let i = 0; i < tables.length; i++) {
-    if (theme == "dark") {
-      tables[i].classList.add("table-dark");
-    } else {
-      tables[i].classList.remove("table-dark");
-    }
-  }
+  // 使用 requestAnimationFrame 延迟非关键操作，避免阻塞主线程
+  requestAnimationFrame(() => {
+    // 第一帧：应用高亮主题和基础样式
+    setHighlight(theme);
+    setCookieConsentTheme(theme);
+    setSearchTheme(theme);
+    updateCalendarUrl();
 
-  // Set jupyter notebooks themes.
-  let jupyterNotebooks = document.getElementsByClassName("jupyter-notebook-iframe-container");
-  for (let i = 0; i < jupyterNotebooks.length; i++) {
-    let bodyElement = jupyterNotebooks[i].getElementsByTagName("iframe")[0].contentWindow.document.body;
-    if (theme == "dark") {
-      bodyElement.setAttribute("data-jp-theme-light", "false");
-      bodyElement.setAttribute("data-jp-theme-name", "JupyterLab Dark");
-    } else {
-      bodyElement.setAttribute("data-jp-theme-light", "true");
-      bodyElement.setAttribute("data-jp-theme-name", "JupyterLab Light");
+    // 更新表格样式
+    let tables = document.getElementsByTagName("table");
+    for (let i = 0; i < tables.length; i++) {
+      if (theme == "dark") {
+        tables[i].classList.add("table-dark");
+      } else {
+        tables[i].classList.remove("table-dark");
+      }
     }
-  }
+  });
 
-  // Updates the background of medium-zoom overlay.
-  if (typeof medium_zoom !== "undefined") {
-    medium_zoom.update({
-      background: getComputedStyle(document.documentElement).getPropertyValue("--global-bg-color") + "ee", // + 'ee' for trasparency.
-    });
-  }
+  // 使用 requestIdleCallback 延迟执行更耗时的操作（如果可用）
+  const scheduleHeavyWork = (callback) => {
+    if (typeof requestIdleCallback !== "undefined") {
+      requestIdleCallback(callback, { timeout: 100 });
+    } else {
+      setTimeout(callback, 50);
+    }
+  };
+
+  // 延迟执行第三方组件主题更新
+  scheduleHeavyWork(() => {
+    setGiscusTheme(theme);
+
+    // if mermaid is not defined, do nothing
+    if (typeof mermaid !== "undefined") {
+      setMermaidTheme(theme);
+    }
+
+    // if diff2html is not defined, do nothing
+    if (typeof Diff2HtmlUI !== "undefined") {
+      setDiff2htmlTheme(theme);
+    }
+
+    // if echarts is not defined, do nothing
+    if (typeof echarts !== "undefined") {
+      setEchartsTheme(theme);
+    }
+
+    // if Plotly is not defined, do nothing
+    if (typeof Plotly !== "undefined") {
+      setPlotlyTheme(theme);
+    }
+
+    // if vegaEmbed is not defined, do nothing
+    if (typeof vegaEmbed !== "undefined") {
+      setVegaLiteTheme(theme);
+    }
+  });
+
+  // 延迟更新 Jupyter notebooks 和 medium-zoom
+  scheduleHeavyWork(() => {
+    // Set jupyter notebooks themes.
+    let jupyterNotebooks = document.getElementsByClassName("jupyter-notebook-iframe-container");
+    for (let i = 0; i < jupyterNotebooks.length; i++) {
+      let iframe = jupyterNotebooks[i].getElementsByTagName("iframe")[0];
+      if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+        let bodyElement = iframe.contentWindow.document.body;
+        if (bodyElement) {
+          if (theme == "dark") {
+            bodyElement.setAttribute("data-jp-theme-light", "false");
+            bodyElement.setAttribute("data-jp-theme-name", "JupyterLab Dark");
+          } else {
+            bodyElement.setAttribute("data-jp-theme-light", "true");
+            bodyElement.setAttribute("data-jp-theme-name", "JupyterLab Light");
+          }
+        }
+      }
+    }
+
+    // Updates the background of medium-zoom overlay.
+    if (typeof medium_zoom !== "undefined") {
+      medium_zoom.update({
+        background: getComputedStyle(document.documentElement).getPropertyValue("--global-bg-color") + "ee",
+      });
+    }
+  });
 };
 
 let setHighlight = (theme) => {
@@ -263,10 +299,18 @@ let setCookieConsentTheme = (theme) => {
 };
 
 let transTheme = () => {
-  document.documentElement.classList.add("transition");
+  const html = document.documentElement;
+
+  // 立即添加过渡类
+  html.classList.add("transition");
+
+  // 强制重绘以确保过渡生效
+  void html.offsetHeight;
+
+  // 使用更短的定时器移除过渡类（与 CSS 过渡时间匹配）
   window.setTimeout(() => {
-    document.documentElement.classList.remove("transition");
-  }, 500);
+    html.classList.remove("transition");
+  }, 250);
 };
 
 // Determine the expected state of the theme toggle, which can be "dark", "light", or

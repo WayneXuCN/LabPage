@@ -220,8 +220,7 @@ def hello():
 2. **Date format:** Check `YYYY-MM-DD` format is correct
 3. **Build test:**
    ```bash
-   docker compose down
-   docker compose up
+   bundle exec jekyll serve --port 4000
    # Wait for "Server running" message
    # Navigate to your content in browser
    # Verify formatting, images, and links work
@@ -272,6 +271,6 @@ npx prettier --write .
 When creating or editing content:
 
 - Follow the frontmatter structure for your content type
-- Test locally with `docker compose up` to verify appearance
+- Test locally with `bundle exec jekyll serve --port 4000` to verify appearance
 - Check date format, filename format, and image paths
 - Only search for advanced features if frontmatter or markdown error messages appear

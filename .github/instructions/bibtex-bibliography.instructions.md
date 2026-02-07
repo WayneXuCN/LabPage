@@ -130,10 +130,9 @@ When using `pdf`, `poster`, `preview`, or similar fields:
 1. **Syntax check:** Verify no unclosed braces or quotes
 2. **Build test:**
    ```bash
-   docker compose down
-   docker compose up
+   bundle exec jekyll serve --port 4000
    # Check output for "ERROR" or "Invalid bibtex"
-   # Publications should render at http://localhost:8080/publications/
+   # Publications should render at http://localhost:4000/publications/
    ```
 3. **Publication page:** Open publications page and verify entries display correctly
 
@@ -151,7 +150,7 @@ When using `pdf`, `poster`, `preview`, or similar fields:
 1. Add entry to `_bibliography/papers.bib`
 2. Use consistent key naming (e.g., `LastnameYear` or `Lastname2023details`)
 3. Ensure all required fields are present
-4. Test build: `docker compose up`
+4. Test build: `bundle exec jekyll serve --port 4000`
 
 ### Modifying Existing Entries
 
@@ -169,6 +168,6 @@ When using `pdf`, `poster`, `preview`, or similar fields:
 When working with BibTeX:
 
 - Follow the standard format shown in examples above
-- Always test locally with `docker compose up` after changes
-- Check the publications page at http://localhost:8080/publications to verify display
+- Always test locally with `bundle exec jekyll serve --port 4000` after changes
+- Check the publications page at http://localhost:4000/publications to verify display
 - Only search for additional details if encountering error messages not mentioned here

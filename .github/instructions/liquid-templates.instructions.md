@@ -78,14 +78,13 @@ Prettier with `@shopify/prettier-plugin-liquid` enforces formatting:
 2. **Build test:**
 
    ```bash
-   docker compose down
-   docker compose up
+   bundle exec jekyll serve --port 4000
    # Wait 30 seconds, check for errors in output
    # No "Unknown tag" messages should appear
    ```
 
 3. **Visual verification:**
-   - Open http://localhost:8080
+   - Open http://localhost:4000
    - Check that your changes rendered correctly
    - Verify no broken layout or missing content
 

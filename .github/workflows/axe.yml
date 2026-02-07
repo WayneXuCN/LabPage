@@ -4,7 +4,7 @@ on:
   # if you want to run this on every push uncomment the following lines
   # push:
   #   branches:
-  #     - master
+  #     - master这个 workflow是干嘛的
   #     - main
   # pull_request:
   #   branches:

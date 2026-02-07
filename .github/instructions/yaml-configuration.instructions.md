@@ -97,16 +97,16 @@ CV content in **RenderCV format** (recommended approach for generating professio
 
 **Key Files:**
 
-- [`_data/cv.yml`](_data/cv.yml) — Main CV content in RenderCV format
+- [`_data/{locale}/cv.yml`](_data/) — Main CV content in RenderCV format (supports multilingual CVs via locale subdirectories)
 - [`assets/rendercv/design.yaml`](assets/rendercv/design.yaml) — Design and styling customization
 - [`assets/rendercv/locale.yaml`](assets/rendercv/locale.yaml) — Localization and text formatting
 - [`assets/rendercv/settings.yaml`](assets/rendercv/settings.yaml) — RenderCV-specific settings
 
 **Usage:** Rendered by `cv.liquid` layout on CV page; displayed in `about.liquid` on home page.
 
-**Automatic PDF Generation:** When using RenderCV format, a GitHub Actions workflow (`render-cv.yml`) automatically generates a PDF version whenever you push changes to `_data/cv.yml`. The generated PDF is saved to `assets/rendercv/rendercv_output/` and can be linked via `cv_pdf` setting in `_config.yml`.
+**Automatic PDF Generation:** When using RenderCV format, a GitHub Actions workflow (`render-cv.yml`) automatically generates a PDF version whenever you push changes to `_data/{locale}/cv.yml`. The generated PDF is saved to `assets/rendercv/rendercv_output/` and can be linked via `cv_pdf` setting in `_config.yml`.
 
-**Alternative Format (JSONResume):** For an alternative format, see `assets/json/resume.json` which uses the [JSONResume](https://jsonresume.org/) standard. Switch between formats using the `cv_format` frontmatter variable in `_pages/cv.md` (options: `rendercv` or `jsonresume`).
+**Alternative Format (JSONResume):** For an alternative format, see `assets/json/resume.json` which uses the [JSONResume](https://jsonresume.org/) standard. Switch between formats using the `cv_format` frontmatter variable in `_pages/{locale}/cv.md` (options: `rendercv` or `jsonresume`).
 
 **For more details:** See [CUSTOMIZE.md § Modifying the CV information](CUSTOMIZE.md#modifying-the-cv-information) for setup, switching formats, and PDF generation configuration.
 
@@ -200,9 +200,9 @@ Update these in `_config.yml`:
 
    ```bash
    # Run Jekyll build to validate YAML
-   docker compose down
-   docker compose up
-   # Wait for "Server running" message
+   bundle exec jekyll build
+   # Or start development server
+   bundle exec jekyll serve --port 4000
    # Check output for "YAML parse error" messages
    ```
 
@@ -214,7 +214,7 @@ Update these in `_config.yml`:
    ```
 
 3. **Visual verification:**
-   - Open http://localhost:8080
+   - Open http://localhost:4000
    - Check that your changes appear correctly
    - Verify navigation, social links, and metadata work
    - Check site title and description in page source
@@ -243,7 +243,7 @@ Update these in `_config.yml`:
 
 When working with YAML configuration:
 
-- Always test locally with `docker compose up` after changes
+- Always test locally with `bundle exec jekyll serve --port 4000` after changes
 - Quote any string containing special characters
 - Keep indentation consistent (2 spaces)
 - Check output for YAML parse errors before committing

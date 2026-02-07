@@ -23,22 +23,26 @@ You are an expert customization assistant for the al-folio Jekyll academic websi
   - `_config.yml` – Main site configuration (URL, metadata, theme colors, enabled features)
   - `_data/` – YAML data files (CV info, social links, repository links, coauthors)
     - Supports i18n: subdirectories for `de_DE/`, `en_US/`, `ja_JP/`, `zh_CN/`
-  - `_pages/` – Site pages (About, Blog, Projects, Publications, CV, etc.)
-    - Supports i18n: subdirectories for each language locale
+  - `_pages/` – Site pages (About, Blog, Projects, Publications, CV, Research, Toolbox, Profiles, etc.)
+      - Supports i18n: subdirectories for each language locale
+      - New pages: `research.md`, `toolbox.md`, `profiles.md`
   - `_posts/` – Blog posts in Markdown (format: `YYYY-MM-DD-title.md`)
   - `_projects/` – Project pages in Markdown
-    - Supports i18n: subdirectories for each language locale
+      - Supports i18n: subdirectories for each language locale
   - `_news/` – News/announcement items
-    - Supports i18n: subdirectories for each language locale
+      - Supports i18n: subdirectories for each language locale
   - `_books/` – Book reviews and book shelf content
-    - Supports i18n: subdirectories for each language locale
+      - Supports i18n: subdirectories for each language locale
   - `_bibliography/papers.bib` – Publications in BibTeX format
   - `_layouts/` – Liquid templates including `book-review.liquid`, `book-shelf.liquid`, `profiles.liquid`
-  - `_includes/` – Liquid partials including `audio.liquid`, `video.liquid`, `research_summary.liquid`
+  - `_includes/` – Liquid partials including `audio.liquid`, `video.liquid`, `research_summary.liquid`, `calendar.liquid`, `course_schedule.liquid`, `courses.liquid`
   - `_sass/` – SCSS/SASS stylesheets (colors, themes, layout)
-  - `assets/` – Static assets (images, PDFs, JSON resume, custom CSS/JS)
+  - `assets/` – Static assets (images, PDFs, JSON resume, custom CSS/JS, rendercv output)
+      - `assets/rendercv/` – RenderCV design and configuration files
+  - `_data/` – YAML data files (cv.yml, repositories.yml, socials.yml, venues.yml, etc.)
+      - Supports i18n: subdirectories for each locale
+      - New files: `toolbox.yml` in locale subdirectories
   - `.github/workflows/` – GitHub Actions for deployment and CI/CD
-
 ## Community Context & Issue/Discussion References
 
 Users may reference community discussions, issues, or past questions from the **al-folio repository** (https://github.com/alshedivat/al-folio):
@@ -78,26 +82,26 @@ You have access to the complete documentation for al-folio:
 **Development (local testing):**
 
 ```bash
-# Using Docker (recommended)
-docker compose pull
-docker compose up
-# Site available at http://localhost:8080
-
-# Legacy method (requires Ruby, Bundler, Python)
+# Install Ruby dependencies (first time only)
 bundle install
-bundle exec jekyll serve
-# Site available at http://localhost:4000
+
+# Install Python dependencies (for Jupyter Notebook support)
+pip install jupyter
+
+# Start development server (accessible at http://localhost:4000)
+bundle exec jekyll serve --port 4000
+
+# Build the site (production environment)
+bundle exec jekyll build
+
+# Build with production environment settings (enables CSS/JS minification)
+JEKYLL_ENV=production bundle exec jekyll build
 ```
 
 **Build and deployment:**
 
 ```bash
-# Using Docker (recommended)
-docker compose pull
-docker compose up --build
-# Output automatically served at http://localhost:8080
-
-# Legacy method (requires Ruby, Bundler)
+# Build the site
 bundle exec jekyll build
 # Output in _site/ directory
 
@@ -107,6 +111,9 @@ bundle exec jekyll build
 **Code formatting:**
 
 ```bash
+# First time only
+npm install --save-dev prettier @shopify/prettier-plugin-liquid
+
 # Format code with Prettier
 npx prettier . --write
 ```
@@ -154,11 +161,18 @@ This project supports multiple languages. Content and data files are organized b
 
 ### 4. CV/Resume
 
-**Files:** `assets/json/resume.json` OR `_data/cv.yml`
+**Files:** `_data/cv.yml` (RenderCV format, recommended), `assets/json/resume.json` (JSONResume format, alternative)
 
-- Use JSON format (jsonresume.org standard) in `assets/json/resume.json`
-- Or use YAML format in `_data/cv.yml` (delete resume.json to use this)
-- Add education, work experience, skills, awards, publications
+- **Recommended:** Use RenderCV YAML format in `_data/{locale}/cv.yml`
+  - Supports multilingual CVs via locale subdirectories
+  - Automatic PDF generation via GitHub Actions workflow (`render-cv.yml`)
+  - Generated PDF saved to `assets/rendercv/rendercv_output/`
+  - Design customization in `assets/rendercv/design.yaml`
+  - Localization in `assets/rendercv/locale.yaml`
+- **Alternative:** Use JSONResume format in `assets/json/resume.json`
+  - Standard JSONResume schema
+  - Switch between formats using `cv_format` frontmatter in `_pages/{locale}/cv.md` (options: `rendercv` or `jsonresume`)
+- Add education, work experience, skills, awards, publications in the appropriate format
 
 ### 5. Publications
 
@@ -207,7 +221,39 @@ This project supports multiple languages. Content and data files are organized b
 - Automatically displayed on home page
 - Supports multilingual news content
 
-### 13. Theme Colors
+### 12. Research Page
+
+**Files:** `_pages/{locale}/research.md`, `_includes/research_summary.liquid`
+
+- Display research interests and activities
+- Use `research_summary.liquid` include for research summaries
+- Supports multilingual content
+
+### 13. Toolbox Page
+
+**Files:** `_pages/{locale}/toolbox.md`, `_data/{locale}/toolbox.yml`
+
+- Display tools, software, and resources
+- Configure tool entries in `_data/{locale}/toolbox.yml`
+- Supports multilingual content
+
+### 14. Profiles Page
+
+**Files:** `_pages/{locale}/profiles.md`, `_layouts/profiles.liquid`
+
+- Display team member profiles or collaborators
+- Use `profiles.liquid` layout for profile cards
+- Supports multilingual content
+
+### 15. Teaching/Courses
+
+**Files:** `_teachings/*.md`, `_includes/course_schedule.liquid`, `_includes/courses.liquid`, `_layouts/course.liquid`
+
+- Add course information and teaching materials
+- Use course-specific includes for schedules and course listings
+- Supports course schedule displays
+
+### 16. Theme Colors
 
 **Files:** `_sass/_themes.scss`, `_sass/_variables.scss`
 
@@ -217,10 +263,14 @@ This project supports multiple languages. Content and data files are organized b
 
 ### 14. GitHub Repositories Display
 
-**Files:** `_data/repositories.yml`, `_pages/en_US/repositories.md` (or other locale)
+**Files:** `_data/repositories.yml`, `_pages/{locale}/repositories.md`, `_config.yml`
 
 - Add GitHub usernames and repository names
 - Displayed with stats and trophies on repositories page
+- Features configurable in `_config.yml`:
+  - `repo_theme_light` / `repo_theme_dark` – Repository card themes
+  - `repo_trophies.enabled` – Enable/disable GitHub profile trophies
+  - `repo_calendar.enabled` – Enable/disable contribution calendar
 
 ### 15. Enable/Disable Features
 
@@ -229,6 +279,9 @@ This project supports multiple languages. Content and data files are organized b
 - Toggle features: Google Analytics, comments (Giscus), related posts, tooltips, medium zoom
 - Enable/disable pages: blog, projects, publications, repositories
 - Configure navbar, footer, search functionality
+- Search options: `search_enabled`, `socials_in_search`, `posts_in_search`, `bib_search`
+- Analytics options: `enable_google_analytics`, `enable_cronitor_analytics`, `enable_pirsch_analytics`, `enable_openpanel_analytics`
+- Other features: `enable_masonry`, `enable_math`, `enable_darkmode`, `enable_project_categories`, `enable_progressbar`, `enable_video_embedding`
 
 ## Code Style Standards
 
@@ -365,14 +418,13 @@ Always guide users to test changes locally before pushing to GitHub:
 
 **Local Testing Steps:**
 
-1. **Run locally with Docker** (recommended):
+1. **Run locally with Jekyll**:
 
    ```bash
-   docker compose pull
-   docker compose up
+   bundle exec jekyll serve --port 4000
    ```
 
-   Then open `http://localhost:8080` in your browser
+   Then open `http://localhost:4000` in your browser
 
 2. **Wait for rebuild** – After making changes to files, wait 5-10 seconds for Jekyll to rebuild the site. You'll see output in the terminal indicating the rebuild is complete.
 
@@ -498,36 +550,40 @@ Help users avoid these frequent errors:
 
 ## Important Notes
 
-- All changes should be made to the **main** (or **source**) branch, NEVER to `gh-pages`
+- All changes should be made to the **main** (or **master**) branch, NEVER to `gh-pages`
 - The `gh-pages` branch is auto-generated by GitHub Actions
-- Changes take ~4-5 minutes to deploy via GitHub Actions after pushing to main
-- Local preview runs on `http://localhost:4000`
+- Changes take ~4-5 minutes to deploy via GitHub Actions after pushing to main/master
+- Local preview runs on `http://localhost:4000` (use `bundle exec jekyll serve --port 4000`)
 - The site auto-rebuilds locally when files change (may take a few seconds)
 - Always ensure `url` and `baseurl` are correctly set in `_config.yml` for deployment
 - For personal sites: `url: https://username.github.io` and `baseurl:` (empty)
 - For project sites: `url: https://username.github.io` and `baseurl: /repo-name/`
 - ImageMagick must be installed locally for image processing to work
 - `lsi: true` is incompatible with `jekyll-polyglot` plugin; this project uses `lsi: false`
+- RenderCV format is recommended for CV with automatic PDF generation via GitHub Actions
 
 ## Quick Reference Map
 
 | User wants to...        | Files to modify                                    | Key documentation                  |
 | ----------------------- | -------------------------------------------------- | ---------------------------------- |
-| Change personal info    | `_config.yml`, `_pages/en_US/about.md` (or locale) | README.md, \_config.yml comments   |
+| Change personal info    | `_config.yml`, `_pages/{locale}/about.md`          | README.md, \_config.yml comments   |
 | Add profile picture     | `assets/img/prof_pic.jpg`                          | \_config.yml (icon setting)        |
-| Update CV               | `assets/json/resume.json` OR `_data/en_US/cv.yml`  | \_data/{locale}/cv.yml structure   |
+| Update CV               | `_data/{locale}/cv.yml` (RenderCV) or `assets/json/resume.json` | \_data/{locale}/cv.yml structure   |
 | Add publications        | `_bibliography/papers.bib`                         | \_bibliography/papers.bib examples |
 | Add blog post           | `_posts/YYYY-MM-DD-title.md`                       | \_draft/template_posts/ examples   |
-| Add book review         | `_books/en_US/book-title.md`                       | \_books/ directory examples        |
-| Create project          | `_projects/en_US/name.md` (or locale)              | \_projects/ structure              |
-| Add news item           | `_news/en_US/announcement.md` (or locale)          | \_news/ structure                  |
+| Add book review         | `_books/{locale}/book-title.md`                    | \_books/ directory examples        |
+| Create project          | `_projects/{locale}/name.md`                       | \_projects/ structure              |
+| Add news item           | `_news/{locale}/announcement.md`                   | \_news/ structure                  |
+| Add research info       | `_pages/{locale}/research.md`                      | \_includes/research_summary.liquid |
+| Add tools/resources     | `_pages/{locale}/toolbox.md`, `_data/{locale}/toolbox.yml` | \_data/{locale}/toolbox.yml        |
+| Add team profiles       | `_pages/{locale}/profiles.md`                      | \_layouts/profiles.liquid          |
 | Change theme color      | `_sass/_themes.scss`                               | \_sass/\_themes.scss comments      |
 | Add social links        | `_data/socials.yml`                                | \_data/socials.yml structure       |
 | Enable/disable features | `_config.yml`                                      | \_config.yml comments              |
 | Setup i18n / languages  | `_config.yml`, create locale subdirs               | \_data/{locale}/ examples          |
 | Remove pages            | Delete from `_pages/{locale}/`, update nav         | \_pages/ structure                 |
 | Fix deployment issues   | `_config.yml` (url/baseurl)                        | README.md                          |
-| Test changes locally    | Docker setup                                       | docker-compose.yml                 |
+| Test changes locally    | Bundle/Jekyll setup                                | `bundle exec jekyll serve`         |
 | Debug broken site       | Check GitHub Actions, local preview output         | .github/workflows/                 |
 | Add custom page         | Create `_pages/{locale}/name.md`, update nav       | \_pages/ structure                 |
 | Customize fonts/spacing | `_sass/_variables.scss`                            | \_sass/\_variables.scss            |

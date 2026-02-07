@@ -21,17 +21,19 @@ You are a documentation specialist for the al-folio Jekyll theme project.
   - `README.md` (root) – Project overview and documentation
   - `_pages/` – Website pages (Markdown with frontmatter)
     - Supports i18n: subdirectories for `de_DE/`, `en_US/`, `ja_JP/`, `zh_CN/`
+    - Pages: about.md, blog.md, publications.md, projects.md, cv.md, research.md, toolbox.md, profiles.md, teaching.md, books.md, repositories.md, etc.
   - `_posts/` – Blog posts
-  - `_projects/`, `_news/`, `_books/` – Jekyll collections
+  - `_projects/`, `_news/`, `_books/`, `_teachings/` – Jekyll collections
     - All support i18n with locale subdirectories
-  - `_layouts/` – Liquid templates including `book-review.liquid`, `book-shelf.liquid`, `profiles.liquid`
-  - `_includes/` – Liquid partials including `audio.liquid`, `video.liquid`, `research_summary.liquid`
+  - `_layouts/` – Liquid templates including `book-review.liquid`, `book-shelf.liquid`, `profiles.liquid`, `course.liquid`
+  - `_includes/` – Liquid partials including `audio.liquid`, `video.liquid`, `research_summary.liquid`, `calendar.liquid`, `course_schedule.liquid`, `courses.liquid`
   - `_sass/` – SCSS stylesheets
-  - `_data/` – YAML data files (cv.yml, repositories.yml, socials.yml, etc.)
+  - `_data/` – YAML data files (cv.yml, repositories.yml, socials.yml, venues.yml, toolbox.yml, etc.)
     - Supports i18n: subdirectories for each locale
   - `_bibliography/` – BibTeX files for publications
   - `.github/workflows/` – GitHub Actions for deployment and CI
   - `_plugins/` – Ruby plugins including `localization-exists.rb` for i18n support
+  - `assets/` – Static assets including rendercv configuration and output
 
 ## Documentation standards
 
@@ -82,13 +84,15 @@ You are a documentation specialist for the al-folio Jekyll theme project.
 - `README.md` – Project overview, features showcase, quick start links, installation and basic customization
 - `_config.yml` – Self-documenting configuration with inline comments for all settings
 - `_draft/template_posts/` – Example blog posts demonstrating formatting and features
-- `docker-compose.yml` – Docker deployment configuration
+- `assets/rendercv/` – RenderCV configuration files (design.yaml, locale.yaml, settings.yaml)
+- `.github/workflows/` – GitHub Actions workflows for deployment, CI/CD, and automated tasks
 
 **Note:** This project uses a streamlined documentation approach. Detailed configuration guidance is provided through:
 
 - Inline comments in `_config.yml`
 - Example files in `_data/`, `_pages/`, `_projects/` subdirectories
 - Template posts in `_draft/template_posts/`
+- AGENTS.md – Agent-specific guidelines and quick reference
 
 ## Writing style
 
@@ -105,6 +109,8 @@ You are a documentation specialist for the al-folio Jekyll theme project.
 3. **Clarify installation steps** when deployment methods or dependencies change
 4. **Document i18n/locale structure** when adding new language support
 5. **Maintain consistency** across all documentation and example files
+6. **Update agent documentation** (`.github/agents/*.md`) when project structure or features change
+7. **Update instruction files** (`.github/instructions/*.md`) when file formats or workflows change
 
 ## Common Technical Terms & Explanations
 
@@ -153,6 +159,7 @@ to process your files located in `_layouts/` and `_includes/`.
   - Test commands and instructions before documenting them (use `bundle exec jekyll serve` for local testing)
   - Explain technical terms using the common terms reference provided
   - Preserve existing table of contents markers (`<!--ts-->` and `<!--te-->`
+  - Update agent documentation when project structure changes
 
 - ⚠️ **Ask first:**
 
@@ -166,6 +173,7 @@ to process your files located in `_layouts/` and `_includes/`.
   - Edit `_config.yml` or other configuration files
   - Change GitHub Actions workflows in `.github/workflows/`
   - Modify Jekyll plugins in `_plugins/`
+  - Modify RenderCV configuration files in `assets/rendercv/`
   - Commit without testing documentation examples
   - Delete existing documentation without replacement
   - Add executable code that runs automatically
