@@ -324,9 +324,10 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
   }
 }
 
-// 移动端（< 768px）
-@media (max-width: 767px) {
-  .navbar-collapse {
+// 移动端（< 576px）
+@media (max-width: 575px) {
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
     .navbar-nav {
       // 按钮容器样式
       .nav-item {
@@ -345,8 +346,8 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
       .lang-switcher-single,
       .lang-switcher-toggle {
         width: 100%;
-        justify-content: flex-start;
-        padding: 0.875rem 1rem;
+        justify-content: center;
+        padding: 0.875rem 0;
         border-radius: 0;
         background-color: transparent;
         font-size: 1.1rem;
@@ -357,10 +358,10 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
         }
 
         i {
-          margin-right: 0.75rem;
+          margin-right: 0;
         }
         .icon-img {
-          margin-right: 0.75rem;
+          margin-right: 0;
         }
       }
     }

@@ -1,20 +1,21 @@
-/*******************************************************************************
- * Styles for the base elements of the theme.
-  font-weight:
-  100 - Thin
-  200 - Extra Light
-  300 - Light
-  400 - Normal (Regular)
-  500 - Medium
-  600 - Semi Bold
-  700 - Bold
-  800 - Extra Bold
+// ============================================
+// 基础样式
+// 定义主题的基础元素样式
+// ============================================
 
- ******************************************************************************/
+// 字重参考
+// 100 - 极细
+// 200 - 特细
+// 300 - 细体
+// 400 - 常规
+// 500 - 中等
+// 600 - 半粗
+// 700 - 粗体
+// 800 - 特粗
 
 @use "variables" as *;
 
-// Typography
+// 排版基础
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
@@ -33,7 +34,7 @@ body {
   }
 }
 
-// Heading System
+// 标题系统
 h1,
 h2,
 h3,
@@ -80,7 +81,7 @@ h6 {
   letter-spacing: $letter-spacing-wide;
 }
 
-// Other weights
+// 其他字重
 button,
 .btn {
   font-weight: 500; // 按钮权重
@@ -97,7 +98,7 @@ button,
   font-weight: 300; // 次要文本
 }
 
-// Divider
+// 分隔线
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
@@ -152,7 +153,7 @@ blockquote {
     margin-bottom: 0;
   }
 
-  /* Tips, warnings, and dangers blockquotes */
+  // 提示、警告和危险引用块
   &.block-tip {
     border-color: var(--global-tip-block);
     background-color: var(--global-tip-block-bg);
@@ -220,7 +221,7 @@ blockquote {
   }
 }
 
-// Checklist
+// 任务列表
 
 ul.task-list {
   list-style-type: none; /* Remove bullets from all levels */
@@ -236,14 +237,14 @@ ul.task-list input[type="checkbox"] {
   vertical-align: middle;
 }
 
-// Math
+// 数学公式
 
 .equation {
   margin-bottom: 1rem;
   text-align: center;
 }
 
-// Caption
+// 图片标题
 
 .caption {
   font-size: 0.875rem;
@@ -252,7 +253,7 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 }
 
-// Card
+// 卡片
 
 .card {
   background-color: var(--global-card-bg-color);
@@ -281,14 +282,14 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Citation
+// 引用
 
 .citation,
 .citation-number {
   color: var(--global-theme-color);
 }
 
-// Profile
+// 个人资料
 
 .profile {
   width: 100%;
@@ -377,7 +378,7 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Animation for dropdown
+// 下拉菜单动画
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -417,9 +418,9 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// 语言切换器样式
+// 语言切换器
 
-// 基础语言切换按钮样式
+// 基础按钮样式
 .lang-switcher {
   display: inline-flex;
   align-items: center;
@@ -534,31 +535,6 @@ ul.task-list input[type="checkbox"] {
         justify-content: center;
         text-align: center;
 
-        // 下拉箭头图标 - 使用更现代的样式
-        &::after {
-          content: "";
-          display: inline-block;
-          width: 0;
-          height: 0;
-          margin-left: 4px;
-          vertical-align: middle;
-          border-top: 5px solid var(--global-text-color);
-          border-right: 4px solid transparent;
-          border-left: 4px solid transparent;
-          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          opacity: 0.7;
-        }
-
-        &:hover::after {
-          border-top-color: var(--global-hover-color);
-          opacity: 1;
-        }
-
-        // 展开状态
-        &[aria-expanded="true"]::after {
-          transform: rotate(180deg);
-        }
-
         // 活跃状态指示
         &[aria-expanded="true"] {
           background-color: var(--global-hover-bg-color);
@@ -583,6 +559,7 @@ ul.task-list input[type="checkbox"] {
         margin-top: 0;
         z-index: 1000;
         opacity: 0;
+        visibility: hidden;
         transform: translateY(-6px) scale(0.98);
         transform-origin: top right;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -592,6 +569,7 @@ ul.task-list input[type="checkbox"] {
         // 显示状态
         &.show {
           opacity: 1;
+          visibility: visible;
           transform: translateY(0) scale(1);
           pointer-events: auto;
         }
@@ -670,9 +648,10 @@ ul.task-list input[type="checkbox"] {
 
 // 响应式布局策略
 
-// 移动端优化 (< 768px)
-@media (max-width: 767px) {
-  .navbar-collapse {
+// 移动端优化 (< 576px)
+@media (max-width: 575px) {
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
     .navbar-nav {
       // 语言切换器容器
       .lang-switcher-item {
@@ -688,8 +667,8 @@ ul.task-list input[type="checkbox"] {
         // 单语言切换器
         .lang-switcher-single {
           width: 100%;
-          justify-content: flex-start;
-          padding: 0.875rem 1rem;
+          justify-content: center;
+          padding: 0.875rem 0;
           margin: 0;
           height: auto;
           min-height: 48px;
@@ -703,7 +682,7 @@ ul.task-list input[type="checkbox"] {
 
           // 图标右边距
           .lang-icon {
-            margin-right: 0.75rem;
+            margin-right: 0;
           }
         }
 
@@ -713,8 +692,8 @@ ul.task-list input[type="checkbox"] {
 
           .lang-switcher-toggle {
             width: 100%;
-            justify-content: space-between;
-            padding: 0.875rem 1rem;
+            justify-content: center;
+            padding: 0.875rem 0;
             margin: 0;
             height: auto;
             min-height: 48px;
@@ -724,6 +703,10 @@ ul.task-list input[type="checkbox"] {
 
             &:hover {
               background-color: var(--global-hover-bg-color);
+            }
+
+            .lang-icon {
+              margin-right: 0;
             }
           }
 
