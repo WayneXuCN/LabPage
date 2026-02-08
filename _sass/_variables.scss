@@ -4,6 +4,7 @@
 // ============================================
 
 @use "sass:color";
+@use "fonts" as fonts; // 引入字体管理系统
 
 // Colors
 $red-color: #ff3636 !default;
@@ -41,58 +42,100 @@ $code-bg-color-dark: #2c3237 !default;
 $fa-font-path: "../webfonts";
 
 // ============================================
-// 排版系统
+// 排版系统 (Typography System)
+// 基于 _fonts.scss 的集中化字体管理
 // ============================================
-// 字体族
-$font-family-sans-serif:
-  "Source Sans Pro",
-  "Noto Sans SC",
-  "PingFang SC",
-  "Microsoft YaHei",
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  Arial,
-  sans-serif !default;
-$font-family-serif: "Source Serif Pro", "Noto Serif SC", "STSong", "SimSun", Georgia, serif !default;
-$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+// --------------------------------------------
+// 字体族 (Font Families) - 从 fonts 模块导入
+// --------------------------------------------
+$font-family-sans-serif: fonts.$font-family-sans-serif !default;
+$font-family-serif: fonts.$font-family-serif !default;
+$font-family-monospace: fonts.$font-family-monospace !default;
 
 // 基础字体设置
-$font-family-base: $font-family-sans-serif !default;
-$font-family-headings: $font-family-serif !default;
-$font-weight-normal: 400 !default;
-$font-weight-medium: 500 !default;
-$font-weight-semibold: 600 !default;
-$font-weight-bold: 700 !default;
+$font-family-base: fonts.$font-family-base !default;
+$font-family-headings: fonts.$font-family-headings !default;
 
-// 字号比例（大三度 1.25 比例）
-$font-size-xs: 0.75rem !default; // 12px
-$font-size-sm: 0.875rem !default; // 14px
-$font-size-base: 1rem !default; // 16px
-$font-size-md: 1.125rem !default; // 18px
-$font-size-lg: 1.25rem !default; // 20px
-$font-size-xl: 1.5rem !default; // 24px
-$font-size-2xl: 1.875rem !default; // 30px
-$font-size-3xl: 2.25rem !default; // 36px
-$font-size-4xl: 3rem !default; // 48px
+// 特殊场景字体
+$font-family-code: fonts.$font-family-code !default;
+$font-family-quote: fonts.$font-family-quote !default;
+$font-family-button: fonts.$font-family-button !default;
+$font-family-nav: fonts.$font-family-nav !default;
+$font-family-caption: fonts.$font-family-caption !default;
+
+// --------------------------------------------
+// 字重 (Font Weights) - 从 fonts 模块导入
+// --------------------------------------------
+$font-weight-normal: fonts.$font-weight-normal !default;
+$font-weight-medium: fonts.$font-weight-medium !default;
+$font-weight-semibold: fonts.$font-weight-semibold !default;
+$font-weight-bold: fonts.$font-weight-bold !default;
+
+// 扩展字重（新添加）
+$font-weight-thin: fonts.$font-weight-thin !default;
+$font-weight-extralight: fonts.$font-weight-extralight !default;
+$font-weight-light: fonts.$font-weight-light !default;
+$font-weight-extrabold: fonts.$font-weight-extrabold !default;
+$font-weight-black: fonts.$font-weight-black !default;
+
+// --------------------------------------------
+// 字号 (Font Sizes) - 从 fonts 模块导入
+// --------------------------------------------
+$font-size-2xs: fonts.$font-size-2xs !default;
+$font-size-xs: fonts.$font-size-xs !default;
+$font-size-sm: fonts.$font-size-sm !default;
+$font-size-base: fonts.$font-size-base !default;
+$font-size-md: fonts.$font-size-md !default;
+$font-size-lg: fonts.$font-size-lg !default;
+$font-size-xl: fonts.$font-size-xl !default;
+$font-size-2xl: fonts.$font-size-2xl !default;
+$font-size-3xl: fonts.$font-size-3xl !default;
+$font-size-4xl: fonts.$font-size-4xl !default;
+$font-size-5xl: fonts.$font-size-5xl !default;
+$font-size-6xl: fonts.$font-size-6xl !default;
 
 // 标题字号
-$h1-font-size: $font-size-4xl !default;
-$h2-font-size: $font-size-3xl !default;
-$h3-font-size: $font-size-2xl !default;
-$h4-font-size: $font-size-xl !default;
-$h5-font-size: $font-size-lg !default;
-$h6-font-size: $font-size-base !default;
+$h1-font-size: fonts.$h1-font-size !default;
+$h2-font-size: fonts.$h2-font-size !default;
+$h3-font-size: fonts.$h3-font-size !default;
+$h4-font-size: fonts.$h4-font-size !default;
+$h5-font-size: fonts.$h5-font-size !default;
+$h6-font-size: fonts.$h6-font-size !default;
 
-// 行高
-$line-height-tight: 1.25 !default;
-$line-height-normal: 1.6 !default;
-$line-height-relaxed: 1.75 !default;
+// --------------------------------------------
+// 行高 (Line Heights) - 从 fonts 模块导入
+// --------------------------------------------
+$line-height-none: fonts.$line-height-none !default;
+$line-height-tight: fonts.$line-height-tight !default;
+$line-height-snug: fonts.$line-height-snug !default;
+$line-height-normal: fonts.$line-height-normal !default;
+$line-height-relaxed: fonts.$line-height-relaxed !default;
+$line-height-loose: fonts.$line-height-loose !default;
 
-// 字间距
-$letter-spacing-tight: -0.02em !default;
-$letter-spacing-normal: 0 !default;
-$letter-spacing-wide: 0.01em !default;
+// --------------------------------------------
+// 字间距 (Letter Spacing) - 从 fonts 模块导入
+// --------------------------------------------
+$letter-spacing-tighter: fonts.$letter-spacing-tighter !default;
+$letter-spacing-tight: fonts.$letter-spacing-tight !default;
+$letter-spacing-normal: fonts.$letter-spacing-normal !default;
+$letter-spacing-wide: fonts.$letter-spacing-wide !default;
+$letter-spacing-wider: fonts.$letter-spacing-wider !default;
+$letter-spacing-widest: fonts.$letter-spacing-widest !default;
+
+// --------------------------------------------
+// 字体加载配置
+// --------------------------------------------
+$font-display-strategy: fonts.$font-display-strategy !default;
+$font-preload-list: fonts.$font-preload-list !default;
+
+// --------------------------------------------
+// 响应式字体配置
+// --------------------------------------------
+$font-scale-mobile: fonts.$font-scale-mobile !default;
+$font-scale-tablet: fonts.$font-scale-tablet !default;
+$font-scale-desktop: fonts.$font-scale-desktop !default;
+$font-scale-wide: fonts.$font-scale-wide !default;
 
 // 返回顶部按钮配置
 $back-to-top-z-index: 10;

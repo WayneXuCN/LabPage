@@ -3,17 +3,8 @@
 // 定义主题的基础元素样式
 // ============================================
 
-// 字重参考
-// 100 - 极细
-// 200 - 特细
-// 300 - 细体
-// 400 - 常规
-// 500 - 中等
-// 600 - 半粗
-// 700 - 粗体
-// 800 - 特粗
-
 @use "variables" as *;
+@use "fonts" as fonts;
 
 // 排版基础
 body {
@@ -84,7 +75,8 @@ h6 {
 // 其他字重
 button,
 .btn {
-  font-weight: 500; // 按钮字重
+  font-family: fonts.$font-family-button;
+  font-weight: fonts.$font-weight-medium; // 按钮字重
   transition: all 0.2s ease-in-out;
   border-radius: 6px;
 
@@ -95,7 +87,7 @@ button,
 }
 
 .secondary-text {
-  font-weight: 300; // 次要文本
+  font-weight: fonts.$font-weight-light; // 次要文本
 }
 
 // 分隔线
@@ -104,18 +96,20 @@ hr {
 }
 
 table {
+  font-family: fonts.$font-family-base;
+
   td,
   th {
-    font-size: 1rem;
+    font-size: fonts.$font-size-base;
     padding: 1px 1rem 1px 0;
   }
 
   td {
-    font-weight: 400;
+    font-weight: fonts.$font-weight-normal;
   }
 
   th {
-    font-weight: 700;
+    font-weight: fonts.$font-weight-bold;
   }
 }
 
@@ -145,7 +139,10 @@ blockquote {
   border-left: 5px solid var(--global-theme-color);
   margin: 1.5em 0;
   padding: 1em;
-  font-size: 1.2rem;
+  font-family: fonts.$font-family-quote;
+  font-size: fonts.$font-size-md;
+  font-weight: fonts.$font-weight-normal;
+  line-height: fonts.$line-height-relaxed;
   border-radius: 0 8px 8px 0;
   box-shadow: var(--global-shadow-sm);
 
@@ -247,7 +244,8 @@ ul.task-list input[type="checkbox"] {
 // 图片标题
 
 .caption {
-  font-size: 0.875rem;
+  font-family: fonts.$font-family-caption;
+  font-size: fonts.$font-size-sm;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -297,7 +295,7 @@ ul.task-list input[type="checkbox"] {
   .more-info {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
 
     p {
       display: inline-block;
@@ -328,7 +326,8 @@ ul.task-list input[type="checkbox"] {
 
 .post-description {
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+  font-family: fonts.$font-family-base;
+  font-size: fonts.$font-size-sm;
 
   a {
     color: inherit;
@@ -1024,7 +1023,8 @@ ul.task-list input[type="checkbox"] {
 // 页脚
 footer.fixed-bottom {
   background-color: var(--global-footer-bg-color);
-  font-size: 0.75rem;
+  font-family: fonts.$font-family-base;
+  font-size: fonts.$font-size-xs;
 
   .container {
     color: var(--global-footer-text-color);
@@ -1047,7 +1047,8 @@ footer.sticky-bottom {
   border-top: 1px solid var(--global-divider-color);
   padding-top: 40px;
   padding-bottom: 40px;
-  font-size: 0.9rem;
+  font-family: fonts.$font-family-base;
+  font-size: fonts.$font-size-sm;
 
   .container {
     text-align: center;
@@ -1104,7 +1105,9 @@ footer.sticky-bottom {
 
   h1 {
     color: var(--global-theme-color);
-    font-size: 5rem;
+    font-family: fonts.$font-family-headings;
+    font-size: fonts.$font-size-5xl;
+    font-weight: fonts.$font-weight-bold;
   }
 }
 
@@ -1131,7 +1134,8 @@ footer.sticky-bottom {
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
-  font-weight: 500;
+  font-family: fonts.$font-family-headings;
+  font-weight: fonts.$font-weight-medium;
 }
 
 .post-list {
@@ -1147,13 +1151,15 @@ footer.sticky-bottom {
 
     .post-meta {
       color: var(--global-text-color-light);
-      font-size: 0.875rem;
+      font-family: fonts.$font-family-caption;
+      font-size: fonts.$font-size-sm;
       margin-bottom: 0;
     }
 
     .post-tags {
       color: var(--global-text-color-light);
-      font-size: 0.875rem;
+      font-family: fonts.$font-family-caption;
+      font-size: fonts.$font-size-sm;
       padding-top: 0.25rem;
       padding-bottom: 0;
     }
@@ -1256,17 +1262,20 @@ footer.sticky-bottom {
 
   h1 {
     color: var(--global-theme-color);
-    font-size: 2rem;
+    font-family: fonts.$font-family-headings;
+    font-size: fonts.$font-size-2xl;
+    font-weight: fonts.$font-weight-bold;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
   }
 
   h2 {
+    font-family: fonts.$font-family-headings;
     margin-bottom: 1rem;
 
     span {
-      font-size: 1.5rem;
+      font-size: fonts.$font-size-xl;
     }
   }
 
@@ -1369,6 +1378,7 @@ footer.sticky-bottom {
         span {
           display: inline-block;
           color: $black-color;
+          font-family: fonts.$font-family-base;
           height: 100%;
           padding-right: 0.5rem;
           vertical-align: middle;
@@ -1380,7 +1390,8 @@ footer.sticky-bottom {
       }
 
       .hidden {
-        font-size: 0.875rem;
+        font-family: fonts.$font-family-base;
+        font-size: fonts.$font-size-sm;
         max-height: 0px;
         overflow: hidden;
         text-align: justify;
@@ -1391,13 +1402,15 @@ footer.sticky-bottom {
         transition: all 0.15s ease;
 
         p {
-          line-height: 1.4em;
+          font-family: fonts.$font-family-base;
+          line-height: fonts.$line-height-normal;
           margin: 10px;
         }
 
         pre {
-          font-size: 1em;
-          line-height: 1.4em;
+          font-family: fonts.$font-family-code;
+          font-size: fonts.$font-size-base;
+          line-height: fonts.$line-height-normal;
           padding: 10px;
         }
       }
@@ -1491,13 +1504,15 @@ html.transition *:after {
 .post {
   .post-meta {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    font-family: fonts.$font-family-caption;
+    font-size: fonts.$font-size-sm;
     margin-bottom: 0;
   }
 
   .post-tags {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    font-family: fonts.$font-family-caption;
+    font-size: fonts.$font-size-sm;
     padding-top: 0.25rem;
     padding-bottom: 1rem;
 
@@ -1577,7 +1592,8 @@ progress::-moz-progress-bar {
     border-radius: 0.3rem;
     border-style: none;
     color: var(--global-text-color);
-    font-size: 500;
+    font-family: fonts.$font-family-base;
+    font-weight: fonts.$font-weight-medium;
     opacity: 0;
     position: absolute;
     right: 0.2rem;
@@ -1622,12 +1638,14 @@ nav[data-toggle="toc"] {
   top: 5rem;
 
   .nav .nav > li > a {
-    font-size: 0.75rem;
+    font-family: fonts.$font-family-base;
+    font-size: fonts.$font-size-xs;
   }
 
   .nav > li > a {
     color: var(--global-text-color);
-    font-size: 0.75rem;
+    font-family: fonts.$font-family-base;
+    font-size: fonts.$font-size-xs;
 
     &:hover {
       color: var(--global-hover-color);
@@ -1638,7 +1656,8 @@ nav[data-toggle="toc"] {
   .nav-link.active {
     color: var(--global-theme-color);
     border-left-color: var(--global-theme-color);
-    font-size: 0.75rem;
+    font-family: fonts.$font-family-base;
+    font-size: fonts.$font-size-xs;
 
     &:hover {
       color: var(--global-hover-color);
@@ -1657,7 +1676,8 @@ nav[data-toggle="toc"] {
   }
   /* Responsive code blocks for mobile */
   pre {
-    font-size: 0.875rem;
+    font-family: fonts.$font-family-code;
+    font-size: fonts.$font-size-sm;
     padding: 8px 10px;
     margin: 0.5rem 0;
   }
@@ -1666,13 +1686,15 @@ nav[data-toggle="toc"] {
     margin: 0.5rem 0;
 
     pre {
-      font-size: 0.875rem;
+      font-family: fonts.$font-family-code;
+      font-size: fonts.$font-size-sm;
       padding: 8px 10px;
     }
   }
 
   code {
-    font-size: 0.875rem;
+    font-family: fonts.$font-family-code;
+    font-size: fonts.$font-size-sm;
     padding: 2px 4px;
   }
 }
@@ -1680,19 +1702,22 @@ nav[data-toggle="toc"] {
 /* Extra small screens */
 @media (max-width: 400px) {
   pre {
-    font-size: 0.8rem;
+    font-family: fonts.$font-family-code;
+    font-size: fonts.$font-size-xs;
     padding: 6px 8px;
   }
 
   figure.highlight {
     pre {
-      font-size: 0.8rem;
+      font-family: fonts.$font-family-code;
+      font-size: fonts.$font-size-xs;
       padding: 6px 8px;
     }
   }
 
   code {
-    font-size: 0.8rem;
+    font-family: fonts.$font-family-code;
+    font-size: fonts.$font-size-xs;
     padding: 1px 3px;
   }
 }
@@ -1700,13 +1725,15 @@ nav[data-toggle="toc"] {
 /* Medium screens - optimize for tablets */
 @media (min-width: 577px) and (max-width: 768px) {
   pre {
-    font-size: 0.9rem;
+    font-family: fonts.$font-family-code;
+    font-size: fonts.$font-size-sm;
     padding: 8px 12px;
   }
 
   figure.highlight {
     pre {
-      font-size: 0.9rem;
+      font-family: fonts.$font-family-code;
+      font-size: fonts.$font-size-sm;
       padding: 8px 12px;
     }
   }
@@ -1734,7 +1761,8 @@ nav[data-toggle="toc"] {
 
   .post-meta {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    font-family: fonts.$font-family-caption;
+    font-size: fonts.$font-size-sm;
     margin-bottom: 0;
     padding-top: 0.5rem;
   }
@@ -1843,9 +1871,10 @@ ninja-keys::part(ninja-input-wrapper) {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   border-radius: 6px;
   text-align: center;
+  font-family: fonts.$font-family-button;
   font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
+  font-weight: fonts.$font-weight-medium;
+  line-height: fonts.$line-height-snug;
   border: none;
   cursor: pointer;
 }
@@ -1864,9 +1893,10 @@ ninja-keys::part(ninja-input-wrapper) {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   border-radius: 6px;
   text-align: center;
+  font-family: fonts.$font-family-button;
   font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
+  font-weight: fonts.$font-weight-medium;
+  line-height: fonts.$line-height-snug;
   border: none;
   cursor: pointer;
   margin-right: 20px;
@@ -1965,7 +1995,7 @@ figure.cover {
   }
 
   figcaption.abandoned {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #ee5f5b;
@@ -1973,28 +2003,28 @@ figure.cover {
 
   figcaption.finished,
   figcaption.watched {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #62c462;
   }
 
   figcaption.interested {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #7691db;
   }
 
   figcaption.paused {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #bdac7e;
   }
 
   figcaption.queued {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #9e76b5;
@@ -2002,7 +2032,7 @@ figure.cover {
 
   figcaption.reading,
   figcaption.watching {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #f89406;
@@ -2010,14 +2040,14 @@ figure.cover {
 
   figcaption.reread,
   figcaption.rewatch {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #a6517d;
   }
 
   figcaption.uncategorized {
-    font-family: $font-family-monospace;
+    font-family: fonts.$font-family-code;
     color: #23212d;
     text-transform: uppercase;
     background-color: #b0abb3;

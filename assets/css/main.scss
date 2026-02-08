@@ -3,9 +3,15 @@
 ---
 @charset "utf-8";
 
-/* Built-in Sass modules you’ll likely use across partials */
+/* Built-in Sass modules you'll likely use across partials */
 @use "sass:math";
 @use "sass:string";
+
+/* ============================================
+   1. 字体管理系统 (Font Management System)
+   首先加载字体配置，供其他模块使用
+   ============================================ */
+@use "fonts";
 
 /* Configure your design tokens BEFORE loading any of your partials.
    Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */

@@ -41,6 +41,11 @@ collections:
   posts: Beiträge
 contact_note: >
   Sie können mich jederzeit per E-Mail unter
+footer:
+  copyright: Alle Rechte vorbehalten
+  last_updated: "Zuletzt aktualisiert"
+  impressum: "Impressum"
+footer_text: Erstellt mit <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
 cv:
   address: Adresse
   area: Gebiet

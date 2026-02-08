@@ -2,30 +2,32 @@
 // 导航栏样式
 // ============================================
 
+@use "fonts" as fonts;
+
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
   opacity: 0.95;
-  font-family: var(--global-font-family-base, "Source Sans Pro", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif);
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: fonts.$font-family-nav;
+  font-size: fonts.$font-size-base;
+  font-weight: fonts.$font-weight-normal;
+  letter-spacing: fonts.$letter-spacing-normal;
 
   .navbar-brand {
-    font-family: var(--global-font-family-headings, "Source Serif Pro", "Noto Serif SC", Georgia, serif);
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-family: fonts.$font-family-headings;
+    font-size: fonts.$font-size-lg;
+    font-weight: fonts.$font-weight-semibold !important;
+    letter-spacing: fonts.$letter-spacing-tight;
   }
 
   .nav-link {
-    font-weight: 400;
-    font-size: 1rem;
+    font-weight: fonts.$font-weight-normal;
+    font-size: fonts.$font-size-base;
   }
 
   .nav-item.active > .nav-link {
-    font-weight: 600 !important;
+    font-weight: fonts.$font-weight-semibold !important;
   }
 }
 
@@ -107,7 +109,7 @@
   .navbar-brand.social {
     padding-bottom: 0;
     padding-top: 0;
-    font-size: 1.7rem;
+    font-size: fonts.$font-size-2xl;
 
     a {
       img {
@@ -196,7 +198,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-family: fonts.$font-family-base;
+  font-size: fonts.$font-size-md;
   transition: all 0.2s ease-in-out;
   border-radius: 50%;
   cursor: pointer;

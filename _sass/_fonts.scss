@@ -1,0 +1,418 @@
+// ============================================
+// 字体管理系统 (Font Management System)
+// 集中管理所有字体配置、加载策略和字体工具
+// ============================================
+
+@use "sass:map";
+@use "sass:string";
+
+// ============================================
+// 1. 字体族定义 (Font Families)
+// ============================================
+
+/// 无衬线字体栈 - 用于正文和UI元素
+/// 优先级：Source Sans Pro > Noto Sans SC > 系统字体
+$font-family-sans-serif:
+  "Source Sans Pro",
+  "Noto Sans SC",
+  "PingFang SC",
+  "Microsoft YaHei",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  Arial,
+  sans-serif !default;
+
+/// 衬线字体栈 - 用于标题和强调文本
+/// 优先级：Source Serif Pro > Noto Serif SC > 系统衬线字体
+$font-family-serif:
+  "Source Serif Pro",
+  "Noto Serif SC",
+  "STSong",
+  "SimSun",
+  Georgia,
+  "Times New Roman",
+  serif !default;
+
+/// 等宽字体栈 - 用于代码和预格式化文本
+/// 优先级：SF Mono > Menlo > Consolas > 系统等宽字体
+$font-family-monospace:
+  "SFMono-Regular",
+  Menlo,
+  Monaco,
+  Consolas,
+  "Liberation Mono",
+  "Courier New",
+  "Noto Sans Mono",
+  monospace !default;
+
+// ============================================
+// 2. 字体角色分配 (Font Role Assignments)
+// ============================================
+
+/// 基础字体 - 页面默认字体
+$font-family-base: $font-family-sans-serif !default;
+
+/// 标题字体 - h1-h6 标题使用
+$font-family-headings: $font-family-serif !default;
+
+/// 代码字体 - 代码块和内联代码使用
+$font-family-code: $font-family-monospace !default;
+
+/// 引用块字体 - blockquote 使用
+$font-family-quote: $font-family-serif !default;
+
+/// 按钮字体 - 按钮和可点击元素使用
+$font-family-button: $font-family-sans-serif !default;
+
+/// 导航字体 - 导航栏使用
+$font-family-nav: $font-family-sans-serif !default;
+
+/// 辅助信息字体 - 脚注、元数据等
+$font-family-caption: $font-family-sans-serif !default;
+
+// ============================================
+// 3. 字重定义 (Font Weights)
+// ============================================
+
+/// 极细 - 仅用于特殊装饰性文本
+$font-weight-thin: 100 !default;
+
+/// 特细
+$font-weight-extralight: 200 !default;
+
+/// 细体 - 用于次要文本
+$font-weight-light: 300 !default;
+
+/// 常规 - 正文默认
+$font-weight-normal: 400 !default;
+
+/// 中等 - 强调文本
+$font-weight-medium: 500 !default;
+
+/// 半粗 - 小标题
+$font-weight-semibold: 600 !default;
+
+/// 粗体 - 标题和重要文本
+$font-weight-bold: 700 !default;
+
+/// 特粗
+$font-weight-extrabold: 800 !default;
+
+/// 极粗
+$font-weight-black: 900 !default;
+
+// ============================================
+// 4. 字号体系 (Type Scale)
+// 基于 1.25 (Major Third) 比例尺
+// 基础: 16px (1rem)
+// ============================================
+
+/// 超小号 - 标注、脚注
+$font-size-2xs: 0.625rem !default;  // 10px
+
+/// 特小号 - 标签、辅助文本
+$font-size-xs: 0.75rem !default;    // 12px
+
+/// 小号 - 次要文本、元数据
+$font-size-sm: 0.875rem !default;   // 14px
+
+/// 基础 - 正文
+$font-size-base: 1rem !default;     // 16px
+
+/// 中号 - 强调正文
+$font-size-md: 1.125rem !default;   // 18px
+
+/// 大号 - 小标题、引导文本
+$font-size-lg: 1.25rem !default;    // 20px
+
+/// 特大号 - h5 标题
+$font-size-xl: 1.5rem !default;     // 24px
+
+/// 2XL - h4 标题
+$font-size-2xl: 1.875rem !default;  // 30px
+
+/// 3XL - h3 标题
+$font-size-3xl: 2.25rem !default;   // 36px
+
+/// 4XL - h2 标题
+$font-size-4xl: 3rem !default;      // 48px
+
+/// 5XL - h1 标题、展示文本
+$font-size-5xl: 3.75rem !default;   // 60px
+
+/// 6XL - 大型展示
+$font-size-6xl: 4.5rem !default;    // 72px
+
+// ============================================
+// 5. 标题字号映射 (Heading Sizes)
+// ============================================
+
+$h1-font-size: $font-size-4xl !default;
+$h2-font-size: $font-size-3xl !default;
+$h3-font-size: $font-size-2xl !default;
+$h4-font-size: $font-size-xl !default;
+$h5-font-size: $font-size-lg !default;
+$h6-font-size: $font-size-base !default;
+
+// ============================================
+// 6. 行高定义 (Line Heights)
+// ============================================
+
+/// 紧凑 - 标题、展示文本
+$line-height-none: 1 !default;
+$line-height-tight: 1.25 !default;
+
+///  snug - 短段落
+$line-height-snug: 1.375 !default;
+
+/// 正常 - 默认行高
+$line-height-normal: 1.6 !default;
+
+/// 宽松 - 长文本阅读
+$line-height-relaxed: 1.75 !default;
+
+/// 超宽松 - 特殊场景
+$line-height-loose: 2 !default;
+
+// ============================================
+// 7. 字间距定义 (Letter Spacing)
+// ============================================
+
+/// 紧凑 - 大标题
+$letter-spacing-tighter: -0.05em !default;
+
+/// 较紧 - 标题
+$letter-spacing-tight: -0.02em !default;
+
+/// 正常
+$letter-spacing-normal: 0 !default;
+
+/// 较宽 - 小文本、大写
+$letter-spacing-wide: 0.01em !default;
+
+/// 宽松 - 特殊场景
+$letter-spacing-wider: 0.05em !default;
+
+/// 超宽 - 标签、大写文本
+$letter-spacing-widest: 0.1em !default;
+
+// ============================================
+// 8. 字体加载配置 (Font Loading)
+// ============================================
+
+/// 字体显示策略
+/// swap: 使用备用字体立即显示文本，加载完成后再切换
+$font-display-strategy: swap !default;
+
+/// 预加载字体列表
+$font-preload-list:
+  "Source Sans Pro:400,600,700",
+  "Source Serif Pro:400,600",
+  "Noto Sans SC:400,500,700"
+!default;
+
+// ============================================
+// 9. 响应式字体配置 (Responsive Typography)
+// ============================================
+
+/// 移动端字体缩放比例
+$font-scale-mobile: 0.9375 !default; // 15px base
+
+/// 平板字体缩放比例
+$font-scale-tablet: 0.96875 !default; // 15.5px base
+
+/// 桌面端字体缩放比例
+$font-scale-desktop: 1 !default; // 16px base
+
+/// 大桌面字体缩放比例
+$font-scale-wide: 1.0625 !default; // 17px base
+
+// ============================================
+// 10. 字体工具 Mixins
+// ============================================
+
+/// 应用字体平滑
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/// 文本截断 (单行)
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// 文本截断 (多行)
+/// @param {Number} $lines - 行数
+@mixin text-truncate-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/// 大写文本样式
+@mixin text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+}
+
+/// 应用字体栈
+/// @param {String} $family - 字体族变量
+/// @param {Number} $weight - 字重
+/// @param {Number} $size - 字号
+/// @param {Number} $line-height - 行高
+@mixin font-stack($family: $font-family-base, $weight: $font-weight-normal, $size: $font-size-base, $line-height: $line-height-normal) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}
+
+/// 标题字体样式
+/// @param {Number} $level - 标题级别 (1-6)
+@mixin heading-style($level: 1) {
+  font-family: $font-family-headings;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: var(--global-text-color);
+
+  // 根据级别设置字重和字号
+  @if $level == 1 {
+    font-weight: $font-weight-bold;
+    font-size: $h1-font-size;
+  } @else if $level == 2 {
+    font-weight: $font-weight-bold;
+    font-size: $h2-font-size;
+  } @else if $level == 3 {
+    font-weight: $font-weight-semibold;
+    font-size: $h3-font-size;
+  } @else if $level == 4 {
+    font-weight: $font-weight-semibold;
+    font-size: $h4-font-size;
+  } @else if $level == 5 {
+    font-weight: $font-weight-medium;
+    font-size: $h5-font-size;
+  } @else if $level == 6 {
+    font-weight: $font-weight-semibold;
+    font-size: $h6-font-size;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+}
+
+/// 正文字体样式
+@mixin body-style {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-wide;
+}
+
+/// 代码字体样式
+@mixin code-style {
+  font-family: $font-family-code;
+  font-size: 0.875em;
+  font-weight: $font-weight-normal;
+}
+
+/// 辅助文本样式
+@mixin caption-style {
+  font-family: $font-family-caption;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+}
+
+// ============================================
+// 11. 字体特性 (Font Features)
+// ============================================
+
+/// 启用 OpenType 特性
+$font-feature-default:
+  "kern" 1,      // 字距调整
+  "liga" 1,      // 标准连字
+  "calt" 1,      // 上下文替代
+  "tnum" 0       // 禁用等宽数字（使用比例数字）
+!default;
+
+/// 等宽数字（表格数据）
+$font-feature-tabular:
+  "kern" 1,
+  "liga" 1,
+  "tnum" 1       // 启用等宽数字
+!default;
+
+/// 应用字体特性
+@mixin font-features($features: $font-feature-default) {
+  font-feature-settings: $features;
+}
+
+// ============================================
+// 12. 导出变量映射 (Export Maps)
+// 用于程序化的字体配置访问
+// ============================================
+
+$font-families: (
+  "sans": $font-family-sans-serif,
+  "serif": $font-family-serif,
+  "mono": $font-family-monospace,
+  "base": $font-family-base,
+  "headings": $font-family-headings,
+  "code": $font-family-code,
+  "quote": $font-family-quote,
+  "button": $font-family-button,
+  "nav": $font-family-nav,
+  "caption": $font-family-caption
+) !default;
+
+$font-weights: (
+  "thin": $font-weight-thin,
+  "extralight": $font-weight-extralight,
+  "light": $font-weight-light,
+  "normal": $font-weight-normal,
+  "medium": $font-weight-medium,
+  "semibold": $font-weight-semibold,
+  "bold": $font-weight-bold,
+  "extrabold": $font-weight-extrabold,
+  "black": $font-weight-black
+) !default;
+
+$font-sizes: (
+  "2xs": $font-size-2xs,
+  "xs": $font-size-xs,
+  "sm": $font-size-sm,
+  "base": $font-size-base,
+  "md": $font-size-md,
+  "lg": $font-size-lg,
+  "xl": $font-size-xl,
+  "2xl": $font-size-2xl,
+  "3xl": $font-size-3xl,
+  "4xl": $font-size-4xl,
+  "5xl": $font-size-5xl,
+  "6xl": $font-size-6xl
+) !default;
+
+$line-heights: (
+  "none": $line-height-none,
+  "tight": $line-height-tight,
+  "snug": $line-height-snug,
+  "normal": $line-height-normal,
+  "relaxed": $line-height-relaxed,
+  "loose": $line-height-loose
+) !default;
+
+$letter-spacings: (
+  "tighter": $letter-spacing-tighter,
+  "tight": $letter-spacing-tight,
+  "normal": $letter-spacing-normal,
+  "wide": $letter-spacing-wide,
+  "wider": $letter-spacing-wider,
+  "widest": $letter-spacing-widest
+) !default;

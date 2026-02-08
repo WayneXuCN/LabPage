@@ -43,6 +43,11 @@ collections:
   posts: posts
 contact_note: >
   Feel free to contact me anytime through my email: wenjie.xu.cn@outlook.com
+footer:
+  copyright: All rights reserved
+  last_updated: "Last updated"
+  impressum: "Legal notice"
+footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
 cv:
   address: Address
   area: Area

@@ -41,6 +41,11 @@ collections:
   posts: 投稿
 contact_note: >
   いつでもお気軽にメール（wenjie.xu.cn@outlook.com）でご連絡ください
+footer:
+  copyright: すべての権利を保有
+  last_updated: "最終更新日"
+  impressum: "法的通知"
+footer_text: <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> で構築
 cv:
   address: 住所
   area: 地域
