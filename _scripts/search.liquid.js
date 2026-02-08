@@ -81,22 +81,24 @@ ninja.data = [
   {%- for collection in site.collections -%}
     {%- if collection.label != 'posts' -%}
       {%- for item in collection.docs -%}
-        {
-          {%- if item.inline -%}
-            {%- assign title = item.content | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
-          {%- else -%}
-            {%- assign title = item.title | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
-          {%- endif -%}
-          id: "{{ collection.label }}-{{ title | slugify }}",
-          title: '{{ title | escape | emojify | truncatewords: 13 }}',
-          description: "{{ item.description | strip_html | strip_newlines | escape | strip }}",
-          section: "{{ site.data[site.active_lang].strings.collections[collection.label] | default: collection.label | capitalize }}",
-          {%- unless item.inline -%}
-            handler: () => {
-              window.location.href = "{{ item.url | relative_url }}";
-            },
-          {%- endunless -%}
-        },
+        {%- if item.nav != false -%}
+          {
+            {%- if item.inline -%}
+              {%- assign title = item.content | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
+            {%- else -%}
+              {%- assign title = item.title | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
+            {%- endif -%}
+            id: "{{ collection.label }}-{{ title | slugify }}",
+            title: '{{ title | escape | emojify | truncatewords: 13 }}',
+            description: "{{ item.description | strip_html | strip_newlines | escape | strip }}",
+            section: "{{ site.data[site.active_lang].strings.collections[collection.label] | default: collection.label | capitalize }}",
+            {%- unless item.inline -%}
+              handler: () => {
+                window.location.href = "{{ item.url | relative_url }}";
+              },
+            {%- endunless -%}
+          },
+        {%- endif -%}
       {%- endfor -%}
     {%- endif -%}
   {%- endfor -%}
