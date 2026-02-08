@@ -31,45 +31,45 @@ ninja.data = [{
             window.location.href = "/toolbox/";
           },
         },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/en_US/the_godfather/";
-            },},{id: "news-school-president-scholarship-2022",
-          title: 'School President Scholarship, 2022',
-          description: "",
-          section: "News",},{id: "news-undergraduate-national-scholarship-2022",
-          title: 'Undergraduate National Scholarship, 2022',
-          description: "",
-          section: "News",},{id: "news-excellent-undergraduate-thesis-of-jiangsu-province-first-prize-2023",
-          title: 'Excellent Undergraduate Thesis of Jiangsu Province, First Prize 2023',
-          description: "",
-          section: "News",},{id: "projects-hostimagebackup",
-          title: 'HostImageBackup',
-          description: "A modular Python CLI tool for backing up images from various image hosting services to your local machine with ease.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/en_US/HostImageBackup/";
-            },},{id: "projects-microsofthostspicker",
-          title: 'MicrosoftHostsPicker',
-          description: "A modern, asynchronous Python tool to automatically find and select the fastest IP addresses for Microsoft services.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/en_US/MicrosoftHostsPicker/";
-            },},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "UCAS thesis Template Based on Typst",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/en_US/Typst%20for%20UCAS%20thesis/";
-            },},{id: "teachings-data-science-fundamentals",
-          title: 'Data Science Fundamentals',
-          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
-          section: "Teachings",handler: () => {
-              window.location.href = "/teachings/data-science-fundamentals/";
-            },},{id: "teachings-introduction-to-machine-learning",
-          title: 'Introduction to Machine Learning',
-          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
-          section: "Teachings",handler: () => {
-              window.location.href = "/teachings/introduction-to-machine-learning/";
-            },},{
+            title: 'The Godfather',
+            description: "",
+            section: "Books",handler: () => {
+                window.location.href = "/books/en_US/the_godfather/";
+              },},{id: "news-school-president-scholarship-2022",
+            title: 'School President Scholarship, 2022',
+            description: "",
+            section: "News",},{id: "news-undergraduate-national-scholarship-2022",
+            title: 'Undergraduate National Scholarship, 2022',
+            description: "",
+            section: "News",},{id: "news-excellent-undergraduate-thesis-of-jiangsu-province-first-prize-2023",
+            title: 'Excellent Undergraduate Thesis of Jiangsu Province, First Prize 2023',
+            description: "",
+            section: "News",},{id: "projects-hostimagebackup",
+            title: 'HostImageBackup',
+            description: "A modular Python CLI tool for backing up images from various image hosting services to your local machine with ease.",
+            section: "Projects",handler: () => {
+                window.location.href = "/projects/en_US/HostImageBackup/";
+              },},{id: "projects-microsofthostspicker",
+            title: 'MicrosoftHostsPicker',
+            description: "A modern, asynchronous Python tool to automatically find and select the fastest IP addresses for Microsoft services.",
+            section: "Projects",handler: () => {
+                window.location.href = "/projects/en_US/MicrosoftHostsPicker/";
+              },},{id: "projects-typst-ucas-thesis",
+            title: 'Typst-ucas-thesis',
+            description: "UCAS thesis Template Based on Typst",
+            section: "Projects",handler: () => {
+                window.location.href = "/projects/en_US/Typst%20for%20UCAS%20thesis/";
+              },},{id: "teachings-data-science-fundamentals",
+            title: 'Data Science Fundamentals',
+            description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+            section: "Teachings",handler: () => {
+                window.location.href = "/teachings/data-science-fundamentals/";
+              },},{id: "teachings-introduction-to-machine-learning",
+            title: 'Introduction to Machine Learning',
+            description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+            section: "Teachings",handler: () => {
+                window.location.href = "/teachings/introduction-to-machine-learning/";
+              },},{
         id: 'social-cv',
         title: 'CV',
         section: "Socials",

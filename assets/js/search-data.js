@@ -31,45 +31,45 @@ ninja.data = [{
             window.location.href = "/toolbox/";
           },
         },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "书籍",handler: () => {
-              window.location.href = "/books/zh_CN/the_godfather/";
-            },},{id: "news-2022年校长奖学金",
-          title: '2022年校长奖学金',
-          description: "",
-          section: "News",},{id: "news-2022年本科生国家奖学金",
-          title: '2022年本科生国家奖学金',
-          description: "",
-          section: "News",},{id: "news-2023年江苏省优秀本科毕业论文一等奖",
-          title: '2023年江苏省优秀本科毕业论文一等奖',
-          description: "",
-          section: "News",},{id: "projects-hostimagebackup",
-          title: 'HostImageBackup',
-          description: "一个模块化的 Python 命令行工具，轻松将各类图床服务的图片备份到本地。",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/zh_CN/HostImageBackup/";
-            },},{id: "projects-microsofthostspicker",
-          title: 'MicrosoftHostsPicker',
-          description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/zh_CN/MicrosoftHostsPicker/";
-            },},{id: "projects-typst-ucas-thesis",
-          title: 'Typst-ucas-thesis',
-          description: "基于 Typst 的中国科学院大学学位论文模板",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
-            },},{id: "teachings-data-science-fundamentals",
-          title: 'Data Science Fundamentals',
-          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
-          section: "Teachings",handler: () => {
-              window.location.href = "/teachings/data-science-fundamentals/";
-            },},{id: "teachings-introduction-to-machine-learning",
-          title: 'Introduction to Machine Learning',
-          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
-          section: "Teachings",handler: () => {
-              window.location.href = "/teachings/introduction-to-machine-learning/";
-            },},{
+            title: 'The Godfather',
+            description: "",
+            section: "书籍",handler: () => {
+                window.location.href = "/books/zh_CN/the_godfather/";
+              },},{id: "news-2022年校长奖学金",
+            title: '2022年校长奖学金',
+            description: "",
+            section: "News",},{id: "news-2022年本科生国家奖学金",
+            title: '2022年本科生国家奖学金',
+            description: "",
+            section: "News",},{id: "news-2023年江苏省优秀本科毕业论文一等奖",
+            title: '2023年江苏省优秀本科毕业论文一等奖',
+            description: "",
+            section: "News",},{id: "projects-hostimagebackup",
+            title: 'HostImageBackup',
+            description: "一个模块化的 Python 命令行工具，轻松将各类图床服务的图片备份到本地。",
+            section: "Projects",handler: () => {
+                window.location.href = "/projects/zh_CN/HostImageBackup/";
+              },},{id: "projects-microsofthostspicker",
+            title: 'MicrosoftHostsPicker',
+            description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
+            section: "Projects",handler: () => {
+                window.location.href = "/projects/zh_CN/MicrosoftHostsPicker/";
+              },},{id: "projects-typst-ucas-thesis",
+            title: 'Typst-ucas-thesis',
+            description: "基于 Typst 的中国科学院大学学位论文模板",
+            section: "Projects",handler: () => {
+                window.location.href = "/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
+              },},{id: "teachings-data-science-fundamentals",
+            title: 'Data Science Fundamentals',
+            description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+            section: "Teachings",handler: () => {
+                window.location.href = "/teachings/data-science-fundamentals/";
+              },},{id: "teachings-introduction-to-machine-learning",
+            title: 'Introduction to Machine Learning',
+            description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+            section: "Teachings",handler: () => {
+                window.location.href = "/teachings/introduction-to-machine-learning/";
+              },},{
         id: 'social-cv',
         title: 'CV',
         section: "社交",
