@@ -50,19 +50,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  const bibSearchInput = document.getElementById("bibsearch");
+
   const updateInputField = () => {
+    if (!bibSearchInput) return;
     const hashValue = decodeURIComponent(window.location.hash.substring(1)); // Remove the '#' character
-    document.getElementById("bibsearch").value = hashValue;
+    bibSearchInput.value = hashValue;
     filterItems(hashValue);
   };
 
   // Sensitive search. Only start searching if there's been no input for 300 ms
   let timeoutId;
-  document.getElementById("bibsearch").addEventListener("input", function () {
-    clearTimeout(timeoutId); // Clear the previous timeout
-    const searchTerm = this.value.toLowerCase();
-    timeoutId = setTimeout(filterItems(searchTerm), 300);
-  });
+  if (bibSearchInput) {
+    bibSearchInput.addEventListener("input", function () {
+      clearTimeout(timeoutId); // Clear the previous timeout
+      const searchTerm = this.value.toLowerCase();
+      timeoutId = setTimeout(filterItems(searchTerm), 300);
+    });
+  }
 
   window.addEventListener("hashchange", updateInputField); // Update the filter when the hash changes
 

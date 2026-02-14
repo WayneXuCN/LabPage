@@ -27,26 +27,11 @@ $font-family-sans-serif:
 
 /// 衬线字体栈 - 用于标题和强调文本
 /// 优先级：Source Serif Pro > Noto Serif SC > 系统衬线字体
-$font-family-serif:
-  "Source Serif Pro",
-  "Noto Serif SC",
-  "STSong",
-  "SimSun",
-  Georgia,
-  "Times New Roman",
-  serif !default;
+$font-family-serif: "Source Serif Pro", "Noto Serif SC", "STSong", "SimSun", Georgia, "Times New Roman", serif !default;
 
 /// 等宽字体栈 - 用于代码和预格式化文本
 /// 优先级：SF Mono > Menlo > Consolas > 系统等宽字体
-$font-family-monospace:
-  "SFMono-Regular",
-  Menlo,
-  Monaco,
-  Consolas,
-  "Liberation Mono",
-  "Courier New",
-  "Noto Sans Mono",
-  monospace !default;
+$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", "Noto Sans Mono", monospace !default;
 
 // ============================================
 // 2. 字体角色分配 (Font Role Assignments)
@@ -111,40 +96,40 @@ $font-weight-black: 900 !default;
 // ============================================
 
 /// 超小号 - 标注、脚注
-$font-size-2xs: 0.625rem !default;  // 10px
+$font-size-2xs: 0.625rem !default; // 10px
 
 /// 特小号 - 标签、辅助文本
-$font-size-xs: 0.75rem !default;    // 12px
+$font-size-xs: 0.75rem !default; // 12px
 
 /// 小号 - 次要文本、元数据
-$font-size-sm: 0.875rem !default;   // 14px
+$font-size-sm: 0.875rem !default; // 14px
 
 /// 基础 - 正文
-$font-size-base: 1rem !default;     // 16px
+$font-size-base: 1rem !default; // 16px
 
 /// 中号 - 强调正文
-$font-size-md: 1.125rem !default;   // 18px
+$font-size-md: 1.125rem !default; // 18px
 
 /// 大号 - 小标题、引导文本
-$font-size-lg: 1.25rem !default;    // 20px
+$font-size-lg: 1.25rem !default; // 20px
 
 /// 特大号 - h5 标题
-$font-size-xl: 1.5rem !default;     // 24px
+$font-size-xl: 1.5rem !default; // 24px
 
 /// 2XL - h4 标题
-$font-size-2xl: 1.875rem !default;  // 30px
+$font-size-2xl: 1.875rem !default; // 30px
 
 /// 3XL - h3 标题
-$font-size-3xl: 2.25rem !default;   // 36px
+$font-size-3xl: 2.25rem !default; // 36px
 
 /// 4XL - h2 标题
-$font-size-4xl: 3rem !default;      // 48px
+$font-size-4xl: 3rem !default; // 48px
 
 /// 5XL - h1 标题、展示文本
-$font-size-5xl: 3.75rem !default;   // 60px
+$font-size-5xl: 3.75rem !default; // 60px
 
 /// 6XL - 大型展示
-$font-size-6xl: 4.5rem !default;    // 72px
+$font-size-6xl: 4.5rem !default; // 72px
 
 // ============================================
 // 5. 标题字号映射 (Heading Sizes)
@@ -208,11 +193,7 @@ $letter-spacing-widest: 0.1em !default;
 $font-display-strategy: swap !default;
 
 /// 预加载字体列表
-$font-preload-list:
-  "Source Sans Pro:400,600,700",
-  "Source Serif Pro:400,600",
-  "Noto Sans SC:400,500,700"
-!default;
+$font-preload-list: "Source Sans Pro:400,600,700", "Source Serif Pro:400,600", "Noto Sans SC:400,500,700" !default;
 
 // ============================================
 // 9. 响应式字体配置 (Responsive Typography)
@@ -336,18 +317,21 @@ $font-scale-wide: 1.0625 !default; // 17px base
 
 /// 启用 OpenType 特性
 $font-feature-default:
-  "kern" 1,      // 字距调整
-  "liga" 1,      // 标准连字
-  "calt" 1,      // 上下文替代
-  "tnum" 0       // 禁用等宽数字（使用比例数字）
-!default;
+  "kern" 1,
+  // 字距调整
+  "liga" 1,
+  // 标准连字
+  "calt" 1,
+  // 上下文替代
+  "tnum" 0 // 禁用等宽数字（使用比例数字）
+ !default;
 
 /// 等宽数字（表格数据）
 $font-feature-tabular:
   "kern" 1,
   "liga" 1,
-  "tnum" 1       // 启用等宽数字
-!default;
+  "tnum" 1 // 启用等宽数字
+ !default;
 
 /// 应用字体特性
 @mixin font-features($features: $font-feature-default) {
@@ -369,7 +353,7 @@ $font-families: (
   "quote": $font-family-quote,
   "button": $font-family-button,
   "nav": $font-family-nav,
-  "caption": $font-family-caption
+  "caption": $font-family-caption,
 ) !default;
 
 $font-weights: (
@@ -381,7 +365,7 @@ $font-weights: (
   "semibold": $font-weight-semibold,
   "bold": $font-weight-bold,
   "extrabold": $font-weight-extrabold,
-  "black": $font-weight-black
+  "black": $font-weight-black,
 ) !default;
 
 $font-sizes: (
@@ -396,7 +380,7 @@ $font-sizes: (
   "3xl": $font-size-3xl,
   "4xl": $font-size-4xl,
   "5xl": $font-size-5xl,
-  "6xl": $font-size-6xl
+  "6xl": $font-size-6xl,
 ) !default;
 
 $line-heights: (
@@ -405,7 +389,7 @@ $line-heights: (
   "snug": $line-height-snug,
   "normal": $line-height-normal,
   "relaxed": $line-height-relaxed,
-  "loose": $line-height-loose
+  "loose": $line-height-loose,
 ) !default;
 
 $letter-spacings: (
@@ -414,5 +398,5 @@ $letter-spacings: (
   "normal": $letter-spacing-normal,
   "wide": $letter-spacing-wide,
   "wider": $letter-spacing-wider,
-  "widest": $letter-spacing-widest
+  "widest": $letter-spacing-widest,
 ) !default;

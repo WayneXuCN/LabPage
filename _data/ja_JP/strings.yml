@@ -28,8 +28,6 @@ bibliography:
   supp: 補足
   video: ビデオ
   website: ウェブサイト
-blog:
-  navigation_title: ブログ
 categories:
   fun: 趣味
   work: 仕事
@@ -157,32 +155,6 @@ references: 参照
 related_posts:
   description: "次におすすめの記事はこちら："
   title: この記事を楽しみましたか？
-search:
-  books: 書籍
-  dark_theme:
-    description: サイトのテーマをダークに変更
-    title: ダークテーマに変更
-  dropdown: ドロップダウン
-  email: メールを送信
-  footer:
-    close: 閉じる
-    navigate: 移動
-    parent: 親に移動
-    select: 選択
-  languages: 言語
-  light_theme:
-    description: サイトのテーマをライトに変更
-    title: ライトテーマに変更
-  navigation: ナビゲーションメニュー
-  news: ニュース
-  placeholder: 検索を開始するには入力してください
-  posts: 投稿
-  projects: プロジェクト
-  socials: ソーシャル
-  system_theme:
-    description: サイトのテーマをシステムデフォルトに変更
-    title: システムデフォルトを使用
-  theme: テーマ
 selected_publications: 代表的な出版物
 book:
   cover_of: "表紙"
@@ -286,7 +258,7 @@ repositories:
 
 cookie_consent:
   title: "Cookieを使用しています"
-  description: 'このウェブサイトは、お客様の体験を向上させ、サイトのトラフィックを分析するためにCookieを使用しています。「すべて受け入れる」をクリックすると、Cookieの使用に同意したことになります。'
+  description: "このウェブサイトは、お客様の体験を向上させ、サイトのトラフィックを分析するためにCookieを使用しています。「すべて受け入れる」をクリックすると、Cookieの使用に同意したことになります。"
   accept_all: "すべて受け入れる"
   reject_all: "すべて拒否する"
   manage_preferences: "個別設定を管理"

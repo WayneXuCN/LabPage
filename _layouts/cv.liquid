@@ -47,7 +47,7 @@ layout: default
 
       {% assign render_rendercv = false %}
       {% assign render_jsonresume = false %}
-      {% assign cv = nil %}
+      {% assign cv = null %}
 
       {% if page.cv_format == 'rendercv' %}
         {% assign render_rendercv = true %}
@@ -75,155 +75,154 @@ layout: default
         {% endif %}
 
         {% if cv %}
-
-        <!-- Header/Contact Information -->
-        {% if cv.name or cv.label or cv.location or cv.email or cv.phone or cv.website %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.contact_information }}</h3>
-            <table class="table table-cv table-sm table-borderless">
-              {% if cv.name %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.name }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ cv.name }}</td>
-                </tr>
-              {% endif %}
-              {% if cv.label %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.professional_title }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ cv.label }}</td>
-                </tr>
-              {% endif %}
-              {% if cv.email %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.email }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ cv.email }}</td>
-                </tr>
-              {% endif %}
-              {% if cv.phone %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.phone }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ cv.phone }}</td>
-                </tr>
-              {% endif %}
-              {% if cv.address %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.location }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">
-                    {% if cv.address.street %}{{ cv.address.street }}, {% endif %}
-                    {% if cv.address.city %}{{ cv.address.city }}, {% endif %}
-                    {% if cv.address.region %}{{ cv.address.region }} {% endif %}
-                    {% if cv.address.postalCode %}{{ cv.address.postalCode }}{% endif %}
-                  </td>
-                </tr>
-              {% endif %}
-              {% if cv.website %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.website }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">
-                    <a href="{{ cv.website }}" target="_blank">{{ cv.website }}</a>
-                  </td>
-                </tr>
-              {% endif %}
-            </table>
-          </div>
-        {% endif %}
-
-        <!-- Summary -->
-        {% if cv.summary %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.professional_summary }}</h3>
-            <p>{{ cv.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-          </div>
-        {% endif %}
-
-        <!-- RenderCV Sections - Merge Experience and Volunteer -->
-        {% comment %} First, combine Experience and Volunteer entries {% endcomment %}
-        {% assign empty_array = '' | split: ',' %}
-        {% assign exp = cv.sections.Experience | default: empty_array %}
-        {% assign vol = cv.sections.Volunteer | default: empty_array %}
-        {% assign combined_experience = exp | concat: vol %}
-        {% if combined_experience.size > 0 %}
-          <a class="anchor" id="experience"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience }}</h3>
-            <div>
-              {% assign entries = combined_experience %}
-              {% include cv/experience.liquid %}
+          <!-- Header/Contact Information -->
+          {% if cv.name or cv.label or cv.location or cv.email or cv.phone or cv.website %}
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.contact_information }}</h3>
+              <table class="table table-cv table-sm table-borderless">
+                {% if cv.name %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.name }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ cv.name }}</td>
+                  </tr>
+                {% endif %}
+                {% if cv.label %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.professional_title }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ cv.label }}</td>
+                  </tr>
+                {% endif %}
+                {% if cv.email %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.email }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ cv.email }}</td>
+                  </tr>
+                {% endif %}
+                {% if cv.phone %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.phone }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ cv.phone }}</td>
+                  </tr>
+                {% endif %}
+                {% if cv.address %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.location }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">
+                      {% if cv.address.street %}{{ cv.address.street }}, {% endif %}
+                      {% if cv.address.city %}{{ cv.address.city }}, {% endif %}
+                      {% if cv.address.region %}{{ cv.address.region }} {% endif %}
+                      {% if cv.address.postalCode %}{{ cv.address.postalCode }}{% endif %}
+                    </td>
+                  </tr>
+                {% endif %}
+                {% if cv.website %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.website }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">
+                      <a href="{{ cv.website }}" target="_blank">{{ cv.website }}</a>
+                    </td>
+                  </tr>
+                {% endif %}
+              </table>
             </div>
-          </div>
-        {% endif %}
-
-        {% comment %} Now render all other sections except Experience and Volunteer {% endcomment %}
-        {% for section_pair in cv.sections %}
-          {% assign section_title = section_pair[0] %}
-          {% assign section_entries = section_pair[1] %}
-
-          {% comment %} Skip Experience and Volunteer as we've already processed them combined {% endcomment %}
-          {% if section_title == 'Experience' or section_title == 'Volunteer' %}
-            {% continue %}
           {% endif %}
 
-          <a class="anchor" id="{{ section_title | slugify }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ section_title }}</h3>
-            <div>
-              {% if section_title == 'Education' %}
-                {% assign entries = section_entries %}
-                {% include cv/education.liquid %}
-              {% elsif section_title == 'Awards' or section_title == 'Honors and Awards' %}
-                {% assign entries = section_entries %}
-                {% include cv/awards.liquid %}
-              {% elsif section_title == 'Publications' %}
-                {% assign entries = section_entries %}
-                {% include cv/publications.liquid %}
-              {% elsif section_title == 'Skills' %}
-                {% assign entries = section_entries %}
-                {% include cv/skills.liquid %}
-              {% elsif section_title == 'Languages' %}
-                {% assign entries = section_entries %}
-                {% include cv/languages.liquid %}
-              {% elsif section_title == 'Interests' or section_title == 'Academic Interests' %}
-                {% assign entries = section_entries %}
-                {% include cv/interests.liquid %}
-              {% elsif section_title == 'Certificates' %}
-                {% assign entries = section_entries %}
-                {% include cv/certificates.liquid %}
-              {% elsif section_title == 'Projects' or section_title == 'Open Source Projects' %}
-                {% assign entries = section_entries %}
-                {% include cv/projects.liquid %}
-              {% elsif section_title == 'References' %}
-                {% assign entries = section_entries %}
-                {% include cv/references.liquid %}
-              {% else %}
-                <!-- Generic section -->
-                {% for entry in section_entries %}
-                  {% if entry.bullet %}
-                    <ul class="card-text font-weight-light list-group list-group-flush">
-                      <li class="list-group-item">{{ entry.bullet | markdownify | remove: '<p>' | remove: '</p>' }}</li>
-                    </ul>
-                  {% elsif entry.label %}
-                    <div class="card-text font-weight-light">
-                      <strong>{{ entry.label }}:</strong> {{ entry.details }}
-                    </div>
-                  {% endif %}
-                {% endfor %}
-              {% endif %}
+          <!-- Summary -->
+          {% if cv.summary %}
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.professional_summary }}</h3>
+              <p>{{ cv.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
             </div>
-          </div>
-        {% endfor %}
+          {% endif %}
 
+          <!-- RenderCV Sections - Merge Experience and Volunteer -->
+          {% comment %} First, combine Experience and Volunteer entries {% endcomment %}
+          {% assign empty_array = '' | split: ',' %}
+          {% assign exp = cv.sections.Experience | default: empty_array %}
+          {% assign vol = cv.sections.Volunteer | default: empty_array %}
+          {% assign combined_experience = exp | concat: vol %}
+          {% if combined_experience.size > 0 %}
+            <a class="anchor" id="experience"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience }}</h3>
+              <div>
+                {% assign entries = combined_experience %}
+                {% include cv/experience.liquid %}
+              </div>
+            </div>
+          {% endif %}
+
+          {% comment %} Now render all other sections except Experience and Volunteer {% endcomment %}
+          {% for section_pair in cv.sections %}
+            {% assign section_title = section_pair[0] %}
+            {% assign section_entries = section_pair[1] %}
+
+            {% comment %} Skip Experience and Volunteer as we've already processed them combined {% endcomment %}
+            {% if section_title == 'Experience' or section_title == 'Volunteer' %}
+              {% continue %}
+            {% endif %}
+
+            <a class="anchor" id="{{ section_title | slugify }}"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ section_title }}</h3>
+              <div>
+                {% if section_title == 'Education' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/education.liquid %}
+                {% elsif section_title == 'Awards' or section_title == 'Honors and Awards' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/awards.liquid %}
+                {% elsif section_title == 'Publications' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/publications.liquid %}
+                {% elsif section_title == 'Skills' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/skills.liquid %}
+                {% elsif section_title == 'Languages' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/languages.liquid %}
+                {% elsif section_title == 'Interests' or section_title == 'Academic Interests' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/interests.liquid %}
+                {% elsif section_title == 'Certificates' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/certificates.liquid %}
+                {% elsif section_title == 'Projects' or section_title == 'Open Source Projects' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/projects.liquid %}
+                {% elsif section_title == 'References' %}
+                  {% assign entries = section_entries %}
+                  {% include cv/references.liquid %}
+                {% else %}
+                  <!-- Generic section -->
+                  {% for entry in section_entries %}
+                    {% if entry.bullet %}
+                      <ul class="card-text font-weight-light list-group list-group-flush">
+                        <li class="list-group-item">{{ entry.bullet | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+                      </ul>
+                    {% elsif entry.label %}
+                      <div class="card-text font-weight-light">
+                        <strong>{{ entry.label }}:</strong> {{ entry.details }}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
       {% elsif render_jsonresume %}
         {% comment %} JSONResume format - use language-specific data if available {% endcomment %}
         {% if lang_resume_data %}
@@ -233,204 +232,203 @@ layout: default
         {% endif %}
 
         {% if resume %}
-
-        <!-- Contact Information -->
-        {% if resume.basics %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.contact_information }}</h3>
-            {% assign basics = resume.basics %}
-            <table class="table table-cv table-sm table-borderless">
-              {% if basics.name %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.name }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ basics.name }}</td>
-                </tr>
-              {% endif %}
-              {% if basics.label %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.professional_title }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ basics.label }}</td>
-                </tr>
-              {% endif %}
-              {% if basics.email %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.email }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ basics.email }}</td>
-                </tr>
-              {% endif %}
-              {% if basics.phone %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.phone }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">{{ basics.phone }}</td>
-                </tr>
-              {% endif %}
-              {% if basics.location %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.location }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">
-                    {% if basics.location.address %}{{ basics.location.address }}, {% endif %}
-                    {% if basics.location.city %}{{ basics.location.city }}, {% endif %}
-                    {% if basics.location.region %}{{ basics.location.region }} {% endif %}
-                    {% if basics.location.postalCode %}{{ basics.location.postalCode }}{% endif %}
-                  </td>
-                </tr>
-              {% endif %}
-              {% if basics.url %}
-                <tr>
-                  <td class="p-1 pr-2 font-weight-bold">
-                    <b>{{ site.data[site.active_lang].strings.cv.website }}</b>
-                  </td>
-                  <td class="p-1 pl-2 font-weight-light">
-                    <a href="{{ basics.url }}" target="_blank">{{ basics.url }}</a>
-                  </td>
-                </tr>
-              {% endif %}
-            </table>
-          </div>
-        {% endif %}
-
-        <!-- Summary -->
-        {% if resume.basics.summary %}
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.professional_summary }}</h3>
-            <p>{{ resume.basics.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-          </div>
-        {% endif %}
-
-        <!-- JSONResume Sections - Merge work and volunteer into Experience -->
-        {% assign empty_array = '' | split: ',' %}
-        {% assign work = resume.work | default: empty_array %}
-        {% assign vol = resume.volunteer | default: empty_array %}
-        {% assign combined_experience = work | concat: vol %}
-        {% if combined_experience.size > 0 %}
-          <a class="anchor" id="experience"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience }}</h3>
-            <div>
-              {% assign entries = combined_experience %}
-              {% include cv/experience.liquid %}
+          <!-- Contact Information -->
+          {% if resume.basics %}
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.contact_information }}</h3>
+              {% assign basics = resume.basics %}
+              <table class="table table-cv table-sm table-borderless">
+                {% if basics.name %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.name }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ basics.name }}</td>
+                  </tr>
+                {% endif %}
+                {% if basics.label %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.professional_title }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ basics.label }}</td>
+                  </tr>
+                {% endif %}
+                {% if basics.email %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.email }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ basics.email }}</td>
+                  </tr>
+                {% endif %}
+                {% if basics.phone %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.phone }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">{{ basics.phone }}</td>
+                  </tr>
+                {% endif %}
+                {% if basics.location %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.location }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">
+                      {% if basics.location.address %}{{ basics.location.address }}, {% endif %}
+                      {% if basics.location.city %}{{ basics.location.city }}, {% endif %}
+                      {% if basics.location.region %}{{ basics.location.region }} {% endif %}
+                      {% if basics.location.postalCode %}{{ basics.location.postalCode }}{% endif %}
+                    </td>
+                  </tr>
+                {% endif %}
+                {% if basics.url %}
+                  <tr>
+                    <td class="p-1 pr-2 font-weight-bold">
+                      <b>{{ site.data[site.active_lang].strings.cv.website }}</b>
+                    </td>
+                    <td class="p-1 pl-2 font-weight-light">
+                      <a href="{{ basics.url }}" target="_blank">{{ basics.url }}</a>
+                    </td>
+                  </tr>
+                {% endif %}
+              </table>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Education -->
-        {% if resume.education.size > 0 %}
-          <a class="anchor" id="education"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.education }}</h3>
-            <div>
-              {% assign entries = resume.education %}
-              {% include cv/education.liquid %}
+          <!-- Summary -->
+          {% if resume.basics.summary %}
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.professional_summary }}</h3>
+              <p>{{ resume.basics.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Awards -->
-        {% if resume.awards.size > 0 %}
-          <a class="anchor" id="awards"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.awards }}</h3>
-            <div>
-              {% assign entries = resume.awards %}
-              {% include cv/awards.liquid %}
+          <!-- JSONResume Sections - Merge work and volunteer into Experience -->
+          {% assign empty_array = '' | split: ',' %}
+          {% assign work = resume.work | default: empty_array %}
+          {% assign vol = resume.volunteer | default: empty_array %}
+          {% assign combined_experience = work | concat: vol %}
+          {% if combined_experience.size > 0 %}
+            <a class="anchor" id="experience"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience }}</h3>
+              <div>
+                {% assign entries = combined_experience %}
+                {% include cv/experience.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Publications -->
-        {% if resume.publications.size > 0 %}
-          <a class="anchor" id="publications"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.publications }}</h3>
-            <div>
-              {% assign entries = resume.publications %}
-              {% include cv/publications.liquid %}
+          <!-- Education -->
+          {% if resume.education.size > 0 %}
+            <a class="anchor" id="education"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.education }}</h3>
+              <div>
+                {% assign entries = resume.education %}
+                {% include cv/education.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Skills -->
-        {% if resume.skills.size > 0 %}
-          <a class="anchor" id="skills"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.skills }}</h3>
-            <div>
-              {% assign entries = resume.skills %}
-              {% include cv/skills.liquid %}
+          <!-- Awards -->
+          {% if resume.awards.size > 0 %}
+            <a class="anchor" id="awards"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.awards }}</h3>
+              <div>
+                {% assign entries = resume.awards %}
+                {% include cv/awards.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Languages -->
-        {% if resume.languages.size > 0 %}
-          <a class="anchor" id="languages"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.languages }}</h3>
-            <div>
-              {% assign entries = resume.languages %}
-              {% include cv/languages.liquid %}
+          <!-- Publications -->
+          {% if resume.publications.size > 0 %}
+            <a class="anchor" id="publications"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.publications }}</h3>
+              <div>
+                {% assign entries = resume.publications %}
+                {% include cv/publications.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Interests -->
-        {% if resume.interests.size > 0 %}
-          <a class="anchor" id="interests"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.interests }}</h3>
-            <div>
-              {% assign entries = resume.interests %}
-              {% include cv/interests.liquid %}
+          <!-- Skills -->
+          {% if resume.skills.size > 0 %}
+            <a class="anchor" id="skills"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.skills }}</h3>
+              <div>
+                {% assign entries = resume.skills %}
+                {% include cv/skills.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Certificates -->
-        {% if resume.certificates.size > 0 %}
-          <a class="anchor" id="certificates"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.certificates }}</h3>
-            <div>
-              {% assign entries = resume.certificates %}
-              {% include cv/certificates.liquid %}
+          <!-- Languages -->
+          {% if resume.languages.size > 0 %}
+            <a class="anchor" id="languages"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.languages }}</h3>
+              <div>
+                {% assign entries = resume.languages %}
+                {% include cv/languages.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- Projects -->
-        {% if resume.projects.size > 0 %}
-          <a class="anchor" id="projects"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.projects }}</h3>
-            <div>
-              {% assign entries = resume.projects %}
-              {% include cv/projects.liquid %}
+          <!-- Interests -->
+          {% if resume.interests.size > 0 %}
+            <a class="anchor" id="interests"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.interests }}</h3>
+              <div>
+                {% assign entries = resume.interests %}
+                {% include cv/interests.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <!-- References -->
-        {% if resume.references.size > 0 %}
-          <a class="anchor" id="references"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.references }}</h3>
-            <div>
-              {% assign entries = resume.references %}
-              {% include cv/references.liquid %}
+          <!-- Certificates -->
+          {% if resume.certificates.size > 0 %}
+            <a class="anchor" id="certificates"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.certificates }}</h3>
+              <div>
+                {% assign entries = resume.certificates %}
+                {% include cv/certificates.liquid %}
+              </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
+          <!-- Projects -->
+          {% if resume.projects.size > 0 %}
+            <a class="anchor" id="projects"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.projects }}</h3>
+              <div>
+                {% assign entries = resume.projects %}
+                {% include cv/projects.liquid %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- References -->
+          {% if resume.references.size > 0 %}
+            <a class="anchor" id="references"></a>
+            <div class="card mt-3 p-3">
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.references }}</h3>
+              <div>
+                {% assign entries = resume.references %}
+                {% include cv/references.liquid %}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
       {% else %}
         <p>{{ site.data[site.active_lang].strings.cv.no_cv_found }}</p>
       {% endif %}

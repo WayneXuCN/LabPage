@@ -28,8 +28,6 @@ bibliography:
   supp: Zusatz
   video: Video
   website: Webseite
-blog:
-  navigation_title: Blog
 categories:
   fun: Spaß
   work: Arbeit
@@ -157,32 +155,6 @@ references: Referenzen
 related_posts:
   description: "Hier sind weitere Artikel, die Sie interessieren könnten:"
   title: Hat Ihnen dieser Artikel gefallen?
-search:
-  books: Bücher
-  dark_theme:
-    description: Das Design der Seite auf Dunkel ändern
-    title: Zum dunklen Design wechseln
-  dropdown: Dropdown
-  email: E-Mail senden
-  footer:
-    close: schließen
-    navigate: navigieren
-    parent: zum übergeordneten Element
-    select: auswählen
-  languages: Sprachen
-  light_theme:
-    description: Das Design der Seite auf Hell ändern
-    title: Zum hellen Design wechseln
-  navigation: Navigationsmenü
-  news: Nachrichten
-  placeholder: Zum Suchen tippen
-  posts: Beiträge
-  projects: Projekte
-  socials: Soziale Netzwerke
-  system_theme:
-    description: Das Design der Seite auf Systemstandard ändern
-    title: Systemstandard verwenden
-  theme: Design
 selected_publications: Ausgewählte Veröffentlichungen
 book:
   cover_of: "Cover"

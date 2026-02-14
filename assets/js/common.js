@@ -33,14 +33,17 @@ $(document).ready(function () {
   }
 
   // add css to jupyter notebooks
-  const cssLink = document.createElement("link");
-  cssLink.href = "../css/jupyter.css";
-  cssLink.rel = "stylesheet";
-  cssLink.type = "text/css";
+  const jupyterCssHref = "../css/jupyter.css";
 
-  let jupyterTheme = determineComputedTheme();
+  // Defensive check: determineComputedTheme is defined in theme.js which should load first
+  // This fallback ensures the code doesn't break if script loading order changes
+  let jupyterTheme = typeof determineComputedTheme === "function" ? determineComputedTheme() : "light";
 
   $(".jupyter-notebook-iframe-container iframe").each(function () {
+    const cssLink = document.createElement("link");
+    cssLink.href = jupyterCssHref;
+    cssLink.rel = "stylesheet";
+    cssLink.type = "text/css";
     $(this).contents().find("head").append(cssLink);
 
     if (jupyterTheme == "dark") {

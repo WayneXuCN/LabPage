@@ -28,8 +28,6 @@ bibliography:
   supp: 补充材料
   video: 视频
   website: 网站
-blog:
-  navigation_title: 博客
 categories:
   fun: 娱乐
   work: 工作
@@ -157,32 +155,6 @@ references: 参考文献
 related_posts:
   description: "你可能还喜欢阅读以下文章："
   title: 喜欢这篇文章吗？
-search:
-  books: 书籍
-  dark_theme:
-    description: 切换为深色主题
-    title: 切换到深色主题
-  dropdown: 下拉菜单
-  email: 发送邮件
-  footer:
-    close: 关闭
-    navigate: 导航
-    parent: 返回上级
-    select: 选择
-  languages: 语言
-  light_theme:
-    description: 切换为浅色主题
-    title: 切换到浅色主题
-  navigation: 导航菜单
-  news: 新闻
-  placeholder: 输入以开始搜索
-  posts: 文章
-  projects: 项目
-  socials: 社交
-  system_theme:
-    description: 跟随系统主题
-    title: 使用系统默认主题
-  theme: 主题
 selected_publications: 精选发表
 book:
   cover_of: "封面"

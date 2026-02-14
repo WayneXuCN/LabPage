@@ -26,17 +26,29 @@
     crossorigin="anonymous">
 {% endif %}
 
-<!-- ============================================
-     字体加载优化 (Font Loading Optimization)
-     ============================================ -->
+<!--
+  ============================================
+  字体加载优化 (Font Loading Optimization)
+  ============================================
+-->
 
 <!-- 预连接到 Google Fonts 服务器，减少 DNS 和 TCP 握手时间 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- 预加载关键字体文件，减少 FOIT (Flash of Invisible Text) -->
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/sourcesanspro/v22/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/sourceserifpro/v15/neIQzD-0qpwxpaWvjeD0X88SAOeasasatSyqxKcsdrM.woff2" crossorigin>
+<link
+  rel="preload"
+  as="font"
+  type="font/woff2"
+  href="https://fonts.gstatic.com/s/sourcesanspro/v22/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2"
+  crossorigin>
+<link
+  rel="preload"
+  as="font"
+  type="font/woff2"
+  href="https://fonts.gstatic.com/s/sourceserifpro/v15/neIQzD-0qpwxpaWvjeD0X88SAOeasasatSyqxKcsdrM.woff2"
+  crossorigin>
 
 <!-- Fonts & Icons -->
 <link
