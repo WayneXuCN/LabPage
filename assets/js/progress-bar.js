@@ -19,9 +19,9 @@ let maxScrollDistance = 0;
  * To account for this, a minimal delay was introduced before computing the
  * values.
  */
-window.onload = function () {
+window.addEventListener("load", function () {
   setTimeout(progressBarSetup, 50);
-};
+});
 
 function updateProgressBar() {
   progressBar.attr({ value: lastScrollTop, max: maxScrollDistance });
