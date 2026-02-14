@@ -48,6 +48,64 @@ footer:
   last_updated: "Last updated"
   impressum: "Legal notice"
 footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+latest_posts: Latest Posts
+months:
+  long:
+    january: January
+    february: February
+    march: March
+    april: April
+    may: May
+    june: June
+    july: July
+    august: August
+    september: September
+    october: October
+    november: November
+    december: December
+  short:
+    january: Jan
+    february: Feb
+    march: Mar
+    april: Apr
+    may: May
+    june: Jun
+    july: Jul
+    august: Aug
+    september: Sep
+    october: Oct
+    november: Nov
+    december: Dec
+date_formats:
+  short: "__MONTH__ __DAY__, __YEAR__"
+  long: "__MONTH__ __DAY__, __YEAR__"
+research_summary: Research Summary
+news: News
+newsletter:
+  email_placeholder: "user@example.com"
+  subscribe: "Subscribe"
+  wait: "Please wait..."
+  subscribed: "You're subscribed!"
+  error: "Oops! Something went wrong, please try again"
+  back: "Back"
+  subscribe_to_receive: "Subscribe to receive notifications for future posts:"
+  too_many_signups: "Too many signups, please try again later."
+no_news: No news yet...
+no_posts: "No posts yet..."
+pagination:
+  page_navigation: "Blog page navigation"
+  page: Page
+post:
+  created_in: Created in
+  created_by: Created by
+  last_updated: Last updated on
+references: References
+related_posts:
+  enjoy_reading: "Enjoy Reading This Article?"
+  more_articles: "Here are some more articles you might like to read next:"
+  subscribe_notify: "Subscribe to be notified of future articles:"
+  description: "You might also enjoy reading the following articles:"
+  title: Enjoy Reading This Article?
 cv:
   address: Address
   area: Area
@@ -75,7 +133,37 @@ cv:
   language: Language
   languages: Languages
   level: Level
-  title: Enjoy Reading This Article?
+  location: Location
+  name: Name
+  network: Network
+  no_cv_found: "No CV data found. Please configure RenderCV (cv.yml) or JSONResume (resume.json) data."
+  organization: Organization
+  phone: Phone
+  position: Position
+  postalCode: Postal code
+  present: Present
+  professional_summary: Professional Summary
+  professional_title: Professional Title
+  profiles: Profiles
+  projects: Projects
+  publications: Publications
+  publisher: Publisher
+  reference: Reference
+  references: References
+  region: Region
+  releaseDate: Release date
+  score: Score
+  skills: Skills
+  startDate: Start date
+  studyType: Study type
+  summary: Summary
+  table_of_contents: Table of Contents
+  title: Title
+  url: URL
+  username: Username
+  volunteer: Volunteer
+  website: Website
+  work: Work Experience
 search:
   books: Books
   dark_theme:
@@ -157,26 +245,10 @@ header:
   change_theme: "Change theme"
   current: "(current)"
 
-newsletter:
-  email_placeholder: "user@example.com"
-  subscribe: "Subscribe"
-  wait: "Please wait..."
-  subscribed: "You're subscribed!"
-  error: "Oops! Something went wrong, please try again"
-  back: "Back"
-
-pagination:
-  page_navigation: "Blog page navigation"
-
 projects:
   thumbnail_alt: "project thumbnail"
   code_repository: "Code Repository"
   github_stars: "GitHub Stars"
-
-related_posts:
-  enjoy_reading: "Enjoy Reading This Article?"
-  more_articles: "Here are some more articles you might like to read next:"
-  subscribe_notify: "Subscribe to be notified of future articles:"
 
 research_summary_errors:
   no_research_questions: "No research question data found. Please add at least one research_questions item to the front matter of your research page."
@@ -187,51 +259,41 @@ repositories:
   github_repos: "GitHub Repositories"
 
 cookie_consent:
+
   title: "We use cookies"
+
   description: 'This website uses cookies to improve your experience and analyze site traffic. By clicking "Accept all", you consent to our use of cookies.'
+
   accept_all: "Accept all"
+
   reject_all: "Reject all"
+
   manage_preferences: "Manage Individual preferences"
+
   preferences_title: "Manage cookie preferences"
+
   save_preferences: "Accept current selection"
+
   close_modal: "Close modal"
+
   cookie_usage: "Cookie usage"
+
   cookie_usage_description: "We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want."
+
   necessary_cookies: "Strictly Necessary cookies"
+
   necessary_cookies_description: "These cookies are essential for the proper functioning of the website. Without these cookies, the website would not work properly."
+
   analytics_cookies: "Analytics cookies"
+
   analytics_cookies_description: "These cookies allow us to measure traffic and analyze your behavior to improve our service."
+
   more_info: "More information"
+
   more_info_description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">contact us</a>.'
 
+
+
 site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-months:
-  long:
-    january: January
-    february: February
-    march: March
-    april: April
-    may: May
-    june: June
-    july: July
-    august: August
-    september: September
-    october: October
-    november: November
-    december: December
-  short:
-    january: Jan
-    february: Feb
-    march: Mar
-    april: Apr
-    may: May
-    june: Jun
-    july: Jul
-    august: Aug
-    september: Sep
-    october: Oct
-    november: Nov
-    december: Dec
-date_formats:
-  short: "__MONTH__ __DAY__, __YEAR__"
-  long: "__MONTH__ __DAY__, __YEAR__"
+
+

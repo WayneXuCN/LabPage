@@ -41,11 +41,6 @@ collections:
   posts: 投稿
 contact_note: >
   いつでもお気軽にメール（wenjie.xu.cn@outlook.com）でご連絡ください
-footer:
-  copyright: すべての権利を保有
-  last_updated: "最終更新日"
-  impressum: "法的通知"
-footer_text: <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> で構築
 cv:
   address: 住所
   area: 地域
@@ -226,3 +221,83 @@ toolbox:
   screenshot_alt: スクリーンショット
   icon_alt: アイコン
 site_description: 学術向けのシンプルで余白の多いテーマ。[*folio](https://github.com/bogoli/-folio) デザインに基づく。
+
+blog:
+  navigation_title: ブログ
+  min_read: "分で読めます"
+  thumbnail_alt: "画像"
+
+search:
+  books: 書籍
+  dark_theme:
+    description: サイトのテーマをダークに変更
+    title: ダークテーマに変更
+  dropdown: ドロップダウン
+  email: メールを送信
+  footer:
+    close: 閉じる
+    navigate: 移動
+    parent: 親に移動
+    select: 選択
+  languages: 言語
+  light_theme:
+    description: サイトのテーマをライトに変更
+    title: ライトテーマに変更
+  navigation: ナビゲーションメニュー
+  news: ニュース
+  placeholder: 検索を開始するには入力してください
+  bib_placeholder: "入力してフィルタ"
+  posts: 投稿
+  projects: プロジェクト
+  socials: ソーシャル
+  system_theme:
+    description: サイトのテーマをシステムデフォルトに変更
+    title: システムデフォルトを使用
+  theme: テーマ
+
+course_schedule:
+  no_schedule: "このコースのスケジュールはありません。"
+
+courses_list:
+  no_courses: "コースはまだありません。"
+
+comments:
+  enable_js: "JavaScriptを有効にして"
+  powered_by: "コメントを表示（提供元"
+
+header:
+  toggle_navigation: "ナビゲーションを切り替え"
+  search: "検索"
+  change_theme: "テーマを変更"
+  current: "(現在)"
+
+projects:
+  thumbnail_alt: "プロジェクトサムネイル"
+  code_repository: "コードリポジトリ"
+  github_stars: "GitHub スター"
+
+research_summary_errors:
+  no_research_questions: "研究質問データが見つかりません。研究ページの front matter に少なくとも1つの research_questions 項目を追加してください。"
+  no_research_page: '研究ページが見つかりません。パスが"/research/"のページが存在することを確認してください。'
+
+repositories:
+  no_github_user: "GitHubユーザーが設定されていません。YAMLファイルを確認してください。"
+  github_repos: "GitHubリポジトリ"
+
+cookie_consent:
+  title: "Cookieを使用しています"
+  description: 'このウェブサイトは、お客様の体験を向上させ、サイトのトラフィックを分析するためにCookieを使用しています。「すべて受け入れる」をクリックすると、Cookieの使用に同意したことになります。'
+  accept_all: "すべて受け入れる"
+  reject_all: "すべて拒否する"
+  manage_preferences: "個別設定を管理"
+  preferences_title: "Cookie設定を管理"
+  save_preferences: "現在の選択を承認"
+  close_modal: "モーダルを閉じる"
+  cookie_usage: "Cookieの使用"
+  cookie_usage_description: "ウェブサイトの基本的な機能を確保し、オンライン体験を向上させるためにCookieを使用しています。各カテゴリについて、いつでもオプトイン/オプトアウトを選択できます。"
+  necessary_cookies: "厳密に必要なCookie"
+  necessary_cookies_description: "これらのCookieは、ウェブサイトの適切な機能に不可欠です。これらのCookieがないと、ウェブサイトは正しく動作しません。"
+  analytics_cookies: "分析Cookie"
+  analytics_cookies_description: "これらのCookieにより、トラフィックを測定し、お客様の行動を分析してサービスを改善することができます。"
+  more_info: "詳細情報"
+  more_info_description: 'Cookieに関するポリシーや選択肢についてのご質問は、<a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">お問い合わせください</a>。'

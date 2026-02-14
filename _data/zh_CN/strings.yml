@@ -221,3 +221,83 @@ toolbox:
   screenshot_alt: 截图
   icon_alt: 图标
 site_description: 一个简洁的学术主题，基于 [*folio](https://github.com/bogoli/-folio) 设计。
+
+blog:
+  navigation_title: 博客
+  min_read: "分钟阅读"
+  thumbnail_alt: "图片"
+
+search:
+  books: 书籍
+  dark_theme:
+    description: 切换为深色主题
+    title: 切换到深色主题
+  dropdown: 下拉菜单
+  email: 发送邮件
+  footer:
+    close: 关闭
+    navigate: 导航
+    parent: 返回上级
+    select: 选择
+  languages: 语言
+  light_theme:
+    description: 切换为浅色主题
+    title: 切换到浅色主题
+  navigation: 导航菜单
+  news: 新闻
+  placeholder: 输入以开始搜索
+  bib_placeholder: "输入以筛选"
+  posts: 文章
+  projects: 项目
+  socials: 社交
+  system_theme:
+    description: 跟随系统主题
+    title: 使用系统默认主题
+  theme: 主题
+
+course_schedule:
+  no_schedule: "该课程暂无课程安排。"
+
+courses_list:
+  no_courses: "暂无课程。"
+
+comments:
+  enable_js: "请启用 JavaScript 以查看"
+  powered_by: "评论功能由"
+
+header:
+  toggle_navigation: "切换导航"
+  search: "搜索"
+  change_theme: "更改主题"
+  current: "(当前)"
+
+projects:
+  thumbnail_alt: "项目缩略图"
+  code_repository: "代码仓库"
+  github_stars: "GitHub 星标"
+
+research_summary_errors:
+  no_research_questions: "未找到研究问题数据。请在研究页面的 front matter 中添加至少一个 research_questions 项目。"
+  no_research_page: '未找到研究页面。请确保存在路径为 "/research/" 的页面。'
+
+repositories:
+  no_github_user: "未配置 GitHub 用户。请检查您的 YAML 文件。"
+  github_repos: "GitHub 仓库"
+
+cookie_consent:
+  title: "我们使用 Cookie"
+  description: '本网站使用 Cookie 以改善您的体验并分析网站流量。点击"全部接受"即表示您同意我们使用 Cookie。'
+  accept_all: "全部接受"
+  reject_all: "全部拒绝"
+  manage_preferences: "管理个人偏好"
+  preferences_title: "管理 Cookie 偏好"
+  save_preferences: "接受当前选择"
+  close_modal: "关闭弹窗"
+  cookie_usage: "Cookie 使用说明"
+  cookie_usage_description: "我们使用 Cookie 以确保网站的基本功能并提升您的在线体验。您可以随时选择是否接受各类 Cookie。"
+  necessary_cookies: "必要 Cookie"
+  necessary_cookies_description: "这些 Cookie 对于网站的正常运行至关重要。没有这些 Cookie，网站将无法正常工作。"
+  analytics_cookies: "分析 Cookie"
+  analytics_cookies_description: "这些 Cookie 使我们能够衡量流量并分析您的行为，以改进我们的服务。"
+  more_info: "更多信息"
+  more_info_description: '如有关于我们的 Cookie 政策和您的选择的任何问题，请<a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">联系我们</a>。'
