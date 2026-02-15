@@ -40,36 +40,36 @@ gtag('consent', 'default', {
 // Get translations from Jekyll data
 var cookieConsentTranslations = {
   consentModal: {
-    title: "",
-    description: "",
-    acceptAllBtn: "",
-    acceptNecessaryBtn: "",
-    showPreferencesBtn: ""
+    title: "Cookieを使用しています",
+    description: "このウェブサイトは、お客様の体験を向上させ、サイトのトラフィックを分析するためにCookieを使用しています。「すべて受け入れる」をクリックすると、Cookieの使用に同意したことになります。",
+    acceptAllBtn: "すべて受け入れる",
+    acceptNecessaryBtn: "すべて拒否する",
+    showPreferencesBtn: "個別設定を管理"
   },
   preferencesModal: {
-    title: "",
-    acceptAllBtn: "",
-    acceptNecessaryBtn: "",
-    savePreferencesBtn: "",
-    closeIconLabel: "",
+    title: "Cookie設定を管理",
+    acceptAllBtn: "すべて受け入れる",
+    acceptNecessaryBtn: "すべて拒否する",
+    savePreferencesBtn: "現在の選択を承認",
+    closeIconLabel: "モーダルを閉じる",
     sections: [
       {
-        title: "",
-        description: ""
+        title: "Cookieの使用",
+        description: "ウェブサイトの基本的な機能を確保し、オンライン体験を向上させるためにCookieを使用しています。各カテゴリについて、いつでもオプトイン/オプトアウトを選択できます。"
       },
       {
-        title: "",
-        description: "",
+        title: "厳密に必要なCookie",
+        description: "これらのCookieは、ウェブサイトの適切な機能に不可欠です。これらのCookieがないと、ウェブサイトは正しく動作しません。",
         linkedCategory: 'necessary'
       },
       {
-        title: "",
-        description: "",
+        title: "分析Cookie",
+        description: "これらのCookieにより、トラフィックを測定し、お客様の行動を分析してサービスを改善することができます。",
         linkedCategory: 'analytics'
       },
       {
-        title: "",
-        description: ""
+        title: "詳細情報",
+        description: "Cookieに関するポリシーや選択肢についてのご質問は、<a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">お問い合わせください</a>。"
       }
     ]
   }

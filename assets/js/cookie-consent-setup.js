@@ -40,36 +40,36 @@ gtag('consent', 'default', {
 // Get translations from Jekyll data
 var cookieConsentTranslations = {
   consentModal: {
-    title: "",
-    description: "",
-    acceptAllBtn: "",
-    acceptNecessaryBtn: "",
-    showPreferencesBtn: ""
+    title: "我们使用 Cookie",
+    description: "本网站使用 Cookie 以改善您的体验并分析网站流量。点击"全部接受"即表示您同意我们使用 Cookie。",
+    acceptAllBtn: "全部接受",
+    acceptNecessaryBtn: "全部拒绝",
+    showPreferencesBtn: "管理个人偏好"
   },
   preferencesModal: {
-    title: "",
-    acceptAllBtn: "",
-    acceptNecessaryBtn: "",
-    savePreferencesBtn: "",
-    closeIconLabel: "",
+    title: "管理 Cookie 偏好",
+    acceptAllBtn: "全部接受",
+    acceptNecessaryBtn: "全部拒绝",
+    savePreferencesBtn: "接受当前选择",
+    closeIconLabel: "关闭弹窗",
     sections: [
       {
-        title: "",
-        description: ""
+        title: "Cookie 使用说明",
+        description: "我们使用 Cookie 以确保网站的基本功能并提升您的在线体验。您可以随时选择是否接受各类 Cookie。"
       },
       {
-        title: "",
-        description: "",
+        title: "必要 Cookie",
+        description: "这些 Cookie 对于网站的正常运行至关重要。没有这些 Cookie，网站将无法正常工作。",
         linkedCategory: 'necessary'
       },
       {
-        title: "",
-        description: "",
+        title: "分析 Cookie",
+        description: "这些 Cookie 使我们能够衡量流量并分析您的行为，以改进我们的服务。",
         linkedCategory: 'analytics'
       },
       {
-        title: "",
-        description: ""
+        title: "更多信息",
+        description: "如有关于我们的 Cookie 政策和您的选择的任何问题，请<a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">联系我们</a>。"
       }
     ]
   }

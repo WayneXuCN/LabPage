@@ -40,36 +40,36 @@ gtag('consent', 'default', {
 // Get translations from Jekyll data
 var cookieConsentTranslations = {
   consentModal: {
-    title: "",
-    description: "",
-    acceptAllBtn: "",
-    acceptNecessaryBtn: "",
-    showPreferencesBtn: ""
+    title: "Wir verwenden Cookies",
+    description: "Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern und den Datenverkehr zu analysieren. Durch Klicken auf "Alle akzeptieren" stimmen Sie unserer Verwendung von Cookies zu.",
+    acceptAllBtn: "Alle akzeptieren",
+    acceptNecessaryBtn: "Alle ablehnen",
+    showPreferencesBtn: "Individuelle Einstellungen verwalten"
   },
   preferencesModal: {
-    title: "",
-    acceptAllBtn: "",
-    acceptNecessaryBtn: "",
-    savePreferencesBtn: "",
-    closeIconLabel: "",
+    title: "Cookie-Einstellungen verwalten",
+    acceptAllBtn: "Alle akzeptieren",
+    acceptNecessaryBtn: "Alle ablehnen",
+    savePreferencesBtn: "Aktuelle Auswahl akzeptieren",
+    closeIconLabel: "Modal schließen",
     sections: [
       {
-        title: "",
-        description: ""
+        title: "Cookie-Nutzung",
+        description: "Wir verwenden Cookies, um die grundlegenden Funktionen der Website sicherzustellen und Ihre Online-Erfahrung zu verbessern. Sie können für jede Kategorie jederzeit entscheiden, ob Sie ein- oder aussteigen möchten."
       },
       {
-        title: "",
-        description: "",
+        title: "Notwendige Cookies",
+        description: "Diese Cookies sind für das ordnungsgemäße Funktionieren der Website unerlässlich. Ohne diese Cookies funktioniert die Website nicht richtig.",
         linkedCategory: 'necessary'
       },
       {
-        title: "",
-        description: "",
+        title: "Analyse-Cookies",
+        description: "Diese Cookies ermöglichen es uns, den Datenverkehr zu messen und Ihr Verhalten zu analysieren, um unseren Service zu verbessern.",
         linkedCategory: 'analytics'
       },
       {
-        title: "",
-        description: ""
+        title: "Weitere Informationen",
+        description: "Bei Fragen zu unserer Cookie-Richtlinie und Ihren Wahlmöglichkeiten <a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">kontaktieren Sie uns bitte</a>."
       }
     ]
   }
