@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-02-13'
+  last_updated: '2026-02-20'
 papers:
   eWTidmsAAAAJ:2osOgNQ5qMEC:
     citations: 4
     title: A deep learning-based nonlinear ensemble approach with biphasic feature selection for multivariate exchange rate forecasting
     year: '2023'
   eWTidmsAAAAJ:9yKSN-GCB0IC:
-    citations: 10
+    citations: 11
     title: Depth feature extraction-based deep ensemble learning framework for high frequency futures price forecasting
     year: '2022'
   eWTidmsAAAAJ:UeHWp8X0CEIC:
@@ -22,7 +22,7 @@ papers:
     title: Resilience assessment for the emergency supplies security system based on a matter-element extension method
     year: '2023'
   eWTidmsAAAAJ:u-x6o8ySG0sC:
-    citations: 53
+    citations: 54
     title: An optimized decomposition integration framework for carbon price prediction based on multi-factor two-stage feature dimension reduction
     year: '2025'
   eWTidmsAAAAJ:u5HHmVD_uO8C:
